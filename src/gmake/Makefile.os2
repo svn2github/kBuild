@@ -27,7 +27,7 @@ $(OBJDIR)/make-new.exe: $(OBJDIR)/config.h $(OBJS)
 $(OBJDIR)/%.obj : %.c
 	gcc -c $(CFLAGS) -o $@ -DHAVE_CONFIG_H  $<
 
-$(OBJDIR)/config.h: config.h.OS2.libc
+$(OBJDIR)/config.h: config.h.os2
 	cp $< $@
 
 $(OBJDIR):

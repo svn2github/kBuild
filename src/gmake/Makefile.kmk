@@ -50,7 +50,7 @@ kmk_LDFLAGS.os2 = -Zhigh-mem -Zstack=1024
 DEPTH = ../..
 include $(PATH_KBUILD)/rules.kmk
 
-$(PATH_TARGET)/config.h: config.h.OS2.libc
+$(PATH_TARGET)/config.h: config.h.$(BUILD_TARGET)
 	$(CP) $^ $@
 
 parallel: parallel_1 parallel_2 parallel_3 parallel_4 parallel_5
