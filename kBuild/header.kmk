@@ -242,8 +242,8 @@ DEP                 := $(PATH_TOOLS)/kDep$(HOSTSUFF_EXE)
 # Standard Unix shell utils.
 MKDIR               := $(PATH_TOOLS)/mkdir$(HOSTSUFF_EXE)
 RM                  := $(PATH_TOOLS)/rm$(HOSTSUFF_EXE)
-CP                  := $(PATH_TOOLS)/mv$(HOSTSUFF_EXE)
-MV                  := $(PATH_TOOLS)/cp$(HOSTSUFF_EXE)
+CP                  := $(PATH_TOOLS)/cp$(HOSTSUFF_EXE)
+MV                  := $(PATH_TOOLS)/mv$(HOSTSUFF_EXE)
 SED                 := $(PATH_TOOLS)/sed$(HOSTSUFF_EXE)
 CAT                 := $(PATH_TOOLS)/cat$(HOSTSUFF_EXE)
 # Bourn shell clone.

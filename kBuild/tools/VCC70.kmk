@@ -127,6 +127,8 @@ $(lib): $(dirdep) $(objs) $(deps)
 	$(call MSG_L1,Creating Library $$@)
 	$(RM) -f $$@
 	$(TOOL_VCC70_AR) $(flags) /OUT:$(call CYGPATHMIXED,$(lib)) $(call CYGPATHMIXED,$(objs))
+	$(MKDIR) -p $(PATH_LIB)
+	$(CP) $$@ $(PATH_LIB)/
 	
 endef
 
