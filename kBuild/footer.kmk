@@ -1002,9 +1002,7 @@ $(foreach target, $(SYSMODS), $(eval $(def_sysmod)))
 #
 # Directories.
 #
-$(warning _OUT_FILES=$(_OUT_FILES))
 _DIRFILES := $(sort $(addsuffix /.dir_created,$(_DIRS)) $(addsuffix .dir_created,$(dir $(_OUT_FILES) $(_OBJS))))
-$(warning _DIRFILES=$(_DIRFILES))
 
 define def_createdir
 $(dirfile):
