@@ -880,7 +880,9 @@ $(foreach dep,$(wildcard $(_DEPFILES)),$(eval include $(dep)))
 # PASSES (including directory and makefile walking)
 #
 # Do all the default passes if it's unspecified.
-PASSES ?= needed libraries binaries others publish
+
+#PASSES ?= needed libraries binaries others publish
+PASSES ?= libraries binaries
 
 ## Proritized list of the default makefile when walking subdirectories.
 # The user can overload this list.
