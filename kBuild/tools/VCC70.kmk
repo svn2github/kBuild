@@ -129,8 +129,6 @@ $(lib): $(dirdep) $(objs) $(deps) $(othersrc)
 	$(RM) -f $$@
 	$(TOOL_VCC70_AR) $(flags) /OUT:$(call CYGPATHMIXED,$(lib)) $(subst /,\\,$(call CYGPATHMIXED,$(objs))) \
 		$(foreach def,$(filter %.def,$(othersrc)), /DEF:$(call CYGPATHMIXED,$(def)))
-	$(MKDIR) -p $(PATH_LIB)
-	$(CP) $$@ $(PATH_LIB)/
 	
 endef
 
