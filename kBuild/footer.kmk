@@ -162,10 +162,10 @@ endef
 #
 define def_inherit_defaults
 ifdef $(target)_TEMPLATE
-ifneq ($(strip $(TEMPLATE_$($(target)_TEMPLATE)_TOOL) $(TEMPLATE_$($(target)_TEMPLATE)_TOOL.$(BUILD_TARGET))),)
+ifeq ($(strip $(TEMPLATE_$($(target)_TEMPLATE)_TOOL) $(TEMPLATE_$($(target)_TEMPLATE)_TOOL.$(BUILD_TARGET))),)
 $$(foreach prop,TOOL TOOL.$(BUILD_TARGET), $$(eval $$(def_inherit_defaults_one)))
 endif
-ifneq ($(strip $(TEMPLATE_$($(target)_TEMPLATE)_SDKS) $(TEMPLATE_$($(target)_TEMPLATE)_SDKS.$(BUILD_TARGET))),)
+ifeq ($(strip $(TEMPLATE_$($(target)_TEMPLATE)_SDKS) $(TEMPLATE_$($(target)_TEMPLATE)_SDKS.$(BUILD_TARGET))),)
 $$(foreach prop,SDKS SDKS.$(BUILD_TARGET), $$(eval $$(def_inherit_defaults_one)))
 endif
 else
