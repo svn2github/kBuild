@@ -166,7 +166,7 @@ endif
 ifneq ($(custom_post),)
 	$(eval $(custom_post))
 endif	
-_OUT_FILES += $(outbase).map
+_OUT_FILES += $(outbase).map $(outbase).pdb $(outbase).ilk
 
 endef
 
@@ -204,7 +204,7 @@ endif
 ifneq ($(custom_post),)
 	$(eval $(custom_post))
 endif	
-_OUT_FILES += $(outbase).map
+_OUT_FILES += $(outbase).map $(outbase).pdb $(outbase).ilk
 
 endef
 
@@ -248,7 +248,7 @@ endif
 ifneq ($(custom_post),)
 	$(eval $(custom_post))
 endif	
-_OUT_FILES += $(outbase).map $(outbase).lib $(outbase).exp
+_OUT_FILES += $(outbase).map $(outbase).lib $(outbase).exp $(outbase).pdb $(outbase).ilk
 
 endef
 
