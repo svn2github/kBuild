@@ -171,7 +171,7 @@ endef
 #
 # @param    $(outbase)  Output basename (full). Use this for list files and such.
 define TOOL_VCC70_LINK_SYSMOD
-$(warning dbg: TOOL_VCC70_LINK_SYSMOD: target=$(target) sys=$(sys) objs=$(objs) libs=$(libs) deps=$(deps) flags=$(flags) dirdep=$(dirdep) deffile=$(deffile) outbase=$(outbase))
+#$ (warning dbg: TOOL_VCC70_LINK_SYSMOD: target=$(target) sys=$(sys) objs=$(objs) libs=$(libs) deps=$(deps) flags=$(flags) dirdep=$(dirdep) deffile=$(deffile) outbase=$(outbase))
 $(sys): $(dirdep) $(objs) $(foreach lib,$(libs),$(if $(findstring $(lib),$(subst /,x,$(lib))),, $(lib))) $(deps)
 	$(call MSG_L1,Creating Program $$@)
 ifneq ($(custom_pre),)
