@@ -183,9 +183,8 @@ int kmk_builtin_command_parsed(int argc, char **argv)
     /*
      * String switch on the command.
      */
-    if (0) { }
-    //if (!strcmp(pszCmd, "cp"))
-    //    rc = kmk_builtin_cp(argc, argv, environ);
+    if (!strcmp(pszCmd, "cp"))
+        rc = kmk_builtin_cp(argc, argv, environ);
     //else if (!strcmp(pszCmd, "chmod"))
     //    rc = kmk_builtin_chmod(argc, argv, environ);
     else if (!strcmp(pszCmd, "echo"))
