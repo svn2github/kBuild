@@ -14,7 +14,7 @@ world_SOURCES = hello.c
 
 LIBRARIES = helloworld
 
-#include $(DEPTH)/kBuild/footer.kMk
+include $(DEPTH)/kBuild/footer.kMk
 	
 ok:
 	@echo _CFGFILES: $(_CFGFILES)
