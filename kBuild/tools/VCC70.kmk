@@ -34,7 +34,7 @@ TOOL_VCC70_COBJSUFF           := .obj
 TOOL_VCC70_CFLAGS             := -TC -c -nologo
 TOOL_VCC70_CFLAGS.debug       := -Od -Zi
 TOOL_VCC70_CFLAGS.release     := -O2
-TOOL_VCC70_CFLAGS.profile     :=
+TOOL_VCC70_CFLAGS.profile     := -O2
 TOOL_VCC70_CINCS              := $(PATH_TOOL_VCC70)/include
 TOOL_VCC70_CDEFS              :=
 
@@ -43,7 +43,7 @@ TOOL_VCC70_CXXOBJSUFF         := .obj
 TOOL_VCC70_CXXFLAGS           := -TP -c -nologo
 TOOL_VCC70_CXXFLAGS.debug     := -Od -Zi
 TOOL_VCC70_CXXFLAGS.release   := -O2
-TOOL_VCC70_CXXFLAGS.profile   :=
+TOOL_VCC70_CXXFLAGS.profile   := -O2
 TOOL_VCC70_CXXINCS            := $(PATH_TOOL_VCC70)/include
 TOOL_VCC70_CXXDEFS            :=
 
