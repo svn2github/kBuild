@@ -630,7 +630,9 @@ $$(warning kBuild: tools: \
 endif
 $(eval $(TOOL_$(tool)_COMPILE_$(type)))
 
-$$(notdir $$(obj))::
+$$(basename $$(notdir $$(obj))).o::
+	$$(MAKE) -B -f $$(MAKEFILE) $(obj)
+$$(basename $$(notdir $$(obj))).obj::
 	$$(MAKE) -B -f $$(MAKEFILE) $(obj)
 
 $(eval _OBJS_$(target) += $(obj))
