@@ -1,9 +1,11 @@
 # $Id$
 
 
-notall: # comment
+notall:     # comment
     echo notall, but it's the first rule.
 
+
+#.MAIN: all
 
 all:
     echo this is all.
