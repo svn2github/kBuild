@@ -29,7 +29,7 @@
 #
 #
 
-ifdef skipme
+ifdef rewrite_me
 
 .ifndef __KBLD_config_kMk_
 __KBLD_config_kMk_ = 1
