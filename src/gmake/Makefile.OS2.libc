@@ -10,7 +10,7 @@ SRC =	ar.c arscan.c commands.c default.c dir.c expand.c file.c \
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.obj))
 CFLAGS = -Zomf -g -Wall -I$(OBJDIR) -I.  -DCONFIG_NO_DEFAULT_SUFFIXES \
     -DCONFIG_NO_DEFAULT_PATTERN_RULES -DCONFIG_NO_DEFAULT_TERMINAL_RULES \
-    -DCONFIG_NO_DEFAULT_SUFFIX_RULES
+    -DCONFIG_NO_DEFAULT_SUFFIX_RULES -DCONFIG_NO_DEFAULT_VARIABLES
 ifndef DEBUG
 CFLAGS += -O3
 endif
