@@ -243,6 +243,7 @@ endif
 # Standard kBuild tools.
 #
 DEP                 := $(PATH_TOOLS)/kDep$(HOSTSUFF_EXE)
+DEP_CCXX            := $(PATH_TOOLS)/kDepCCxx$(HOSTSUFF_EXE)
 # Standard Unix shell utils.
 MKDIR               := $(PATH_TOOLS)/mkdir$(HOSTSUFF_EXE)
 RM                  := $(PATH_TOOLS)/rm$(HOSTSUFF_EXE)

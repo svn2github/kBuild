@@ -81,6 +81,7 @@ $(obj): $(dirdep) $(source)
 		-Fd$(outbase).pdb \
 		-Fo$(obj)\
 		$(subst /,\\,$(call ABSPATH,$(source)))
+	$(DEP_CCXX) -q -f $(dep) -o $(obj) $(addprefix -D, $(defs)) $(addprefix -I, $(incs)) $(call ABSPATH,$(source))
 _OUT_FILES += $(outbase).pdb
 
 endef
@@ -107,6 +108,7 @@ $(obj): $(dirdep) $(source)
 		-Fd$(outbase).pdb \
 		-Fo$(obj)\
 		$(subst /,\\,$(call ABSPATH,$(source)))
+	$(DEP_CCXX) -q -f $(dep) -o $(obj) $(addprefix -D, $(defs)) $(addprefix -I, $(incs)) $(call ABSPATH,$(source)) 
 _OUT_FILES += $(outbase).pdb
 
 endef
@@ -240,7 +242,7 @@ endif
 		$(subst /,\\,$(filter %.exp %.res,$(othersrc))) \
 		$(foreach p,$(libpath), /LIBPATH:$(p)) \
 		$(subst /,\\,$(objs)) \
-		$(subst /,\\,$(libs))
+		$(subst /,\\,$(libs))		
 ifeq ($(filter %.exp .def,$(othersrc)),)
 	if test -f $(outbase).exp; then $(CP) $(outbase).exp $(PATH_LIB)/; fi
 	if test -f $(outbase).lib; then $(CP) $(outbase).lib $(PATH_LIB)/; fi
