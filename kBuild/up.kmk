@@ -48,6 +48,7 @@ pass_nothing \
 pass_others \
 pass_packing \
 programs \
+rebuild \
 sysmods \
 target \
 	:
