@@ -183,8 +183,11 @@ MAKEFILE            := $(firstword $(MAKEFILE_LIST))
 #
 # Get rid of the GNU Make default stuff
 #
+ifneq ($(MAKE_COMMAND),kmk)
+ifneq ($(MAKE_COMMAND),kmk.exe)
 include $(PATH_KBUILD)/StampOutPredefines.kmk
-
+endif
+endif
 
 #
 # Build platform setup.
