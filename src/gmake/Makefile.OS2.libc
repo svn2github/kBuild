@@ -38,3 +38,10 @@ test:
 	echo "2"
 	echo "3"
 	echo "4"
+
+parallel: parallel_1 parallel_2 parallel_3 parallel_4 parallel_5
+
+parallel_1 parallel_2 parallel_3 parallel_4 parallel_5:
+	echo $@_start ; sleep 1; echo $@_done
+
+
