@@ -263,6 +263,7 @@ ifneq ($(custom_post),)
 	$(eval $(custom_post))
 endif
 _OUT_FILES += $(outbase).map $(outbase).lib $(outbase).exp $(outbase).pdb $(outbase).ilk
+_DIRS += $(PATH_LIB)
 
 endef
 
