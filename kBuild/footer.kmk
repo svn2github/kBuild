@@ -615,10 +615,19 @@ $(eval tool        := $(call _TARGET_TOOL,$(target),LD))
 $(eval flags       :=\
 	$(TOOL_$(tool)_LDFLAGS)\
 	$(TOOL_$(tool)_LDFLAGS.$(BUILD_TYPE))\
+	$(TOOL_$(tool)_LDFLAGS.$(BUILD_TARGET))\
+	$(TOOL_$(tool)_LDFLAGS.$(BUILD_TARGET_ARCH))\
+	$(TOOL_$(tool)_LDFLAGS.$(BUILD_TARGET_CPU))\
 	$(LDFLAGS)\
 	$(LDFLAGS.$(BUILD_TYPE))\
+	$(LDFLAGS.$(BUILD_TARGET))\
+	$(LDFLAGS.$(BUILD_TARGET_ARCH))\
+	$(LDFLAGS.$(BUILD_TARGET_CPU))\
 	$($(target)_LDFLAGS)\
 	$($(target)_LDFLAGS.$(BUILD_TYPE))\
+	$($(target)_LDFLAGS.$(BUILD_TARGET))\
+	$($(target)_LDFLAGS.$(BUILD_TARGET_ARCH))\
+	$($(target)_LDFLAGS.$(BUILD_TARGET_CPU))\
 )
 $(eval exesuff     := $(firstword $($(target)_EXESUFF) $($(target)_EXESUFF) $(TOOL_$(tool)_LDEXESUFF) $(SUFF_EXE)))
 $(eval outbase     := $(call _TARGET_BASE,$(target),$(target)))
@@ -723,10 +732,19 @@ $(eval tool        := $(call _TARGET_TOOL,$(target),LD))
 $(eval flags       :=\
 	$(TOOL_$(tool)_LDFLAGS)\
 	$(TOOL_$(tool)_LDFLAGS.$(BUILD_TYPE))\
+	$(TOOL_$(tool)_LDFLAGS.$(BUILD_TARGET))\
+	$(TOOL_$(tool)_LDFLAGS.$(BUILD_TARGET_ARCH))\
+	$(TOOL_$(tool)_LDFLAGS.$(BUILD_TARGET_CPU))\
 	$(LDFLAGS)\
 	$(LDFLAGS.$(BUILD_TYPE))\
+	$(LDFLAGS.$(BUILD_TARGET))\
+	$(LDFLAGS.$(BUILD_TARGET_ARCH))\
+	$(LDFLAGS.$(BUILD_TARGET_CPU))\
 	$($(target)_LDFLAGS)\
 	$($(target)_LDFLAGS.$(BUILD_TYPE))\
+	$($(target)_LDFLAGS.$(BUILD_TARGET))\
+	$($(target)_LDFLAGS.$(BUILD_TARGET_ARCH))\
+	$($(target)_LDFLAGS.$(BUILD_TARGET_CPU))\
 )
 $(eval syssuff     := $(firstword $($(target)_SYSSUFF) $($(target)_SYSSUFF) $(TOOL_$(tool)_LDSYSSUFF) $(SUFF_SYS)))
 $(eval outbase     := $(call _TARGET_BASE,$(target),$(target)))
