@@ -78,7 +78,7 @@ $(obj): $(dirdep) $(source)
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
 		-Wp,-MD,$(dep) -Wp,-MT,$$@ \
 		-o $$@\
-		$(source)		
+		$(call ABSPATH,$(source))
 		
 endef
 
@@ -103,7 +103,7 @@ $(obj): $(dirdep) $(source)
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
 		-Wp,-MD,$(dep) -Wp,-MT,$$@ \
 		-o $$@\
-		$(source)		
+		$(call ABSPATH,$(source))
 		
 endef
 
