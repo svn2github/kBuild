@@ -29,7 +29,6 @@
 *******************************************************************************/
 #include "kShell.h"
 #include <string.h>
-#include <stdio.h>
 
 
 /**
@@ -65,17 +64,7 @@ int main(int argc, char **argv)
      */
     else
     {
-        while (fgets(&szCmd[0], sizeof(szCmd), stdin))
-        {
-            char *pszEnd = &szCmd[strlen(&szCmd[0]) - 1];
-            while (pszEnd >= &szCmd[0] && (*pszEnd == '\n' || *pszEnd == '\r'))
-                *pszEnd-- = '\0';
-
-            if (!strcmp(&szCmd[0], "exit"))
-                break;
-
-            rc = kshellExecute(&szCmd[0]);
-        }
+        rc = kshellInteractive();
     }
 
 
