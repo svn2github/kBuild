@@ -141,7 +141,8 @@ $(lib): $(dirdep) $(objs) $(deps) $(othersrc)
 	$(call MSG_L1,Creating Library $$@)
 	$(RM) -f $$@
 	$(TOOL_VCC70_AR) $(flags) /OUT:$(lib) $(subst /,\\,$(objs) $(filter %.a %.lib,$(othersrc))) \
-        $(foreach def,$(filter %.def,$(othersrc)), /DEF:$(def))
+		$(foreach def,$(filter %.def,$(othersrc)), /DEF:$(def))
+_OUT_FILES += $(outbase).lst $(outbase).exp
 
 endef
 
@@ -179,7 +180,7 @@ endif
 ifneq ($(custom_post),)
 	$(eval $(custom_post))
 endif
-_OUT_FILES += $(outbase).map $(outbase).pdb $(outbase).ilk
+_OUT_FILES += $(outbase).map $(outbase).lib $(outbase).exp $(outbase).pdb $(outbase).ilk
 
 endef
 
@@ -217,7 +218,7 @@ endif
 ifneq ($(custom_post),)
 	$(eval $(custom_post))
 endif
-_OUT_FILES += $(outbase).map $(outbase).pdb $(outbase).ilk
+_OUT_FILES += $(outbase).map $(outbase).lib $(outbase).exp $(outbase).pdb $(outbase).ilk
 
 endef
 
