@@ -24,7 +24,6 @@
 #
 #
 
-		
 ifdef PATH_KBUILD
 # Usual location.
 include $(PATH_KBUILD)/header.kmk
