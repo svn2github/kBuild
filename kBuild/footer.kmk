@@ -194,7 +194,7 @@ endef
 define def_inherit_template
 $(foreach prop, TOOL ARTOOL CTOOL CXXTOOL ASTOOL LDTOOL\
 	,$(eval $(def_inherit_template_one)))
-$(foreach prop,SDKS DEFS INCS COPTS CFLAGS CDEFS CINCS CXXOPTS CXXFLAGS CXXDEFS CXXINCS ASOPTS ASFLAGS ASDEFS ASINCS\
+$(foreach prop,SDKS DEFS INCS COPTS CFLAGS CDEFS CINCS CXXOPTS CXXFLAGS CXXDEFS CXXINCS ASOPTS ASFLAGS ASDEFS ASINCS LDFLAGS LIBS LIBPATH \
 	,$(eval $(def_inherit_template_one_accumulate)))
 endef
 # Inherit template properties
