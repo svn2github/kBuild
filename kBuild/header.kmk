@@ -156,7 +156,9 @@ endif
 # Subdirectory relative to the root.
 CURSUBDIR           := $(patsubst $(PATH_ROOT)/%,%,$(CURDIR))
 # Output directories.
+ifndef PATH_OUT
 PATH_OUT            := $(PATH_ROOT)/out/$(BUILD_TARGET)/$(BUILD_TYPE)
+endif
 PATH_OBJ            := $(PATH_OUT)/obj
 PATH_BIN            := $(PATH_OUT)/bin
 PATH_LIB            := $(PATH_OUT)/lib
