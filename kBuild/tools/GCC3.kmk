@@ -64,6 +64,10 @@ TOOL_GCC3_LDFLAGS.dll        := $(TOOL_GCC3_LDFLAGS.$(BUILD_TARGET))
 endif
 TOOL_GCC3_LDFLAGS.sysmod     := -r
 
+ifdef SLKRUNS
+TOOL_GCC3_CC  += -fmessage-length=0
+TOOL_GCC3_CXX += -fmessage-length=0
+endif
 
 
 ## Compile C source.
