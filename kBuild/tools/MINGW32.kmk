@@ -170,7 +170,7 @@ endef
 # @param    $(flags)    Flags.
 # @param	$(dirdep)   Directory creation dependency.
 # @param	$(deps)		Other dependencies.
-# @param	$(deffile)  Definition file. (optional, PC only)
+# @param	$(othersrc) Unhandled sources.
 # @param	$(custom_pre)   Custom step invoked before linking.
 # @param	$(custom_post)  Custom step invoked after linking.
 #
@@ -188,8 +188,6 @@ endif
 ifneq ($(custom_post),)
 	$(eval $(custom_post))
 endif	
-	$(MKDIR) -p $(PATH_BIN)
-	$(CP) $$@ $(PATH_BIN)/
 	
 endef
 
