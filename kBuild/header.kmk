@@ -207,7 +207,7 @@ endif
 # Linux
 ifeq ($(BUILD_PLATFORM),linux)
 PATH_TOOLS          := $(PATH_TOOLS_LNX)
-EXEC_X86_WIN32      := wine
+EXEC_X86_WIN32      := wine --
 HOSTSUFF_EXE        :=
 endif
 
