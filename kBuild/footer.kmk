@@ -1285,7 +1285,7 @@ $(eval $(def_pass))
 ## PASS: clean
 # This pass removes all generated files.
 pass_clean_doit:
-	$(RM) -f $(_OUT_FILES) $(_OBJS) $(_DEPFILES) $(_DIRFILES)
+	$(RM) -f $(_OUT_FILES) $(_OBJS) $(_DEPFILES) $(_DIRFILES) $(OTHER_CLEAN)
 pass := clean
 PASS := CLEAN
 $(eval $(def_pass))
