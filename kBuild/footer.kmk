@@ -132,6 +132,20 @@ _TARGET_BASE = $(PATH_TARGET)/$(2)/$(call no-root-slash,$(call no-drive,$(basena
 
 
 #
+# Check syntax which leads to weird syntax errors.
+#
+
+## Check
+# @param	$(target)	Target name.
+define def_check_target
+ifneq ("$($(target)_TEMPLATE)","$(strip $($(target)_TEMPLATE))")
+$$(error $(target) have an incorrect template name. Remove any tabs!)
+endif
+endef
+$(foreach target, $(ALL_TARGETS),$(eval $(def_check_target)))
+
+
+#
 # Include templates
 #
 _TEMPLATES := $(TEMPLATE)
