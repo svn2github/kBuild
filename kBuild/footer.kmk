@@ -105,8 +105,8 @@ _TARGET_TOOL = $(strip $(firstword \
 	$($(target)_$(source)TOOL) \
 	$($(target)_TOOL.$(bld_trg)) \
 	$($(target)_TOOL) \
-	$($(source)TOOL) \
 	$($(source)TOOL.$(bld_trg)) \
+	$($(source)TOOL) \
 	$(TOOL.$(bld_trg)) \
 	$(TOOL) \
 	))
