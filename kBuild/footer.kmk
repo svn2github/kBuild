@@ -242,7 +242,6 @@ $(foreach target, $(ALL_TARGETS), $(eval $(def_tools_target)))
 _TOOLS := $(sort $(_TOOLS))
 
 define def_tools_include
-$(warning tool=$(tool))
 ifndef TOOL_$(tool)
 include $(firstword $(wildcard $(PATH_KBUILD)/tools/$(tool).kmk))
 endif
