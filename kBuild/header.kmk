@@ -83,7 +83,7 @@ endif
 ifeq ($(BUILD_PLATFORM),WIN32)
 BUILD_PLATFORM      := win32
 endif
-ifeq ($(BUILD_PLATFORM),WIN32)
+ifeq ($(BUILD_PLATFORM),win32)
 _BUILD_PLATFORM_OK  := 1
 endif
 
@@ -179,7 +179,7 @@ include $(PATH_KBUILD)/StampOutPredefines.kmk
 # OS/2
 ifeq ($(BUILD_PLATFORM),os2)
 PATH_TOOLS          := $(PATH_TOOLS_OS2)
-EXEC_X86_WIN32      := $(PATH_TOOLS)/bin/innopec.exe
+EXEC_X86_WIN32      := innopec.exe
 HOSTSUFF_EXE        := .exe
 endif
 
