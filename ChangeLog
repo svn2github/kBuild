@@ -1,0 +1,17 @@
+/* $Id$ */
+
+
+2002-10-15: bird
+    - ALL:
+        o Created a somewhat rought directory structure.
+
+    - src/fastdep:
+        o Imported current sources from ODIN32.
+
+    - src/kmk:
+        o Imported current sources from the freebsd tree.
+
+2002-10-15: ktk
+    - ALL:      Create repository.
+
+
