@@ -256,8 +256,8 @@ endif
 		$(subst /,\\,$(objs)) \
 		$(subst /,\\,$(libs))
 ifeq ($(filter %.exp .def,$(othersrc)),)
-	if test -f $(outbase).exp; then $(CP) $(outbase).exp $(PATH_LIB)/; fi
-	if test -f $(outbase).lib; then $(CP) $(outbase).lib $(PATH_LIB)/; fi
+	if test -f $(outbase).exp; then $(CP_EXT) $(outbase).exp $(PATH_LIB)/; fi
+	if test -f $(outbase).lib; then $(CP_EXT) $(outbase).lib $(PATH_LIB)/; fi
 endif
 ifneq ($(custom_post),)
 	$(eval $(custom_post))
