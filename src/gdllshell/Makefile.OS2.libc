@@ -1,0 +1,24 @@
+# $Id$
+
+OBJDIR = objdir/OS2.libc
+OBJDIR = .
+SRC    = gdllshell.c
+OBJS   = $(addprefix $(OBJDIR)/, $(SRC:.c=.obj))
+
+CFLAGS = -Zomf -g -DMAKE_DLLSHELL -Wall
+ifndef DEBUG
+CFLAGS += -O3
+endif
+
+all: $(OBJDIR) gdllshl.dll
+
+
+gdllshl.dll:  $(OBJS) gdllshl.os2.def
+	gcc -g $(CFLAGS) -Zdll -Zhigh-mem -o $@ $(OBJS) gdllshl.os2.def
+
+.c.obj:
+	gcc -c $(CFLAGS) -o $@ -DHAVE_CONFIG_H  $<
+
+$(OBJDIR):
+	mkdir -p $@
+
