@@ -58,7 +58,7 @@ TOOL_GCC3OMF_LDFLAGS            := -Zomf
 TOOL_GCC3OMF_LDFLAGS.debug      := -g
 TOOL_GCC3OMF_LDFLAGS.release    := -s
 ifndef TOOL_GCC3OMF_LDFLAGS.$(BUILD_TARGET)
-TOOL_GCC3OMF_LDFLAGS.dll        := -shared
+TOOL_GCC3OMF_LDFLAGS.dll        := -shared -Zdll
 else
 TOOL_GCC3OMF_LDFLAGS.dll        := $(TOOL_GCC3OMF_LDFLAGS.$(BUILD_TARGET))
 endif
