@@ -132,7 +132,7 @@ if [ -z "$BUILD_TARGET" ]; then
     BUILD_TARGET=$BUILD_PLATFORM
 fi
 export BUILD_TARGET
-echo "dbg: BUILD_TARGET=$BUILD_TYPE"
+echo "dbg: BUILD_TARGET=$BUILD_TARGET"
 
 
 # Determin executable extension and path separator.
