@@ -24,4 +24,6 @@
  *
  */
 
-int kmk_builtin_command(char **argv);
+int kmk_builtin_command(const char *pszCmd);
+int kmk_builtin_command_parsed(int argc, char **argv);
+
