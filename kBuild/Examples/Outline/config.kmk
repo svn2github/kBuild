@@ -1,0 +1,8 @@
+# $Id$
+#
+# This is an example configuration file.
+#
+#
+
+#.include "../../config.kMk"
+
