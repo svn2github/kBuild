@@ -28,11 +28,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #ifdef HAVE_FGETC_UNLOCKED 
 # define FGETC(s)   getc_unlocked(s)
 #else
 # define FGETC(s)   fgetc(s)
+#endif 
+
+#ifdef NEED_ISBLANK
+# define isblank(ch) ( (unsigned char)(ch) == ' ' || (unsigned char)(ch) == '\t' )
 #endif 
 
 
