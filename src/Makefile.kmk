@@ -1,6 +1,6 @@
 # $Id$
 
-SUBDIRS = gmake makedep
+SUBDIRS = gmake kDepPre
 
 DEPTH = ..
 include $(PATH_KBUILD)/rules.kmk
