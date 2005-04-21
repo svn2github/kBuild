@@ -341,7 +341,7 @@ static int ParseCPrecompiler(FILE *pInput)
 
 static void usage(const char *argv0)
 {
-    printf("syntax: %s [-l=c] -o <output> -t <target> <-e <cmdline> | - | <filename>\n", argv0);
+    printf("syntax: %s [-l=c] -o <output> -t <target> < - | <filename> | -e <cmdline> >\n", argv0);
 }
 
 int main(int argc, char *argv[])
