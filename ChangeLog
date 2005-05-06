@@ -1,5 +1,11 @@
 /* $Id$ */
 
+2005-05-06: bird
+    - ALL:
+        o Working on the build system of the build system. :-)
+        o Ported the kmkbuiltin stuff to OS/2 as a prep to the win32 effort.
+
+[missing a lot!]
 
 2002-10-15: bird
     - ALL:
