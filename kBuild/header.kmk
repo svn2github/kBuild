@@ -280,7 +280,14 @@ SUFF_EXE            :=
 SUFF_SYS            := .a
 SUFF_RES            :=
 endif
-
+ifeq ($(BUILD_TARGET),l4)
+SUFF_OBJ            := .o
+SUFF_LIB            := .a
+SUFF_DLL            := .s.so
+SUFF_EXE            :=
+SUFF_SYS            := .a
+SUFF_RES            :=
+endif
 
 #
 # Standard kBuild tools.
