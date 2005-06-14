@@ -65,12 +65,12 @@ endif
 TOOL_GCC3_LDFLAGS.sysmod     := -r
 TOOL_GCC3_LD_SONAME           = -Wl,-soname=$(firstword $($(1)_SONAME.$(BUILD_TARGET).$(BUILD_TYPE)) $($(1)_SONAME.$(BUILD_TARGET)) $($(1)_SONAME.$(BUILD_TYPE)) $($(1)_SONAME) $(notdir $(2)))
 ifeq ($(BUILD_TARGET),os2)
-TOOL_GCC3_LD_MAP              = -Zmap $(1)
+TOOL_GCC3_LD_MAP              = -Zmap=$(1)
 else
 TOOL_GCC3_LD_MAP              = -Wl,-Map -Wl,$(1) -Wl,--cref
 endif
 ifeq ($(BUILD_TARGET),os2)
-TOOL_GCC3_LD_SYSMOD_MAP       = -Zmap $(1)
+TOOL_GCC3_LD_SYSMOD_MAP       = -Zmap=$(1)
 else
 TOOL_GCC3_LD_SYSMOD_MAP       = -Map $(1) --cref
 endif
