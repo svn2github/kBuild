@@ -61,9 +61,14 @@ endif
 ifndef TEMPLATE_BIN_TOOL
 TEMPLATE_BIN_TOOL               = GCC3
 TEMPLATE_BIN_CFLAGS.release     = -O3
-TEMPLATE_BIN_LDFLAGS            = /SUBSYSTEM:console /INCREMENTAL:no /NOD
+TEMPLATE_BIN_LDFLAGS            = 
 ifeq ($(BUILD_TARGET),linux)
-TEMPLATE_BIN_LIBS               = rt
+TEMPLATE_BIN_LIBS              += rt
+endif
+ifeq ($(BUILD_TARGET),freebsd)
+TEMPLATE_BIN_LIBS              += iconv intl
+TEMPLATE_BIN_LIBPATH           += /usr/local/lib
+TEMPLATE_BIN_INCS              += $(PATH_ROOT)/src/gmake/glob /usr/local/include
 endif
 TEMPLATE_BIN_INST               = kBuild/bin/$(BUILD_TARGET_ARCH).$(BUILD_TARGET)/
 endif
