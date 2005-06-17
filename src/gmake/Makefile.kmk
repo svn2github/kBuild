@@ -71,6 +71,10 @@ kmk_SOURCES.win32 = \
 	w32/compat/dirent.c \
 	w32/pathstuff.c
 
+kmk_SOURCES.freebsd = \
+	glob/glob.c \
+	glob/fnmatch.c \
+
 
 #
 # Standalone kmkbuiltin commands.
