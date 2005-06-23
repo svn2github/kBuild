@@ -56,7 +56,7 @@ TOOL_NASM_ASFLAGS             :=
 # @param    $(objsuff)  Object suffix.
 define TOOL_NASM_COMPILE_AS
 #$ (warning dbg: TOOL_NASM_COMPILE_AS: target=$(target) source=$(source) obj=$(obj) dep=$(dep) flags=$(flags) defs=$(defs) incs=$(incs) dirdep=$(dirdep) outbase=$(outbase) objsuff=$(objsuff) deps=$(deps))
-$(obj): $(source) $(deps) | $(dirdep)
+$(obj): $(deps) $(source) | $(dirdep)
 	$(call MSG_L2,Compiling $$@ using NASM)
 	$(TOOL_NASM_AS) \
 		$(flags) $(addsuffix /,$(addprefix -i, $(incs))) $(addprefix -D, $(defs))\
