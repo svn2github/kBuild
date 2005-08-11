@@ -1,6 +1,9 @@
 /* $Id$ */
 
 2005-08-11: bird
+    - src/gmake/read.c:
+        o print target name 'target pattern' errors.
+        
     - kBuild/header.kmk:
         o Use $(abspath ).
     
