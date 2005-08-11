@@ -1,5 +1,13 @@
 /* $Id$ */
 
+2005-08-11: bird
+    - src/gmake/w32/pathstuff.c, src/kDepPre/kDepPre.c, src/kDepPre/Makefile.kmk:
+        o Fixed casing paths on win32.
+    - src/gmake/function.c:
+        o Fixed $(abspath ) on Win32 and OS/2.
+    - src/gmake/variable.c:
+        o Added KMK_FEATURES which indicates what's present+working and what's not.
+
 2005-06-16: bird
     - ALL:
         o Bootstrap and ported to FreeBSD 5.x on AMD64.
