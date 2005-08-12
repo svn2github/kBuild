@@ -61,7 +61,11 @@ TOOL_VCC70_LDFLAGS.release    :=
 
 ## Constructs the correct .pdb name (the name is lowercased).
 # @param    $(1)        Base name, no extention.
+ifeq ($(filter tolower,$(KMK_FEATURES)),tolower)
 TOOL_VCC70_PDB                = $(dir $(1))$(tolower $(notdir $(1))).pdb
+else # this fallback is incorrect and won't work on a case sensitive FS.
+TOOL_VCC70_PDB                = $(1).pdb
+endif
 
 
 ## Compile C source.
