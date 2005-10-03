@@ -1,5 +1,10 @@
 /* $Id$ */
 
+2005-10-03: bird
+    - src/kDepPre/kDepPre.c, kBuild/bin/x86.win32/kDepPre.exe:
+        o Fixed stupid stupid bug in the win32 case correcting code.
+          Rebuilt the win32 binary.
+
 2005-08-11: bird
     - kBuild/footer.kmk:
         o Enh. the _OBJECT_BASE hack for stripping of source paths within the project.
