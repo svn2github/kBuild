@@ -1,5 +1,10 @@
 /* $Id$ */
 
+2005-10-14: bird
+    - src/kDepPre/kDepPre.c, kBuild/bin/x86.win32/kDepPre.exe:
+        o Corrected bug in line skipping where two lines would be skipped.
+        o Corrected slashes on win32.
+
 2005-10-03: bird
     - src/kDepPre/kDepPre.c, kBuild/bin/x86.win32/kDepPre.exe:
         o Fixed stupid stupid bug in the win32 case correcting code.
