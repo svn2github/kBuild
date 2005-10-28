@@ -1,5 +1,11 @@
 /* $Id$ */
 
+2005-10-28: bird
+    - kBuild/footer.h:
+        o Fixed a couple of defaults so it all works right on amd64.
+    - kBuild/bin/amd64.linux/:
+        o Added binaries. ash is 32-bit!
+
 2005-10-14: bird
     - src/kDepPre/kDepPre.c, kBuild/bin/x86.win32/kDepPre.exe:
         o Corrected bug in line skipping where two lines would be skipped.
