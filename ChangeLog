@@ -1,5 +1,9 @@
 /* $Id$ */
 
+2005-10-29: bird
+    - kBuild/bin/amd64.linux/kDepPre, src/kDepPre/kDepPre.c:
+        o Strip drive letters on non-PC OSes.
+
 2005-10-28: bird
     - kBuild/footer.h:
         o Fixed a couple of defaults so it all works right on amd64.
