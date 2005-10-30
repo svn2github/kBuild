@@ -1,5 +1,9 @@
 /* $Id$ */
 
+2005-10-30: bird
+    - kBuild/bin/amd64.linux/kDepPre, src/kDepPre/kDepPre.c:
+        o Fix case option - need it on unix for cl.exe with wine.
+
 2005-10-29: bird
     - kBuild/bin/amd64.linux/kDepPre, src/kDepPre/kDepPre.c:
         o Strip drive letters on non-PC OSes.
