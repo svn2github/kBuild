@@ -93,7 +93,7 @@ $(obj): $(deps) $(source) | $(dirdep)
 	$(TOOL_VCC70_CC) -E\
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
 		$(subst /,\\,$(call ABSPATH,$(source)))\
-		| $(DEP_PRE) -f -o $(dep) -t $(obj) -
+		| $(DEP_PRE) -f -s -o $(dep) -t $(obj) -
 _OUT_FILES += $(call TOOL_VCC70_PDB, $(outbase))
 
 endef
@@ -124,7 +124,7 @@ $(obj): $(deps) $(source) | $(dirdep)
 	$(TOOL_VCC70_CXX) -E\
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
 		$(subst /,\\,$(call ABSPATH,$(source)))\
-		| $(DEP_PRE) -f -o $(dep) -t $(obj) -
+		| $(DEP_PRE) -f -s -o $(dep) -t $(obj) -
 _OUT_FILES += $(call TOOL_VCC70_PDB, $(outbase))
 
 endef
