@@ -28,6 +28,7 @@
 # files since these may contain global goals.
 include $(PATH_KBUILD)/header.kmk
 
+UP_TO ?= ..
 	
 # typical kbuild goals.		
 all_recursive \
@@ -52,9 +53,9 @@ rebuild \
 sysmods \
 target \
 	:
-	$(MAKE) -C .. $@
+	$(MAKE) -C $(UP_TO) $@
 
 # the syntax checkers.
 %.o %.obj:
-	$(MAKE) -C .. $@
+	$(MAKE) -C $(UP_TO) $@
 
