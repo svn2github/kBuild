@@ -44,10 +44,6 @@ kmk_SOURCES         = \
 	vpath.c \
 	remote-stub.c
 
-kmk_SOURCES.os2 = \
-	getopt.c \
-	getopt1.c \
-
 kmk_SOURCES.win32 = \
 	getopt.c \
 	getopt1.c \
