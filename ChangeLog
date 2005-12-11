@@ -1,5 +1,10 @@
 /* $Id$ */
 
+2005-12-11: bird
+
+    * src/gmake/function.c: Fixed abspath on OS/2.
+    * src/kDepPre/kDepPre.c: Killed some warnings and stuff.
+
 2005-11-07: bird
     - kBuild/tools/VCC70.kmk:
         o Use the new -s option for dependencies.
