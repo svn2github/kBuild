@@ -30,9 +30,10 @@
 #include <string.h>
 #include <errno.h>
 #include <ctype.h>
+#include <limits.h>
 #include <sys/stat.h>
 #ifdef __WIN32__
-#include <windows.h>
+# include <windows.h>
 #endif
 #if !defined(__WIN32__) && !defined(__OS2__)
 # include <dirent.h>
