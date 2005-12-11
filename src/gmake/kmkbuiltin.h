@@ -27,3 +27,12 @@
 int kmk_builtin_command(const char *pszCmd);
 int kmk_builtin_command_parsed(int argc, char **argv);
 
+extern int kmk_builtin_append(int argc, char **argv, char **envp);
+extern int kmk_builtin_cp(int argc, char **argv, char **envp);
+extern int kmk_builtin_chmod(int argc, char **argv, char **envp);
+extern int kmk_builtin_echo(int argc, char **argv, char **envp);
+extern int kmk_builtin_mkdir(int argc, char **argv, char **envp);
+extern int kmk_builtin_mv(int argc, char **argv, char **envp);
+extern int kmk_builtin_rm(int argc, char **argv, char **envp);
+extern int kmk_builtin_rmdir(int argc, char **argv, char **envp);
+
