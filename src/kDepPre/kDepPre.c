@@ -38,6 +38,9 @@
 #if !defined(__WIN32__) && !defined(__OS2__)
 # include <dirent.h>
 #endif
+#ifndef __WIN32__
+# include <unistd.h>
+#endif
 
 #ifdef HAVE_FGETC_UNLOCKED
 # define FGETC(s)   getc_unlocked(s)
@@ -473,7 +476,7 @@ static PDEP depAdd(const char *pszFilename, size_t cchFilename)
     /*
      * Add it.
      */
-    pDep = malloc(sizeof(*pDep) + cchFilename);
+    pDep = (PDEP)malloc(sizeof(*pDep) + cchFilename);
     if (!pDep)
     {
         fprintf(stderr, "\nOut of memory! (requested %#x bytes)\n\n", sizeof(*pDep) + cchFilename);
