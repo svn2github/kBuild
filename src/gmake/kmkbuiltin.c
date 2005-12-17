@@ -32,15 +32,6 @@
 
 extern char **environ;
 
-extern int kmk_builtin_append(int argc, char **argv, char **envp);
-extern int kmk_builtin_cp(int argc, char **argv, char **envp);
-extern int kmk_builtin_chmod(int argc, char **argv, char **envp);
-extern int kmk_builtin_echo(int argc, char **argv, char **envp);
-extern int kmk_builtin_mkdir(int argc, char **argv, char **envp);
-extern int kmk_builtin_mv(int argc, char **argv, char **envp);
-extern int kmk_builtin_rm(int argc, char **argv, char **envp);
-extern int kmk_builtin_rmdir(int argc, char **argv, char **envp);
-
 int kmk_builtin_command(const char *pszCmd)
 {
     int         argc;
@@ -194,6 +185,10 @@ int kmk_builtin_command_parsed(int argc, char **argv)
 #endif
     else if (!strcmp(pszCmd, "echo"))
         rc = kmk_builtin_echo(argc, argv, environ);
+    else if (!strcmp(pszCmd, "install"))
+        rc = kmk_builtin_install(argc, argv, environ);
+    else if (!strcmp(pszCmd, "ln"))
+        rc = kmk_builtin_ln(argc, argv, environ);
     else if (!strcmp(pszCmd, "mkdir"))
         rc = kmk_builtin_mkdir(argc, argv, environ);
 #ifndef _MSC_VER

@@ -31,6 +31,8 @@ extern int kmk_builtin_append(int argc, char **argv, char **envp);
 extern int kmk_builtin_cp(int argc, char **argv, char **envp);
 extern int kmk_builtin_chmod(int argc, char **argv, char **envp);
 extern int kmk_builtin_echo(int argc, char **argv, char **envp);
+extern int kmk_builtin_install(int argc, char **argv, char **envp);
+extern int kmk_builtin_ln(int argc, char **argv, char **envp);
 extern int kmk_builtin_mkdir(int argc, char **argv, char **envp);
 extern int kmk_builtin_mv(int argc, char **argv, char **envp);
 extern int kmk_builtin_rm(int argc, char **argv, char **envp);
