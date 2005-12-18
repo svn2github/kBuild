@@ -6,6 +6,7 @@
       src/gmake/Makefile.kmk:
         o Ported all the builtins to windows - now rebuild works again!
         o Fixed a few error case bugs in the builtins.
+        o Disabled the -R and -r options for rm and cp.
         o Added kmk_install / kmk_builtin_install from BSD.
 
 2005-12-13: bird
