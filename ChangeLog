@@ -1,5 +1,13 @@
 /* $Id$ */
 
+2005-12-18: bird
+    - src/gmake/kmkbuiltin/*, src/gmake/kmkbuiltin.c,
+      src/gmake/kmkbuiltin.h, src/gmake/variables.c,
+      src/gmake/Makefile.kmk:
+        o Ported all the builtins to windows - now rebuild works again!
+        o Fixed a few error case bugs in the builtins.
+        o Added kmk_install / kmk_builtin_install from BSD.
+
 2005-12-13: bird
     - kBuild/bin/x86.linux/kmk,
       kBuild/bin/x86.linux/kmk_append,
