@@ -161,6 +161,7 @@ int kmk_builtin_command(const char *pszCmd)
 int kmk_builtin_command_parsed(int argc, char **argv)
 {
     const char *pszCmd = argv[0];
+    int         iumask;
     int         rc;
 
     /*
@@ -176,6 +177,8 @@ int kmk_builtin_command_parsed(int argc, char **argv)
     /*
      * String switch on the command.
      */
+    iumask = umask(0);
+    umask(iumask);
     if (!strcmp(pszCmd, "append"))
         rc = kmk_builtin_append(argc, argv, environ);
     else if (!strcmp(pszCmd, "echo"))
@@ -201,6 +204,7 @@ int kmk_builtin_command_parsed(int argc, char **argv)
         return 1;
     }
     g_progname = "kmk";                 /* paranoia, make sure it's not pointing at a freed argv[0]. */
+    umask(iumask);
     return rc;
 }
 
