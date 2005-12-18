@@ -193,10 +193,8 @@ int kmk_builtin_command_parsed(int argc, char **argv)
     //else if (!strcmp(pszCmd, "rmdir"))
     //    rc = kmk_builtin_rmdir(argc, argv, environ);
     /* obsolete */
-#ifndef _MSC_VER
     else if (!strcmp(pszCmd, "cp"))
         rc = kmk_builtin_cp(argc, argv, environ);
-#endif
     else
     {
         printf("kmk_builtin: Unknown command '%s'!\n", pszCmd);
