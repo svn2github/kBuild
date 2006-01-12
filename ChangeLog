@@ -1,6 +1,8 @@
 /* $Id$ */
 
 2006-01-12: bird
+    - kBuild/tools/vcc70.kmk:
+        o Prepared for new IDB based dependencies.s
     - kBuild/footer.kmk:
         o Parallel build fixing.
     - src/gmake/job.c:
