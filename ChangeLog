@@ -1,5 +1,9 @@
 /* $Id$ */
 
+2006-01-12: bird
+    - src/gmake/job.c:
+        o Fixed bad parallel bug.
+
 2005-12-18: bird
     - kBuild/*.kmk, kBuild/tools/*.kmk:
         o Finally I've got around to implement command dependencies.
