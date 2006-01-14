@@ -68,9 +68,9 @@ else # this fallback is incorrect and won't work on a case sensitive FS.
 TOOL_VCC70_PDB                = $(1).$(2)
 endif
 
-ifeq ($(BUILD_PLATFORM),win32)
+#ifeq ($(BUILD_PLATFORM),win32)
 VCC70_NEW_DEPS = 1
-endif
+#endif
 
 
 
