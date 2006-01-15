@@ -66,6 +66,21 @@
 static PDEP g_pDeps = NULL;
 
 
+/**
+ * Corrects all slashes to unix slashes.
+ *
+ * @returns pszFilename.
+ * @param   pszFilename     The filename to correct.
+ */
+static char *fixslash(char *pszFilename)
+{
+    char *psz = pszFilename;
+    while ((psz = strchr(psz, '\\')) != NULL)
+        *psz++ = '/';
+    return pszFilename;
+}
+
+
 #ifdef __WIN32__
 /**
  * Corrects the case of a path.
@@ -364,23 +379,6 @@ void depOptimize(int fFixCase)
     }
 #endif
 }
-
-
-#ifndef __OS2__
-/**
- * Corrects all slashes to unix slashes.
- *
- * @returns pszFilename.
- * @param   pszFilename     The filename to correct.
- */
-static char *fixslash(char *pszFilename)
-{
-    char *psz = pszFilename;
-    while ((psz = strchr(psz, '\\')) != NULL)
-        *psz++ = '/';
-    return pszFilename;
-}
-#endif 
 
 
 /**
