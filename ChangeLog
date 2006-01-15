@@ -1,6 +1,8 @@
 /* $Id$ */
 
 2006-01-14: bird
+    - kBuild/env.sh:
+        o Corrected the tool list.
     - kBuild/bin/x86.linux/:
         o Rebuild with current tree and static linage. (rhel3)
     - kBuild/tools/VCC70.kmk:
