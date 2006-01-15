@@ -170,7 +170,7 @@ echo "dbg: PATH=$PATH"
 if [ ! -d "$PATH_KBUILD/bin/$BUILD_PLATFORM_ARCH.$BUILD_PLATFORM/" ]; then
     echo "$0: warning: The bin directory for this platform doesn't exists. ($PATH_KBUILD/bin/$BUILD_PLATFORM_ARCH.$BUILD_PLATFORM/)"
 else
-    for prog in kmk kDepPre ash cat cp mkdir mv rm sed;
+    for prog in kmk kDepPre kDepIDB kmk_append kmk_ash kmk_cat kmk_cp kmk_echo kmk_install kmk_ln kmk_mkdir kmk_mv kmk_rm kmk_sed;
     do
         chmod a+x $PATH_KBUILD/bin/$BUILD_PLATFORM_ARCH.$BUILD_PLATFORM/${prog} > /dev/null 2>&1
         if [ ! -f "$PATH_KBUILD/bin/$BUILD_PLATFORM_ARCH.$BUILD_PLATFORM/${prog}${_SUFF_EXE}" ]; then
