@@ -342,10 +342,11 @@ void depOptimize(int fFixCase)
         {
 #ifdef __WIN32__
             if (_fullpath(szFilename, pszFilename, sizeof(szFilename)))
-                fixslash(szFilename);
+                ;
             else
 #endif
                 strcpy(szFilename, pszFilename);
+            fixslash(szFilename);
             fixcase(szFilename);
             pszFilename = szFilename;
         }
@@ -355,7 +356,7 @@ void depOptimize(int fFixCase)
          */
         if (stat(pszFilename, &s))
         {
-            fprintf(stderr, "kDepPre: Skipping '%s' - %s!\n", szFilename, strerror(errno));
+            fprintf(stderr, "kDep: Skipping '%s' - %s!\n", szFilename, strerror(errno));
             continue;
         }
 
