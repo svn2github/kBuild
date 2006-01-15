@@ -98,7 +98,7 @@ define TOOL_VCC70_COMPILE_C_CMDS
 		-FD\
 		-Fo$(obj)\
 		$(subst /,\\,$(call ABSPATH,$(source)))
-	$(DEP_IDB) -f -s -o $(dep) -t $(obj) $(outbase)-obj.idb
+	$(DEP_IDB) -f -s -o $(dep) -t $(obj) $(call TOOL_VCC70_PDB,$(outbase)-obj,idb)
 endef
 else
 define TOOL_VCC70_COMPILE_C_CMDS
@@ -139,7 +139,7 @@ define TOOL_VCC70_COMPILE_CXX_CMDS
 		-FD\
 		-Fo$(obj)\
 		$(subst /,\\,$(call ABSPATH,$(source)))
-	$(DEP_IDB) -f -s -o $(dep) -t $(obj) $(outbase)-obj.idb
+	$(DEP_IDB) -f -s -o $(dep) -t $(obj) $(call TOOL_VCC70_PDB,$(outbase)-obj,idb)
 endef
 else
 define TOOL_VCC70_COMPILE_CXX_CMDS
