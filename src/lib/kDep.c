@@ -184,20 +184,6 @@ static void fixcase(char *pszPath)
 #undef my_assert
 }
 
-/**
- * Corrects all slashes to unix slashes.
- *
- * @returns pszFilename.
- * @param   pszFilename     The filename to correct.
- */
-static char *fixslash(char *pszFilename)
-{
-    char *psz = pszFilename;
-    while ((psz = strchr(psz, '\\')) != NULL)
-        *psz++ = '/';
-    return pszFilename;
-}
-
 #elif defined(__OS2__)
 
 /**
@@ -378,6 +364,23 @@ void depOptimize(int fFixCase)
     }
 #endif
 }
+
+
+#ifndef __OS2__
+/**
+ * Corrects all slashes to unix slashes.
+ *
+ * @returns pszFilename.
+ * @param   pszFilename     The filename to correct.
+ */
+static char *fixslash(char *pszFilename)
+{
+    char *psz = pszFilename;
+    while ((psz = strchr(psz, '\\')) != NULL)
+        *psz++ = '/';
+    return pszFilename;
+}
+#endif 
 
 
 /**
