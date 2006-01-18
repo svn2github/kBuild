@@ -36,7 +36,7 @@ all: all_recursive
 # The FORCE rule.
 #
 FORCE:
-				
+
 #
 # Try avoid inference rules.
 #
@@ -464,7 +464,7 @@ MAKESHELL   := $(ASH)
 SHELL       := $(ASH)
 export SHELL MAKESHELL
 
-# Symlinking is problematic on some platforms...			
+# Symlinking is problematic on some platforms...
 LN_SYMLINK  := $(LN) -s
 
 
@@ -639,9 +639,11 @@ PASS_INSTALLS_pass  := installs
 ## PASS: packing
 # This pass processes custom packing rules.
 PASS_PACKING        := Packing
-PASS_PACKING_trgs   := packing
-PASS_PACKING_vars   :=
+PASS_PACKING_trgs   :=
+PASS_PACKING_vars   := PACKING
 PASS_PACKING_pass   := packing
+#alias
+packing: pass_packing
 
 ## PASS: clean
 # This pass removes all generated files.
