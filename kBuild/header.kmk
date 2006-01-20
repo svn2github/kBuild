@@ -640,7 +640,7 @@ PASS_INSTALLS_pass  := installs
 # This pass processes custom packing rules.
 PASS_PACKING        := Packing
 PASS_PACKING_trgs   :=
-PASS_PACKING_vars   := PACKING
+PASS_PACKING_vars   := _PACKING
 PASS_PACKING_pass   := packing
 #alias
 packing: pass_packing
