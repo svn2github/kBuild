@@ -22,6 +22,7 @@ kmk_DEFS            = \
 	CONFIG_NO_DEFAULT_VARIABLES \
 	KMK
 	
+	
 kmk_SOURCES         = \
 	main.c \
 	read.c \
@@ -89,7 +90,7 @@ kmk_SOURCES.win32 += \
 #
 # Standalone kmkbuiltin commands.
 #
-PROGRAMS += kmk_append kmk_cp kmk_echo kmk_mkdir kmk_install kmk_ln kmk_rm 
+PROGRAMS += kmk_append kmk_cp kmk_echo kmk_mkdir kmk_install kmk_ln kmk_rm
 
 kmk_append_TEMPLATE = BIN
 kmk_append_DEFS = kmk_builtin_append=main
