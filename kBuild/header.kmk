@@ -597,7 +597,7 @@ PROPS_DEFERRED := INSTFUN INSTALLER
 # A Config.kmk file can add it's own properties to this list and kBuild
 # will do the necessary inheritance from templates to targets.
 PROPS_ACCUMULATE := \
-	SDKS DEFS INCS SOURCES \
+	SDKS DEFS DEPS INCS SOURCES \
 	COPTS CFLAGS CDEFS CINCS CXXOPTS CXXFLAGS CXXDEFS CXXINCS \
 	ASOPTS ASFLAGS ASDEFS ASINCS \
 	LDFLAGS LIBS LIBPATH \
