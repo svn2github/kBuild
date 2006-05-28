@@ -434,7 +434,7 @@ endif
 
 $(basename $(notdir $(obj))).o::
 	+ $$(MAKE) -f $$(MAKEFILE) $(obj)
-$(basename $$(notdir $$(obj))).obj::
+$(basename $(notdir $(obj))).obj::
 	+ $$(MAKE) -f $$(MAKEFILE) $(obj)
 endef
 
