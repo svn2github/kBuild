@@ -24,6 +24,8 @@
 #
 #
 
+# Enable automatic installation of what's built.
+KBUILD_DO_AUTO_INSTALL := 1
 					
 #
 # Template for building commandline tools.
