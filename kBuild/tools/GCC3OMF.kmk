@@ -46,6 +46,7 @@ TOOL_GCC3OMF_CXXINCS            :=
 TOOL_GCC3OMF_CXXDEFS            :=
 
 TOOL_GCC3OMF_AS                 := gcc$(HOSTSUFF_EXE)
+TOOL_GCC3OMF_ASFLAGS            := -g -x assembler-with-cpp
 TOOL_GCC3OMF_ASOBJSUFF          := .obj
 
 TOOL_GCC3OMF_AR                 := emxomfar$(HOSTSUFF_EXE)
