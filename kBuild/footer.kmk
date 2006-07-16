@@ -500,7 +500,7 @@ $(out) $($(target)_OUTPUT_): \
 		| \
 		$($(target)_DEPORD_)
 	$(call MSG_L1,Creating $$@)
-	$(RM) -f $(dep) $($(target)_OUTPUT_)
+	$(RM) -f $(dep) $(out) $($(target)_OUTPUT_)
 	$(custom_pre)
 
 $($(target)_CMDS_)
