@@ -254,7 +254,7 @@ HOSTSUFF_EXE        :=
 endif
 
 # Win32 & Win64
-ifeq ($(filter-out win32 win64,$(BUILD_TARGET)),)
+ifeq ($(filter-out win32 win64 nt,$(BUILD_TARGET)),)
 EXEC_X86_WIN32      :=
 HOSTSUFF_EXE        := .exe
 endif
@@ -658,3 +658,4 @@ include $(_CFGFILE)
 # end-of-file-content
 __header_kmk__ := 1
 endif # __header_kmk__
+
