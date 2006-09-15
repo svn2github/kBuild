@@ -28,6 +28,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
+#ifdef _MSC_VER
+# include <io.h>
+#endif 
 #include "kmkbuiltin/err.h"
 #include "kmkbuiltin.h"
 
@@ -37,7 +40,6 @@ int kmk_builtin_command(const char *pszCmd)
 {
     int         argc;
     char      **argv;
-    char       *psz;
     int         rc;
 
     /*
