@@ -28,6 +28,7 @@ kmk_SOURCES         = \
 	main.c \
 	read.c \
 	hash.c \
+        strcache.c \
 	variable.c \
 	ar.c \
 	arscan.c \

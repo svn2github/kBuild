@@ -1,5 +1,9 @@
 /* $Id$ */
 
+2006-09-15:
+    - src/gmake:
+        o Merge with GNU Make v3.81 (vendor/gnumake/2005-05-16 -> vendor/gnumake/current).
+
 2006-03-26:
     - kBuild/bin/x86.os2/:
         o Rebuilt the OS/2 tools.
