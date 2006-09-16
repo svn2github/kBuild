@@ -211,3 +211,9 @@ test:
 	echo "3"
 	echo "4"
 
+# shell double and single quoting check.
+test_shell_quoting:
+	$(ECHO_EXT) "double quoted sTrInG" | $(SED_EXT) -e "s/sTrInG/string/g"
+	$(ECHO_EXT) 'single quoted sTrInG' | $(SED_EXT) -e 's/sTrInG/string/g'
+	$(ECHO) "This string should not be printed with double quotes."
+	$(ECHO) 'This string should not be printed with single quotes.'

@@ -2,6 +2,8 @@
 
 2006-09-16:
     - src/gmake:
+        o kmk_ash wants batch files on windows or the double quotes will get screwed up.
+        o Make sure kmk_builtin commands don't get batch files and odd weird stuff.
         o Cleaning up the modifications. Changes are now either configurable 
           or marked, and dead stuff has been removed (dll shell).
 
