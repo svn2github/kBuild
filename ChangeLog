@@ -1,5 +1,10 @@
 /* $Id$ */
 
+2006-09-16:
+    - src/gmake:
+        o Cleaning up the modifications. Changes are now either configurable 
+          or marked, and dead stuff has been removed (dll shell).
+
 2006-09-15:
     - kBuild/bin/x86.win32/kmk.exe:
         o Built new code.
