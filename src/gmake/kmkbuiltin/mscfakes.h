@@ -119,6 +119,8 @@ int mkstemp(char *temp);
 #define reallocf(old, size) realloc(old, size)
 #if _MSC_VER < 1400
 int snprintf(char *buf, size_t size, const char *fmt, ...);
+#else
+#define snprintf _snprintf
 #endif 
 size_t strlcpy(char *, const char *, size_t);
 int symlink(const char *pszDst, const char *pszLink);
