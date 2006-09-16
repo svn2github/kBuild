@@ -232,9 +232,12 @@ MAKEFILE            := $(firstword $(MAKEFILE_LIST))
 
 
 #
-# Get rid of the GNU Make default stuff
+# Disable some features and stamp out predefines if we're running
+# vanilla GNU Make.
 #
 ifndef KMK_VERSION
+NO_COMPILE_CMDS_DEPS:= 1
+NO_LINK_CMDS_DEPS   := 1
 include $(PATH_KBUILD)/StampOutPredefines.kmk
 endif
 
