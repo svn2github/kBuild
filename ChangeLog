@@ -1,5 +1,10 @@
 /* $Id$ */
 
+2006-09-17:
+    - kBuild/gmake:
+        o Fixed assertion in w32_fixcase when shell doesn't have a full path 
+          and some other case.
+
 2006-09-16:
     - kBuild/header.kmk:
         o Turn off command dependencies when using vanilla GNU Make.
