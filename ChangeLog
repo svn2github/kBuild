@@ -2,6 +2,7 @@
 
 2006-09-17:
     - kBuild/gmake:
+        o Added kBuild specific functions for speeding up source processing.
         o Fixed assertion in w32_fixcase when shell doesn't have a full path 
           and some other case.
 
