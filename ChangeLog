@@ -2,6 +2,10 @@
 
 2006-09-17:
     - kBuild/gmake:
+        o Optimization summary: libc from ~21 seconds -> 7-8 seconds (os2/nt).
+        o Optimized appending new stuff to variables. (major win)
+        o Optimized variable memory value allocation avoiding a bunch of
+          unnecessary copying and allocating.
         o Added kBuild specific functions for speeding up source processing.
         o Fixed assertion in w32_fixcase when shell doesn't have a full path 
           and some other case.
