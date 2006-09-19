@@ -284,6 +284,7 @@ test_shell_quoting:
 	$(ECHO_EXT) 'single quoted sTrInG' | $(SED_EXT) -e 's/sTrInG/string/g'
 	$(ECHO) "This string should not be printed with double quotes."
 	$(ECHO) 'This string should not be printed with single quotes.'
+	( echo "  #define PWD \"`pwd`\""; )
 
 # when using batch mode shell, the newline got escaped twice and spoiling everything.
 test_shell_newline:
