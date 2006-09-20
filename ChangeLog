@@ -1,5 +1,11 @@
 /* $Id$ */
 
+2006-09-19:
+    - kBuild/bin/x86.win32/:
+        o Rebuilt kmk.exe and kmk_gmake.exe.
+    - src/gmake:
+        o Fixed some optimization bugs in kbuild.c.
+
 2006-09-18:
     - kBuild/gmake:
         o Don't send put j1 in MAKEFLAGS on windows, somehow that doesn't work.
