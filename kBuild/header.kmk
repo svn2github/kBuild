@@ -256,8 +256,8 @@ EXEC_X86_WIN32      := wine
 HOSTSUFF_EXE        :=
 endif
 
-# Win32 & Win64
-ifeq ($(filter-out win32 win64 win nt,$(BUILD_TARGET)),)
+# Win, Win32, Win64, NT.
+ifeq ($(filter-out win32 win64 win nt,$(BUILD_PLATFORM)),)
 EXEC_X86_WIN32      :=
 HOSTSUFF_EXE        := .exe
 endif
