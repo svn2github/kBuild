@@ -1,6 +1,8 @@
 /* $Id$ */
 
 2006-09-23:
+    - kBuild/bin/x86.os2/:
+        o Rebuilt kmk.exe and kmk_gmake.exe.
     - src/gmake:
         o Regenerated config.h.os2 and make adjustments to make it all
           build quietly on OS/2.
