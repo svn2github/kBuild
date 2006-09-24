@@ -1,6 +1,9 @@
 /* $Id$ */
 
 2006-09-23:
+    - src/gmake:
+        o Regenerated config.h.os2 and make adjustments to make it all
+          build quietly on OS/2.
     - kBuild/envos2.cmd:
         o Environment script (REXX) for OS/2.
 
