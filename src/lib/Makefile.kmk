@@ -27,7 +27,9 @@
 LIBRARIES += kDep
 
 kDep_TEMPLATE      	= LIB
-kDep_DEFS.win32     = NEED_ISBLANK=1 __WIN32__=1
+ifeq ($(filter-out win32 win64 win nt,$(BUILD_TARGET)),)
+kDep_DEFS          += NEED_ISBLANK=1 __WIN32__=1
+endif
 kDep_SOURCES        = $(PATH_CURRENT)/kDep.c
 
 

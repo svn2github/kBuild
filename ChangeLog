@@ -6,7 +6,7 @@
     - kBuild/header.kmk, kBuild/footer.kmk:
         o Removed some checks for features which are present in both gmake 3.81 and kmk.
           Anyone trying to bootstrap kBuild will have to build gmake 3.81 first.
-    - Config.kmk, src/gmake:
+    - Config.kmk, src/gmake, src/lib, src/kDepPre, src/kDepIDB:
         o Allow all kinds of ways of saying Windows in BUILD_TARGET.
     - kBuild/bin/x86.win32/:
         o Rebuilt kmk.exe.
