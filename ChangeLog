@@ -1,5 +1,9 @@
 /* $Id$ */
 
+2006-09-28:
+    - kBuild/header.kmk, kBuild/env.sh, kBuild/tools/GCC4MACH.kmk, kBuild/bin/x86.darwin/, src/gmake, Config.kmk:
+        o Initial Mac OS X / Darwin bootstrapping.
+
 2006-09-23:
     - kBuild/footer.kmk:
         o Recursive template inheritance.
