@@ -1,6 +1,8 @@
 /* $Id$ */
 
 2006-11-23:
+    - kBuild/footer.kmk:
+        o #3: Clean link output files.
     - kBuild/header.kmk, kmk:
         o #6: Did code changes for unix installation. Will do install goals when creating the gentoo ebuild.
         o #5: Proper versioning. (#5)
