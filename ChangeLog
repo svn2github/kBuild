@@ -1,5 +1,12 @@
 /* $Id$ */
 
+2006-11-23:
+    - kBuild/header.kmk, kmk:
+        o Proper versioning.
+    - kmk:
+        o Support SDK.$(BUILD_TARGET_ARCH) too (only bug).
+        o Fixed a bug when gather SDKs.
+
 2006-09-28:
     - kBuild/header.kmk, kBuild/env.sh, kBuild/tools/GCC4MACH.kmk, kBuild/bin/x86.darwin/, src/gmake, Config.kmk:
         o Initial Mac OS X / Darwin bootstrapping.
