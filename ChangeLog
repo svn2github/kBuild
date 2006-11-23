@@ -1,7 +1,7 @@
 /* $Id$ */
 
 2006-11-23:
-    - kBuild/bin/x86.win32:
+    - kBuild/bin/x86.win32, kBuild/bin/x86.linux:
         o Rebuilt with current code. 
     - kBuild/footer.kmk:
         o #3: Clean link output files.
