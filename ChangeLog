@@ -1,6 +1,8 @@
 /* $Id$ */
 
 2006-11-23:
+    - kBuild/tools/GCC*.kmk:
+        o Cleaned up the -s and -g usage.
     - kBuild/bin/x86.win32, kBuild/bin/x86.linux:
         o Rebuilt with current code. 
     - kBuild/footer.kmk:
