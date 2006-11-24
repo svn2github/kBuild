@@ -1,5 +1,9 @@
 /* $Id$ */
 
+2006-11-24:
+    - kmk:
+        o Added --pretty-command-printing for simplifying makefile debugging.
+
 2006-11-23:
     - dist/portage:
         o Hacked together two ebuilds for the Gentoo Portage.
