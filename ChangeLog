@@ -1,6 +1,8 @@
 /* $Id$ */
 
 2006-11-23:
+    - dist/portage:
+        o Hacked together two ebuilds for the Gentoo Portage.
     - Config.kmk, Makefile.kmk:
         o #6: Hacking *nix install build for Gentoo.
     - src/gmake/Makefile.kmk, src/lib/Makefile:
