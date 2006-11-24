@@ -1,6 +1,8 @@
 /* $Id$ */
 
 2006-11-24:
+    - kBuild/footer.kmk:
+        o Fixed some issues with SDKS and linking.
     - kmk:
         o Added --pretty-command-printing for simplifying makefile debugging.
 
