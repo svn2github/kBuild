@@ -1,6 +1,9 @@
 # $Id$
 
 
+DEPTH = ../..
+include $(PATH_KBUILD)/header.kmk
+
 #
 # kmk
 #
@@ -283,8 +286,7 @@ kmk_gmake_SOURCES.darwin = \
 
 
 
-DEPTH = ../..
-include $(PATH_KBUILD)/rules.kmk
+include $(PATH_KBUILD)/footer.kmk
 
 			
 #
