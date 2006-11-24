@@ -1,6 +1,8 @@
 /* $Id$ */
 
 2006-11-23:
+    - kBuild/header.kmk:
+        o BUILD_TYPE defaults to 'release'.
     - kBuild/tools/GCC*.kmk:
         o Cleaned up the -s and -g usage.
     - kBuild/bin/x86.win32, kBuild/bin/x86.linux:
