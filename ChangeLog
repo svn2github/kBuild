@@ -1,6 +1,10 @@
 /* $Id$ */
 
 2006-11-23:
+    - Config.kmk, Makefile.kmk:
+        o #6: Hacking *nix install build for Gentoo.
+    - src/gmake/Makefile.kmk, src/lib/Makefile:
+        o Always include header.kmk when testing BUILD_TARGET*.
     - kBuild/header.kmk:
         o BUILD_TYPE defaults to 'release'.
     - kBuild/tools/GCC*.kmk:
