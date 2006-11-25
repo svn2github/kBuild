@@ -1,6 +1,8 @@
 /* $Id$ */
 
 2006-11-24:
+    - kBuild/bin/x86.win32/kmk.exe, kBuild/bin/x86.linux/kmk:
+        o Rebuilt with current code. 
     - kBuild/footer.kmk:
         o Fixed some issues with SDKS and linking.
     - kmk:
