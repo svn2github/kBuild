@@ -4,6 +4,7 @@
     - kBuild/footer.kmk:
         o Fixed some issues with SDKS and linking.
     - kmk:
+        o Fixed bug in the sdk walking in kbuild_collect_source_prop.
         o Added --pretty-command-printing for simplifying makefile debugging.
 
 2006-11-23:
