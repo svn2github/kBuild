@@ -1,5 +1,11 @@
 /* $Id$ */
 
+2006-11-25:
+    - kmk, kBuild:
+        o Added rmdir as builtin and external command.
+        o Made mkdir not modify the argument strings.
+        o Made mkdir deal properly with DOS slashes on OS/2 and Windows.
+
 2006-11-24:
     - kBuild/bin/x86.win32/kmk.exe, kBuild/bin/x86.linux/kmk:
         o Rebuilt with current code. 

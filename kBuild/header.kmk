@@ -405,6 +405,13 @@ else
 RM          := $(RM_EXT)
 endif
 
+RMDIR_EXT   := $(PATH_KBUILD_BIN)/kmk_rmdir$(HOSTSUFF_EXE)
+ifeq ($(filter rmdir,$(KMK_BUILTIN)),rmdir)
+RMDIR       := kmk_builtin_rmdir
+else
+RMDIR       := $(RMDIR_EXT)
+endif
+
 SED_EXT     := $(PATH_KBUILD_BIN)/kmk_sed$(HOSTSUFF_EXE)
 ifeq ($(filter sed,$(KMK_BUILTIN)),sed)
 SED         := kmk_builtin_sed
