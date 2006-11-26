@@ -1,6 +1,6 @@
 # $Id$
 
-SUBDIRS = lib gmake kDepPre kDepIDB
+SUBDIRS = lib gmake sed kDepPre kDepIDB
 
 DEPTH = ..
 include $(PATH_KBUILD)/rules.kmk
