@@ -2,6 +2,7 @@
 
 2006-11-25:
     - kmk, kBuild:
+        o Added mv as builtin command.
         o Added cat as builtin command.
         o Added GNU sed version 4.1.5 and ported it to MSC.
         o Added rmdir as builtin and external command.
