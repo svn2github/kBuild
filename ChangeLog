@@ -1,5 +1,14 @@
 /* $Id$ */
 
+2006-12-02:
+    - kmk:
+        o Fixed bugs dealing with the order SDK properties was applied to sources.
+
+2006-12-01:
+    - kBuild:
+        o Added support for compiling resource files.
+        o Fixed bug causing object files take from the SOURCES to be cleaned up.
+
 2006-11-25:
     - kmk, kBuild:
         o Added mv as builtin command.
