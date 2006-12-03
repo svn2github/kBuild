@@ -27,7 +27,8 @@
 
 TOOL_YASM                     := Yasm, the modular assembler v0.4.0+
 ifndef PATH_TOOL_YASM
-PATH_TOOL_YASM                := $(sort $(wildcard $(PATH_DEV)/$(BUILD_PLATFORM_ARCH).$(BUILD_PLATFORM)/yasm/v*.*))
+PATH_DEV_BLD                  ?= $(PATH_DEV)/$(BUILD_PLATFORM_ARCH).$(BUILD_PLATFORM)
+PATH_TOOL_YASM                := $(sort $(wildcard $(PATH_DEV_BLD)/yasm/v*.*))
 ifneq ($(PATH_TOOL_YASM),)
 PATH_TOOL_YASM                := $(call lastword,$(PATH_TOOL_YASM))
 endif

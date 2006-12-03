@@ -28,7 +28,8 @@ TOOL_MINGW32                 := MinGW32 GCC v3.3+
 
 # find latest installed version
 ifndef PATH_TOOL_MINGW32
-PATH_TOOL_MINGW32            := $(sort $(wildcard $(PATH_DEV)/$(BUILD_PLATFORM_ARCH).$(BUILD_PLATFORM)/mingw32/v*.*))
+PATH_DEV_BLD                 ?= $(PATH_DEV)/$(BUILD_PLATFORM_ARCH).$(BUILD_PLATFORM)
+PATH_TOOL_MINGW32            := $(sort $(wildcard $(PATH_DEV_BLD)/mingw32/v*.*))
 ifeq ($(PATH_TOOL_MINGW32),)
 PATH_TOOL_MINGW32            := $(sort $(wildcard $(PATH_DEV)/x86.win32/mingw32/v*.*))
 endif
