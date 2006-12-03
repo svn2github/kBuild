@@ -36,5 +36,12 @@ kDep_SOURCES = $(PATH_CURRENT)/kDep.c
 kDep_NOINST = 1
 
 
+ifeq ($(filter-out win nt win32 win64,$(BUILD_TARGET)),)
+LIBRARIES += kWinStartup
+kWinStartup_TEMPLATE = LIB
+kWinStartup_SOURCES = $(PATH_CURRENT)/startuphacks-win.c
+kWinStartup_NOINST = 1
+endif
+
 include $(PATH_KBUILD)/footer.kmk
 
