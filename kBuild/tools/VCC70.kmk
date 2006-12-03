@@ -57,6 +57,7 @@ TOOL_VCC70_ASOBJSUFF          := .obj
 
 TOOL_VCC70_RC                 := $(EXEC_X86_WIN32) $(PATH_TOOL_VCC70)/bin/rc.exe
 TOOL_VCC70_RCOBJSUFF          := .res
+TOOL_VCC70_RCINCS             := $(PATH_TOOL_VCC70)/include
 
 TOOL_VCC70_AR                 := $(EXEC_X86_WIN32) $(PATH_TOOL_VCC70)/bin/lib.exe
 TOOL_VCC70_ARFLAGS            := -nologo

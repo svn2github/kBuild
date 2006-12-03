@@ -53,6 +53,7 @@ TOOL_VCC80X86_ASOBJSUFF          := .obj
 
 TOOL_VCC80X86_RC                 := $(EXEC_X86_WIN32) $(PATH_TOOL_VCC80X86_BIN)/rc.exe
 TOOL_VCC80X86_RCOBJSUFF          := .res
+TOOL_VCC80X86_RCINCS             := $(PATH_TOOL_VCC80X86)/include
 
 TOOL_VCC80X86_AR                 := $(EXEC_X86_WIN32) $(PATH_TOOL_VCC80X86_BIN)/lib.exe
 TOOL_VCC80X86_ARFLAGS            := -nologo
