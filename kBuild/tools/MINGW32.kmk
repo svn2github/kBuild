@@ -36,7 +36,6 @@ ifndef PATH_TOOL_MINGW32
  ifneq ($(PATH_TOOL_MINGW32),)
   PATH_TOOL_MINGW32          := $(call lastword,$(PATH_TOOL_MINGW32))
  endif
-$(warning PATH_TOOL_MINGW32:=$(PATH_TOOL_MINGW32))
 endif
 
 # figure out if it's native or needs a win32 launcher
