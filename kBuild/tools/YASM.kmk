@@ -35,11 +35,11 @@ endif
 endif
 
 ifneq ($(PATH_TOOL_YASM),)
-TOOL_YASM_AS                  := $(PATH_TOOL_YASM)/yasm$(HOSTSUFF_EXE)
+TOOL_YASM_AS                  ?= $(PATH_TOOL_YASM)/yasm$(HOSTSUFF_EXE)
 else
-TOOL_YASM_AS                  := yasm$(HOSTSUFF_EXE)
+TOOL_YASM_AS                  ?= yasm$(HOSTSUFF_EXE)
 endif
-TOOL_YASM_ASFLAGS             :=
+TOOL_YASM_ASFLAGS             ?=
 
 
 ## Compile Assembly source.

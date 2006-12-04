@@ -34,11 +34,11 @@ TOOL_ALP                     := IBM Assembly Language Processor
 #endif
 
 ifneq ($(PATH_TOOL_ALP),)
-TOOL_ALP_AS                  := $(PATH_TOOL_ALP)/alp$(HOSTSUFF_EXE)
+TOOL_ALP_AS                  ?= $(PATH_TOOL_ALP)/alp$(HOSTSUFF_EXE)
 else
-TOOL_ALP_AS                  := alp$(HOSTSUFF_EXE)
+TOOL_ALP_AS                  ?= alp$(HOSTSUFF_EXE)
 endif
-TOOL_ALP_ASFLAGS             := -Mb
+TOOL_ALP_ASFLAGS             ?= -Mb
 
 
 ## Compile Assembly source.
