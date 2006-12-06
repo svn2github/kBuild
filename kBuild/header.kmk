@@ -224,6 +224,12 @@ else
   $(warning kBuild: Using vanilla GNU make isn't safe for anything but kBuild bootstrapping!)
  endif
 endif
+
+
+#
+# The revision in which this file was last modified.
+# This can be useful when using development versions of kBuild.
+#
 KMK_REVISION := $(patsubst %:,,  $Rev$  )
 
 
