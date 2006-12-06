@@ -224,6 +224,7 @@ else
   $(warning kBuild: Using vanilla GNU make isn't safe for anything but kBuild bootstrapping!)
  endif
 endif
+KMK_REVISION := $(patsubst %:,,  $Rev$  )
 
 
 #
