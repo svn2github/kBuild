@@ -26,7 +26,17 @@
 
 TOOL_TAR := tar unpacker.
 
-TOOL_TAR_UNPACK ?= tar$(HOSTSUFF_EXE)
+# Tool Specific Properties
+ifndef TOOL_TAR_UNPACK
+ TOOL_TAR_UNPACK := $(wildcard $(PATH_DEVTOOLS_BLD)/tar$(HOSTSUFF_EXE))
+ ifeq ($(TOOL_TAR_UNPACK),)
+  TOOL_TAR_UNPACK := tar$(HOSTSUFF_EXE)
+ endif
+else
+ TOOL_TAR_UNPACK := $(TOOL_TAR_UNPACK)
+endif
+
+# General Properties used by kBuild
 TOOL_TAR_UNPACKFLAGS ?=
 
 ## UNPACK one file.
