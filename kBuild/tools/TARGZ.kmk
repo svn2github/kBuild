@@ -1,4 +1,4 @@
-# $Id: GCC3.kmk 584 2006-11-24 05:10:00Z bird $
+# $Id$
 ## @file
 #
 # kBuild Tool Config - tar.gz unpacker.

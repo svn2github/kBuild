@@ -1,4 +1,4 @@
-# $Id: GCC3.kmk 380 2005-12-18 13:52:47Z bird $
+# $Id$
 ## @file
 #
 # kBuild Tool Config - GCC Cross compiler for AMD64 (aka x86_64).

@@ -1,4 +1,4 @@
-# $Id: $
+# $Id$
 ## @file
 #
 # kBuild - File included at top of a makefile or sub-makefile.

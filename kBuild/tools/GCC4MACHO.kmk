@@ -1,4 +1,4 @@
-# $Id: GCC4MACH.kmk 474 2006-07-16 03:43:04Z bird $
+# $Id$
 ## @file
 #
 # kBuild Tool Config - Darwin / Mac OS X / Mach-O GCC (v4).
