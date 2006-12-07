@@ -33,6 +33,9 @@ ifndef PATH_SDK_W2K3DDKX86
   PATH_SDK_W2K3DDKX86 := $(sort $(wildcard $(PATH_DEVTOOLS)/x86.win32/ddkwin2k3/2*))
  endif
  ifeq ($(PATH_SDK_W2K3DDKX86),)
+  PATH_SDK_W2K3DDKX86 := $(sort $(wildcard $(PATH_DEVTOOLS)/x86.win32/ddkwin2k3))
+ endif
+ ifeq ($(PATH_SDK_W2K3DDKX86),)
   PATH_SDK_W2K3DDKX86 := $(sort $(wildcard $(PATH_DEVTOOLS)/amd64.win/ddkwin2k3/2*))
  endif
  ifneq ($(PATH_SDK_W2K3DDKX86),)
