@@ -857,7 +857,8 @@ define def_fetch
 # common
 INSTARGET_$(target) := $($(target)_INST)
 ifneq ($(patsubst %/,ok,$(INSTARGET_$(target))),ok)
-$(error kBuild: Bad or missing INST property for target '$(target)': $(INSTARGET_$(target)))
+$(error kBuild: Bad or missing INST property for target '$(target)'. \
+	$(target)_INST='$($(target)_INST)' ($(origin $(target)_INST)))
 endif
 _TARGET_$(target)_FETCHED :=
 _TARGET_$(target)_UNPACKED :=
