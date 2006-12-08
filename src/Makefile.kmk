@@ -1,6 +1,9 @@
 # $Id$
 
 SUBDIRS = lib gmake sed kDepPre kDepIDB
+ifeq ($(BUILD_TARGET),win)
+SUBDIRS += ash
+endif
 
 DEPTH = ..
 include $(PATH_KBUILD)/rules.kmk
