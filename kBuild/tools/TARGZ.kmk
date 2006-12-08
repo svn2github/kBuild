@@ -27,14 +27,23 @@
 TOOL_TARGZ := tar.gz unpacker.
 
 # Tool Specific Properties
-ifndef TOOL_TARGZ_UNPACK
- TOOL_TARGZ_UNPACK := $(wildcard $(PATH_DEVTOOLS_BLD)/tar$(HOSTSUFF_EXE))
- ifeq ($(TOOL_TARGZ_UNPACK),)
-  TOOL_TARGZ_UNPACK := tar$(HOSTSUFF_EXE)
+ifndef TOOL_TARGZ_TAR
+ TOOL_TARGZ_TAR := $(wildcard $(PATH_DEVTOOLS_BLD)/tar/v*/tar$(HOSTSUFF_EXE))
+ ifeq ($(TOOL_TARGZ_TAR),)
+  TOOL_TARGZ_TAR := $(wildcard $(PATH_DEVTOOLS_BLD)/bin/tar$(HOSTSUFF_EXE))
+ endif
+ ifeq ($(TOOL_TARGZ_TAR),)
+  TOOL_TARGZ_TAR := $(TOOL_TAR_TAR)
+ endif
+ ifeq ($(TOOL_TARGZ_TAR),)
+  TOOL_TARGZ_TAR := $(lastword $(sort $(TOOL_TARGZ_TAR)))
+ else
+  TOOL_TARGZ_TAR := tar$(HOSTSUFF_EXE)
  endif
 else
- TOOL_TARGZ_UNPACK := $(TOOL_TARGZ_UNPACK)
+ TOOL_TARGZ_TAR := $(TOOL_TARGZ_TAR)
 endif
+TOOL_TARGZ_UNPACK ?= $(TOOL_TARGZ_TAR)
 
 # General Properties used by kBuild
 TOOL_TARGZ_UNPACKFLAGS ?= -z

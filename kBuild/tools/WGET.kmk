@@ -28,8 +28,13 @@ TOOL_WGET := wget fetcher.
 
 # Tool Specific Properties
 ifndef TOOL_WGET_FETCH
- TOOL_WGET_FETCH := $(wildcard $(PATH_DEVTOOLS_BLD)/bin/wget$(HOSTSUFF_EXE))
- ifeq ($(TOOL_WGET_FETCH),)
+ TOOL_WGET_FETCH := $(wildcard $(PATH_DEVTOOLS_BLD)/wget/v*/wget$(HOSTSUFF_EXE))
+ ifneq ($(TOOL_WGET_FETCH),)
+  TOOL_WGET_FETCH := $(wildcard $(PATH_DEVTOOLS_BLD)/bin/wget$(HOSTSUFF_EXE))
+ endif
+ ifneq ($(TOOL_WGET_FETCH),)
+  TOOL_WGET_FETCH := $(lastword $(sort $(TOOL_WGET_FETCH)))
+ else
   TOOL_WGET_FETCH := wget$(HOSTSUFF_EXE)
  endif
 else

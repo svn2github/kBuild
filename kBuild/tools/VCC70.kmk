@@ -28,12 +28,10 @@ TOOL_VCC70 := Visual C++ 7.0 (aka Visual Studio .NET), targeting x86.
 
 # Tool Specific Properties
 ifndef PATH_TOOL_VCC70
- PATH_TOOL_VCC70 := $(wildcard $(PATH_DEVTOOLS)/x86.win/vcc/v7 \
-							   $(PATH_DEVTOOLS)/x86.win32/vcc/v7 \
-							   $(PATH_DEVTOOLS)/x86.win32/vcc70)
- ifeq ($(PATH_TOOL_VCC70),)
-  PATH_TOOL_VCC70 := $(firstword $(PATH_TOOL_VCC70))
- endif
+ PATH_TOOL_VCC70 := $(firstword $(wildcard \
+	$(PATH_DEVTOOLS)/win.x86/vcc/v7 \
+	$(PATH_DEVTOOLS)/x86.win32/vcc/v7 \
+	$(PATH_DEVTOOLS)/x86.win32/vcc70) )
  # if not found, we'll enter 'pathless' mode.
 else
  # Resolve any fancy stuff once and for all.

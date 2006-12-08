@@ -34,13 +34,10 @@ ifndef PATH_SDK_DXSDK
   PATH_SDK_DXSDK := $(sort $(wildcard $(PATH_DEVTOOLS_TRG)/dxsdk/2*))
  endif
  ifeq ($(PATH_SDK_DXSDK),)
-  PATH_SDK_DXSDK := $(sort $(wildcard $(PATH_DEVTOOLS)/x86.win/dxsdk/2*))
+  PATH_SDK_DXSDK := $(sort $(wildcard $(PATH_DEVTOOLS)/win.x86/dxsdk/2*))
  endif
  ifeq ($(PATH_SDK_DXSDK),)
-  PATH_SDK_DXSDK := $(sort $(wildcard $(PATH_DEVTOOLS)/x86.win32/dxsdk/2*))
- endif
- ifeq ($(PATH_SDK_DXSDK),)
-  PATH_SDK_DXSDK := $(sort $(wildcard $(PATH_DEVTOOLS)/amd64.win/dxsdk/2*))
+  PATH_SDK_DXSDK := $(sort $(wildcard $(PATH_DEVTOOLS)/win.amd64/dxsdk/2*))
  endif
  ifneq ($(PATH_SDK_DXSDK),)
   PATH_SDK_DXSDK := $(call lastword,$(PATH_SDK_DXSDK))
