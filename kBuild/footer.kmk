@@ -610,12 +610,14 @@ MD5SUM := md5sum
 ## generates the fetch rule
 define def_fetch_src_fetch_rule
 # Indirect goal for downloading something.
+.PRECIOUS: $(out)
 $(out) $($(target)_$(srcname)_FETCH_OUTPUT_): | $($(target)_$(srcname)_FETCH_DEPORD_)
 	@$(ECHO) Downloading $(source)...
 	$$(RM) -f $(out) $(out).md5 ## @todo fancy stuff like download continuation
 	$($(target)_$(srcname)_FETCH_CMDS_)
-	@$(if $(md5),$(APPEND) $(out).md5 "$(subst 1,0,$(md5)) *$(out)")
-	$(if $(md5),$(MD5SUM) -c $(out).md5)
+	@$(if $(md5),$$(APPEND) $(out).md5 "$(md5) *$(out)")
+	$(if $(md5),$$(MD5SUM) -c $(out).md5)
+
 
 
 # Intermediate goal for making sure the md5 and size matches. it will (re) fetch the archive if necessary.
