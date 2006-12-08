@@ -51,12 +51,12 @@ TOOL_TAR_UNPACK_DEPORD =
 ifeq ($(BUILD_PLATFORM),win) # hacking with buggy unxutils on windows. it doesn't like driver letters.
 define TOOL_TAR_UNPACK_CMDS
 	$(TOOL_TAR_UNPACK) -x $(flags) -C $(subst G:,,$(inst)) -f $(archive)
-	$(TOOL_TAR_UNPACK) -t $(flags) -f $(archive)| $(SED) -e 's|^|$(inst)|g' > $(out)
+	$(TOOL_TAR_UNPACK) -t $(flags) -f $(archive) > $(out)
 endef
 else
 define TOOL_TAR_UNPACK_CMDS
 	$(TOOL_TAR_UNPACK) -x $(flags) -C $(inst) -f $(archive)
-	$(TOOL_TAR_UNPACK) -t $(flags) -f $(archive)| $(SED) -e 's|^|$(inst)|g' > $(out)
+	$(TOOL_TAR_UNPACK) -t $(flags) -f $(archive) > $(out)
 endef
 endif
 
