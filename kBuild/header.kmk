@@ -700,7 +700,7 @@ else
   QUIET :=
   MSG_L1 = @$(ECHO) "kBuild: $1 $2"
   MSG_L2 = @$(ECHO) "kBuild: $1"
-  ifeq ($(KBUILD_VERBOSE),full)
+  ifneq ($(KBUILD_VERBOSE),full)
    QUIET2:= @
   else
    QUIET2:=
