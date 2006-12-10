@@ -67,11 +67,11 @@ define TOOL_YASM_COMPILE_AS_CMDS
 		$(flags) $(addsuffix /,$(addprefix -I, $(incs))) $(addprefix -D, $(defs))\
 		-l $(outbase).lst\
 		-o $(obj)\
-		$(call ABSPATH,$(source))
+		$(abspath $(source))
 	$(QUIET)$(TOOL_YASM_AS)\
 		$(flags) $(addsuffix /,$(addprefix -I, $(incs))) $(addprefix -D, $(defs))\
 		-o $(obj) \
-		$(call ABSPATH,$(source)) \
+		$(abspath $(source)) \
 		-M > $(dep)
 endef
 

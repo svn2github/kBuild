@@ -68,12 +68,12 @@ define TOOL_NASM_COMPILE_AS_CMDS
 		$(flags) $(addsuffix /,$(addprefix -i, $(incs))) $(addprefix -D, $(defs))\
 		-l $(outbase).lst\
 		-o $(obj)\
-		$(call ABSPATH,$(source))
+		$(abspath $(source))
 	$(QUIET)$(TOOL_NASM_AS)\
 		$(flags) $(addsuffix /,$(addprefix -i, $(incs))) $(addprefix -D, $(defs))\
 		-l $(outbase).lst\
 		-o $(obj)\
-		$(call ABSPATH,$(source)) \
+		$(abspath $(source)) \
 		-M >> $(dep)
 endef
 

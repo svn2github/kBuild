@@ -129,7 +129,7 @@ define TOOL_XGCCAMD64LINUX_COMPILE_C_CMDS
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
 		-Wp,-MD,$(dep) -Wp,-MT,$(obj) -Wp,-MP\
 		-o $(obj)\
-		$(call ABSPATH,$(source))
+		$(abspath $(source))
 endef
 
 
@@ -153,7 +153,7 @@ define TOOL_XGCCAMD64LINUX_COMPILE_CXX_CMDS
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
 		-Wp,-MD,$(dep) -Wp,-MT,$(obj) -Wp,-MP\
 		-o $(obj)\
-		$(call ABSPATH,$(source))
+		$(abspath $(source))
 endef
 
 ## Compile Assembly source.
@@ -177,7 +177,7 @@ define TOOL_XGCCAMD64LINUX_COMPILE_AS_CMDS
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
 		-Wp,-MD,$(dep) -Wp,-MT,$(obj) -Wp,-MP\
 		-o $(obj)\
-		$(call ABSPATH,$(source))
+		$(abspath $(source))
 endef
 
 

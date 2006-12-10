@@ -101,7 +101,7 @@ define TOOL_GCC4MACHO_COMPILE_C_CMDS
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
 		-Wp,-MD,$(dep) -Wp,-MT,$(obj) -Wp,-MP\
 		-o $(obj)\
-		$(call ABSPATH,$(source))
+		$(abspath $(source))
 endef
 
 
@@ -125,7 +125,7 @@ define TOOL_GCC4MACHO_COMPILE_CXX_CMDS
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
 		-Wp,-MD,$(dep) -Wp,-MT,$(obj) -Wp,-MP\
 		-o $(obj)\
-		$(call ABSPATH,$(source))
+		$(abspath $(source))
 endef
 
 
@@ -150,7 +150,7 @@ define TOOL_GCC4MACHO_COMPILE_AS_CMDS
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
 		-Wp,-MD,$(dep) -Wp,-MT,$(obj) -Wp,-MP\
 		-o $(obj)\
-		$(call ABSPATH,$(source))
+		$(abspath $(source))
 endef
 
 
