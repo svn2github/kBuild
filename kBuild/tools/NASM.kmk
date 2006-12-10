@@ -64,12 +64,12 @@ TOOL_NASM_COMPILE_AS_OUTPUT = $(outbase).lst
 TOOL_NASM_COMPILE_AS_DEPEND =
 TOOL_NASM_COMPILE_AS_DEPORD =
 define TOOL_NASM_COMPILE_AS_CMDS
-	$(TOOL_NASM_AS)\
+	$(QUIET)$(TOOL_NASM_AS)\
 		$(flags) $(addsuffix /,$(addprefix -i, $(incs))) $(addprefix -D, $(defs))\
 		-l $(outbase).lst\
 		-o $(obj)\
 		$(call ABSPATH,$(source))
-	$(TOOL_NASM_AS)\
+	$(QUIET)$(TOOL_NASM_AS)\
 		$(flags) $(addsuffix /,$(addprefix -i, $(incs))) $(addprefix -D, $(defs))\
 		-l $(outbase).lst\
 		-o $(obj)\

@@ -58,7 +58,7 @@ TOOL_TARGZ_UNPACK_OUTPUT =
 TOOL_TARGZ_UNPACK_DEPEND =
 TOOL_TARGZ_UNPACK_DEPORD =
 define TOOL_TARGZ_UNPACK_CMDS
-	$(TOOL_TARGZ_UNPACK) -x $(flags) -C $(inst) -f $(archive)
-	$(TOOL_TARGZ_UNPACK) -t $(flags) -f $(archive) > $(out)
+	$(QUIET)$(TOOL_TARGZ_UNPACK) -x $(flags) -C $(inst) -f $(archive)
+	$(QUIET)$(TOOL_TARGZ_UNPACK) -t $(flags) -f $(archive) > $(out)
 endef
 

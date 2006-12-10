@@ -73,8 +73,8 @@ TOOL_ZIP_UNPACK_OUTPUT =
 TOOL_ZIP_UNPACK_DEPEND =
 TOOL_ZIP_UNPACK_DEPORD =
 define TOOL_ZIP_UNPACK_CMDS
-	$(TOOL_ZIP_UNPACK) $(flags) $(archive) -d "$(inst)"
-	$(TOOL_ZIP_UNPACK) -l $(archive) | $(SED) \
+	$(QUIET)$(TOOL_ZIP_UNPACK) $(flags) $(archive) -d "$(inst)"
+	$(QUIET)$(TOOL_ZIP_UNPACK) -l $(archive) | $(SED) \
 		-e '/ [0-2][0-9]:[0-6][0-9]/!d' \
 		-e 's/^.* [0-2][0-9]:[0-6][0-9]   //' \
 		> $(out)

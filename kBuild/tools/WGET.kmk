@@ -54,6 +54,6 @@ TOOL_WGET_FETCH_OUTPUT =
 TOOL_WGET_FETCH_DEPEND =
 TOOL_WGET_FETCH_DEPORD =
 define TOOL_WGET_FETCH_CMDS
-	$(TOOL_WGET_FETCH) $(flags) -P $(dir $(out)) $(source)
+	$(QUIET)$(TOOL_WGET_FETCH) $(flags) -P $(dir $(out)) $(source)
 endef
 
