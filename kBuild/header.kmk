@@ -690,6 +690,11 @@ ifdef KBUILD_QUIET
  MSG_L3 =
 else
  ifndef KBUILD_VERBOSE
+  ifneq ($(filter --pretty-command-printing,$(MAKEFLAGS)),)
+   export KBUILD_VERBOSE := 1
+  endif
+ endif
+ ifndef KBUILD_VERBOSE
   QUIET := @
   QUIET2:= @
   MSG_L1 = @$(ECHO) "kBuild: $1"
