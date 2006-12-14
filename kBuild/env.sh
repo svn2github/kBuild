@@ -41,7 +41,7 @@ echo "dbg: PATH_KBUILD=$PATH_KBUILD"
 
 # Type.
 if [ -z "$BUILD_TYPE" ]; then
-    BUILD_TYPE=debug
+    BUILD_TYPE=release
 fi
 export BUILD_TYPE
 echo "dbg: BUILD_TYPE=$BUILD_TYPE"
