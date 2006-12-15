@@ -473,15 +473,7 @@ stack-pop  = $(call stack-top,$1)$(call stack-popv,$1)
 # This does *NOT* return the top element, use 
 # @param    $1   The stack variable name
 # @remark This ain't very fast (that's why it's implemented in functions.c in kmk).
-define def_stack-popv_sub
-$1 :=$(__tmp)
-__tmp+=$(item)
-endef
-define def_stack-popv
-__tmp:=
-$(foreach item,$($1),$(eval $(value def_stack-popv_sub)))
-endef
-stack-popv = $(eval $(value def_stack-popv))
+stack-popv = $(eval $1:=$(wordlist 1,$(words $(wordlist 2,9999,$($1))),$($1)))
 
 ##
 # Retrieves the top element from the 'stack' variable.
