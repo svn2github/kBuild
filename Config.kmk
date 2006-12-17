@@ -111,8 +111,8 @@ endif
 ifndef TEMPLATE_BIN_TOOL
 TEMPLATE_BIN_TOOL               = GCC3
 TEMPLATE_BIN_CFLAGS.release     = -O3
-TEMPLATE_BIN_LDFLAGS            = -static
 ifeq ($(BUILD_TARGET),linux)
+TEMPLATE_BIN_LDFLAGS            = -static
 TEMPLATE_BIN_LIBS              += rt
 endif
 ifeq ($(BUILD_TARGET),freebsd)

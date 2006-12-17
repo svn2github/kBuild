@@ -51,7 +51,7 @@ echo "dbg: BUILD_TYPE=$BUILD_TYPE"
 if [ -z "$BUILD_PLATFORM_CPU" ]; then
     BUILD_PLATFORM_CPU=`uname -m`
     case "$BUILD_PLATFORM_CPU" in
-        x86_64|AMD64)
+        x86_64|AMD64|amd64)
            BUILD_PLATFORM_CPU='k8'
            ;;
     esac
