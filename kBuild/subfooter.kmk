@@ -56,7 +56,7 @@ $(foreach target,\
 # Switch back to the context of previous makefile on the stack.
 #
 MAKEFILE_CURRENT := $(call stack-pop,_SUB_MAKEFILE_STACK)
-PATH_SUB_CURRENT := $(abspath $(patsubst %/,%,$(dir $(MAKEFILE_CURRENT))))
+PATH_SUB_CURRENT := $(abspath $(dir $(MAKEFILE_CURRENT)))
 
 #
 # When we reach the last makefile we include the footer.
@@ -64,4 +64,5 @@ PATH_SUB_CURRENT := $(abspath $(patsubst %/,%,$(dir $(MAKEFILE_CURRENT))))
 ifeq ($(_SUB_MAKEFILE_STACK),)
  include $(PATH_KBUILD)/footer.kmk
 endif
+
 
