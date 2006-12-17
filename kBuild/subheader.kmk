@@ -45,12 +45,15 @@ else
  # Set the default path and makefile for all new targets.
  #
  define def_subfooter
- ifndef $(target)_PATH
- $(target)_PATH := $(PATH_SUB_CURRENT)
- endif
- ifndef $(target)_MAKEFILE
- $(target)_MAKEFILE := $(MAKEFILE_CURRENT)
- endif
+  ifndef $(target)_PATH
+   $(target)_PATH := $(PATH_SUB_CURRENT)
+  endif
+  ifndef $(target)_MAKEFILE
+   $(target)_MAKEFILE := $(MAKEFILE_CURRENT)
+  endif
+  ifndef PATH_$(target)
+   PATH_$(target) := $(call TARGET_PATH,$(target))
+  endif
  endef
 
  $(foreach target,\

@@ -28,19 +28,22 @@
 # Sanity check.
 #
 ifdef __footer_kmk__
-$(error kBuild: footer.kmk has already been included. Fix your sub-makefiles!)
+ $(error kBuild: footer.kmk has already been included. Fix your sub-makefiles!)
 endif
 
 #
 # Set the default path for all new targets.
 #
 define def_subheader
-ifndef $(target)_PATH
-$(target)_PATH := $(PATH_SUB_CURRENT)
-endif
-ifndef $(target)_MAKEFILE
-$(target)_MAKEFILE := $(MAKEFILE_CURRENT)
-endif
+ ifndef $(target)_PATH
+  $(target)_PATH := $(PATH_SUB_CURRENT)
+ endif
+ ifndef $(target)_MAKEFILE
+  $(target)_MAKEFILE := $(MAKEFILE_CURRENT)
+ endif
+ ifndef PATH_$(target)
+  PATH_$(target) := $(call TARGET_PATH,$(target))
+ endif
 endef
 
 $(foreach target,\
