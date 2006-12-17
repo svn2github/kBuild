@@ -24,6 +24,13 @@
 #
 #
 
+## Converts an relative path to an absolute path using the given CWD.
+# @returns absolute path.
+# @param    $1      The path to fixup.
+# @param    $2      The CWD to use.
+abspathex = $(foreach _fix_path,$1\
+,$(if $(subst :$(call no-root-slash,$(call no-drive,$(_fix_path))):,,:$(_fix_path):),$(_fix_path),$(abspath $2/$(_fix_path))))
+
 ## Figure out the tool for a source
 # @param    target       source file
 # @param    source       normalized main target
