@@ -24,6 +24,13 @@
 #
 #
 
+#
+# Sanity check.
+#
+ifdef __footer_kmk__
+$(error kBuild: footer.kmk has already been included. Fix your sub-makefiles!)
+endif
+
 ifndef _SUB_MAKEFILE_NOT_FIRST
 
  #
