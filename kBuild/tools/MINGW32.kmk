@@ -105,7 +105,6 @@ TOOL_MINGW32_ASOBJSUFF          ?= .o
 TOOL_MINGW32_ARFLAGS            ?= cr
 TOOL_MINGW32_ARLIBSUFF          ?= .a
 
-# The linux cross compiler ebuild haven't got g++, this is a hack for that.
 TOOL_MINGW32_LDFLAGS            ?=
 TOOL_MINGW32_LDFLAGS.debug      ?= -g
 TOOL_MINGW32_LDFLAGS.release    ?= -s
