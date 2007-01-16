@@ -41,7 +41,9 @@ ifndef PATH_SDK_LIBSDL
 	/usr/lib/libSDL.* \
 	/usr/local/lib/libSDL.* \
 	/opt/lib/libSDL.* \
-	/opt/local/lib/libSDL.*) )
+	/opt/local/lib/libSDL.* \
+	/sw/lib/libSDL.* \
+	) )
   ifneq ($(PATH_SDK_LIBSDL),)
    PATH_SDK_LIBSDL := $(patsubst %/,%,$(dir $(patsubst %/,%,$(dir $(PATH_SDK_LIBSDL)))))
   else
