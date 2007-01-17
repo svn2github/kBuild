@@ -314,7 +314,7 @@ SUFF_OBJ            := .o
 SUFF_LIB            := .a
 SUFF_DLL            := .dylib
 SUFF_EXE            :=
-SUFF_SYS            := .a
+SUFF_SYS            :=
 SUFF_RES            :=
 endif
 ifndef SUFF_OBJ
