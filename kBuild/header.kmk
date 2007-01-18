@@ -582,7 +582,10 @@ ifeq ($(origin $(prop)),environment)
 $(prop) =
 endif
 endef
-$(foreach prop,$(PROPS_ALL),$(eval $(value def_nuke_environment_prop)))
+$(foreach prop, $(PROPS_ALL) \
+	FETCHES PATCHES BLDPROGS LIBRARIES IMPORT_LIBS DLLS PROGRAMS SYSMODS INSTALLS OTHERS \
+	SUBDIRS MAKEFILES \
+	,$(eval $(value def_nuke_environment_prop)))
 
 endif
 
