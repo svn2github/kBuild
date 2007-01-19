@@ -191,18 +191,30 @@ endef
 # @param    $(othersrc) Unhandled sources.
 # @param    $(outbase)  Output basename (full). Use this for list files and such.
 TOOL_XGCCAMD64LINUX_LINK_LIBRARY_OUTPUT = $(out).ar-script
-TOOL_XGCCAMD64LINUX_LINK_LIBRARY_DEPEND = $(filter %.a %.lib,$(othersrc))
+TOOL_XGCCAMD64LINUX_LINK_LIBRARY_DEPEND = $(othersrc)
 TOOL_XGCCAMD64LINUX_LINK_LIBRARY_DEPORD =
+ifeq ($(filter append-dash-n,$(KMK_FEATURES)),append-dash-n)
+define TOOL_XGCCAMD64LINUX_LINK_LIBRARY_CMDS
+	$(QUIET)$(APPEND) $(out).ar-script 'CREATE $(out)'
+	$(QUIET)$(APPEND) -n $(out).ar-script \
+		$(foreach o,$(objs), 'ADDMOD $(o)') \
+		$(foreach o,$(othersrc)), 'ADDLIB $(o)')
+	$(QUIET)$(APPEND) $(out).ar-script 'SAVE'
+	$(QUIET)$(APPEND) $(out).ar-script 'END'
+	$(QUIET)$(TOOL_XGCCAMD64LINUX_AR) -M < $(out).ar-script
+endef
+else
 define TOOL_XGCCAMD64LINUX_LINK_LIBRARY_CMDS
 	$(QUIET)$(APPEND) $(out).ar-script "CREATE $(out)"
 	$(foreach o, $(objs)\
 		,$(NL)$(TAB)$(QUIET)$(APPEND) $(out).ar-script "ADDMOD $(o)")
-	$(foreach srclib, $(filter %.a %.lib,$(othersrc))\
+	$(foreach srclib, $(othersrc)\
 		,$(NL)$(TAB)$(QUIET)$(APPEND) $(out).ar-script "ADDLIB $(srclib)")
 	$(QUIET)$(APPEND) $(out).ar-script "SAVE"
 	$(QUIET)$(APPEND) $(out).ar-script "END"
 	$(QUIET)$(TOOL_XGCCAMD64LINUX_AR) -M < $(out).ar-script
 endef
+endif
 
 
 ## Link program
