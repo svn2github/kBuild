@@ -30,7 +30,7 @@
 #include <ctype.h>
 #ifdef _MSC_VER
 # include <io.h>
-#endif 
+#endif
 #include "kmkbuiltin/err.h"
 #include "kmkbuiltin.h"
 
@@ -183,6 +183,8 @@ int kmk_builtin_command_parsed(int argc, char **argv)
     umask(iumask);
     if (!strcmp(pszCmd, "append"))
         rc = kmk_builtin_append(argc, argv, environ);
+    else if (!strcmp(pszCmd, "printf"))
+        rc = kmk_builtin_printf(argc, argv, environ);
     else if (!strcmp(pszCmd, "echo"))
         rc = kmk_builtin_echo(argc, argv, environ);
     else if (!strcmp(pszCmd, "install"))
