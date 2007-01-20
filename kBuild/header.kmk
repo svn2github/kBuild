@@ -810,9 +810,9 @@ ifeq ($(KBUILD_MSG_STYLE),default)
  # @param 1     Directory name.
  MSG_INST_DIR ?= $(call MSG_L1,Installing directory $1)
 
-else ifeq ($(KBUILD_MSG_STYLE),dense)
+else ifeq ($(KBUILD_MSG_STYLE),short)
  #
- # The 'dense' style
+ # The 'short' style
  #
  ifndef KBUILD_VERBOSE
   MSG_L1 ?= @$(ECHO) "  $(subst $(PATH_ROOT)/,{R}/,$(subst $(PATH_OUT)/,{O}/,$(subst $(CURDIR)/,{C}/,$(subst $(PATH_TARGET)/,{T}/,$1))))"
@@ -820,7 +820,6 @@ else ifeq ($(KBUILD_MSG_STYLE),dense)
   MSG_L1 ?= @$(ECHO) "  $(subst $(PATH_ROOT)/,{R}/,$(subst $(PATH_OUT)/,{O}/,$(subst $(CURDIR)/,{C}/,$(subst $(PATH_TARGET)/,{T}/,$1 $2))))"
   MSG_L2 ?= @$(ECHO) "  $(subst $(PATH_ROOT)/,{R}/,$(subst $(PATH_OUT)/,{O}/,$(subst $(CURDIR)/,{C}/,$(subst $(PATH_TARGET)/,{T}/,$1))))"
  endif
- MAKEFLAGS := --no-print-directory $(MAKEFLAGS)
 
  ## Fetch starting.
  # @param 1     Target name.
