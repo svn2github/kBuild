@@ -3,7 +3,7 @@
  *
  * kDepPre - Dependency Generator using Precompiler output.
  *
- * Copyright (c) 2005-2006 knut st. osmundsen <bird@innotek.de>
+ * Copyright (c) 2005-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
  *
  *
  * This file is part of kBuild.

@@ -3,7 +3,7 @@
  *
  * Unix fakes for MSC.
  *
- * Copyright (c) 2005 knut st. osmundsen <bird@innotek.de>
+ * Copyright (c) 2005-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -40,7 +40,7 @@
 
 #if !defined(__GNUC__) && !defined(__attribute__)
 #define __attribute__(a)
-#endif 
+#endif
 
 #define S_ISDIR(m)  (((m) & _S_IFMT) == _S_IFDIR)
 #define S_ISREG(m)  (((m) & _S_IFMT) == _S_IFREG)
@@ -92,14 +92,14 @@ typedef unsigned int u_int;
 typedef unsigned short u_short;
 
 #ifndef timerisset
-struct timeval 
+struct timeval
 {
     long tv_sec;
     long tv_usec;
 };
-#endif 
+#endif
 
-struct iovec 
+struct iovec
 {
     char *iov_base;
     size_t iov_len;
@@ -131,7 +131,7 @@ int mkstemp(char *temp);
 int snprintf(char *buf, size_t size, const char *fmt, ...);
 #else
 #define snprintf _snprintf
-#endif 
+#endif
 size_t strlcpy(char *, const char *, size_t);
 int symlink(const char *pszDst, const char *pszLink);
 int utimes(const char *pszPath, const struct timeval *paTimes);
@@ -151,9 +151,9 @@ pid_t tcgetpgrp(int fd);
 
 /* signal hacks */
 #include <signal.h>
-typedef struct sigset 
-{   
-    unsigned long __bitmap[1]; 
+typedef struct sigset
+{
+    unsigned long __bitmap[1];
 } sigset_t;
 typedef void __sighandler_t(int);
 typedef	void __siginfohandler_t(int, struct __siginfo *, void *);
@@ -199,5 +199,5 @@ int	sigemptyset(sigset_t *);
 int	siginterrupt(int, int);
 
 #endif /* _MSC_VER */
-#endif 
+#endif
 

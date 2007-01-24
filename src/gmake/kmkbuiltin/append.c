@@ -3,7 +3,7 @@
  *
  * kMk Builtin command - append text to file.
  *
- * Copyright (c) 2005 knut st. osmundsen <bird@anduin.net>
+ * Copyright (c) 2005-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
  *
  *
  * This file is part of kBuild.

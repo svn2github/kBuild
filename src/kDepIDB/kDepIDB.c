@@ -3,7 +3,7 @@
  *
  * kDepIDB - Extract dependency information from a MS Visual C++ .idb file.
  *
- * Copyright (c) 2006 knut st. osmundsen <bird@innotek.de>
+ * Copyright (c) 2006-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
  *
  *
  * This file is part of kBuild.

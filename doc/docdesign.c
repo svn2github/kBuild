@@ -2,7 +2,7 @@
  *
  * Documentation generator.
  *
- * Copyright (c) 2002 knut st. osmundsen <bird@anduin.net>
+ * Copyright (c) 2002 knut st. osmundsen <bird-kBuild-spam@anduin.net>
  *
  *
  * This file is part of kBuild.

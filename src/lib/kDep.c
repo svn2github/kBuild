@@ -1,9 +1,9 @@
 /* $Id$ */
 /** @file
  *
- * kDep - Common Dependency Managemnt Code. 
+ * kDep - Common Dependency Managemnt Code.
  *
- * Copyright (c) 2004-2006 knut st. osmundsen <bird@innotek.de>
+ * Copyright (c) 2004-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
  *
  *
  * This file is part of kBuild.
@@ -83,9 +83,9 @@ static char *fixslash(char *pszFilename)
 
 #ifdef __WIN32__
 /**
- * Corrects the case of a path and changes any path components containing 
+ * Corrects the case of a path and changes any path components containing
  * spaces with the short name (which can be longer).
- * 
+ *
  * Expects a _fullpath!
  *
  * @param   pszPath     Pointer to the path, both input and output.

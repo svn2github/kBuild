@@ -3,7 +3,7 @@
  *
  * Birds key additions to Visual Slickedit.
  *
- * Copyright (c) 2004 knut st. osmundsen <bird@innotek.de>
+ * Copyright (c) 2004-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
  *
  *
  * This file is part of kBuild.

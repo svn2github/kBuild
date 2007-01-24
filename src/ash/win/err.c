@@ -3,7 +3,7 @@
  *
  * Override err.h so we get the program name right.
  *
- * Copyright (c) 2005 knut st. osmundsen <bird@innotek.de>
+ * Copyright (c) 2005-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -32,7 +32,7 @@
 
 
 /** The current program name. */
-const char *g_progname = "kmk"; 
+const char *g_progname = "kmk";
 
 
 int err(int eval, const char *fmt, ...)

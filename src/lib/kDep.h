@@ -1,9 +1,9 @@
 /* $Id$ */
 /** @file
  *
- * kDep - Common Dependency Managemnt Code. 
+ * kDep - Common Dependency Managemnt Code.
  *
- * Copyright (c) 2004-2006 knut st. osmundsen <bird@innotek.de>
+ * Copyright (c) 2004-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
  *
  *
  * This file is part of kBuild.
