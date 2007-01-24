@@ -3,7 +3,7 @@
 #
 # kBuild - File included at top of a makefile or sub-makefile.
 #
-# Copyright (c) 2006 knut st. osmundsen <bird-srcspam@anduin.net>
+# Copyright (c) 2006-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
 #
 #
 # This file is part of kBuild.
@@ -38,7 +38,7 @@ ifndef _SUB_MAKEFILE_NOT_FIRST
  #
  _SUB_MAKEFILE_NOT_FIRST := 1
  include $(PATH_KBUILD)/header.kmk
- 
+
 else
 
  #
