@@ -42,7 +42,7 @@
 #endif
 #include "kDep.h"
 
-#define OFFSETOF(type, member)  ( (int)(void *)&( ((type *)(void *)0)->member) )
+#define OFFSETOF(type, member)  ( (int)(size_t)(void *)&( ((type *)(void *)0)->member) )
 
 /*#define DEBUG*/
 #ifdef DEBUG
