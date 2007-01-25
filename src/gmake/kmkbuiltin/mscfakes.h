@@ -121,6 +121,7 @@ int mkstemp(char *temp);
 #define readlink(link, buf, size) -1
 #define reallocf(old, size) realloc(old, size)
 intmax_t strtoimax(const char *nptr, char **endptr, int base);
+uintmax_t strtoumax(const char *nptr, char **endptr, int base);
 int asprintf(char **strp, const char *fmt, ...);
 int vasprintf(char **strp, const char *fmt, va_list ap);
 #if _MSC_VER < 1400
