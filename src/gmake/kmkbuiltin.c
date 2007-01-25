@@ -34,7 +34,9 @@
 #include "kmkbuiltin/err.h"
 #include "kmkbuiltin.h"
 
+#ifndef _MSC_VER
 extern char **environ;
+#endif
 
 int kmk_builtin_command(const char *pszCmd)
 {
