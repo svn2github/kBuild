@@ -178,7 +178,7 @@ define TOOL_GCC32_LINK_LIBRARY_CMDS
 	$(QUIET)$(APPEND) $(out).ar-script 'CREATE $(out)'
 	$(QUIET)$(APPEND) -n $(out).ar-script \
 		$(foreach o,$(objs), 'ADDMOD $(o)') \
-		$(foreach o,$(othersrc)), 'ADDLIB $(o)')
+		$(foreach o,$(othersrc), 'ADDLIB $(o)')
 	$(QUIET)$(APPEND) $(out).ar-script 'SAVE'
 	$(QUIET)$(APPEND) $(out).ar-script 'END'
 	$(QUIET)$(TOOL_GCC32_AR) -M < $(out).ar-script
