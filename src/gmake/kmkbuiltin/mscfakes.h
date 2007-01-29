@@ -31,6 +31,7 @@
 #include <direct.h>
 #include <time.h>
 #include <stdarg.h>
+#include <malloc.h>
 #undef setmode
 #include "getopt.h"
 
