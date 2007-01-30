@@ -1,5 +1,10 @@
 /* $Id$ */
 
+The change log has been discontinued. check the trac timeline instead:
+
+    http://svn.netlabs.org/kbuild/timeline
+
+
 2006-12-03:
     - kBuild/bin/x86.win32:
         o Rebuild and cleaned out dlls that mv and sed required.
