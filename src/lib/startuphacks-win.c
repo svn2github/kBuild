@@ -1,4 +1,4 @@
-/* $Id: $ */
+/* $Id$ */
 /** @file
  *
  * kBuild - Alternative argument parser for the windows startup code.
