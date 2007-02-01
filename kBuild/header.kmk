@@ -732,7 +732,7 @@ endif
 ifndef KBUILD_VERBOSE
  ifndef KBUILD_QUIET
   ifneq ($(filter --pretty-command-printing,$(MAKEFLAGS)),)
-   export KBUILD_VERBOSE := 1
+   export KBUILD_VERBOSE := 2
   endif
  endif
 endif
