@@ -30,6 +30,7 @@
 #include "kmkbuiltin.h"
 #ifndef kmk_builtin_append
 # include "make.h"
+# include "filedef.h"
 # include "variable.h"
 #endif
 
