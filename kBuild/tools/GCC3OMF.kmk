@@ -169,11 +169,11 @@ TOOL_GCC3OMF_LINK_LIBRARY_DEPEND = $(othersrc)
 TOOL_GCC3OMF_LINK_LIBRARY_DEPORD =
 define TOOL_GCC3OMF_LINK_LIBRARY_CMDS
 	$(if $(filter %.def %.imp,$(othersrc))\
-		,$(QUIET)$(APPEND) -n $(outbase).rsp $(out) $(filter %.def %.imp,$(othersrc))\
+		,$(QUIET)$(APPEND) -n $(outbase).rsp $(filter %.def %.imp,$(othersrc))\
 		 $(NL)$(TAB)$(QUIET)$(QUIET)$(TOOL_GCC3OMF_AR_IMP) -o $(out) @$(outbase).rsp\
 		 $(NL)$(TAB)$(QUIET)$(RM) -f $(outbase).rsp)
-	$(QUIET)$(APPEND) -n $(outbase).rsp $(objs) $(filter-out %.def %.imp,$(othersrc))
-	$(QUIET)$(TOOL_GCC3OMF_AR) $(flags) $(out) @$(outbase).rsp
+	$(QUIET)$(APPEND) -n $(outbase).rsp $(flags) $(out) $(objs) $(filter-out %.def %.imp,$(othersrc))
+	$(TOOL_GCC3OMF_AR) @$(outbase).rsp
 endef
 
 
