@@ -794,6 +794,11 @@ ifeq ($(KBUILD_MSG_STYLE),default)
  # @param 2     The primary link output file name.
  # @param 3     The link tool operation (LINK_LIBRARY,LINK_PROGRAM,LINK_DLL,LINK_SYSMOD,++).
  MSG_LINK     ?= $(call MSG_L1,Linking $1,=> $2)
+ ## Merging a library into the target (during library linking).
+ # @param 1     Target name.
+ # @param 2     The output library name.
+ # @param 3     The input library name.
+ MSG_AR_MERGE ?= $(call MSG_L1,Merging $2 into $1, ($2))
  ## Creating a directory (build).
  # @param 1     Directory name.
  MSG_MKDIR    ?= $(call MSG_L2,Creating directory $1)
