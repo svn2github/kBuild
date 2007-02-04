@@ -798,7 +798,7 @@ ifeq ($(KBUILD_MSG_STYLE),default)
  # @param 1     Target name.
  # @param 2     The output library name.
  # @param 3     The input library name.
- MSG_AR_MERGE ?= $(call MSG_L1,Merging $2 into $1, ($2))
+ MSG_AR_MERGE ?= $(call MSG_L1,Merging $3 into $1, ($2))
  ## Creating a directory (build).
  # @param 1     Directory name.
  MSG_MKDIR    ?= $(call MSG_L2,Creating directory $1)
