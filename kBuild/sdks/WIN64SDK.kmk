@@ -34,10 +34,7 @@ ifndef PATH_SDK_WIN64SDK
   PATH_SDK_WIN64SDK := $(PATH_SDK_WINPSDK)
  endif
  ifeq ($(PATH_SDK_WIN64SDK),)
-  PATH_SDK_WIN64SDK := $(wildcard $(PATH_DEVTOOLS)/x86.win/sdk/2*)
- endif
- ifeq ($(PATH_SDK_WIN64SDK),)
-  PATH_SDK_WIN64SDK := $(wildcard $(PATH_DEVTOOLS)/x86.win32/sdk/2*)
+  PATH_SDK_WIN64SDK := $(wildcard $(PATH_DEVTOOLS)/win.x86/sdk/2*)
  endif
  ifneq ($(PATH_SDK_WIN64SDK),)
   PATH_SDK_WIN64SDK := $(lastword $(sort $(PATH_SDK_WIN64SDK)))
@@ -54,7 +51,7 @@ PATH_SDK_WIN64SDK_INC := $(firstword $(wildcard $(PATH_SDK_WIN64SDK)/[Ii][Nn][Cc
 endif
 
 ifndef PATH_SDK_WIN64SDK_LIB
-PATH_SDK_WIN64SDK_LIB.amd64 := $(firstword $(wildcard $(PATH_SDK_WIN64SDK)/[Ll][Ii][Bb]/[Aa][Mm][Dd]64) $(PATH_SDK_WIN64SDK)/Lib/AMD64)
+PATH_SDK_WIN64SDK_LIB := $(firstword $(wildcard $(PATH_SDK_WIN64SDK)/[Ll][Ii][Bb]/[Aa][Mm][Dd]64) $(PATH_SDK_WIN64SDK)/Lib/AMD64)
 endif
 
 ifndef PATH_SDK_WIN64SDK_BIN
