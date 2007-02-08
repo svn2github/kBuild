@@ -226,8 +226,6 @@ ifdef KMK_VERSION
    $(warning kBuild: kmk minor version mismatch, expected '1' found '$(KBUILD_VERSION_MINOR)'!)
   endif
  endif
-else
- include $(PATH_KBUILD)/gnumake-header.kmk
 endif
 
 
@@ -704,6 +702,14 @@ DEFAULT_PASSES := BLDPROGS LIBRARIES DLLS BINARIES OTHERS INSTALLS
 # The passes that should be defined. This must include
 # all passes mentioned by DEFAULT_PASSES.
 PASSES := FETCHES PATCHES $(DEFAULT_PASSES) NOTHING CLEAN
+
+
+#
+# Include the gnumake header hacks if we're not using kmk.
+#
+ifndef KMK_VERSION
+ include $(PATH_KBUILD)/gnumake-header.kmk
+endif
 
 
 #
