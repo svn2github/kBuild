@@ -664,7 +664,7 @@ PASS_OTHERS_pass    := others
 # This pass installs the built entities to a sandbox area.
 PASS_INSTALLS       := Install
 PASS_INSTALLS_trgs  :=
-PASS_INSTALLS_vars  := _INSTALLS_DIRS _INSTALLS
+PASS_INSTALLS_vars  := _INSTALLS_DIRS _INSTALLS _INSTALLS_FILES
 PASS_INSTALLS_pass  := installs
 
 ## PASS: packing

@@ -2328,7 +2328,7 @@ dlls:      $(_DLLS)
 programs:  $(_PROGRAMS)
 sysmods:   $(_SYSMODS)
 others:    $(_OTHERS)
-installs:  $(_INSTALLS)
+installs:  $(_INSTALLS) $(_INSTALLS_DIRS) $(_INSTALLS_FILES)
 
 
 #
