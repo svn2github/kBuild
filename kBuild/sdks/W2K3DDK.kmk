@@ -24,7 +24,7 @@
 #
 #
 
-SDK_W2K3DDKAMD64 := The Microsoft Windows 2003 DDK, targeting $(BUILD_TARGET).
+SDK_W2K3DDK := The Microsoft Windows 2003 DDK, targeting $(BUILD_TARGET).
 
 # SDK Specific Properties
 ifndef PATH_SDK_W2K3DDK
