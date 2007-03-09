@@ -171,6 +171,7 @@ define TOOL_GCC4MACHO_LINK_LIBRARY_CMDS
 		$(NL)$(TAB)$(QUIET)$(MKDIR) -p $(dir $(outbase))/ar.tmp.dir/ \
 		$(NL)$(TAB)$(QUIET)(cd $(dir $(outbase))ar.tmp.dir/ \
 			&& $(TOOL_GCC4MACHO_AR) -x $(abspath $(lib)) \
+		    && $(RM_EXT) -f ./__.SYMDEF* \
 			&& $(TOOL_GCC4MACHO_AR) $(flags) $(out) *) \
 		$(NL)$(TAB)$(QUIET)$(RM_EXT) -f $(dir $(outbase))/ar.tmp.dir/* \
 		$(NL)$(TAB)$(QUIET)$(RMDIR) $(dir $(outbase))ar.tmp.dir/)
