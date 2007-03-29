@@ -548,7 +548,7 @@ PROPS_SINGLE := $(PROPS_TOOLS) INST NOINST BLD_TYPE BLD_TRG BLD_TRG_ARCH BLD_TRG
 ## PROPS_DEFERRED
 # This list of non-accumulative target properties which are functions,
 # and thus should not be expanded until the very last moment.
-PROPS_DEFERRED := INSTFUN INSTALLER
+PROPS_DEFERRED := INSTFUN INSTALLER PRE_CMDS POST_CMDS
 
 ## PROPS_ACCUMULATE_R
 # The list of accumulative target properties where the right most value/flag
