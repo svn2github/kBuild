@@ -45,7 +45,7 @@
 
 #define OFFSETOF(type, member)  ( (int)(size_t)(void *)&( ((type *)(void *)0)->member) )
 
-#define DEBUG
+/*#define DEBUG*/
 #ifdef DEBUG
 # define dprintf(a)             printf a
 # define dump(pb, cb, offBase)  hexdump(pb,cb,offBase)
