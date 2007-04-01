@@ -140,6 +140,7 @@ ifndef TEMPLATE_BIN_TOOL
  endif
  ifeq ($(BUILD_TARGET),solaris)
   TEMPLATE_BIN_LIBS            += rt
+  TEMPLATE_BIN_LDFLAGS         += -Wl,-i
  endif
  ifdef NIX_INSTALL_DIR
   TEMPLATE_BIN_INST             = $(NIX_INSTALL_DIR_BIN)/
