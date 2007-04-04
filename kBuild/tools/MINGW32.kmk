@@ -257,7 +257,8 @@ endef
 # @param    $(custom_pre)   Custom step invoked before linking.
 # @param    $(custom_post)  Custom step invoked after linking.
 # @param    $(outbase)  Output basename (full). Use this for list files and such.
-TOOL_MINGW32_LINK_DLL_OUTPUT = $(outbase).a $(outbase).exp
+TOOL_MINGW32_LINK_DLL_OUTPUT = $(outbase).a $(outbase).exp $(PATH_LIB)/$(notdir $(outbase)).exp $(PATH_LIB)/$(notdir $(outbase)).a
+## @todo Find a better solution for installing the extra files (.a, .exp, .pdb, .map, etc).
 TOOL_MINGW32_LINK_DLL_DEPEND = $(foreach lib,$(libs),$(if $(findstring $(lib),$(subst /,x,$(lib))),, $(lib)))\
 	$(filter %.def %.res,$(othersrc))
 TOOL_MINGW32_LINK_DLL_DEPORD = $(call DIRDEP,$(PATH_LIB))
