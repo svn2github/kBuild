@@ -751,6 +751,23 @@ include $(_CFGFILE)
 
 
 #
+# Finalize a the central path variables now that we've included the Config.kmk file.
+#
+# This prevents some trouble when users override the defaults for these
+# variables and uses relative paths or paths with incorrect case.
+#
+PATH_OUT    := $(abspath $(PATH_OUT))
+PATH_OBJ    := $(abspath $(PATH_OBJ))
+PATH_TARGET := $(abspath $(PATH_TARGET))
+PATH_INS    := $(abspath $(PATH_INS))
+PATH_BIN    := $(abspath $(PATH_BIN))
+PATH_DLL    := $(abspath $(PATH_DLL))
+PATH_SYS    := $(abspath $(PATH_SYS))
+PATH_LIB    := $(abspath $(PATH_LIB))
+PATH_DOC    := $(abspath $(PATH_DOC))
+
+
+#
 # Setup the message style. The default one is inlined.
 #
 # See kBuild/msgstyles for more styles or use KBUILD_MSG_STYLE_PATHS
@@ -881,7 +898,6 @@ else
   MSG_L2 ?= @$(ECHO) "kBuild: $1"
  endif
 endif
-
 
 
 # end-of-file-content

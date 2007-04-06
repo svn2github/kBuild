@@ -28,21 +28,6 @@ ifndef __footer_kmk__
 # start-of-file-content
 
 #
-# Make sure that the core variables we defined in recursive expansion mode
-# up in header.kmk get expanded before we really start using them. The kBuild
-# functions added to kmk to speed stuff up assumes that the variables are
-# expanded here.
-#
-PATH_OBJ    := $(PATH_OBJ)
-PATH_TARGET := $(PATH_TARGET)
-PATH_INS    := $(PATH_INS)
-PATH_BIN    := $(PATH_BIN)
-PATH_DLL    := $(PATH_DLL)
-PATH_SYS    := $(PATH_SYS)
-PATH_LIB    := $(PATH_LIB)
-PATH_DOC    := $(PATH_DOC)
-
-#
 # Variables.
 # (Some of these need initialization before including definitions using them.)
 #
