@@ -43,6 +43,16 @@ FORCE:
 .SUFFIXES:
 SUFFIXES :=
 
+#
+# Enable delete (targets) on error.
+#
+.DELETE_ON_ERROR:
+
+#
+# Enable second expansion of prerequisites.
+#
+.SECONDEXPANSION:
+
 
 #
 # General purpose macros.
