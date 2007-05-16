@@ -79,12 +79,35 @@ TAB := $(subst .,	,.)
 SP := $(subst ., ,.)
 
 ##
-# Checks if two strings are equal.
-# @returns	blank if equal
-# @returns	non-blank if not equal.
-# @param    $1   String 1.
-# @param    $2   String 2
-STRCMP = $( todo )
+# Hash character.
+define HASH
+#
+endef
+
+##
+# Colon character.
+COLON := :
+
+##
+# Semicolon character.
+SEMICOLON := ;
+
+##
+# Comma character.
+COMMA := ,
+
+##
+# Dot character.
+DOT := .
+
+##
+# Dollar character.
+DOLLAR := $$
+
+##
+# Equal character.
+EQUAL := =
+
 
 #
 # Set default build type.
