@@ -75,6 +75,10 @@ endef
 TAB := $(subst .,	,.)
 
 ##
+# Newline + tab characters (for generating commands).
+NLTAB = $(NL)$(TAB)
+
+##
 # Space character.
 SP := $(subst ., ,.)
 
