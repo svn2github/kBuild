@@ -52,6 +52,12 @@ DEFS += \
 endif
 
 #
+# Where to fine the GNU Make stuff (for FreeBSD and Windows).
+#
+PATH_GNUMAKE_SRC               ?= $(PATH_ROOT)/src/gmake
+
+
+#
 # Template for building commandline tools.
 #
 TEMPLATE_BIN = Commandline binary
@@ -98,8 +104,8 @@ ifeq ($(filter-out win nt,$(BUILD_TARGET)),)
  TEMPLATE_BIN_CFLAGS.profile    = -O2 -GH -Gh
  TEMPLATE_BIN_INCS             += \
 	. \
-	$(PATH_ROOT)/src/gmake/w32/include \
-	$(PATH_ROOT)/src/gmake/glob
+	$(PATH_GNUMAKE_SRC)/w32/include \
+	$(PATH_GNUMAKE_SRC)/glob
  TEMPLATE_BIN_LDFLAGS           = /SUBSYSTEM:console /INCREMENTAL:no /NOD /DEBUG
  ifeq (1,0)
  TEMPLATE_BIN_CFLAGS           += -MT
@@ -133,7 +139,7 @@ ifndef TEMPLATE_BIN_TOOL
  ifeq ($(BUILD_TARGET),freebsd)
   TEMPLATE_BIN_LIBS            += iconv intl
   TEMPLATE_BIN_LIBPATH         += /usr/local/lib
-  TEMPLATE_BIN_INCS            += $(PATH_ROOT)/src/gmake/glob /usr/local/include
+  TEMPLATE_BIN_INCS            += $(PATH_GNUMAKE_SRC)/glob /usr/local/include
  endif
  ifeq ($(BUILD_TARGET),linux)
   TEMPLATE_BIN_LIBS            += rt
