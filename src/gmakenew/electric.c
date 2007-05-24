@@ -47,6 +47,7 @@ static unsigned freed_tail = 0;
 static void fatal_error (const char *msg)
 {
   fprintf (stderr, "electric heap error: %s\n", msg);
+  __debugbreak ();
   abort ();
   exit (1);
 }

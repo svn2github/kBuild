@@ -28,6 +28,7 @@
 #ifdef WINDOWS32
 # include <malloc.h>
 #endif
+#include <string.h> /* strdup */
 
 void xfree (void *);
 void *xcalloc (size_t, size_t);
