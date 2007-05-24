@@ -32,6 +32,9 @@ TEMPLATE_BIN-KMK_INCS.darwin = glob
 TEMPLATE_BIN-KMK_INCS.freebsd = glob
 TEMPLATE_BIN-KMK_INCS.solaris = glob
 TEMPLATE_BIN-KMK_LIBS = $(TEMPLATE_BIN_LIBS) $(TARGET_kmkmissing)
+ifeq (disabled,) # for electric heap (see electric.c) - windows only.
+TEMPLATE_BIN-KMK_CFLAGS = $(TEMPLATE_BIN_CFLAGS) /FI$(PATH_CURRENT)/electric.h -DELECTRIC_HEAP=1
+endif
 
 
 #
@@ -45,7 +48,8 @@ kmkmissing_SOURCES = \
 	kmkbuiltin/err.c \
 	kmkbuiltin/setmode.c \
 	kmkbuiltin/strmode.c \
-	kmkbuiltin/strlcpy.c
+	kmkbuiltin/strlcpy.c \
+	electric.c
 
 kmkmissing_SOURCES.darwin = \
 	kmkbuiltin/darwin.c \
