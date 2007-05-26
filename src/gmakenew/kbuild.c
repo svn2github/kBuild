@@ -193,7 +193,7 @@ const char *get_path_kbuild_bin(void)
 static void
 kbuild_apply_defpath(struct variable *pDefPath, char **ppsz, int *pcch, int *pcchAlloc, int fCanFree)
 {
-    char *pszIterator;
+    const char *pszIterator;
     const char *pszInCur;
     unsigned int cchInCur;
     unsigned int cRelativePaths;
@@ -811,7 +811,7 @@ kbuild_get_sdks(struct kbuild_sdks *pSdks, struct variable *pTarget, struct vari
     char *pszTmp;
     unsigned cchCur;
     char *pszCur;
-    char *pszIterator;
+    const char *pszIterator;
 
     /* basic init. */
     pSdks->pa = NULL;
