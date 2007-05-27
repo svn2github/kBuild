@@ -1,6 +1,6 @@
 # $Id$
 
-SUBDIRS = lib gmake sed kDepPre kDepIDB
+SUBDIRS = lib kmk sed kDepPre kDepIDB
 ifneq ($(BUILD_TARGET),win)
 SUBDIRS += ash
 endif
