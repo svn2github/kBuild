@@ -120,7 +120,7 @@ void init_kbuild(int argc, char **argv)
         szTmp[rc] == '\0';
 
 #elif defined(__OS2__)
-     _execname(tmp, GET_PATH_MAX);
+     _execname(szTmp, GET_PATH_MAX);
      rc = 0;
 
 #elif defined(WINDOWS32)
