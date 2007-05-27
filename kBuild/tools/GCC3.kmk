@@ -40,7 +40,7 @@ ifeq ($(BUILD_TARGET),os2)
 else
  TOOL_GCC3_AR_IMP ?= $(ECHO) not supported!
 endif
-TOOL_GCC3_LD ?= g++$(HOSTSUFF_EXE)
+TOOL_GCC3_LD ?= gcc$(HOSTSUFF_EXE)
 TOOL_GCC3_LD_SYSMOD ?= ld$(HOSTSUFF_EXE)
 ifndef TOOL_GCC3_LDFLAGS.$(BUILD_TARGET)
  TOOL_GCC3_LDFLAGS.dll ?= -shared
