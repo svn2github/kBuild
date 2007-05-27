@@ -2,6 +2,7 @@
 ## @file
 #
 # kBuild - File included at top of a up forwarder makefile.
+#          This method is DEPRECATED. Use Makefile.kup files instead.
 #
 # Copyright (c) 2005-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
 #
