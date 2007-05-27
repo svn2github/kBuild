@@ -54,7 +54,7 @@ endif
 #
 # Where to fine the GNU Make stuff (for FreeBSD and Windows).
 #
-PATH_GNUMAKE_SRC               ?= $(PATH_ROOT)/src/gmake
+PATH_GNUMAKE_SRC               ?= $(PATH_ROOT)/src/kmk
 
 
 #
