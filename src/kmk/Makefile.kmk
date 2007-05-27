@@ -2,7 +2,6 @@
 
 
 DEPTH = ../..
-PATH_GNUMAKE_SRC = $(PATH_ROOT)/src/gmakenew
 include $(PATH_KBUILD)/header.kmk
 
 
