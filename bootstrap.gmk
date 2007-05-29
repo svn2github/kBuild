@@ -125,7 +125,7 @@ $(OUTDIR)/ts-stage2-build: \
 	echo done > $@
 
 $(OUTDIR)/ts-stage2-install: $(OUTDIR)/ts-stage2-build
-	$(OUTDIR)/kmk/kmk -C $(SRCDIR) PATH_INS=`pwd` install
+	$(OUTDIR)/kmk/kmk -C $(SRCDIR) PATH_INS=$(SRCDIR) install
 	echo done > $@
 
 
