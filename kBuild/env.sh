@@ -129,7 +129,7 @@ fi
 export BUILD_PLATFORM_ARCH
 echo "dbg: BUILD_PLATFORM_ARCH=$BUILD_PLATFORM_ARCH"
 
-if [ -s "$BUILD_PLATFORM_CPU" ]; then
+if [ -z "$BUILD_PLATFORM_CPU" ]; then
     BUILD_PLATFORM_CPU="blend"
 fi
 export BUILD_PLATFORM_CPU
