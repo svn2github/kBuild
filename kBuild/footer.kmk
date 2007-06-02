@@ -1360,7 +1360,7 @@ endif
 # @param    $(obj)    The object file.
 define def_target_source_rule
 ifdef TOOL_$(tool)_COMPILE_$(type)_USES_KOBJCACHE
-$(outbase).koc +| $(obj) $($(target)_$(source)_OUTPUT_) : \
+$(outbase).koc + $(obj) $($(target)_$(source)_OUTPUT_) : \
 		$($(target)_$(source)_DEPEND_) \
 		$(_DEP_COMPILE_CMDS) \
 		| \
