@@ -1758,11 +1758,15 @@ int main(int argc, char **argv)
  *  real    11m42.513s
  *  user    14m27.736s
  *  sys     3m39.512s
- *
- * Mac OS X debug -j 3 cached clobber build (touch include/iprt/err.h ; sync ; svn diff ; sync ; sleep 1 ; time kmk -j 3 USE_KOBJCACHE=1):
- *  real    2m24.712s       real    2m10.909s  
- *  user    2m15.339s       user    2m15.146s  
- *  sys     0m56.278s       sys     0m55.591s  
- *  !Stuff is built three times here because of + instead of +| in footer.kmk!
+ * 
+ * Mac OS X debug -j 3 cached depend build (touch include/iprt/err.h ; sync ; svn diff ; sync ; sleep 1 ; time kmk -j 3 USE_KOBJCACHE=1):
+ *  real    1m17.445s
+ *  user    1m13.410s
+ *  sys     0m22.789s
+ * 
+ * Mac OS X debug -j3 cached depend build (touch include/iprt/cdefs.h ; sync ; svn diff ; sync ; sleep 1 ; time kmk -j 3 USE_KOBJCACHE=1):
+ *  real    1m29.315s
+ *  user    1m31.391s
+ *  sys     0m32.748s
  * 
  */
