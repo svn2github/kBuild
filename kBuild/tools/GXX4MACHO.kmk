@@ -225,7 +225,7 @@ endef
 # @param    $(custom_pre)   Custom step invoked before linking.
 # @param    $(custom_post)  Custom step invoked after linking.
 # @param    $(outbase)  Output basename (full). Use this for list files and such.
-TOOL_GXX4MACHO_LINK_PROGRAM_OUTPUT = $(outbase).map $(outbase).rsp
+TOOL_GXX4MACHO_LINK_PROGRAM_OUTPUT = $(outbase).rsp
 TOOL_GXX4MACHO_LINK_PROGRAM_DEPEND = $(foreach lib,$(libs),$(if $(findstring $(lib),$(subst /,x,$(lib))),, $(lib)))
 TOOL_GXX4MACHO_LINK_PROGRAM_DEPORD =
 define TOOL_GXX4MACHO_LINK_PROGRAM_CMDS
