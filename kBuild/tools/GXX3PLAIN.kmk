@@ -232,7 +232,8 @@ endef
 # @param    $(custom_pre)   Custom step invoked before linking.
 # @param    $(custom_post)  Custom step invoked after linking.
 # @param    $(outbase)  Output basename (full). Use this for list files and such.
-TOOL_GXX3PLAIN_LINK_PROGRAM_OUTPUT = $(outbase).map
+TOOL_GXX3PLAIN_LINK_PROGRAM_OUTPUT =
+TOOL_GXX3PLAIN_LINK_PROGRAM_OUTPUT_MAYBE = $(outbase).map
 TOOL_GXX3PLAIN_LINK_PROGRAM_DEPEND = $(foreach lib,$(libs),$(if $(findstring $(lib),$(subst /,x,$(lib))),, $(lib)))\
 		$(filter %.def, $(othersrc))
 TOOL_GXX3PLAIN_LINK_PROGRAM_DEPORD =
@@ -257,7 +258,8 @@ endef
 # @param    $(custom_pre)   Custom step invoked before linking.
 # @param    $(custom_post)  Custom step invoked after linking.
 # @param    $(outbase)  Output basename (full). Use this for list files and such.
-TOOL_GXX3PLAIN_LINK_DLL_OUTPUT = $(outbase).map
+TOOL_GXX3PLAIN_LINK_DLL_OUTPUT =
+TOOL_GXX3PLAIN_LINK_DLL_OUTPUT_MAYBE = $(outbase).map
 TOOL_GXX3PLAIN_LINK_DLL_DEPEND = $(foreach lib,$(libs),$(if $(findstring $(lib),$(subst /,x,$(lib))),, $(lib)))\
 		$(filter %.def, $(othersrc))
 TOOL_GXX3PLAIN_LINK_DLL_DEPORD =
