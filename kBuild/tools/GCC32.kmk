@@ -245,7 +245,8 @@ endif
 # @param    $(custom_pre)   Custom step invoked before linking.
 # @param    $(custom_post)  Custom step invoked after linking.
 # @param    $(outbase)  Output basename (full). Use this for list files and such.
-TOOL_GCC32_LINK_PROGRAM_OUTPUT = $(outbase).map
+TOOL_GCC32_LINK_PROGRAM_OUTPUT =
+TOOL_GCC32_LINK_PROGRAM_OUTPUT_MAYBE = $(outbase).map
 TOOL_GCC32_LINK_PROGRAM_DEPEND = $(foreach lib,$(libs),$(if $(findstring $(lib),$(subst /,x,$(lib))),, $(lib)))
 TOOL_GCC32_LINK_PROGRAM_DEPORD =
 define TOOL_GCC32_LINK_PROGRAM_CMDS
@@ -269,7 +270,8 @@ endef
 # @param    $(custom_pre)   Custom step invoked before linking.
 # @param    $(custom_post)  Custom step invoked after linking.
 # @param    $(outbase)  Output basename (full). Use this for list files and such.
-TOOL_GCC32_LINK_DLL_OUTPUT = $(outbase).map
+TOOL_GCC32_LINK_DLL_OUTPUT =
+TOOL_GCC32_LINK_DLL_OUTPUT_MAYBE = $(outbase).map
 TOOL_GCC32_LINK_DLL_DEPEND = $(foreach lib,$(libs),$(if $(findstring $(lib),$(subst /,x,$(lib))),, $(lib)))
 TOOL_GCC32_LINK_DLL_DEPORD =
 define TOOL_GCC32_LINK_DLL_CMDS
@@ -295,7 +297,8 @@ endef
 # @param    $(custom_pre)   Custom step invoked before linking.
 # @param    $(custom_post)  Custom step invoked after linking.
 # @param    $(outbase)  Output basename (full). Use this for list files and such.
-TOOL_GCC32_LINK_SYSMOD_OUTPUT = $(outbase).map
+TOOL_GCC32_LINK_SYSMOD_OUTPUT =
+TOOL_GCC32_LINK_SYSMOD_OUTPUT_MAYBE = $(outbase).map
 TOOL_GCC32_LINK_SYSMOD_DEPEND = $(foreach lib,$(libs),$(if $(findstring $(lib),$(subst /,x,$(lib))),, $(lib)))
 TOOL_GCC32_LINK_SYSMOD_DEPORD =
 define TOOL_GCC32_LINK_SYSMOD_CMDS
