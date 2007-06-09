@@ -2207,7 +2207,6 @@ static void kOCEntryTeeConsumer(PKOCENTRY pEntry, int fdIn, int fdOut)
         if (cbLeft <= 1)
         {
             size_t off = psz - pEntry->New.pszCppMapping;
-            assert(off == cbAlloc);
             cbLeft = 4*1024*1024;
             cbAlloc += cbLeft;
             pEntry->New.pszCppMapping = xrealloc(pEntry->New.pszCppMapping, cbAlloc);
