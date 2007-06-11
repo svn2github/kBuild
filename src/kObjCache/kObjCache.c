@@ -52,6 +52,7 @@
 #  include <unistd.h>
 # endif
 # if defined(_MSC_VER)
+#  include <direct.h>
    typedef intptr_t pid_t;
 # endif
 #else
