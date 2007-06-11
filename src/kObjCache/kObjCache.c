@@ -3758,7 +3758,7 @@ int main(int argc, char **argv)
             return usage();
         else if (!strcmp(argv[i], "-V") || !strcmp(argv[i], "--version"))
         {
-            printf("kObjCache v0.0.0 ($Revision$)\n");
+            printf("kObjCache v0.1.0 ($Revision$)\n");
             return 0;
         }
         else
