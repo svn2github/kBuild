@@ -2219,7 +2219,6 @@ define def_install_src_rule
 # the install rule
 $(insdst) : $(srcsrc) | $(call DIRDEP,$(dir $(insdst)))
 	$$(call MSG_INST_FILE,$(srcsrc),$(insdst))
-	$$(QUIET)$$(if $$(filter $(INSTALL),$(inscmd)),,$$(RM) -f $$@)
 	$$(QUIET)$(inscmd)
 endef
 
