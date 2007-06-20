@@ -66,7 +66,7 @@ TOOL_GXX3OMF_CXXFLAGS.release ?= -O2
 TOOL_GXX3OMF_CXXINCS          ?=
 TOOL_GXX3OMF_CXXDEFS          ?=
 
-TOOL_GXX3OMF_ASFLAGS          ?= -x assembler-with-cpp
+TOOL_GXX3OMF_ASFLAGS          ?= -x assembler-with-cpp -Zomf
 TOOL_GXX3OMF_ASFLAGS.debug    ?= -g
 TOOL_GXX3OMF_ASFLAGS.profile  ?= -g
 TOOL_GXX3OMF_ASOBJSUFF        ?= .obj
