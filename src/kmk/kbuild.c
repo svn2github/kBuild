@@ -139,6 +139,44 @@ void init_kbuild(int argc, char **argv)
         rc = 0;
 
 #endif
+
+#if !defined(__OS2__) && !defined(WINDOWS32)
+    /* fallback, try use the path to locate the binary. */
+    if (   rc < 0
+        && access(argv[0], X_OK))
+    {
+        size_t cchArgv0 = strlen(argv[0]);
+        const char *pszPath = getenv("PATH");
+        char *pszCopy = xstrdup(pszPath ? pszPath : ".");
+        char *psz = pszCopy;
+        while (*psz)
+        {
+            size_t cch;
+            char *pszEnd = strchr(psz, PATH_SEPARATOR_CHAR);
+            if (!pszEnd)
+                pszEnd = strchr(psz, '\0');
+            cch = pszEnd - psz;
+            if (cch + cchArgv0 + 2 <= GET_PATH_MAX)
+            {
+                memcpy(szTmp, psz, cch);
+                szTmp[cch] = '/';
+                memcpy(&szTmp[cch + 1], argv[0], cchArgv0 + 1);
+                if (!access(szTmp, X_OK))
+                {
+                    rc = 0;
+                    break;
+                }
+            }    
+
+            /* next */
+            psz = pszEnd;
+            while (*psz == PATH_SEPARATOR_CHAR)
+               psz++;
+        }
+        free(pszCopy);
+    }
+#endif        
+
     if (rc < 0)
         g_pszExeName = argv[0];
     else
