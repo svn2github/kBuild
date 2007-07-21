@@ -3230,10 +3230,18 @@ btnCancel.lbutton_up()
  */
 definit()
 {
-   k_styles_create();
-   k_menu_create();
-   iTimer = _set_timer(1000, k_menu_create, "timer");
-   /* createMyColorSchemeAndUseIt();*/
+    /* do cleanup. */
+    for (i = 0; i < 200; i++)
+    {
+        index = name_match("def-koptions-", 1, MISC_TYPE);
+        if (!index)
+            break;
+        delete_name(index);
+    }
+
+    /* do init */
+    k_styles_create();
+    k_menu_create();
+    iTimer = _set_timer(1000, k_menu_create, "timer");
+    /* createMyColorSchemeAndUseIt();*/
 }
-
-
