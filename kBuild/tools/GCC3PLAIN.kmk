@@ -80,8 +80,6 @@ TOOL_GCC3PLAIN_ARFLAGS          ?= cr
 TOOL_GCC3PLAIN_ARLIBSUFF        ?= .a
 
 TOOL_GCC3PLAIN_LDFLAGS          ?=
-TOOL_GCC3PLAIN_LDFLAGS.debug    ?= -g
-TOOL_GCC3PLAIN_LDFLAGS.profile  ?= -g
 
 
 ## Compile C source.
