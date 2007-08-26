@@ -1326,7 +1326,7 @@ void k_javadoc_moduleheader()
             if (!fSplit)
                 k_javadoc_box_line();
             if (sProg == '')
-                sProg = 'This program';
+                sProg = 'This library';
             else
             {
                 k_javadoc_box_line('This file is part of ' sProg '.');
