@@ -2530,7 +2530,7 @@ static int kOCEntryCompareFast(PCKOCENTRY pEntry)
 
             /* Match the current line. */
             psz = memchr(psz1, '\n', pszEnd1 - psz1);
-            if (!psz)
+            if (!psz++)
                 psz = pszEnd1;
             cch = psz - psz1;
             if (psz2 + cch > pszEnd2)
@@ -2558,19 +2558,9 @@ static int kOCEntryCompareFast(PCKOCENTRY pEntry)
                 break;
             }
 
-            /* Try align psz1 on 8 or 4 bytes so at least one of the buffers are aligned. */
+            /* Advance. We might now have a misaligned buffer, but that's memcmps problem... */
             psz1 += cch;
             psz2 += cch;
-            if (cch >= ((uintptr_t)psz1 & 7))
-            {
-                psz2 -= ((uintptr_t)psz1 & 7);
-                psz1 -= ((uintptr_t)psz1 & 7);
-            }
-            else if (cch >= ((uintptr_t)psz1 & 3))
-            {
-                psz2 -= ((uintptr_t)psz1 & 3);
-                psz1 -= ((uintptr_t)psz1 & 3);
-            }
         }
     }
 
