@@ -3369,6 +3369,16 @@ static void kObjCacheLock(PKOBJCACHE pCache)
     memset(&OverLapped, 0, sizeof(OverLapped));
     if (!LockFileEx((HANDLE)_get_osfhandle(pCache->fd), LOCKFILE_EXCLUSIVE_LOCK, 0, ~0, 0, &OverLapped))
         FatalDie("Failed to lock the cache file: Windows Error %d\n", GetLastError());
+#elif defined(__sun__)
+    {
+        struct flock fl;
+        fl.l_whence = 0;
+        fl.l_start = 0;
+        fl.l_len = 0;
+        fl.l_type = F_WRLCK;
+        if (fcntl(pCache->fd, F_SETLKW, &fl) != 0)
+            FatalDie("Failed to lock the cache file: %s\n", strerror(errno));
+    }
 #else
     if (flock(pCache->fd, LOCK_EX) != 0)
         FatalDie("Failed to lock the cache file: %s\n", strerror(errno));
@@ -3425,6 +3435,16 @@ static void kObjCacheUnlock(PKOBJCACHE pCache)
     memset(&OverLapped, 0, sizeof(OverLapped));
     if (!UnlockFileEx((HANDLE)_get_osfhandle(pCache->fd), 0, ~0U, 0, &OverLapped))
         FatalDie("Failed to unlock the cache file: Windows Error %d\n", GetLastError());
+#elif defined(__sun__)
+    {
+        struct flock fl;
+        fl.l_whence = 0;
+        fl.l_start = 0;
+        fl.l_len = 0;
+        fl.l_type = F_UNLCK;
+        if (fcntl(pCache->fd, F_SETLKW, &fl) != 0)
+            FatalDie("Failed to lock the cache file: %s\n", strerror(errno));
+    }
 #else
     if (flock(pCache->fd, LOCK_UN) != 0)
         FatalDie("Failed to unlock the cache file: %s\n", strerror(errno));
