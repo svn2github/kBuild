@@ -50,10 +50,17 @@
 # include <io.h>
 # ifdef __OS2__
 #  include <unistd.h>
+#  include <sys/wait.h>
 # endif
 # if defined(_MSC_VER)
 #  include <direct.h>
    typedef intptr_t pid_t;
+# endif
+# ifndef _P_WAIT
+#  define _P_WAIT   P_WAIT
+# endif 
+# ifndef _P_NOWAIT
+#  define _P_NOWAIT P_NOWAIT
 # endif
 #else
 # include <unistd.h>
@@ -253,8 +260,13 @@ void *xmallocz(size_t cb)
  */
 static char *AbsPath(const char *pszPath)
 {
+/** @todo this isn't really working as it should... */
     char szTmp[PATH_MAX];
-#if defined(__OS2__) || defined(__WIN__)
+#if defined(__OS2__)
+    if (    _fullpath(szTmp, *pszPath ? pszPath : ".", sizeof(szTmp))
+        &&  !realpath(pszPath, szTmp))
+        return xstrdup(pszPath);
+#elif defined(__WIN__)
     if (!_fullpath(szTmp, *pszPath ? pszPath : ".", sizeof(szTmp)))
         return xstrdup(pszPath);
 #else
@@ -274,6 +286,8 @@ static char *AbsPath(const char *pszPath)
 static const char *FindFilenameInPath(const char *pszPath)
 {
     const char *pszFilename = strchr(pszPath, '\0') - 1;
+    if (pszFilename < pszPath)
+        return pszPath;
     while (     pszFilename > pszPath
            &&   !IS_SLASH_DRV(pszFilename[-1]))
         pszFilename--;
