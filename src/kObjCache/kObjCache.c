@@ -834,11 +834,12 @@ static int kOCSumInitFromString(PKOCSUM pSumHead, const char *pszVal)
  */
 static void kOCSumDeleteChain(PKOCSUM pSumHead)
 {
-    void *pv;
-    while ((pv = pSumHead->pNext))
+    PKOCSUM pSum = pSumHead->pNext;
+    while (pSum)
     {
-        pSumHead = pSumHead->pNext;
-        free(pv);
+        void *pvFree = pSum;
+        pSum = pSum->pNext;
+        free(pvFree);
     }
     memset(pSumHead, 0, sizeof(*pSumHead));
 }
