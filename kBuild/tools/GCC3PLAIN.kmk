@@ -204,7 +204,7 @@ endef
 # @param    $(deps)		Other dependencies.
 # @param    $(othersrc) Unhandled sources.
 # @param    $(outbase)  Output basename (full). Use this for list files and such.
-TOOL_GCC3PLAIN_LINK_LIBRARY_OUTPUT = $(out).ar-script
+TOOL_GCC3PLAIN_LINK_LIBRARY_OUTPUT =
 TOOL_GCC3PLAIN_LINK_LIBRARY_DEPEND = $(othersrc)
 TOOL_GCC3PLAIN_LINK_LIBRARY_DEPORD =
 define TOOL_GCC3PLAIN_LINK_LIBRARY_CMDS
