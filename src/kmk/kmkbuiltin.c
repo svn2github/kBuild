@@ -202,10 +202,12 @@ int kmk_builtin_command_parsed(int argc, char **argv)
     else if (!strcmp(pszCmd, "rmdir"))
         rc = kmk_builtin_rmdir(argc, argv, environ);
     /* rarely used commands: */
-    else if (!strcmp(pszCmd, "cat"))
-        rc = kmk_builtin_cat(argc, argv, environ);
     else if (!strcmp(pszCmd, "cp"))
         rc = kmk_builtin_cp(argc, argv, environ);
+    else if (!strcmp(pszCmd, "md5sum"))
+        rc = kmk_builtin_md5sum(argc, argv, environ);
+    else if (!strcmp(pszCmd, "cat"))
+        rc = kmk_builtin_cat(argc, argv, environ);
     else
     {
         printf("kmk_builtin: Unknown command '%s'!\n", pszCmd);
