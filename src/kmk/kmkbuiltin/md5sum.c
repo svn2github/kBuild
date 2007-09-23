@@ -57,6 +57,7 @@ static int usage(FILE *pOut)
             " -C, --check-file  This is followed by an MD5 sum and the file to check.\n"
             " -b, --binary      Read files in binary mode. (default)\n"
             " -t, --text        Read files in text mode.\n"
+            " -p, --progress    Show progress indicator on large files.\n"
             " -q, --status      Be quiet.\n"
             " -w, --warn        Ignored. Always warn, unless quiet.\n"
             " -h, --help        This usage info.\n"
