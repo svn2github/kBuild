@@ -38,7 +38,7 @@
 #include "kmkbuiltin.h"
 #include "../../lib/md5.h"
 
-//#define MD5SUM_USE_STDIO
+/*#define MD5SUM_USE_STDIO*/
 
 
 /**
