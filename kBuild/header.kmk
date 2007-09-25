@@ -437,6 +437,11 @@ CAT         := kmk_builtin_cat
 CP_EXT      := $(PATH_KBUILD_BIN)/kmk_cp$(HOSTSUFF_EXE)
 CP          := kmk_builtin_cp
 
+ifeq ($(filter cmp,$(KMK_BUILTIN)),cmp)
+CMP_EXT     := $(PATH_KBUILD_BIN)/kmk_cmp$(HOSTSUFF_EXE)
+CMP         := kmk_builtin_cmp
+endif
+
 ECHO_EXT    := $(PATH_KBUILD_BIN)/kmk_echo$(HOSTSUFF_EXE)
 ECHO        := kmk_builtin_echo
 
@@ -445,6 +450,11 @@ INSTALL     := kmk_builtin_install
 
 LN_EXT      := $(PATH_KBUILD_BIN)/kmk_ln$(HOSTSUFF_EXE)
 LN          := kmk_builtin_ln
+
+ifeq ($(filter md5sum,$(KMK_BUILTIN)),md5sum)
+MD5SUM_EXT  := $(PATH_KBUILD_BIN)/kmk_md5sum$(HOSTSUFF_EXE)
+MD5SUM      := kmk_builtin_md5sum
+endif
 
 MKDIR_EXT   := $(PATH_KBUILD_BIN)/kmk_mkdir$(HOSTSUFF_EXE)
 MKDIR       := kmk_builtin_mkdir
