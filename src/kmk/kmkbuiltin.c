@@ -206,6 +206,8 @@ int kmk_builtin_command_parsed(int argc, char **argv)
         rc = kmk_builtin_cp(argc, argv, environ);
     else if (!strcmp(pszCmd, "md5sum"))
         rc = kmk_builtin_md5sum(argc, argv, environ);
+    else if (!strcmp(pszCmd, "cmp"))
+        rc = kmk_builtin_cmp(argc, argv, environ);
     else if (!strcmp(pszCmd, "cat"))
         rc = kmk_builtin_cat(argc, argv, environ);
     else
