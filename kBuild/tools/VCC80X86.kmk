@@ -123,7 +123,8 @@ TOOL_VCC80X86_LDFLAGS.release  ?=
 # @param    $(objsuff)  Object suffix.
 TOOL_VCC80X86_COMPILE_C_DEPEND =
 TOOL_VCC80X86_COMPILE_C_DEPORD =
-TOOL_VCC80X86_COMPILE_C_OUTPUT = $(call TOOL_VCC80X86_PDB, $(outbase)-obj,pdb) $(call TOOL_VCC80X86_PDB, $(outbase)-obj,idb)
+TOOL_VCC80X86_COMPILE_C_OUTPUT = $(call TOOL_VCC80X86_PDB, $(outbase)-obj,idb)
+TOOL_VCC80X86_COMPILE_C_OUTPUT_MAYBE = $(call TOOL_VCC80X86_PDB, $(outbase)-obj,pdb)
 define TOOL_VCC80X86_COMPILE_C_CMDS
 	$(QUIET)$(TOOL_VCC80X86_CC) -c\
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
@@ -150,7 +151,8 @@ endef
 # @param    $(objsuff)  Object suffix.
 TOOL_VCC80X86_COMPILE_CXX_DEPEND =
 TOOL_VCC80X86_COMPILE_CXX_DEPORD =
-TOOL_VCC80X86_COMPILE_CXX_OUTPUT = $(call TOOL_VCC80X86_PDB, $(outbase)-obj,pdb) $(call TOOL_VCC80X86_PDB, $(outbase)-obj,idb)
+TOOL_VCC80X86_COMPILE_CXX_OUTPUT = $(call TOOL_VCC80X86_PDB, $(outbase)-obj,idb)
+TOOL_VCC80X86_COMPILE_CXX_OUTPUT_MAYBE = $(call TOOL_VCC80X86_PDB, $(outbase)-obj,pdb)
 define TOOL_VCC80X86_COMPILE_CXX_CMDS
 	$(QUIET)$(TOOL_VCC80X86_CXX) -c\
 		$(flags) $(addprefix -I, $(incs)) $(addprefix -D, $(defs))\
