@@ -186,7 +186,7 @@ static void *open_file(const char *pszFilename, unsigned fText)
 #endif
 #ifdef _O_BINARY
     if (!fText)     fFlags |= _O_BINARY;
-#elif defined(_O_BINARY
+#elif defined(_O_BINARY)
     if (!fText)     fFlags |= _O_BINARY;
 #endif
 #ifdef O_TEXT
