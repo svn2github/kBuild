@@ -2740,7 +2740,7 @@ BOOL filecacheAddDir(const char *pszDir)
 
     /* Make path */
     filePathSlash2(pszDir, szDir);
-    //strlwr(szDir); /* Convert name to lower case to allow faster searchs! */
+    /*strlwr(szDir);*/ /* Convert name to lower case to allow faster searchs! */
     cchDir = strlen(szDir);
 
 
