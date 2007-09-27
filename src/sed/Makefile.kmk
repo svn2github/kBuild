@@ -13,6 +13,7 @@ kmk_sed_TEMPLATE = BIN
 kmk_sed_DEPS = \
 	$(PATH_TARGET)/config.h \
 	$(PATH_TARGET)/regex.h
+kmk_sed_CLEAN = $(kmk_sed_DEPS)
 kmk_sed_INCS = \
 	$(PATH_TARGET) \
 	. \
