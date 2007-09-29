@@ -117,8 +117,12 @@ if test -z "$BUILD_PLATFORM_ARCH"; then
     fi
 fi
 if test -z "$BUILD_PLATFORM_ARCH"; then
-    # Use uname (lots of guesses here, please help clean this up...)
-    BUILD_PLATFORM_ARCH=`uname -m`
+    # Use uname -m or isainfo (lots of guesses here, please help clean this up...)
+    if test "$BUILD_PLATFORM" == "solaris"; then
+        BUILD_PLATFORM_ARCH=`isainfo`
+    else
+        BUILD_PLATFORM_ARCH=`uname -m`
+    fi
     case "$BUILD_PLATFORM_ARCH" in
         x86_64|AMD64|amd64|k8|k8l|k9|k10)
             BUILD_PLATFORM_ARCH='amd64'
