@@ -191,6 +191,8 @@ int kmk_builtin_command_parsed(int argc, char **argv)
         rc = kmk_builtin_echo(argc, argv, environ);
     else if (!strcmp(pszCmd, "install"))
         rc = kmk_builtin_install(argc, argv, environ);
+    else if (!strcmp(pszCmd, "kDepIDB"))
+        rc = kmk_builtin_kDepIDB(argc, argv, environ);
     else if (!strcmp(pszCmd, "ln"))
         rc = kmk_builtin_ln(argc, argv, environ);
     else if (!strcmp(pszCmd, "mkdir"))

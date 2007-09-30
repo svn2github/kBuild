@@ -1,6 +1,6 @@
 # $Id$
 
-SUBDIRS = lib kmk sed kDepPre kDepIDB kObjCache
+SUBDIRS = lib kmk sed kDepPre kObjCache
 ifneq ($(BUILD_TARGET),win)
 SUBDIRS += ash
 endif
