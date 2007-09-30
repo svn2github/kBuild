@@ -138,8 +138,6 @@ ifndef TEMPLATE_BIN_TOOL
  endif
  TEMPLATE_BIN_CFLAGS.release    = -O3
  ifeq ($(BUILD_TARGET),freebsd)
-  TEMPLATE_BIN_LIBS            += iconv intl
-  TEMPLATE_BIN_LIBPATH         += /usr/local/lib
   TEMPLATE_BIN_INCS            += $(PATH_GNUMAKE_SRC)/glob /usr/local/include
  endif
  ifeq ($(BUILD_TARGET),linux)
