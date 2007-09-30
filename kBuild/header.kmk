@@ -408,7 +408,7 @@ DEP         := $(DEP_EXT)
 endif
 
 DEP_IDB_EXT := $(PATH_KBUILD_BIN)/kDepIDB$(HOSTSUFF_EXE)
-ifeq ($(filter kDepPre,$(KMK_BUILTIN)),kDepIDB)
+ifeq ($(filter kDepIDB,$(KMK_BUILTIN)),kDepIDB)
 DEP_IDB     := kmk_builtin_kDepIDB
 else
 DEP_IDB     := $(DEP_IDB_EXT)
