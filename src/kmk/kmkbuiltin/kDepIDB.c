@@ -736,7 +736,7 @@ static void usage(const char *argv0)
 }
 
 
-int kmk_builtin_kDepIDB(int argc, char *argv[])
+int kmk_builtin_kDepIDB(int argc, char *argv[], char **envp)
 {
     int         i;
 
