@@ -43,6 +43,7 @@ endif
 #
 LIBRARIES += kmkmissing
 kmkmissing_TEMPLATE = BIN-KMK
+kmkmissing_DEFS = KMK
 kmkmissing_NOINST = 1
 kmkmissing_SOURCES = \
 	kmkbuiltin/err.c \
