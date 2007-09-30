@@ -89,8 +89,7 @@ $(OUTDIR)/kmk/kmk: $(OUTDIR)/kmk/ts-configured
 # sed
 $(OUTDIR)/sed/ts-autoreconf:
 	mkdir -p $(@D)
-	@# only required on OS/2, so skip it.
-	@# cd $(SRCDIR)/src/sed && $(AUTORECONF) -i -v --force
+	@cd $(SRCDIR)/src/sed && $(AUTORECONF) -i -v --force
 	echo done > $@
 
 $(OUTDIR)/sed/ts-configured: $(OUTDIR)/sed/ts-autoreconf
