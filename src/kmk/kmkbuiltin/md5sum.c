@@ -68,25 +68,6 @@ static int usage(FILE *pOut)
 
 
 /**
- * Prints the version string.
- * @returns 0
- */
-static int version(void)
-{
-#ifdef kmk_builtin_md5sum
-    fprintf(stdout, "kmk_md5sum (kBuild) %d.%d.%d\n"
-                    "Copyright (c) 2007 knut st. osmundsen\n",
-            KBUILD_VERSION_MAJOR, KBUILD_VERSION_MINOR, KBUILD_VERSION_PATCH);
-#else
-    fprintf(stdout, "kmk_builtin_md5sum (kBuild) %d.%d.%d\n"
-                    "Copyright (c) 2007 knut st. osmundsen\n",
-            KBUILD_VERSION_MAJOR, KBUILD_VERSION_MINOR, KBUILD_VERSION_PATCH);
-#endif
-    return 0;
-}
-
-
-/**
  * Makes a string out of the given digest.
  *
  * @param   pDigest     The MD5 digest.
@@ -712,7 +693,7 @@ int kmk_builtin_md5sum(int argc, char **argv, char **envp)
                         return 0;
 
                     case 'v':
-                        return version();
+                        return kbuild_version(argv[0]);
 
                     /*
                      * -C md5 file
@@ -759,5 +740,4 @@ int kmk_builtin_md5sum(int argc, char **argv, char **envp)
 
     return rc;
 }
-
 

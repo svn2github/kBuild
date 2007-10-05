@@ -42,3 +42,5 @@ extern int kmk_builtin_rm(int argc, char **argv, char **envp);
 extern int kmk_builtin_rmdir(int argc, char **argv, char **envp);
 extern int kmk_builtin_kDepIDB(int argc, char **argv, char **envp);
 
+extern int kbuild_version(const char *argv0);
+
