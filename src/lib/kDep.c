@@ -227,6 +227,7 @@ void depOptimize(int fFixCase)
 #if defined(__WIN32__) || defined(__WIN64__)
             nt_fullpath(pszFilename, szFilename, sizeof(szFilename));
 #else
+            strcpy(szFilename, pszFilename);
             fixslash(szFilename);
             fixcase(szFilename);
 #endif
