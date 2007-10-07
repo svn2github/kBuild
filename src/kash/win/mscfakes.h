@@ -196,6 +196,9 @@ int	sigemptyset(sigset_t *);
 //int	sigsuspend(const sigset_t *);
 //int	sigwait(const sigset_t *, int *);
 int	siginterrupt(int, int);
+#undef setmode
+void *  setmode(const char *p);
+mode_t  getmode(const void *bbox, mode_t omode);
 
 #endif /* _MSC_VER */
 #endif
