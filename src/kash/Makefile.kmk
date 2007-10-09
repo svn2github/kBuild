@@ -30,7 +30,6 @@ kash_DEFS.darwin = \
 kash_DEFS.freebsd = \
 	HAVE_SYS_SIGNAME HAVE_SYSCTL_H HAVE_SETPROGNAME
 kash_INCS = $(PATH_TARGET) . # (the last is because of error.h)
-kash_INCS.win = win
 kash_SOURCES = \
 	main.c \
 	alias.c \
