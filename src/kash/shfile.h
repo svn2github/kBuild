@@ -131,6 +131,7 @@ int shfile_chdir(shfdtab *, const char *);
 char *shfile_getcwd(shfdtab *, char *, int);
 int shfile_access(shfdtab *, const char *, int);
 int shfile_isatty(shfdtab *, int);
+int shfile_cloexec(shfdtab *, int, int);
 int shfile_ioctl(shfdtab *, int, unsigned long, void *);
 #ifdef _MSC_VER
 # define TIOCGWINSZ         0x4201
