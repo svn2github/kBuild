@@ -220,7 +220,7 @@ int shfile_cloexec(shfdtab *pfdtab, int fd, int closeit)
 # else
     int rc = fcntl(fd, F_SETFD, fcntl(fd, F_GETFD, 0)
                               | (closeit ? FD_CLOEXEC : 0));
-    fprintf(stderr, "shfile_cloexec(%d, %d) -> %d\n", fd, closeit, rc);
+    //fprintf(stderr, "shfile_cloexec(%d, %d) -> %d\n", fd, closeit, rc);
     return rc;
 # endif
 #else
@@ -238,7 +238,7 @@ int shfile_ioctl(shfdtab *pfdtab, int fd, unsigned long request, void *buf)
     return -1;
 # else
     int rc = ioctl(fd, request, buf);
-    fprintf(stderr, "ioctl(%d, %#x, %p) -> %d\n", fd, request, buf, rc);
+    //fprintf(stderr, "ioctl(%d, %#x, %p) -> %d\n", fd, request, buf, rc);
     return rc;
 # endif
 #else
