@@ -420,10 +420,11 @@ nt_fullpath(const char *pszPath, char *pszFull, size_t cchFull)
     if (nt_get_filename_info(pszPath, pszFull, cchFull) == 0)
     {
         /** @todo make nt_get_filename_info return spaceless path. */
-        if (strchr(pszPath, ' '))
-            w32_fixcase(pszPath);
+        if (strchr(pszFull, ' '))
+            w32_fixcase(pszFull);
 #if 0
-        fprintf(stderr, "nt #%d - %s\n", ++s_cHits, pszFull);
+        fprintf(stdout, "nt #%d - %s\n", ++s_cHits, pszFull);
+        fprintf(stdout, "   #%d - %s\n", s_cHits, pszPath);
 #endif
         return;
     }
@@ -439,6 +440,7 @@ nt_fullpath(const char *pszPath, char *pszFull, size_t cchFull)
     w32_fixcase(pszFull);
 #if 0
     fprintf(stderr, "fb #%d - %s\n", ++s_cFallbacks, pszFull);
+    fprintf(stderr, "   #%d - %s\n", s_cFallbacks, pszPath);
 #endif
 }
 
