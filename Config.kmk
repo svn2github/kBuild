@@ -41,6 +41,22 @@ DEFS += \
 	KBUILD_VERSION_PATCH=$(KBUILD_VERSION_PATCH)
 
 #
+# The OS and Architecture indicators.
+#
+DEFS.darwin  += KBUILD_OS_DARWIN
+DEFS.freebsd += KBUILD_OS_FREEBSD
+DEFS.linux   += KBUILD_OS_LINUX
+DEFS.netbsd  += KBUILD_OS_NETBSD
+DEFS.openbsd += KBUILD_OS_OPENBSD
+DEFS.os2     += KBUILD_OS_OS2
+DEFS.solaris += KBUILD_OS_SOLARIS
+DEFS.win     += KBUILD_OS_WINDOWS
+
+DEFS.x86     += KBUILD_ARCH_X86
+DEFS.amd64   += KBUILD_ARCH_AMD64
+
+
+#
 # Check if we're building a *nix installation.
 #
 ifdef NIX_INSTALL_DIR
