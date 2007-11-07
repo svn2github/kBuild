@@ -860,14 +860,14 @@ $(foreach target, $(DLLS) $(DLLS.$(BUILD_TARGET)) $(DLLS.$(BUILD_TARGET).$(BUILD
 #   - On OS/2 and windows these are libraries.
 #   - On other platforms they are fake DLLs.
 #
-ifeq ($(filter-out nt os2 win win64 win32,$(BUILD_TARGET)),)
+if1of ($(BUILD_TARGET), nt os2 win win64 win32)
  EXT     := LIB
  EXTPRE  :=
  definst := $(PATH_LIB)
  tool_prefix := AR
  bld_trg_base_var := TARGET
  $(foreach target, $(IMPORT_LIBS) $(IMPORT_LIBS.$(BUILD_TARGET)) $(IMPORT_LIBS.$(BUILD_TARGET).$(BUILD_TARGET_ARCH)), \
-	$(eval $(value def_pass1_lib)))
+	$(eval $(value def_pass1_link_common)))
 else
  EXT     := DLL
  EXTPRE  :=
