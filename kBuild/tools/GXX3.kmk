@@ -248,7 +248,7 @@ define TOOL_GXX3_LINK_PROGRAM_CMDS
 	$(QUIET)$(TOOL_GXX3_LD) $(flags) -o $(out) $(objs)\
 		$(filter %.def, $(othersrc))\
 		$(foreach p,$(libpath), -L$(p))\
-		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(basename $(lib))), $(lib)))\
+		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		$(call TOOL_GXX3_LD_MAP,$(outbase).map)
 endef
 
@@ -277,7 +277,7 @@ define TOOL_GXX3_LINK_DLL_CMDS
 		$(objs)\
 		$(filter %.def, $(othersrc))\
 		$(foreach p,$(libpath), -L$(p))\
-		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(basename $(lib))), $(lib)))\
+		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		$(call TOOL_GXX3_LD_MAP,$(outbase).map)
 endef
 
@@ -304,7 +304,7 @@ define TOOL_GXX3_LINK_SYSMOD_CMDS
 	$(QUIET)$(TOOL_GXX3_LD_SYSMOD) $(TOOL_GXX3_LDFLAGS.sysmod) $(flags) -o $(out) $(objs)\
 		$(filter %.def, $(othersrc))\
 		$(foreach p,$(libpath), -L$(p))\
-		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(basename $(lib))), $(lib)))\
+		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		$(call TOOL_GXX3_LD_SYSMOD_MAP,$(outbase).map)
 endef
 

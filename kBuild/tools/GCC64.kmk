@@ -241,7 +241,7 @@ TOOL_GCC64_LINK_PROGRAM_DEPORD =
 define TOOL_GCC64_LINK_PROGRAM_CMDS
 	$(QUIET)$(TOOL_GCC64_LD) $(flags) -o $(out) $(objs)\
 		$(foreach p,$(libpath), -L$(p))\
-		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(basename $(lib))), $(lib)))\
+		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		$(call TOOL_GCC64_LD_MAP,$(outbase).map)
 endef
 
@@ -268,7 +268,7 @@ define TOOL_GCC64_LINK_DLL_CMDS
 		$(if $(filter-out win os2, $(BUILD_TARGET)),$(call TOOL_GCC64_LD_SONAME,$(target),$(out)))\
 		$(objs)\
 		$(foreach p,$(libpath), -L$(p))\
-		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(basename $(lib))), $(lib)))\
+		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		$(call TOOL_GCC64_LD_MAP,$(outbase).map)
 endef
 
@@ -293,7 +293,7 @@ TOOL_GCC64_LINK_SYSMOD_DEPORD =
 define TOOL_GCC64_LINK_SYSMOD_CMDS
 	$(QUIET)$(TOOL_GCC64_LD_SYSMOD) $(TOOL_GCC64_LDFLAGS.sysmod) $(flags) -o $(out) $(objs)\
 		$(foreach p,$(libpath), -L$(p))\
-		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(basename $(lib))), $(lib)))\
+		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		$(call TOOL_GCC64_LD_SYSMOD_MAP,$(outbase).map)
 endef
 
