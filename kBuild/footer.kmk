@@ -232,8 +232,8 @@ ifneq ($(src),)
   $(trg)_EXTENDS_STATUS_ := 42
  else
   # Check for inheritance loops.
-  ifneq ($(target)_EXTENDS_STATUS_),42)
-   $(error kBuild: Target inheritance loop! target=$(target))
+  ifneq ($($(trg)_EXTENDS_STATUS_),42)
+   $(error kBuild: Target inheritance loop! target=$(trg) $(trg)_EXTENDS_STATUS_=$($(trg)_EXTENDS_STATUS_))
   endif
  endif
 endif
