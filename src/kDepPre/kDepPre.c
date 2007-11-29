@@ -377,7 +377,7 @@ int main(int argc, char *argv[])
 
                 case 'V':
                     printf("kDepPre - kBuild version %d.%d.%d\n"
-                           "Copyright (C) 2005-2007 Knut St. Osmundse\n",
+                           "Copyright (C) 2005-2007 Knut St. Osmundsen\n",
                            KBUILD_VERSION_MAJOR, KBUILD_VERSION_MINOR, KBUILD_VERSION_PATCH);
                     return 0;
 
