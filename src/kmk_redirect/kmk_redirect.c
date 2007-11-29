@@ -269,7 +269,9 @@ int main(int argc, char **argv, char **envp)
                     return 1;
                 }
 #ifdef _MSC_VER
-                /** @todo figure out how to make the handle close-on-exec. We'll simply close it for now. */
+                /** @todo figure out how to make the handle close-on-exec. We'll simply close it for now. 
+                 * SetHandleInformation + set FNOINHERIT in CRT.
+                 */
 #else
                 if (fcntl(fdOpened, F_SETFD, FD_CLOEXEC) == -1)
                 {
