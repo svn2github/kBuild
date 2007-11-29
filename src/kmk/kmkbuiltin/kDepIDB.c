@@ -972,6 +972,7 @@ int kmk_builtin_kDepIDB(int argc, char *argv[], char **envp)
      * Do the parsing.
      */
     i = ProcessIDB(pInput);
+    fclose(pInput);
 
     /*
      * Write the dependecy file.
