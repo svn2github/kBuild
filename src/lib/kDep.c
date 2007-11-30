@@ -213,6 +213,7 @@ void depOptimize(int fFixCase)
         {
 #if K_OS == K_OS_WINDOWS
             nt_fullpath(pszFilename, szFilename, sizeof(szFilename));
+            fixslash(szFilename);
 #else
             strcpy(szFilename, pszFilename);
             fixslash(szFilename);
