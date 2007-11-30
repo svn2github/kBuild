@@ -28,7 +28,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#ifdef KBUILD_OS_WINDOWS
+#if K_OS == K_OS_WINDOWS
 # include <limits.h>
 # ifndef PIPE_BUF
 #  define PIPE_BUF 512

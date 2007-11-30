@@ -27,6 +27,8 @@
 #ifndef ___shtypes_h___
 #define ___shtypes_h___
 
+#include "k/kTypes.h" /* Use these, not the ones below. */
+
 #include <sys/types.h>
 #include <stdlib.h>
 
