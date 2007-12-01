@@ -24,8 +24,16 @@
  *
  */
 
-int kmk_builtin_command(const char *pszCmd);
-int kmk_builtin_command_parsed(int argc, char **argv);
+#ifdef _MSC_VER
+# ifndef pid_t /* see config.h.win */
+#  define pid_t int
+# endif
+#else
+# include <sys/types.h>
+#endif
+
+int kmk_builtin_command(const char *pszCmd, char ***ppapszArgvToSpawn, pid_t *pPidSpawned);
+int kmk_builtin_command_parsed(int argc, char **argv, char ***ppapszArgvToSpawn, pid_t *pPidSpawned);
 
 extern int kmk_builtin_append(int argc, char **argv, char **envp);
 extern int kmk_builtin_cp(int argc, char **argv, char **envp);
