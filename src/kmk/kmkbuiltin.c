@@ -204,8 +204,8 @@ int kmk_builtin_command_parsed(int argc, char **argv, char ***ppapszArgvToSpawn,
         rc = kmk_builtin_rm(argc, argv, environ);
     else if (!strcmp(pszCmd, "rmdir"))
         rc = kmk_builtin_rmdir(argc, argv, environ);
-    /*else if (!strcmp(pszCmd, "test"))
-        rc = kmk_builtin_test(argc, argv, environ, ppapszArgvToSpawn);*/
+    else if (!strcmp(pszCmd, "test"))
+        rc = kmk_builtin_test(argc, argv, environ, ppapszArgvToSpawn);
     /* rarely used commands: */
     else if (!strcmp(pszCmd, "cp"))
         rc = kmk_builtin_cp(argc, argv, environ);
