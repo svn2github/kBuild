@@ -36,5 +36,6 @@ char *func_kbuild_source_one(char *o, char **argv, const char *pszFuncName);
 void init_kbuild(int argc, char **argv);
 const char *get_path_kbuild(void);
 const char *get_path_kbuild_bin(void);
+const char *get_default_kbuild_shell(void);
 
 #endif
