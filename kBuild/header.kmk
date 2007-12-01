@@ -482,6 +482,9 @@ SED_INT     := $(SED_EXT)
 endif
 SED         := $(SED_EXT)
 
+TEST_EXT    := $(PATH_KBUILD_BIN)/kmk_test$(HOSTSUFF_EXE)
+TEST        := kmk_builtin_test
+
 # Our default shell is the Almquist shell from *BSD.
 ASH         := $(PATH_KBUILD_BIN)/kmk_ash$(HOSTSUFF_EXE)
 MAKESHELL   := $(ASH)
