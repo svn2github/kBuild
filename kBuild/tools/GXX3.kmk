@@ -222,7 +222,11 @@ define TOOL_GXX3_LINK_LIBRARY_CMDS
 		 $(NL)$(TAB)$(QUIET)$(APPEND) $(out).ar-script 'ADDLIB $(outbase).imp.a')
 	$(QUIET)$(APPEND) $(out).ar-script 'SAVE'
 	$(QUIET)$(APPEND) $(out).ar-script 'END'
+ifdef KMK_USE_REDIRECT
+	$(QUIET)$(REDIRECT) -rti $(out).ar-script -- $(TOOL_GXX3_AR) -M
+else
 	$(QUIET)$(TOOL_GXX3_AR) -M < $(out).ar-script
+endif
 endef
 
 

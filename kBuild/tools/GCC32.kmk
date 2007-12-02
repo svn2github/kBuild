@@ -217,7 +217,11 @@ define TOOL_GCC32_LINK_LIBRARY_CMDS
 		$(foreach o,$(othersrc), 'ADDLIB $(o)')
 	$(QUIET)$(APPEND) $(out).ar-script 'SAVE'
 	$(QUIET)$(APPEND) $(out).ar-script 'END'
+ifdef KMK_USE_REDIRECT
+	$(QUIET)$(REDIRECT) -rti $(out).ar-script -- $(TOOL_GCC32_AR) -M
+else
 	$(QUIET)$(TOOL_GCC32_AR) -M < $(out).ar-script
+endif
 endef
 
 
