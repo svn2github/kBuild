@@ -49,7 +49,7 @@ kmkmissing_SOURCES = \
 	kmkbuiltin/err.c \
 	kmkbuiltin/setmode.c \
 	kmkbuiltin/strmode.c \
-	kmkbuiltin/version.c \
+	kmkbuiltin/kbuild_version.c \
 	getopt.c \
 	getopt1.c \
 	electric.c
