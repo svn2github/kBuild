@@ -126,8 +126,8 @@ static int ScanStream(uint8_t *pbStream, size_t cbStream, const char *pszPrefix,
         {
             size_t cchDep;
             pbCur += cchPrefix;
-            cchDep = strlen(pbCur);
-            depAdd(pbCur, cchDep);
+            cchDep = strlen((const char *)pbCur);
+            depAdd((const char *)pbCur, cchDep);
             dprintf(("%05x: '%s'\n", pbCur - pbStream, pbCur));
 
             pbCur += cchDep;
@@ -755,15 +755,14 @@ static int Pdb20Process(uint8_t *pbFile, size_t cbFile)
  */
 static int ProcessIDB(FILE *pInput)
 {
-    size_t  cbFile;
-    char   *pbFile;
-    char   *pbHdr = PDB_SIGNATURE_200;
-    int     rc = 0;
+    size_t      cbFile;
+    uint8_t    *pbFile;
+    int         rc = 0;
 
     /*
      * Read the file into memory.
      */
-    pbFile = (char *)ReadFileIntoMemory(pInput, &cbFile);
+    pbFile = (uint8_t *)ReadFileIntoMemory(pInput, &cbFile);
     if (!pbFile)
         return 1;
 

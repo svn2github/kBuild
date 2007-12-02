@@ -312,7 +312,7 @@ static int calc_md5sum(void *pvFile, unsigned char pDigest[16], unsigned fProgre
         /* process a chunk. */
         cb = read_file(pvFile, abBuf, sizeof(abBuf));
         if (cb > 0)
-            MD5Update(&Ctx, abBuf, cb);
+            MD5Update(&Ctx, (unsigned char *)&abBuf[0], cb);
         else if (!cb)
             break;
         else
