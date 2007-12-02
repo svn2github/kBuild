@@ -40,7 +40,12 @@
 # define stat  _stat64
 # define fstat _fstat64
 # define lseek _lseeki64
+#else
+# undef stat
+# define stat(_path, _st) my_other_stat(_path, _st)
+extern int my_other_stat(const char *, struct stat *);
 #endif
+
 
 
 #define S_ISDIR(m)  (((m) & _S_IFMT) == _S_IFDIR)
