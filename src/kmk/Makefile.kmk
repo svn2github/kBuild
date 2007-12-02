@@ -49,7 +49,6 @@ kmkmissing_SOURCES = \
 	kmkbuiltin/err.c \
 	kmkbuiltin/setmode.c \
 	kmkbuiltin/strmode.c \
-	kmkbuiltin/strlcpy.c \
 	kmkbuiltin/version.c \
 	getopt.c \
 	getopt1.c \
@@ -64,13 +63,18 @@ kmkmissing_SOURCES.freebsd = \
 	glob/glob.c \
 	glob/fnmatch.c
 
+kmkmissing_SOURCES.linux += \
+	kmkbuiltin/strlcpy.c
+
 kmkmissing_SOURCES.solaris = \
+	kmkbuiltin/strlcpy.c \
 	kmkbuiltin/solfakes.c \
 	kmkbuiltin/fts.c \
 	glob/glob.c \
 	glob/fnmatch.c
 
 kmkmissing_SOURCES.win += \
+	kmkbuiltin/strlcpy.c \
 	kmkbuiltin/mscfakes.c \
 	kmkbuiltin/fts.c \
 	glob/glob.c \
