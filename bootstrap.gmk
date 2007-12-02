@@ -58,7 +58,7 @@ all: stage1 stage2
 
 
 #
-# Stage 1 - Build bootstrap kmk and sed, refresh config.h caches, link
+# Stage 1 - Build bootstrap kmk, kmk_redirect and sed, refresh config.h caches, link
 #           up kmk_ash so $(OUTDIR)/kmk can serve as kBuild bin dir.
 #
 stage1: \
