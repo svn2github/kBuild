@@ -35,6 +35,14 @@
 #undef setmode
 #include "getopt.h"
 
+#if defined(MSC_DO_64_BIT_IO) && _MSC_VER >= 1400 /* We want 64-bit file lengths here when possible. */
+# define off_t __int64
+# define stat  _stat64
+# define fstat _fstat64
+# define lseek _lseeki64
+#endif
+
+
 #define S_ISDIR(m)  (((m) & _S_IFMT) == _S_IFDIR)
 #define S_ISREG(m)  (((m) & _S_IFMT) == _S_IFREG)
 #define S_ISLNK(m)  0

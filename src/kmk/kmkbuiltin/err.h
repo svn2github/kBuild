@@ -22,8 +22,8 @@
  *
  */
 
-#ifndef __err_h__
-#define __err_h__
+#ifndef ___err_h
+#define ___err_h
 
 extern const char *g_progname;
 int err(int eval, const char *fmt, ...);
