@@ -306,7 +306,7 @@ define TOOL_VCC80_LINK_DLL_CMDS
 		$(subst /,\\,$(libs))
 ifdef KMK_USE_TEST
 	$(QUIET)$(TEST) -f $(out).manifest -- \
-		$(TOOL_VCC80_MT) -manifest $(subst /,\\,$(out)).manifest "-outputresource:$(subst /,\\,$(out));#2"
+		$(TOOL_VCC80_MT) -manifest $(subst /,\\,$(out)).manifest '-outputresource:$(subst /,\\,$(out));#2'
 else
 	$(QUIET)if test -f $(out).manifest; then \
 		$(TOOL_VCC80_MT) -manifest $(subst /,\\,$(out)).manifest "-outputresource:$(subst /,\\,$(out));#2"; \
@@ -354,7 +354,7 @@ define TOOL_VCC80_LINK_SYSMOD_CMDS
 		$(subst /,\\,$(libs))
 ifdef KMK_USE_TEST
 	$(QUIET)$(TEST) -f $(out).manifest -- \
-		$(TOOL_VCC80_MT) -manifest $(subst /,\\,$(out)).manifest "-outputresource:$(subst /,\\,$(out));#2";
+		$(TOOL_VCC80_MT) -manifest $(subst /,\\,$(out)).manifest '-outputresource:$(subst /,\\,$(out));#2'
 else
 	$(QUIET)if test -f $(out).manifest; then \
 		$(TOOL_VCC80_MT) -manifest $(subst /,\\,$(out)).manifest "-outputresource:$(subst /,\\,$(out));#2"; \
