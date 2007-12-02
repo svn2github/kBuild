@@ -39,6 +39,9 @@
 # include "pathstuff.h"
 # include <Windows.h>
 #endif
+#if defined(__APPLE__)
+# include <mach-o/dyld.h>
+#endif
 
 #include "kbuild.h"
 
