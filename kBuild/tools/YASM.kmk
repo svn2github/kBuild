@@ -68,18 +68,10 @@ define TOOL_YASM_COMPILE_AS_CMDS
 		-l $(outbase).lst\
 		-o $(obj)\
 		$(abspath $(source))
-ifdef KMK_USE_REDIRECT
 	$(QUIET)$(REDIRECT) -wo $(dep) -- $(TOOL_YASM_AS)\
 		$(flags) $(addsuffix /,$(addprefix -I, $(incs))) $(addprefix -D, $(defs))\
 		-o $(obj) \
 		$(abspath $(source)) \
 		-M
-else
-	$(QUIET)$(TOOL_YASM_AS)\
-		$(flags) $(addsuffix /,$(addprefix -I, $(incs))) $(addprefix -D, $(defs))\
-		-o $(obj) \
-		$(abspath $(source)) \
-		-M > $(dep)
-endif
 endef
 
