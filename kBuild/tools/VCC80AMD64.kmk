@@ -240,14 +240,8 @@ define TOOL_VCC80AMD64_LINK_PROGRAM_CMDS
 		$(foreach p,$(libpath), /LIBPATH:$(p)) \
 		$(subst /,\\,$(objs)) \
 		$(subst /,\\,$(libs))
-ifdef KMK_USE_TEST
 	$(QUIET)$(TEST) -f $(out).manifest -- \
 		$(TOOL_VCC80AMD64_MT) -manifest $(subst /,\\,$(out)).manifest -outputresource:$(subst /,\\,$(out))
-else
-	$(QUIET)if test -f $(out).manifest; then \
-		$(TOOL_VCC80AMD64_MT) -manifest $(subst /,\\,$(out)).manifest -outputresource:$(subst /,\\,$(out)); \
-	fi
-endif
 endef
 
 
