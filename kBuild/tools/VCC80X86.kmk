@@ -70,11 +70,7 @@ TOOL_VCC80X86_MT  ?= $(EXEC_X86_WIN32) $(PATH_TOOL_VCC80X86_BIN)/mt.exe
 ## Constructs the correct .pdb name (the name is lowercased).
 # @param    $(1)        Base name, no extention.
 # @param    $(2)        The extension.
-ifeq ($(filter tolower,$(KMK_FEATURES)),tolower)
-TOOL_VCC80X86_PDB                ?= $(dir $(1))$(tolower $(notdir $(1))).$(2)
-else # this fallback is incorrect and won't work on a case sensitive FS.
-TOOL_VCC80X86_PDB                ?= $(1).$(2)
-endif
+TOOL_VCC80X86_PDB = $(dir $(1))$(tolower $(notdir $(1))).$(2)
 
 
 # General Properties used by kBuild
