@@ -307,12 +307,7 @@ define TOOL_VCC70_LINK_DLL_CMDS
 		$(subst /,\\,$(objs)) \
 		$(subst /,\\,$(libs))
 ifeq ($(filter %.exp .def,$(othersrc)),)
-ifdef KMK_NEW_CP
 	$(QUIET)$(CP) --changed --ignore-non-existing $(outbase).exp $(outbase).lib $(PATH_LIB)/
-else
-	$(QUIET)if test -f $(outbase).exp; then $(CP_EXT) $(outbase).exp $(PATH_LIB)/; fi
-	$(QUIET)if test -f $(outbase).lib; then $(CP_EXT) $(outbase).lib $(PATH_LIB)/; fi
-endif
 endif
 $(eval _DIRS += $(PATH_LIB))
 endef
