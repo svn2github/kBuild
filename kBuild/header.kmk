@@ -404,6 +404,8 @@ KMK         := $(PATH_KBUILD_BIN)/kmk$(HOSTSUFF_EXE)
 endif
 MAKE        := $(KMK)
 
+GMAKE       := $(PATH_KBUILD_BIN)/kmk_gmake$(HOSTSUFF_EXE)
+
 DEP_EXT     := $(PATH_KBUILD_BIN)/kDep$(HOSTSUFF_EXE)
 if1of (kDep,$(KMK_BUILTIN))
 DEP         := kmk_builtin_kDep
