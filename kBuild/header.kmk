@@ -141,7 +141,7 @@ EQUAL := =
 # build types. (PORTME)
 #
 KBUILD_OSES   := darwin freebsd l4 linux netbsd nt openbsd os2 solaris win
-KBUILD_ARCHES := x86 amd64 sparc32 sparc64 s390 ppc32 ppc64 mips32 mips64 ia64 hppa32 hppa64 arm alpha
+KBUILD_ARCHES := x86 amd64 sparc32 sparc64 s390 s390x ppc32 ppc64 mips32 mips64 ia64 hppa32 hppa64 arm alpha
 
 
 #
