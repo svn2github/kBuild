@@ -268,10 +268,10 @@ endif
 
 ## CURSUBDIR is PATH_SUB_ROOT described relative to PATH_ROOT.
 # This variable is used to determin where the object files and other output goes.
-ifneq ($(PATH_ROOT),$(PATH_CURRENT))
-CURSUBDIR           := $(patsubst $(PATH_ROOT)/%,%,$(PATH_SUB_ROOT))
+ifneq ($(PATH_ROOT),$(PATH_SUB_ROOT))
+ CURSUBDIR          := $(patsubst $(PATH_ROOT)/%,%,$(PATH_SUB_ROOT))
 else
-CURSUBDIR           := .
+ CURSUBDIR          := .
 endif
 
 # Output directories.
