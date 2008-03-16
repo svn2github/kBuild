@@ -938,7 +938,7 @@ kbuild_get_object_base(struct variable *pTarget, struct variable *pSource, const
     memcpy(psz, pszSrc, cchSrc); psz += cchSrc;
     *psz = '\0';
 
-    /* convert '..' path elements in the source to '_.'. */
+    /* convert '..' path elements in the source to 'dt'. */
     psz = pszDot;
     while ((psz = memchr(psz, '.', cchSrc + 1 - (pszDot - psz))) != NULL)
     {
@@ -959,8 +959,8 @@ kbuild_get_object_base(struct variable *pTarget, struct variable *pSource, const
                 )
             )
         {
-            *psz = '_';
-            psz += 2;
+            *psz++ = 'd';
+            *psz++ = 't';
         }
         else
             psz++;
