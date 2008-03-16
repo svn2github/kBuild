@@ -133,6 +133,15 @@ EQUAL := =
 
 
 #
+# The list of standard build types in kBuild.
+#
+# This list can be extended in Config.kmk and it's possible to extend 
+# (inherit) another build type.
+#
+KBUILD_BLD_TYPES := releases profile debug
+
+
+#
 # The OSes, Architectures and CPUs that kBuild recognizes.
 #
 # When kBuild is ported to a new OS or architecture a unique keyword needs
@@ -1024,6 +1033,24 @@ else
   MSG_L2 ?= @$(ECHO) "kBuild: $1"
  endif
 endif
+
+
+#
+# Validate any KBUILD_BLD_TYPES additions and finally the BUILD_TYPE.
+#
+if1of ($(KBUILD_BLD_TYPES), $(KBUILD_OSES))
+ $(error kBuild: found KBUILD_BLD_TYPES in KBUILD_OSES!)
+endif
+if1of ($(KBUILD_BLD_TYPES), $(KBUILD_ARCHES))
+ $(error kBuild: found KBUILD_BLD_TYPES in KBUILD_ARCHES!)
+endif
+if1of ($(KBUILD_OSES), $(KBUILD_ARCHES))
+ $(error kBuild: found KBUILD_OSES in KBUILD_ARCHES!)
+endif
+ifn1of ($(BUILD_TYPE), $(KBUILD_BLD_TYPES))
+ $(error kBuild: BUILD_TYPE(=$(BUILD_TYPE)) is not found in KBUILD_BLD_TYPES(=$(KBUILD_BLD_TYPES))!)
+endif
+
 
 
 ifdef KBUILD_PROFILE_SELF
