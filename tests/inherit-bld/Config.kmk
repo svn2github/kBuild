@@ -45,3 +45,24 @@ KBUILD_BLD_TYPES += dbgbld3
 KBUILD_BLD_TYPES += dbgbld4
 BLD_TYPE_dbgbld4_EXTENDS = dbgbld3
 
+#
+# For inherit-bld5 - appending inheritance.
+#
+KBUILD_BLD_TYPES += dbgbld5
+BLD_TYPE_dbgbld5_EXTENDS = dbgbld3
+BLD_TYPE_dbgbld5_EXTENDS_BY = appending
+
+#
+# For inherit-bld6 - prepending inheritance.
+#
+KBUILD_BLD_TYPES += dbgbld6
+BLD_TYPE_dbgbld6_EXTENDS = dbgbld3
+BLD_TYPE_dbgbld6_EXTENDS_BY = prepending
+
+#
+# For inherit-bld6 - overriding inheritance.
+#
+KBUILD_BLD_TYPES += dbgbld7
+BLD_TYPE_dbgbld7_EXTENDS = dbgbld3
+BLD_TYPE_dbgbld7_EXTENDS_BY = overriding
+
