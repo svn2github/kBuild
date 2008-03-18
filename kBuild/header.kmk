@@ -842,6 +842,17 @@ endif
 
 
 #
+# Legacy variable translation.
+# These will be eliminated when switching to the next version.
+#
+ifdef USE_KOBJCACHE
+ ifndef KBUILD_USE_KOBJCACHE
+  export KBUILD_USE_KOBJCACHE := $(USE_KOBJCACHE)
+ endif
+endif
+
+
+#
 # This is how we find the closest config.kmk.
 # It's a little hacky but I think it works fine.
 #
