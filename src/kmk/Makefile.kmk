@@ -434,5 +434,17 @@ test_if1of:
 test_local:
 	$(MAKE) -f testcase-local.kmk
 
-test_all:	test_math test_stack test_shell test_if1of test_local
+test_30_continued_on_failure_worker:
+	this_executable_does_not_exist.exe
+	echo "We shouldn't see this..."
+
+test_30_continued_on_failure:
+	$(MAKE) -f $(MAKEFILE) test_30_continued_on_failure_worker; \
+	if test $$? -ne 1; then \
+		echo "$@: FAILED - exit code $$? instead of 1."; \
+		exit 1; \
+	fi
+
+
+test_all:	test_math test_stack test_shell test_if1of test_local test_30_continued_on_failure
 
