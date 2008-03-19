@@ -138,7 +138,7 @@ EQUAL := =
 # This list can be extended in Config.kmk and it's possible to extend
 # (inherit) another build type.
 #
-KBUILD_BLD_TYPES := releases profile debug
+KBUILD_BLD_TYPES := release profile debug
 
 
 #
