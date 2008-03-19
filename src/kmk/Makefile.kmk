@@ -440,9 +440,12 @@ test_30_continued_on_failure_worker:
 
 test_30_continued_on_failure:
 	$(MAKE) -f $(MAKEFILE) test_30_continued_on_failure_worker; \
-	if test $$? -ne 1; then \
-		echo "$@: FAILED - exit code $$? instead of 1."; \
+	RC=$$?; \
+	if test $${RC} -ne 2; then \
+		echo "$@: FAILED - exit code $${RC} instead of 2."; \
 		exit 1; \
+	else \
+		echo "$@: SUCCESS"; \
 	fi
 
 
