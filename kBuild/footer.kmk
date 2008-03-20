@@ -1955,7 +1955,6 @@ endef
 #
 # @{
 define def_src_handler_c
-$(warning def_src_handler_c: source=$(source))
 type := C
  $(kb-src-one )
 endef
