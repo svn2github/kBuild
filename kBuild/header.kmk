@@ -583,6 +583,30 @@ KBUILD_DEFAULT_PATHS :=
 # The user can overload this list.
 DEFAULT_MAKEFILE := Makefile.kmk makefile.kmk Makefile makefile
 
+## KBUILD_SRC_HANDLERS
+# The list of source handlers, pair of extension and handler.
+# The user can overload this list to provide additional or custom
+# handlers. On a per-target/template see SRC_HANDLERS.
+KBUILD_SRC_HANDLERS := \
+  .c:def_src_handler_c \
+  .C:def_src_handler_c \
+.cxx:def_src_handler_cxx \
+.CXX:def_src_handler_cxx \
+.cpp:def_src_handler_cxx \
+.CPP:def_src_handler_cxx \
+ .cc:def_src_handler_cxx \
+ .CC:def_src_handler_cxx \
+  .m:def_src_handler_objc \
+.asm:def_src_handler_asm \
+.ASM:def_src_handler_asm \
+  .s:def_src_handler_asm \
+  .S:def_src_handler_asm \
+ .rc:def_src_handler_rc \
+.obj:def_src_handler_obj \
+  .o:def_src_handler_obj \
+.res:def_src_handler_obj \
+.lib:def_src_handler_obj \
+  .a:def_src_handler_obj \
 
 ## PROPS_TOOLS
 # This is a subset of PROPS_SINGLE.
@@ -638,14 +662,14 @@ PROPS_ACCUMULATE_R_LNK := \
 # A Config.kmk file can add it's own properties to this list and kBuild
 # will do the necessary inheritance from templates to targets.
 PROPS_ACCUMULATE_L := \
-	SDKS SOURCES \
+	SDKS SOURCES SRC_HANDLERS \
 	INCS CINCS CXXINCS OBJCINCS ASINCS RCINCS \
 	LIBS LIBPATH \
 	DIRS BLDDIRS CLEAN
 ## PROPS_ACCUMULATE_L_LNK
 # Subset of PROPS_ACCUMULATE_L which applies to all linkable targets.
 PROPS_ACCUMULATE_L_LNK := \
-	SDKS SOURCES \
+	SDKS SOURCES SRC_HANDLERS \
 	INCS CINCS CXXINCS OBJCINCS ASINCS RCINCS \
 	BLDDIRS CLEAN
 
