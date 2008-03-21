@@ -1996,7 +1996,7 @@ handler := $(patsubst $(suff):%,%,$(src_handler))
 ifneq ($(handler),)
 $(eval $(value $(handler)))
 else
-othersrc += $(sources)
+othersrc += $(source)
 endif
 endef
 
