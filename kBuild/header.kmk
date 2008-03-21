@@ -662,7 +662,7 @@ PROPS_ACCUMULATE_R_LNK := \
 # A Config.kmk file can add it's own properties to this list and kBuild
 # will do the necessary inheritance from templates to targets.
 PROPS_ACCUMULATE_L := \
-	SDKS SOURCES SRC_HANDLERS \
+	SDKS SOURCES SRC_HANDLERS INTERMEDIATES \
 	INCS CINCS CXXINCS OBJCINCS ASINCS RCINCS \
 	LIBS LIBPATH \
 	DIRS BLDDIRS CLEAN
