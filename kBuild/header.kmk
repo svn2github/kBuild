@@ -604,9 +604,7 @@ KBUILD_SRC_HANDLERS := \
  .rc:def_src_handler_rc \
 .obj:def_src_handler_obj \
   .o:def_src_handler_obj \
-.res:def_src_handler_obj \
-.lib:def_src_handler_obj \
-  .a:def_src_handler_obj \
+.res:def_src_handler_obj
 
 ## PROPS_TOOLS
 # This is a subset of PROPS_SINGLE.
