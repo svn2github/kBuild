@@ -72,7 +72,7 @@ int kmk_builtin_append(int argc, char **argv, char **envp)
     while (i < argc
        &&  argv[i][0] == '-'
        &&  argv[i][1] != '\0' /* '-' is a file */
-       &&  strchr("-nv", argv[i][1]) /* valid option char */
+       &&  strchr("-cnv", argv[i][1]) /* valid option char */
        )
     {
         char *psz = &argv[i][1];
