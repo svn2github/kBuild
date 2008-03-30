@@ -29,6 +29,7 @@ ifndef __header_kmk__
 ifdef KBUILD_PROFILE_SELF
  _KBUILD_TS_HEADER_START := $(nanots ) # just a dummy warm up query
  $(info prof: since start - since previous - event description)
+ $(info stat: $(make-stats ))
  _KBUILD_TS_HEADER_START := $(nanots )
  _KBUILD_TS_PREV := $(_KBUILD_TS_HEADER_START)
 endif
@@ -898,12 +899,14 @@ endif
 ifdef KBUILD_PROFILE_SELF
  _KBUILD_TS_NOW := $(nanots )
  $(info prof: $(int-sub $(_KBUILD_TS_NOW), $(_KBUILD_TS_HEADER_START)) - $(int-sub $(_KBUILD_TS_NOW), $(_KBUILD_TS_PREV)) - including $(_CFGFILE))
+ $(info stat: $(make-stats ))
  _KBUILD_TS_PREV := $(_KBUILD_TS_NOW)
 
  include $(_CFGFILE)
 
  _KBUILD_TS_NOW := $(nanots )
  $(info prof: $(int-sub $(_KBUILD_TS_NOW), $(_KBUILD_TS_HEADER_START)) - $(int-sub $(_KBUILD_TS_NOW), $(_KBUILD_TS_PREV)) - included $(_CFGFILE))
+ $(info stat: $(make-stats ))
  _KBUILD_TS_PREV := $(_KBUILD_TS_NOW)
 else
  include $(_CFGFILE)
@@ -1093,6 +1096,7 @@ endif
 ifdef KBUILD_PROFILE_SELF
  _KBUILD_TS_HEADER_END := $(nanots )
  $(info prof: $(int-sub $(_KBUILD_TS_HEADER_END), $(_KBUILD_TS_HEADER_START)) - $(int-sub $(_KBUILD_TS_HEADER_END), $(_KBUILD_TS_PREV)) - end of header.kmk)
+ $(info stat: $(make-stats ))
  _KBUILD_TS_PREV := $(_KBUILD_TS_HEADER_END)
 endif
 
