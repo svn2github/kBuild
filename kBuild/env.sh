@@ -1,4 +1,5 @@
 #!/bin/bash
+#!/bin/sh should work fine too, just needs testing.
 # $Id$
 ## @file
 #
@@ -118,7 +119,7 @@ if test -z "$BUILD_PLATFORM_ARCH"; then
 fi
 if test -z "$BUILD_PLATFORM_ARCH"; then
     # Use uname -m or isainfo (lots of guesses here, please help clean this up...)
-    if test "$BUILD_PLATFORM" == "solaris"; then
+    if test "$BUILD_PLATFORM" = "solaris"; then
         BUILD_PLATFORM_ARCH=`isainfo | cut -f 1 -d ' '`
         
     else
