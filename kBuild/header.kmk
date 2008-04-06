@@ -1051,26 +1051,26 @@ else
   # Default output level.
   QUIET  := @
   QUIET2 := @
-  MSG_L1 ?= @$(ECHO) "kBuild: $1"
+  MSG_L1 ?= %@$(ECHO) "kBuild: $1"
   MSG_L2  =
  else ifeq ($(KBUILD_VERBOSE),1)
   # A bit more output
   QUIET  := @
   QUIET2 := @
-  MSG_L1 ?= @$(ECHO) "kBuild: $1 $2"
+  MSG_L1 ?= %@$(ECHO) "kBuild: $1 $2"
   MSG_L2  =
  else ifeq ($(KBUILD_VERBOSE),2)
   # Lot more output
   QUIET  :=
   QUIET2 := @
-  MSG_L1 ?= @$(ECHO) "kBuild: $1 $2"
-  MSG_L2 ?= @$(ECHO) "kBuild: $1"
+  MSG_L1 ?= %@$(ECHO) "kBuild: $1 $2"
+  MSG_L2 ?= %@$(ECHO) "kBuild: $1"
  else
   # maximal output.
   QUIET  :=
   QUIET2 :=
-  MSG_L1 ?= @$(ECHO) "kBuild: $1 $2"
-  MSG_L2 ?= @$(ECHO) "kBuild: $1"
+  MSG_L1 ?= %@$(ECHO) "kBuild: $1 $2"
+  MSG_L2 ?= %@$(ECHO) "kBuild: $1"
  endif
 endif
 
