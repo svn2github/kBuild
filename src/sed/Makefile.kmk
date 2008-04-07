@@ -23,6 +23,7 @@ kmk_sed_DEFS = \
 	HAVE_CONFIG_H
 kmk_sed_SOURCES = \
 	sed/sed.c \
+	lib/regex.c \
 	sed/compile.c \
 	sed/execute.c \
 	sed/regexp.c \
@@ -30,8 +31,7 @@ kmk_sed_SOURCES = \
 	sed/mbcs.c \
 	lib/getopt1.c \
 	lib/getopt.c \
-	lib/utils.c \
-	lib/regex.c
+	lib/utils.c
 kmk_sed_SOURCES.darwin = \
 	lib/strverscmp.c \
 	lib/obstack.c \
