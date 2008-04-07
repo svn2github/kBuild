@@ -63,11 +63,13 @@ KMK_REVISION := $(patsubst %:,,  $Rev$  )
 #
 # Define the default goal.
 #
+.PHONY: all all_recursive 
 all: all_recursive
 
 #
 # The phony FORCE target.
 #
+.PHONY: FORCE
 FORCE:
 
 
