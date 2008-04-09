@@ -4,7 +4,7 @@
 # kBuild SDK - Windows Platform SDK (from ~2002), targeting x86.
 #              Differs in that it has ddraw.lib and dxguid.lib.
 #
-# Copyright (c) 2006-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
+# Copyright (c) 2006-2008 knut st. osmundsen <bird-kBuild-spam@anduin.net>
 #
 #
 # This file is part of kBuild.

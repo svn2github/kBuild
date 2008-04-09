@@ -5,7 +5,7 @@
 #              without any libraries or LIBPATH properties.
 #              Basically for finding specstrings.h when using the DDK.
 #
-# Copyright (c) 2006-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
+# Copyright (c) 2006-2008 knut st. osmundsen <bird-kBuild-spam@anduin.net>
 #
 #
 # This file is part of kBuild.

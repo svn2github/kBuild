@@ -3,7 +3,7 @@
 #
 # kBuild Tool Config - Generic GCC v3.2.x using the system GCC and Binutils, for building C++ code.
 #
-# Copyright (c) 2004-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
+# Copyright (c) 2004-2008 knut st. osmundsen <bird-kBuild-spam@anduin.net>
 #
 #
 # This file is part of kBuild.
