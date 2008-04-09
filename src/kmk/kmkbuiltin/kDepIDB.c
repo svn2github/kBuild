@@ -204,12 +204,7 @@ void *ReadFileIntoMemory(FILE *pInput, size_t *pcbFile)
     pvFile = malloc(cbFile + 1);
     if (pvFile)
     {
-#if 1
-        long cbRead = (long)read(fileno(pInput), pvFile, cbFile);
-        if (cbRead == cbFile)
-#else
         if (fread(pvFile, cbFile, 1, pInput))
-#endif
         {
             ((uint8_t *)pvFile)[cbFile] = '\0';
             return pvFile;
