@@ -1,11 +1,10 @@
-#!/bin/bash
 #!/bin/sh should work fine too, just needs testing.
 # $Id$
 ## @file
 #
 # Environment setup script.
 #
-# Copyright (c) 2005-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
+# Copyright (c) 2005-2008 knut st. osmundsen <bird-kBuild-spam@anduin.net>
 #
 #
 # This file is part of kBuild.
