@@ -48,7 +48,7 @@ else
  # Resolve any fancy stuff once and for all.
  PATH_TOOL_VCC80AMD64 := $(PATH_TOOL_VCC80AMD64)
 endif
-ifeq ($(BUILD_PLATFORM).$(BUILD_PLATFORM_ARCH),win.amd64)
+ifeq ($(KBUILD_HOST).$(KBUILD_HOST_ARCH),win.amd64)
 PATH_TOOL_VCC80AMD64_BIN ?= $(PATH_TOOL_VCC80AMD64)/bin/amd64
 else
 PATH_TOOL_VCC80AMD64_BIN ?= $(PATH_TOOL_VCC80AMD64)/bin/x86_amd64

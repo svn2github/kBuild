@@ -35,10 +35,10 @@ TOOL_GCC_RANLIB ?= ranlib$(HOSTSUFF_EXE)
 TOOL_GCC_LD  ?= gcc$(HOSTSUFF_EXE)
 TOOL_GCC_LDFLAGS.dll.os2 ?= -Zdll
 TOOL_GCC_LDFLAGS.dll.darwin ?= -dynamiclib
-ifndef TOOL_GCC_LDFLAGS.$(BUILD_TARGET)
+ifndef TOOL_GCC_LDFLAGS.$(KBUILD_TARGET)
 TOOL_GCC_LDFLAGS.dll ?= -shared
 else
-TOOL_GCC_LDFLAGS.dll ?= $(TOOL_GCC_LDFLAGS.$(BUILD_TARGET))
+TOOL_GCC_LDFLAGS.dll ?= $(TOOL_GCC_LDFLAGS.$(KBUILD_TARGET))
 endif
 
 # General Properties used by kBuild

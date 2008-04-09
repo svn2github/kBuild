@@ -54,7 +54,7 @@ TOOL_TAR_UNPACKFLAGS ?=
 TOOL_TAR_UNPACK_OUTPUT =
 TOOL_TAR_UNPACK_DEPEND =
 TOOL_TAR_UNPACK_DEPORD =
-ifeq ($(BUILD_PLATFORM),win) # hacking with buggy unxutils on windows. it doesn't like driver letters.
+ifeq ($(KBUILD_HOST),win) # hacking with buggy unxutils on windows. it doesn't like driver letters.
 define TOOL_TAR_UNPACK_CMDS
 	$(QUIET)$(TOOL_TAR_UNPACK) -x $(flags) -C $(subst G:,,$(inst)) -f $(archive)
 	$(QUIET)$(TOOL_TAR_UNPACK) -t $(flags) -f $(archive) > $(out)
