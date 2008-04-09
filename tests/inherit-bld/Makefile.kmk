@@ -112,5 +112,5 @@ inherit-bld21_DEFS.dbgbld20 = Y=y
 inherit-bld21_SOURCES = ../dummy_defined_Y.c
 
 
-include $(PATH_KBUILD)/footer.kmk
+include $(FILE_KBUILD_FOOTER)
 

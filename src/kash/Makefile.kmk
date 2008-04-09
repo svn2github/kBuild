@@ -4,7 +4,7 @@
 #
 
 #
-# Copyright (c) 2005-2007 knut st. osmundsen <bird-src-spam@anduin.net>
+# Copyright (c) 2005-2008 knut st. osmundsen <bird-src-spam@anduin.net>
 #
 # This file is part of kBuild.
 #
@@ -115,7 +115,7 @@ kash_CLEAN = \
 #kash.man_SOURCES = sh.1=>kash.1
 
 
-ifeq ($(filter-out win,$(BUILD_TARGET)),)
+ifeq ($(filter-out win,$(KBUILD_TARGET)),)
 
 #
 # Use the pregenerated code.
@@ -124,11 +124,11 @@ kash_ORDERDEPS :=
 kash_INCS += generated
 kash_SOURCES := $(patsubst $(PATH_TARGET)/%,generated/%,$(kash_SOURCES))
 
-include $(PATH_KBUILD)/footer.kmk
+include $(FILE_KBUILD_FOOTER)
 
 else
 
-include $(PATH_KBUILD)/footer.kmk
+include $(FILE_KBUILD_FOOTER)
 
 #
 # ATTENTION! ATTENTION! ATTENTION!

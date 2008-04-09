@@ -31,4 +31,4 @@ SUBDIRS = \
 	inherit-target \
 	inherit-bld \
 
-include $(PATH_KBUILD)/footer.kmk
+include $(FILE_KBUILD_FOOTER)
