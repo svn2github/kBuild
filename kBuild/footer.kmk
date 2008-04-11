@@ -1843,7 +1843,6 @@ endif
 # for building a source file.
 # @param    $(obj)    The object file.
 define def_target_source_rule
-$$(warning $(_DEP_COMPILE_CMDS))
 ifdef TOOL_$(tool)_COMPILE_$(type)_USES_KOBJCACHE
 $(outbase).koc +| $(obj) $($(target)_$(source)_OUTPUT_) $($(target)_$(source)_OUTPUT_MAYBE_) : \
 		$($(target)_$(source)_DEPEND_) \
