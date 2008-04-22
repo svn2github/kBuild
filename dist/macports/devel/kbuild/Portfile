@@ -13,8 +13,8 @@ long_description \
 homepage        http://svn.netlabs.org/kbuild
 platforms       darwin
 fetch.type      svn
-#svn.url         http://svn.netlabs.org/repos/kbuild/trunk
-svn.url         svn://system360/svn-mirrors/kbuild/trunk
+svn.url         http://svn.netlabs.org/repos/kbuild/trunk
+#svn.url         svn://system360/svn-mirrors/kbuild/trunk
 svn.tag         1545
 worksrcdir   	trunk
 
