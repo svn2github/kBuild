@@ -38,7 +38,12 @@ INSTALLS += kBuild
 kBuild_INST = $(NIX_INSTALL_DIR_SHARE)
 kBuild_SOURCES := \
         $(foreach src,\
-			$(wildcard kBuild/*.kmk kBuild/tools/*.kmk kBuild/sdks/*.kmk),\
+			$(wildcard \
+				kBuild/*.kmk \
+				kBuild/tools/*.kmk \
+				kBuild/sdks/*.kmk \
+				kBuild/msgstyles/* \
+				kBuild/templates/*),\
 			$(src)=>$(subst kBuild/,,$(src)))
 endif
 
