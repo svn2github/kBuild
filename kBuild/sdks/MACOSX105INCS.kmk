@@ -22,6 +22,14 @@
 # along with kBuild; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 #
+#
+# As a special exception you are granted permission to include this file, via
+# the kmk include directive, as you wish without this in itself causing the 
+# resulting makefile, program or whatever to be covered by the GPL license. 
+# This exception does not however invalidate any other reasons why the makefile,
+# program, whatever should not be covered the GPL.
+#
+#
 
 SDK_MACOSX105INCS := Mac OS X v10.5 SDK
 
