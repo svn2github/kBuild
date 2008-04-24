@@ -426,14 +426,6 @@ fi
 test -n "$DBG_OPT" && echo "dbg: KBUILD_BIN_PATH=${KBUILD_BIN_PATH}" 1>&${DBG_REDIR}
 
 #
-# Make shell - OS/2 only.
-# Remove this!
-#
-if test "$KBUILD_HOST" = "os2"; then
-    export MAKESHELL="${KBUILD_BIN_PATH}/kmk_ash${_SUFF_EXE}";
-fi
-
-#
 # Add the bin/x.y/ directory to the PATH.
 # NOTE! Once bootstrapped this is the only thing that is actually necessary.
 #
