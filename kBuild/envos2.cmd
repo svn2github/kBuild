@@ -386,7 +386,6 @@ if (fOptDbg <> 0) then say "dbg: KBUILD_BIN_PATH="||skBuildBinPath;
  * NOTE! Once bootstrapped this is the only thing that is actually necessary.
  */
 sOldPath = EnvGet("PATH");
-say sOldPath
 call EnvAddFront 0, "PATH", translate(skBuildBinPath, '\', '/');
 sNewPath = EnvGet("PATH");
 call EnvSet 0, "PATH", sOldPath;
