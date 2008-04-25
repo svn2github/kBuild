@@ -279,7 +279,12 @@ if (\fOptOverrideAll) then do
             call SysSleep 1;
             exit 1;
         end
-        skBuildHost = ToLower(EnvGet("BUILD_PLATFORM")); /* ToLower is for legacy reasons. */
+        if (skBuildHost = '' & EnvGet("BUILD_PLATFORM") = "OS2") then do
+            say "error: BUILD_PLATFORM=OS2! Please unset it or change it to 'os2'."
+            call SysSleep 1;
+            exit 1;
+        end
+        skBuildHost = EnvGet("BUILD_PLATFORM");
     end
 
     if (EnvGet("BUILD_PLATFORM_ARCH") <> '') then do
