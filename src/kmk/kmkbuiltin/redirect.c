@@ -160,8 +160,8 @@ int main(int argc, char **argv)
                     ||  !strncmp(psz, "ENDLIBPATH=",    sizeof("ENDLIBPATH=") - 1)
                     ||  !strncmp(psz, "LIBPATHSTRICT=", sizeof("LIBPATHSTRICT=") - 1))
                 {
-                    ULONG ulVar = *psz == 'B' ? BEGINLIBPATH
-                                : *psz == 'E' ? ENDLIBPATH
+                    ULONG ulVar = *psz == 'B' ? BEGIN_LIBPATH
+                                : *psz == 'E' ? END_LIBPATH
                                 :               LIBPATHSTRICT;
                     const char *pszVal = strchr(psz, '=') + 1;
                     APIRET rc = DosSetExtLIBPATH(pszVal, ulVar);
