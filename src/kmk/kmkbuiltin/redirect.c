@@ -167,7 +167,7 @@ int main(int argc, char **argv)
                     APIRET rc = DosSetExtLIBPATH(pszVal, ulVar);
                     if (rc)
                     {
-                        fprintf(pStdErr, "%s: error: DosSetExtLibPath(\"%s\", %.*s (%ul)): %ul\n", 
+                        fprintf(pStdErr, "%s: error: DosSetExtLibPath(\"%s\", %.*s (%lu)): %lu\n", 
                                 argv[0], pszVal, pszVal - psz - 1, psz, ulVar, rc);
                         return 1;
                     }
