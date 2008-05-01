@@ -1,9 +1,10 @@
-/* $Id$  -*- tab-width: 4 c-indent-level: 4 -*-
- *
+/* $Id$  -*- tab-width: 4 c-indent-level: 4 -*- */
+/**
  * Visual SlickEdit Documentation Macros.
- *
+ */
+
+/*
  * Copyright (c) 1999-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
- *
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
