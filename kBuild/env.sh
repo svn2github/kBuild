@@ -343,14 +343,13 @@ if test -z "$KBUILD_HOST_ARCH"; then
         ia64)
             KBUILD_HOST_ARCH='ia64'
             ;;
-        #hppa32|hppa|parisc32|parisc)?
-        hppa32|parisc32)
+        hppa32|parisc32|parisc)
             KBUILD_HOST_ARCH='hppa32'
             ;;
         hppa64|parisc64)
             KBUILD_HOST_ARCH='hppa64'
             ;;
-        arm|armv4l|armv5tel)
+        arm|armv4l|armv5tel|armv5tejl)
             KBUILD_HOST_ARCH='arm'
             ;;
         alpha)
