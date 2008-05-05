@@ -247,28 +247,32 @@ test -n "$DBG_OPT" && echo "dbg: KBUILD_TYPE=$KBUILD_TYPE" 1>&${DBG_REDIR}
 if test -z "$KBUILD_HOST"; then
     KBUILD_HOST=`uname`
     case "$KBUILD_HOST" in
-        linux|Linux|GNU/Linux|LINUX)
-            KBUILD_HOST=linux
+        Darwin|darwin)
+            KBUILD_HOST=darwin
             ;;
 
-        os2|OS/2|OS2)
-            KBUILD_HOST=os2
+        DragonFly)
+            KBUILD_HOST=dragonfly
             ;;
 
         freebsd|FreeBSD|FREEBSD)
             KBUILD_HOST=freebsd
             ;;
 
-        openbsd|OpenBSD|OPENBSD)
-            KBUILD_HOST=openbsd
+        linux|Linux|GNU/Linux|LINUX)
+            KBUILD_HOST=linux
             ;;
 
         netbsd|NetBSD|NETBSD)
             KBUILD_HOST=netbsd
             ;;
 
-        Darwin|darwin)
-            KBUILD_HOST=darwin
+        openbsd|OpenBSD|OPENBSD)
+            KBUILD_HOST=openbsd
+            ;;
+
+        os2|OS/2|OS2)
+            KBUILD_HOST=os2
             ;;
 
         SunOS)
