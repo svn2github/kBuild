@@ -79,6 +79,7 @@ KBUILD_SVN_INFO_DEP := $(KBUILD_SVN_INFO_KMK)
 $(warning Neither SvnInfo nor .svn/* was found in the root. Will have to cook up something too keep the build happy.)
 $(KBUILD_SVN_INFO_KMK):
 	$(RM) -f $@
+	$(MKDIR) -p $(@D)
 	$(APPEND) $@ 'KBUILD_SVN_REV := 0'
 	$(APPEND) $@ 'KBUILD_SVN_URL := /dev/null'
 
