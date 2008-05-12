@@ -2033,7 +2033,7 @@ local suff := $(suffix $(source))
 local src_handler := $(firstword $(filter $(suff):%, $($(target)_$(source)_SRC_HANDLERS) $($(source)_SRC_HANDLERS) $(target_src_handlers) ))
 local handler := $(patsubst $(suff):%,%,$(src_handler))
 ifneq ($(handler),)
- $(evalval $(handler))
+ $(evalvalctx $(handler))
 else
  othersrc += $(source)
 endif
