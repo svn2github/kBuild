@@ -24,8 +24,8 @@
 #
 #
 # As a special exception you are granted permission to include this file, via
-# the kmk include directive, as you wish without this in itself causing the 
-# resulting makefile, program or whatever to be covered by the GPL license. 
+# the kmk include directive, as you wish without this in itself causing the
+# resulting makefile, program or whatever to be covered by the GPL license.
 # This exception does not however invalidate any other reasons why the makefile,
 # program, whatever should not be covered the GPL.
 #
@@ -310,7 +310,6 @@ define TOOL_GXX3PLAIN_LINK_SYSMOD_CMDS
 		$(objs)\
 		$(filter %.def, $(othersrc))\
 		$(foreach p,$(libpath), -L$(p))\
-		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
-		$(call TOOL_GXX3PLAIN_LD_SYSMOD_MAP.$(bld_trg),$(outbase).map)
+		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))
 endef
 
