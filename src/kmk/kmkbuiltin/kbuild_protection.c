@@ -33,6 +33,10 @@
 #include <string.h>
 #include <ctype.h>
 #include <assert.h>
+#if defined(_MSC_VER) || defined(__OS2__)
+# include <limits.h>
+# include <direct.h>
+#endif 
 #include "kbuild_protection.h"
 
 
