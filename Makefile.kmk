@@ -1,6 +1,6 @@
 # $Id$
 ## @file
-# Top-Level Makefile for kBuild.
+# Top-Level Sub-Makefile for kBuild.
 #
 
 #
@@ -24,10 +24,10 @@
 #
 #
 
-DEPTH = .
-include $(PATH_KBUILD)/header.kmk
+SUB_DEPTH = .
+include $(KBUILD_PATH)/subheader.kmk
 
-SUBDIRS = src
+include $(PATH_SUB_CURRENT)/src/Makefile.kmk
 
 
 ifdef NIX_INSTALL_DIR
@@ -72,5 +72,5 @@ kBuild_bin_SOURCES.profile = \
 endif
 
 
-include $(FILE_KBUILD_FOOTER)
+include $(FILE_KBUILD_SUB_FOOTER)
 
