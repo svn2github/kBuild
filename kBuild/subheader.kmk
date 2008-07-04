@@ -34,8 +34,7 @@
 # Sanity check.
 #
 ifdef __footer_kmk__
-$(error kBuild: footer.kmk has already been included. Fix your sub-makefiles!\
- $(NL)Makefile list: $(subst $(SP),$(NL)$(TAB),$(MAKEFILE_LIST))
+$(error kBuild: footer.kmk has already been included. Fix your sub-makefiles! $(MAKEFILE_CURRENT))
 endif
 
 ifndef _SUB_MAKEFILE_NOT_FIRST
