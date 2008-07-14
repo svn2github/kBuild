@@ -784,7 +784,7 @@ else
  ifeq ($(bld_trg),win)
   $(eval $(target)_LIBS   += $(foreach module,$(qt_modules), $(PATH_SDK_QT4_LIB)/$(qt_prefix)Qt$(module)4$(SUFF_LIB)))
  else
-  $(eval $(target)_LIBS   += $(foreach module,$(qt_modules), $(PATH_SDK_QT4_LIB)/$(qt_prefix)Qt$(module)$(SUFF_DLL)))
+  $(eval $(target)_LIBS   += $(foreach module,$(qt_modules), $(PATH_SDK_QT4_LIB)/lib$(qt_prefix)Qt$(module)$(SUFF_DLL)))
  endif
  $(eval $(target)_INCS    += $(addprefix $(PATH_SDK_QT4_INC)/Qt,$(qt_modules)))
 endif
