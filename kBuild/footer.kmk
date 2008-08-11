@@ -1991,7 +1991,7 @@ ifndef NO_LINK_CMDS_DEPS
 	%$$(QUIET2)$$(APPEND) '$(dep)' 'endef'
 endif
 
-$(basename $(notdir $(out))): $(out)
+$(basename $(notdir $(out))):: $(out)
 
 endef
 
@@ -2007,7 +2007,7 @@ $(INSTARGET_$(target)) : $(out) | $(call DIRDEP,$(dir $(INSTARGET_$(target))))
 	$$(QUIET)$$(INSTALL) $$(if $(mode),-m $(mode)) -- $(out) $$@
 
 ifdef KBUILD_DO_AUTO_INSTALL
-$(basename $(notdir $(out))): $(INSTARGET_$(target))
+$(basename $(notdir $(out))):: $(INSTARGET_$(target))
 endif
 endef
 
