@@ -271,7 +271,9 @@ define TOOL_QT4_RCC_QRC_CMDS
 		$(flags)\
 		-o $(out)\
 		$(source)
-	$(APPEND) $(dep) '$(source): \'
+	$(APPEND) $(dep) '\'
+	$(APPEND) $(dep) '$(out): \'
+	$(APPEND) $(dep) '$(source) \'
 	$(SED) \
 		-e '/^[[:blank:]]*<file[[:blank:]][^>]*>/!d' \
 		-e 's/^.*<file[[:blank:]][^>]*>\([^<]*\)<\/file>.*$$$$/\1/' \
