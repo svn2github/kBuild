@@ -1020,7 +1020,7 @@ endif
 # This prevents some trouble when users override the defaults for these
 # variables and uses relative paths or paths with incorrect case.
 #
-PATH_OUT_BASE := $(abspath PATH_OUT_BASE)
+PATH_OUT_BASE := $(abspath $(PATH_OUT_BASE))
 PATH_OUT    := $(abspath $(PATH_OUT))
 PATH_OBJ    := $(abspath $(PATH_OBJ))
 PATH_TARGET := $(abspath $(PATH_TARGET))
