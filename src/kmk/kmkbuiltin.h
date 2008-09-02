@@ -38,6 +38,7 @@ int kmk_builtin_command_parsed(int argc, char **argv, char ***ppapszArgvToSpawn,
 extern int kmk_builtin_append(int argc, char **argv, char **envp);
 extern int kmk_builtin_cp(int argc, char **argv, char **envp);
 extern int kmk_builtin_cat(int argc, char **argv, char **envp);
+extern int kmk_builtin_chmod(int argc, char **argv, char **envp);
 extern int kmk_builtin_cmp(int argc, char **argv, char **envp);
 extern int kmk_builtin_echo(int argc, char **argv, char **envp);
 extern int kmk_builtin_install(int argc, char **argv, char **envp);

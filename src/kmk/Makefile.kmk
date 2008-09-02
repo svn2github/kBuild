@@ -206,6 +206,7 @@ kmk_SOURCES += \
 	kmkbuiltin.c \
 	kmkbuiltin/append.c \
 	kmkbuiltin/cat.c \
+	kmkbuiltin/chmod.c \
 	kmkbuiltin/cmp.c \
 	kmkbuiltin/cmp_util.c \
 	kmkbuiltin/cp.c \
@@ -236,6 +237,7 @@ kmk_SOURCES += \
 PROGRAMS += \
 	kmk_append \
 	kmk_cat \
+	kmk_chmod \
 	kmk_cp \
 	kmk_cmp \
 	kmk_echo \
@@ -261,6 +263,11 @@ kmk_cat_TEMPLATE = BIN-KMK
 kmk_cat_DEFS = kmk_builtin_cat=main
 kmk_cat_SOURCES = \
 	kmkbuiltin/cat.c
+
+kmk_chmod_TEMPLATE = BIN-KMK
+kmk_chmod_DEFS = kmk_builtin_chmod=main
+kmk_chmod_SOURCES = \
+	kmkbuiltin/chmod.c
 
 kmk_cmp_TEMPLATE = BIN-KMK
 kmk_cmp_DEFS = kmk_builtin_cmp=main
