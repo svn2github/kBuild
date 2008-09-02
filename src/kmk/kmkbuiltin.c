@@ -211,6 +211,8 @@ int kmk_builtin_command_parsed(int argc, char **argv, char ***ppapszArgvToSpawn,
         rc = kmk_builtin_chmod(argc, argv, environ);
     else if (!strcmp(pszCmd, "cp"))
         rc = kmk_builtin_cp(argc, argv, environ);
+    else if (!strcmp(pszCmd, "expr"))
+        rc = kmk_builtin_expr(argc, argv, environ);
     else if (!strcmp(pszCmd, "ln"))
         rc = kmk_builtin_ln(argc, argv, environ);
     else if (!strcmp(pszCmd, "md5sum"))
