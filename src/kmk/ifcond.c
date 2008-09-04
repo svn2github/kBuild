@@ -42,7 +42,7 @@
 #include "debug.h"
 #include "hash.h"
 #include <ctype.h>
-#ifdef _MSC_VER
+#ifndef _MSC_VER
 # include <stdint.h>
 #endif
 #include <stdarg.h>
