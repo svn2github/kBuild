@@ -177,7 +177,7 @@ kmk_DEFS.win = CONFIG_NEW_WIN32_CTRL_EVENT
 kmk_SOURCES = \
 	main.c \
 	read.c \
-	ifcond.c \
+	expreval.c \
 	hash.c \
 	strcache.c \
 	variable.c \
