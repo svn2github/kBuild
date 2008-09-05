@@ -327,7 +327,8 @@ PDEP depAdd(const char *pszFilename, size_t cchFilename)
     pDep = (PDEP)malloc(sizeof(*pDep) + cchFilename);
     if (!pDep)
     {
-        fprintf(stderr, "\nOut of memory! (requested %#x bytes)\n\n", sizeof(*pDep) + cchFilename);
+        fprintf(stderr, "\nOut of memory! (requested %lx bytes)\n\n", 
+                (unsigned long)(sizeof(*pDep) + cchFilename));
         exit(1);
     }
 
