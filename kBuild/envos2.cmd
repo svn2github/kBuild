@@ -165,7 +165,7 @@ do while (sArgs <> '')
         end
 
         when (sArg = "--help" | sArg = "-h" | sArg = "-?" | sArg = "/?" | sArg = "/h") then do
-            say "kBuild Environment Setup Script, v0.1.3"
+            say "kBuild Environment Setup Script, v0.1.4"
             say ""
             say "syntax: envos2.cmd [options] [command [args]]"
             say "    or: envos2.cmd [options] --var <varname>"
