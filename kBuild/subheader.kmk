@@ -55,6 +55,9 @@ else
   ifndef $(target)_PATH
    $(target)_PATH := $(PATH_SUB_CURRENT)
   endif
+  ifndef $(target)_DEFPATH
+   $(target)_DEFPATH := $(PATH_SUB_CURRENT)
+  endif
   ifndef $(target)_MAKEFILE
    $(target)_MAKEFILE := $(MAKEFILE_CURRENT)
   endif
