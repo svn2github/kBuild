@@ -71,7 +71,7 @@ ifndef PATH_SDK_QT3
 	/usr/bin/qm2ts \
 	/usr/local/bin/qm2ts \
 	/usr/share/qt3/bin/qm2ts \
-	))
+	)))
     ifneq ($(PATH_SDK_QT3),)
      ifeq ($(PATH_SDK_QT3_INC),)
       PATH_SDK_QT3_INC := $(patsubst %/private/qfiledefs_p.h,%,$(firstword $(wildcard $(PATH_SDK_QT3)/include/private/qfiledefs_p.h $(PATH_SDK_QT3)/include/qt3/private/qfiledefs_p.h /usr/include/qt3/private/qfiledefs_p.h)))
