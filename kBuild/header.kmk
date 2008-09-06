@@ -533,6 +533,9 @@ APPEND      := kmk_builtin_append
 CAT_EXT     := $(KBUILD_BIN_PATH)/kmk_cat$(HOSTSUFF_EXE)
 CAT         := kmk_builtin_cat
 
+CHMOD_EXT   := $(KBUILD_BIN_PATH)/kmk_chmod$(HOSTSUFF_EXE)
+CHMOD       := kmk_builtin_chmod
+
 CMP_EXT     := $(KBUILD_BIN_PATH)/kmk_cmp$(HOSTSUFF_EXE)
 CMP         := kmk_builtin_cmp
 
@@ -541,6 +544,9 @@ CP          := kmk_builtin_cp
 
 ECHO_EXT    := $(KBUILD_BIN_PATH)/kmk_echo$(HOSTSUFF_EXE)
 ECHO        := kmk_builtin_echo
+
+EXPR_EXT    := $(KBUILD_BIN_PATH)/kmk_expr$(HOSTSUFF_EXE)
+EXPR        := kmk_builtin_expr
 
 INSTALL_EXT := $(KBUILD_BIN_PATH)/kmk_install$(HOSTSUFF_EXE)
 INSTALL     := kmk_builtin_install
