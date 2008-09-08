@@ -39,6 +39,8 @@ PROPS_SINGLE += RCCTOOL
 PROPS_ACCUMULATE_R += RCCFLAGS QT_MODULES
 
 
+## @todo use pkg-config?
+
 #
 # The QT4 SDK.
 #
@@ -1004,4 +1006,4 @@ unit-qt4-show-vars:
 	@$(ECHO) '  TOOL_QT4_RCC           = "$(TOOL_QT4_RCC)"'
 	@$(ECHO) '  TOOL_QT4_LRC           = "$(TOOL_QT4_LRC)"'
 	@$(ECHO) '  TOOL_QT4_LUPDATE       = "$(TOOL_QT4_LUPDATE)"'
-	
+
