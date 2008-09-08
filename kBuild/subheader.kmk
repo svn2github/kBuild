@@ -53,10 +53,13 @@ else
  #
  define def_subfooter
   ifndef $(target)_PATH
-   $(target)_PATH := $(PATH_SUB_CURRENT)
-  endif
-  ifndef $(target)_DEFPATH
-   $(target)_DEFPATH := $(PATH_SUB_CURRENT)
+   ifdef $(target)_DEFPATH
+    $(target)_PATH := $($(target)_DEFPATH)
+   else
+    $(target)_PATH := $(PATH_SUB_CURRENT)
+   endif
+  else ifndef $(target)_DEFPATH
+   $(target)_DEFPATH := $($(target)_PATH)
   endif
   ifndef $(target)_MAKEFILE
    $(target)_MAKEFILE := $(MAKEFILE_CURRENT)
