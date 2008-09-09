@@ -55,8 +55,8 @@ ifneq ($(KBUILD_VERSION_MAJOR).$(KBUILD_VERSION_MINOR),0.1)
   $(warning kBuild: kmk minor version mismatch! Expected '1' but found '$(KBUILD_VERSION_MINOR)'!)
  endif
 else
- ifneq ($(int-ge $(KBUILD_VERSION_PATCH),3),1)
-  $(warning kBuild: kmk version mismatch! Expected 0.1.3 or later. Actual version is $(KBUILD_VERSION_MAJOR).$(KBUILD_VERSION_MINOR).$(KBUILD_VERSION_PATCH).)
+ ifneq ($(int-ge $(KBUILD_VERSION_PATCH),4),1)
+  $(warning kBuild: kmk version mismatch! Expected 0.1.4 or later. Actual version is $(KBUILD_VERSION_MAJOR).$(KBUILD_VERSION_MINOR).$(KBUILD_VERSION_PATCH).)
  endif
 endif
 
