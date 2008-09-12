@@ -57,6 +57,7 @@ else
     $(target)_PATH := $($(target)_DEFPATH)
    else
     $(target)_PATH := $(PATH_SUB_CURRENT)
+    $(target)_DEFPATH := $(PATH_SUB_CURRENT)
    endif
   else ifndef $(target)_DEFPATH
    $(target)_DEFPATH := $($(target)_PATH)
