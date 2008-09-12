@@ -81,11 +81,13 @@ FORCE:
 
 
 #
-# Enable delete on error and second expansion of prerequisites.
+# Enable delete on error and second expansion of prerequisites and targets.
 #
 .DELETE_ON_ERROR:
 
 .SECONDEXPANSION:
+
+.SECONDTARGETEXPANSION:
 
 
 #
