@@ -90,7 +90,7 @@
 # define W_OK       2
 # define R_OK       4
 
-# define O_NONBLOCK 0 /// @todo
+# define O_NONBLOCK 0 /** @todo */
 
 #endif
 
