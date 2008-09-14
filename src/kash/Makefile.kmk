@@ -34,7 +34,7 @@ PROGRAMS += kash
 kash_TEMPLATE = BIN
 kash_DEFS = lint SHELL SMALL
 kash_DEFS += SH_STUB_MODE # for the time being.
-kash_DEFS.debug = DEBUG
+kash_DEFS.debug = DEBUG=2
 kash_DEFS.linux = BSD
 kash_DEFS.solaris = BSD
 ## @todo bring over PC_SLASHES?
