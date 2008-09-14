@@ -32,6 +32,9 @@
 #
 #
 
+ifdef TOOL_MINGW32
+$(error Already included (TOOL_MINGW32=$(TOOL_MINGW32)))
+endif
 TOOL_MINGW32 := MinGW32 GCC v3.3+.
 
 # Tool Specific Properties
@@ -72,7 +75,7 @@ ifndef TOOL_MINGW32_PREFIX
  endif
 else
  # Resolve any fancy stuff once and for all.
- TOOL_MINGW32_PREFIX :=
+ TOOL_MINGW32_PREFIX := $(TOOL_MINGW32_PREFIX)
 endif
 
 TOOL_MINGW32_CC  ?= $(TOOL_MINGW32_PREFIX)gcc$(TOOL_MINGW32_HOSTSUFF_EXE)
