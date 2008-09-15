@@ -1,4 +1,4 @@
-/* $Id: redirect.c 1674 2008-07-11 00:49:29Z bird $ */
+/* $Id$ */
 /** @file
  * kmk_time - Time program execution.
  *
