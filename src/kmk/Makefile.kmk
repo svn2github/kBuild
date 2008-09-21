@@ -178,6 +178,7 @@ kmk_SOURCES = \
 	main.c \
 	read.c \
 	expreval.c \
+	incdep.c \
 	hash.c \
 	strcache.c \
 	variable.c \
