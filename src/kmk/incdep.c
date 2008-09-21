@@ -1,7 +1,7 @@
 #ifdef CONFIG_WITH_INCLUDEDEP
 /* $Id$ */
 /** @file
- * expreval - Simple dependency files.
+ * incdep - Simple dependency files.
  */
 
 /*
