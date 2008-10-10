@@ -103,6 +103,7 @@ struct incdep_variable_def
     char *name;                     /* xmalloc'ed -> strcache */
     unsigned int name_length;       /* (not an actual parameter) */
     char *value;                    /* xmalloc'ed, free it */
+    unsigned int value_length;
     enum variable_origin origin;
     enum variable_flavor flavor;
     int target_var;
@@ -630,7 +631,7 @@ incdep_flush_recorded_instructions (struct incdep *cur)
         do_variable_definition_2 (rec_vd->flocp,
                                   strcache_add_len(rec_vd->name, rec_vd->name_length),
                                   rec_vd->value,
-                                  rec_vd->value_len,
+                                  rec_vd->value_length,
                                   0,
                                   rec_vd->value,
                                   rec_vd->origin,
