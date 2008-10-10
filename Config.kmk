@@ -227,7 +227,9 @@ ifndef TEMPLATE_BIN_TOOL
   TEMPLATE_BIN_CFLAGS          += -Wall -Wextra -pedantic -Wunused-parameter
  endif
  TEMPLATE_BIN_LDFLAGS           = -g
+ TEMPLATE_BIN_LDFLAGS.profile   = -pg -p
  TEMPLATE_BIN_CFLAGS.release    = -O3
+ TEMPLATE_BIN_CFLAGS.profile    = -O3 -pg -p
  ifeq ($(KBUILD_TARGET),freebsd)
   TEMPLATE_BIN_INCS            += $(PATH_GNUMAKE_SRC)/glob /usr/local/include
  endif
