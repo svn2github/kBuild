@@ -1902,7 +1902,7 @@ func_kbuild_source_one(char *o, char **argv, const char *pszFuncName)
 
     kbuild_put_sdks(&Sdks);
     (void)pszFuncName;
-    return variable_buffer_output(o, "", 1); /** @todo not right. */
+    return variable_buffer_output(o, "", 1) - 1; /** @todo why? */
 }
 
 
