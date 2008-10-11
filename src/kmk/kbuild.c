@@ -50,13 +50,6 @@
 #ifndef va_copy
 # define va_copy(dst, src) do {(dst) = (src);} while (0)
 #endif
-#ifdef _MSC_VER
-# define MY_INLINE  _inline static
-#elif defined(__GNUC__)
-# define MY_INLINE  static __inline__
-#else
-# define MY_INLINE  static
-#endif
 
 
 
