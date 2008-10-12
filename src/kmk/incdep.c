@@ -1254,6 +1254,7 @@ eval_include_dep_file (struct incdep *curdep, struct floc *f, int is_worker)
                   /* add it to the list. */
                   *nextdep = dep = alloc_dep ();
                   dep->name = incdep_record_strcache (curdep, cur, endp - cur);
+                  dep->includedep = 1;
                   nextdep = &dep->next;
 
                   cur = endp;
