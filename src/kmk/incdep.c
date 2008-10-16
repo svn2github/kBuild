@@ -849,7 +849,7 @@ incdep_record_strcache (struct incdep *cur, const char *str, int len)
       memcpy (entry->str, str, len);
       entry->str[len] = '\0';
       entry->length = len;
-      strcache_prehash_str (entry->str, &entry->hash1, &entry->hash2);
+      strcache_prehash_str (entry->str, len, &entry->hash1, &entry->hash2);
 
       ret = (const char *)entry;
     }
