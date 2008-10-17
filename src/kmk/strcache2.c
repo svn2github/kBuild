@@ -753,7 +753,7 @@ void
 strcache2_print_stats_all (const char *prefix)
 {
   struct strcache2 *cur;
-  for (cur = strcache_head; cur; cur++)
+  for (cur = strcache_head; cur; cur = cur->next)
     strcache2_print_stats (cur, prefix);
 }
 
