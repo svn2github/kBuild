@@ -569,7 +569,6 @@ strcache2_add (struct strcache2 *cache, const char *str, unsigned int length)
 
   assert (!cache->case_insensitive);
 
-
   cache->lookup_count++;
 
   /* Lookup the entry in the hash table, hoping for an
