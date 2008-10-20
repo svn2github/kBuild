@@ -43,7 +43,8 @@
 # include <Windows.h>
 #else
 # include <unistd.h>
-# include <sys/times.h>
+# include <sys/time.h>
+# include <sys/wait.h>
 # include <signal.h>
 #endif
 
