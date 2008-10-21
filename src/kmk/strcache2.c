@@ -525,7 +525,7 @@ strcache2_enter_string (struct strcache2 *cache, unsigned int idx,
   /* Allocate space for the string. */
 
   size = length + 1 + sizeof (struct strcache2_entry);
-  size = (size + sizeof (void *) - 1) & ~(sizeof (void *) - 1U);
+  size = (size + STRCACHE2_ENTRY_ALIGNMENT - 1) & ~(STRCACHE2_ENTRY_ALIGNMENT - 1U);
 
   seg = cache->seg_head;
   if (MY_PREDICT_FALSE(seg->avail < size))

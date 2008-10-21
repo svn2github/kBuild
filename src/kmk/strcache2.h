@@ -27,6 +27,10 @@
 #ifndef ___strcache2_h
 #define ___strcache2_h
 
+#ifndef CHAR_BIT
+# error "include after make.h!"
+#endif
+
 /* string cache memory segment. */
 struct strcache2_seg
 {
@@ -45,6 +49,16 @@ struct strcache2_entry
     unsigned int hash2;
     unsigned int length;
 };
+
+/* The entry alignment.
+   As it is very difficult to derive this from any #define or typedef, a
+   default value of 16 (chars) was choosen as this fits most platforms.
+   For odd platforms, just override this define.  */
+#ifndef STRCACHE2_ENTRY_ALIGN_SHIFT
+# define STRCACHE2_ENTRY_ALIGN_SHIFT    4
+#endif
+#define STRCACHE2_ENTRY_ALIGNMENT       (1 << STRCACHE2_ENTRY_ALIGN_SHIFT)
+
 
 struct strcache2
 {
@@ -120,6 +134,21 @@ strcache2_get_hash2 (struct strcache2 *cache, const char *str)
   if (!hash2)
     hash2 = strcache2_get_hash2_fallback (cache, str);
   return hash2;
+}
+
+/* Get the pointer hash value for the string.
+
+   This takes the string address, shift out the bits that are always zero
+   due to alignment, and then returns the unsigned integer value of it.
+
+   The results from using this is generally better than for any of the
+   other hash values.  It is also sligtly faster code as it does not
+   involve any memory accesses, just a right SHIFT and an optional AND. */
+MY_INLINE unsigned int
+strcache2_get_ptr_hash (struct strcache2 *cache, const char *str)
+{
+  (void)cache;
+  return (size_t)str >> STRCACHE2_ENTRY_ALIGN_SHIFT;
 }
 
 /* Get the user value for the string. */
