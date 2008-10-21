@@ -50,12 +50,18 @@ struct strcache2_entry
     unsigned int length;
 };
 
-/* The entry alignment.
-   As it is very difficult to derive this from any #define or typedef, a
-   default value of 16 (chars) was choosen as this fits most platforms.
-   For odd platforms, just override this define.  */
+/* The entry alignment, cacheline size if it's known & sensible.
+
+   On x86/AMD64 we assume a 64-byte cacheline size.  As it is difficult to
+   guess other right now, these default 16 chars as that shouldn't cause
+   much trouble, even if it not the most optimial value.  Override, or modify
+   for other platforms.  */
 #ifndef STRCACHE2_ENTRY_ALIGN_SHIFT
-# define STRCACHE2_ENTRY_ALIGN_SHIFT    4
+# if defined (__i386__) || defined(__x86_64__)
+#  define STRCACHE2_ENTRY_ALIGN_SHIFT    6
+# else
+#  define STRCACHE2_ENTRY_ALIGN_SHIFT    4
+# endif
 #endif
 #define STRCACHE2_ENTRY_ALIGNMENT       (1 << STRCACHE2_ENTRY_ALIGN_SHIFT)
 
