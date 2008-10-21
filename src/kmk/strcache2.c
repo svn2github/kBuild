@@ -73,18 +73,27 @@ strcache2_new_seg (struct strcache2 *cache, unsigned int minlen)
 {
   struct strcache2_seg *seg;
   size_t size;
+  size_t off;
 
   size = cache->def_seg_size;
-  if (size < (size_t)minlen + sizeof (struct strcache2_seg))
+  if (size < (size_t)minlen + sizeof (struct strcache2_seg) + STRCACHE2_ENTRY_ALIGNMENT)
     {
       size = (size_t)minlen * 2;
       size = (size + 0xfff) & ~(size_t)0xfff;
     }
 
   seg = xmalloc (size);
-  seg->cursor = seg->start = (char *)(seg + 1);
-  seg->size = seg->avail = size - sizeof (struct strcache2_seg);
+  seg->start = (char *)(seg + 1);
+  seg->size  = size - sizeof (struct strcache2_seg);
+  off = (size_t)seg->start & (STRCACHE2_ENTRY_ALIGNMENT - 1);
+  if (off)
+    {
+      seg->start += off;
+      seg->size  -= off;
+    }
   assert (seg->size > minlen);
+  seg->cursor = seg->start;
+  seg->avail  = seg->size;
 
   seg->next = cache->seg_head;
   cache->seg_head = seg;
@@ -538,6 +547,7 @@ strcache2_enter_string (struct strcache2 *cache, unsigned int idx,
     }
 
   entry = (struct strcache2_entry *) seg->cursor;
+  assert ((size_t)entry & (STRCACHE2_ENTRY_ALIGNMENT - 1));
   seg->cursor += size;
   seg->avail -= size;
 
