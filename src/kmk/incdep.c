@@ -772,11 +772,7 @@ incdep_flush_strcache_entry (struct strcache2_entry *entry)
                                                      (const char *)(entry + 1),
                                                      entry->length,
                                                      entry->hash1,
-#ifdef STRCACHE2_USE_CHAINING
                                                      1);
-#else
-                                                     entry->hash2);
-#endif
   return (const char *)entry->user;
 }
 
