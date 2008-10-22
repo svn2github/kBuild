@@ -768,11 +768,9 @@ static const char *
 incdep_flush_strcache_entry (struct strcache2_entry *entry)
 {
   if (!entry->user)
-    entry->user = (void *)strcache2_add_hashed_file (&file_strcache,
-                                                     (const char *)(entry + 1),
-                                                     entry->length,
-                                                     entry->hash1,
-                                                     1);
+    entry->user = (void *) strcache2_add_hashed_file (&file_strcache,
+                                                      (const char *)(entry + 1),
+                                                      entry->length, entry->hash);
   return (const char *)entry->user;
 }
 
