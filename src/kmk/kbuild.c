@@ -46,16 +46,11 @@
 #include "kbuild.h"
 
 #include <assert.h>
-#include <stdarg.h>
 
 
 /*******************************************************************************
 *   Defined Constants And Macros                                               *
 *******************************************************************************/
-#ifndef va_copy
-# define va_copy(dst, src) do {(dst) = (src);} while (0)
-#endif
-
 /** Helper for passing a string constant to kbuild_get_variable_n. */
 #define ST(strconst) strconst, sizeof(strconst) - 1
 
