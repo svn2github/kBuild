@@ -1051,7 +1051,8 @@ int
 strcache2_verify_entry (struct strcache2 *cache, const char *str)
 {
   struct strcache2_entry const *entry;
-  unsigned hash;
+  unsigned int hash;
+  unsigned int length;
   const char *end;
 
   entry = (struct strcache2_entry const *)str - 1;
@@ -1063,12 +1064,13 @@ strcache2_verify_entry (struct strcache2 *cache, const char *str)
       return -1;
     }
 
-  end = memchr (str, '\0', entry->length);
-  if ((size_t)(end - str) == entry->length)
+  end = memchr (str, '\0', entry->length + 1);
+  length = end - str;
+  if (length != entry->length)
     {
       fprintf (stderr,
-               "strcache2[%s]: corrupt entry %p, length: %lu, expected %u;\nstring: %s\n",
-               cache->name, (void *)entry, (unsigned long)(end - str), entry->length, str);
+               "strcache2[%s]: corrupt entry %p, length: %u, expected %u;\nstring: %s\n",
+               cache->name, (void *)entry, length, entry->length, str);
       return -1;
     }
 
