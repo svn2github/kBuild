@@ -353,7 +353,7 @@ const char *get_default_kbuild_shell(void)
  * @param   fCanFree        Whether *ppsz should be freed when we replace it.
  */
 static void
-kbuild_apply_defpath(struct variable *pDefPath, char **ppsz, unsigned int *pcch, int *pcchAlloc, int fCanFree)
+kbuild_apply_defpath(struct variable *pDefPath, char **ppsz, unsigned int *pcch, unsigned int *pcchAlloc, int fCanFree)
 {
     const char *pszIterator;
     const char *pszInCur;
