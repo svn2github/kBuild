@@ -653,7 +653,7 @@ kbuild_lookup_variable_defpath_n(struct variable *pDefPath, const char *pszName,
 #ifdef CONFIG_WITH_RDONLY_VARIABLE_VALUE
         assert(!pVar->rdonly_val);
 #endif
-        kbuild_apply_defpath(pDefPath, &pVar->value, (unsigned int *)&pVar->value_length, &pVar->value_alloc_len, 1);
+        kbuild_apply_defpath(pDefPath, &pVar->value, &pVar->value_length, &pVar->value_alloc_len, 1);
     }
     return pVar;
 }
@@ -677,7 +677,7 @@ kbuild_lookup_variable_defpath(struct variable *pDefPath, const char *pszName)
 #ifdef CONFIG_WITH_RDONLY_VARIABLE_VALUE
         assert(!pVar->rdonly_val);
 #endif
-        kbuild_apply_defpath(pDefPath, &pVar->value, (unsigned int *)&pVar->value_length, &pVar->value_alloc_len, 1);
+        kbuild_apply_defpath(pDefPath, &pVar->value, &pVar->value_length, &pVar->value_alloc_len, 1);
     }
     return pVar;
 }
@@ -2067,7 +2067,7 @@ func_kbuild_source_one(char *o, char **argv, const char *pszFuncName)
 #ifdef CONFIG_WITH_RDONLY_VARIABLE_VALUE
         assert(!pSource->rdonly_val);
 #endif
-        kbuild_apply_defpath(pDefPath, &pSource->value, (unsigned int *)&pSource->value_length, &pSource->value_alloc_len, 1 /* can free */);
+        kbuild_apply_defpath(pDefPath, &pSource->value, &pSource->value_length, &pSource->value_alloc_len, 1 /* can free */);
     }
 
     /*
