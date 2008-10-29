@@ -74,7 +74,6 @@ void warn(const char *fmt, ...)
 
 void warnx(const char *fmt, ...)
 {
-    int err = errno;
     va_list args;
     fprintf(stderr, "%s: ", g_progname);
     va_start(args, fmt);

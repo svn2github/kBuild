@@ -45,8 +45,8 @@ typedef enum
  */
 typedef struct KBUILDPROTECTION
 {
-    unsigned        uMagic;
-    unsigned        cProtectionDepth;
+    unsigned int    uMagic;
+    unsigned int    cProtectionDepth;
     unsigned char   afTypes[KBUILDPROTECTIONTYPE_MAX];
 } KBUILDPROTECTION;
 typedef KBUILDPROTECTION  *PKBUILDPROTECTION;
