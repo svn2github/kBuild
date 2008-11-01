@@ -32,6 +32,7 @@ char *func_kbuild_object_base(char *o, char **argv, const char *pszFuncName);
 char *func_kbuild_object_suffix(char *o, char **argv, const char *pszFuncName);
 char *func_kbuild_source_prop(char *o, char **argv, const char *pszFuncName);
 char *func_kbuild_source_one(char *o, char **argv, const char *pszFuncName);
+char *func_kbuild_expand_template(char *o, char **argv, const char *pszFuncName);
 
 void init_kbuild(int argc, char **argv);
 const char *get_kbuild_path(void);
