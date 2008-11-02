@@ -1,8 +1,11 @@
 /* $Id$ */
 /** @file
- *
  * kBuild - Alternative argument parser for the windows startup code.
  *
+ * @todo Update license when SED is updated.
+ */
+
+/*
  * Copyright (c) 2006-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
  *
  * parse_args(): Copyright (c) 1992-1998 by Eberhard Mattes
@@ -25,7 +28,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
  */
-
 
 /*******************************************************************************
 *   Header Files                                                               *
