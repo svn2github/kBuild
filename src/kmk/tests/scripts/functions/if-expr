@@ -23,7 +23,7 @@
 #
 #
 
-$description = "Tests the $(if-expr ) function";
+$description = "Tests the \$(if-expr ) function";
 
 $details = "A few simple tests, nothing spectacular. More comprehensive testing
 is preformed by functions/expr and features/ifcond.";
