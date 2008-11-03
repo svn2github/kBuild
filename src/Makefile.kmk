@@ -34,6 +34,7 @@ ifneq ($(KBUILD_TARGET),win)
 endif
 include $(PATH_SUB_CURRENT)/kDepPre/Makefile.kmk
 include $(PATH_SUB_CURRENT)/kObjCache/Makefile.kmk
+include $(PATH_SUB_CURRENT)/misc/Makefile.kmk
 
 include $(FILE_KBUILD_SUB_FOOTER)
 
