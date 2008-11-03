@@ -67,7 +67,7 @@ static int usage(FILE *pOut,  const char *argv0)
             "   or: %s --help\n"
             "   or: %s --version\n"
             "\n"
-            "Only unsinged integer values are accepted.\n"
+            "Only integer values are accepted.\n"
             ,
             argv0, argv0, argv0, argv0, argv0, argv0, argv0);
     return 1;
