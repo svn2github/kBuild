@@ -209,6 +209,9 @@ kmk_SOURCES = \
 	vpath.c \
 	remote-stub.c
 
+#kmk_LIBS.solaris = malloc
+#kmk_DEFS.solaris += HAVE_MALLINFO
+
 #
 # kmkbuiltin commands
 #
