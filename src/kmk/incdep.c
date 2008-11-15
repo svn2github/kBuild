@@ -174,7 +174,7 @@ static int volatile incdep_hev_todo_waiters;
 static int volatile incdep_hev_done_waiters;
 
 #elif defined (__OS2__)
-static fmutex incdep_mtx;
+static _fmutex incdep_mtx;
 static HEV incdep_hev_todo;
 static HEV incdep_hev_done;
 static int volatile incdep_hev_todo_waiters;
@@ -348,7 +348,7 @@ incdep_lock(void)
 #elif defined (WINDOWS32)
   EnterCriticalSection (&incdep_mtx);
 #elif defined (__OS2__)
-  _fmutex_request (&incdep_mtx, 0)
+  _fmutex_request (&incdep_mtx, 0);
 #endif
 }
 
@@ -361,7 +361,7 @@ incdep_unlock(void)
 #elif defined(WINDOWS32)
   LeaveCriticalSection (&incdep_mtx);
 #elif defined(__OS2__)
-  _fmutex_release (&incdep_mtx)
+  _fmutex_release (&incdep_mtx);
 #endif
 }
 
@@ -678,7 +678,7 @@ incdep_init (struct floc *f)
   incdep_hev_done_waiters = 0;
 
 #elif defined (__OS2__)
-  _fmutex_create (&incdep_mtx, 0)
+  _fmutex_create (&incdep_mtx, 0);
   rc = DosCreateEventSem (NULL, &incdep_hev_todo, 0, FALSE);
   if (rc)
     fatal (f, _("DosCreateEventSem failed: rc=%d"), rc);
