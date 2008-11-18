@@ -43,8 +43,10 @@ ifeq ($(PATH_TOOL_WATCOMC11C),)
  ifeq ($(PATH_TOOL_WATCOMC11C),)
   PATH_TOOL_WATCOMC11C := $(wildcard $(PATH_DEVTOOLS)/common/watcom/v11.0c*)
  endif
- if1of ($(USER) $(USERNAME) $(LOGNAME), bird)
-  PATH_TOOL_WATCOMC11C := $(wildcard d:/dev/Watcom/v11.0c*)
+ ifeq ($(PATH_TOOL_WATCOMC11C)$(KBUILD_HOST),os2)
+  if1of ($(USER) $(USERNAME) $(LOGNAME), bird)
+   PATH_TOOL_WATCOMC11C := $(wildcard d:/dev/Watcom/v11.0c*)
+  endif
  endif
  PATH_TOOL_WATCOMC11C := $(firstword $(sort $(PATH_TOOL_WATCOMC11C)))
  # if not found, we'll enter 'pathless' mode.
