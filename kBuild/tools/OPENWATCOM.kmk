@@ -121,10 +121,10 @@ else
 endif
 
 # General Properties used by kBuild
-TOOL_OPENWATCOM_ASOBJSUFF         ?= .obj
-TOOL_OPENWATCOM_ASFLAGS           ?= -zq
-TOOL_OPENWATCOM_ASFLAGS.os2       ?= -bt=os2
-TOOL_OPENWATCOM_ASFLAGS.win       ?= -bt=nt
+TOOL_OPENWATCOM_ASOBJSUFF        ?= .obj
+TOOL_OPENWATCOM_ASFLAGS          ?= -zq
+TOOL_OPENWATCOM_ASFLAGS.os2      ?= -bt=os2
+TOOL_OPENWATCOM_ASFLAGS.win      ?= -bt=nt
 
 TOOL_OPENWATCOM_COBJSUFF         ?= .obj
 TOOL_OPENWATCOM_CFLAGS           ?= -zq
