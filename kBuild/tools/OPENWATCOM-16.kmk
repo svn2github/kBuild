@@ -53,7 +53,7 @@ define TOOL_OPENWATCOM-16_COMPILE_AS_CMDS
 		-fr=$(subst /,\\,$(obj)).err \
 		$(subst /,\\,$(abspath $(source)))
 	$(QUIET)$(APPEND) -n $(obj).err
-## @todo dependencies	
+## @todo dependencies
 endef
 
 TOOL_OPENWATCOM-16_COMPILE_C_DEPEND =
@@ -68,7 +68,7 @@ define TOOL_OPENWATCOM-16_COMPILE_C_CMDS
 		-fr=$(subst /,\\,$(obj)).err \
 		$(subst /,\\,$(abspath $(source)))
 	$(QUIET)$(APPEND) -n $(obj).err
-## @todo dependencies	
+## @todo dependencies
 endef
 
 TOOL_OPENWATCOM-16_COMPILE_CXX_DEPEND =
@@ -83,7 +83,7 @@ define TOOL_OPENWATCOM-16_COMPILE_CXX_CMDS
 		-fr=$(subst /,\\,$(obj)).err \
 		$(subst /,\\,$(abspath $(source)))
 	$(QUIET)$(APPEND) -n $(obj).err
-## @todo dependencies	
+## @todo dependencies
 endef
 
 TOOL_OPENWATCOM-16_COMPILE_RC_OUTPUT =
