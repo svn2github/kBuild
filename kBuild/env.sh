@@ -320,10 +320,10 @@ if test -z "$KBUILD_HOST_ARCH"; then
         x86|i86pc|ia32|i[3456789]86)
             KBUILD_HOST_ARCH='x86'
             ;;
-        sparc32|sparc)
+        sparc32|sparc|sparcv8|sparcv7|sparcv8e)
             KBUILD_HOST_ARCH='sparc32'
             ;;
-        sparc64)
+        sparc64|sparcv9)
             KBUILD_HOST_ARCH='sparc64'
             ;;
         s390)
