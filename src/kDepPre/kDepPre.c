@@ -464,7 +464,7 @@ int main(int argc, char *argv[])
      */
     if (!i)
     {
-        depOptimize(fFixCase);
+        depOptimize(fFixCase, 0 /* fQuiet */);
         fprintf(pOutput, "%s:", pszTarget);
         depPrint(pOutput);
         if (fStubs)

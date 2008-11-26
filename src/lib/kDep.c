@@ -169,7 +169,7 @@ static void fixcase(char *pszFilename)
 /**
  * 'Optimizes' and corrects the dependencies.
  */
-void depOptimize(int fFixCase)
+void depOptimize(int fFixCase, int fQuiet)
 {
     /*
      * Walk the list correct the names and re-insert them.
@@ -225,7 +225,16 @@ void depOptimize(int fFixCase)
          */
         if (stat(pszFilename, &s))
         {
-            fprintf(stderr, "kDep: Skipping '%s' - %s!\n", pszFilename, strerror(errno));
+            if (   !fQuiet
+                || errno != ENOENT
+                || (   pszFilename[0] != '/'
+                    && pszFilename[0] != '\\'
+                    && (   !isalpha(pszFilename[0])
+                        || pszFilename[1] != ':'
+                        || (    pszFilename[2] != '/'
+                            &&  pszFilename[2] != '\\')))
+               )
+                fprintf(stderr, "kDep: Skipping '%s' - %s!\n", pszFilename, strerror(errno));
             continue;
         }
 
