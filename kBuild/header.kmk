@@ -940,7 +940,8 @@ PASS_TESTING_vars   := _TESTING
 PASS_TESTING_pass   := testing
 # aliases
 .PHONY: check test
-check test: pass_testing
+check:: pass_testing
+test::  pass_testing
 
 ## PASS: packing
 # This pass processes custom packing rules.
