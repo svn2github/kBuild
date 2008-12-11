@@ -3651,6 +3651,24 @@ ifdef KBUILD_PROFILE_SELF
  $(evalcall def_profile_self, done passes)
 endif
 
+# Some common pass aliases
+ifndef KBUILD_NO_PASS_ALIASES
+.PHONY:  clean
+clean:   pass_clean
+
+.PHONY:  nothing
+nothing: pass_nothing
+
+.PHONY:  packing
+packing: pass_packing
+
+.PHONY:  check
+check::  pass_testing
+
+.PHONY:  test
+test::   pass_testing
+endif
+
 
 #
 # THE MAIN RULES
