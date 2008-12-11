@@ -3661,10 +3661,10 @@ rebuild: clean
 	+ $(MAKE) -f $(firstword $(MAKEFILE_LIST)) all_recursive
 
 # @todo make this a non-default pass!
-uninstall:
+uninstall::
 	$(RM) -f -- $(_INSTALLS_FILES)
 
-install: pass_installs
+install:: pass_installs
 
 # misc shortcuts (use secondary expansion here to save strcache[file] space).
 targets:   bldprogs libraries dlls programs sysmods miscbins others installs
