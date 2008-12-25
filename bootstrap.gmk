@@ -38,6 +38,8 @@
 #
 # Tip: kBuild/env.sh --full (g(nu))make -f bootstrap.kmk
 #
+# Note to self on bootstrapping solaris.sparc64:
+#   SED_MAKE_DEFS="SED=gsed" AUTOPOINT=true ACLOCAL=aclocal-1.10 AUTOMAKE=automake-1.10 nice ./kBuild/env.sh --full gmake -f bootstrap.gmk
 #
 
 #
