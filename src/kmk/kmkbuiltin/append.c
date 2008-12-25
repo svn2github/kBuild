@@ -26,15 +26,17 @@
 /*******************************************************************************
 *   Header Files                                                               *
 *******************************************************************************/
-#include <string.h>
-#include <stdio.h>
-#include "err.h"
-#include "kmkbuiltin.h"
 #ifndef kmk_builtin_append
 # include "make.h"
 # include "filedef.h"
 # include "variable.h"
+#else
+# include "config.h"
 #endif
+#include <string.h>
+#include <stdio.h>
+#include "err.h"
+#include "kmkbuiltin.h"
 
 
 /**
