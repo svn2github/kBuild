@@ -33,6 +33,9 @@
 #include <string.h>
 #include <errno.h>
 #include <ctype.h>
+#ifdef HAVE_ALLOCA_H
+# include <alloca.h>
+#endif
 #if !defined(_MSC_VER)
 # include <stdint.h>
 # include <unistd.h>
