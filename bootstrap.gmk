@@ -183,7 +183,7 @@ $(SRCDIR)/src/sed/config.h.$(KBUILD_TARGET): $(OUTDIR)/sed/config.h
 	cp -f $< $@
 
 $(OUTDIR)/sed/sed/sed: $(OUTDIR)/sed/ts-configured
-	$(MAKE) -C $(@D)/..
+	$(MAKE) $(SED_MAKE_DEFS) -C $(@D)/..
 
 $(OUTDIR)/kmk/kmk_sed: $(OUTDIR)/sed/sed/sed
 	cp -f $< $@
