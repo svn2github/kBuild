@@ -178,6 +178,8 @@ static void *open_file(const char *pszFilename, unsigned fText)
     if (fText)      fFlags |= O_TEXT;
 #elif defined(O_TEXT)
     if (fText)      fFlags |= _O_TEXT;
+#else
+    (void)fText;
 #endif
 
     errno = 0;
@@ -630,7 +632,6 @@ int kmk_builtin_md5sum(int argc, char **argv, char **envp)
     int fText = 0;
     int fBinaryTextOpt = 0;
     int fQuiet = 0;
-    int fNewLine = 0;
     int fChecking = 0;
     int fProgress = 0;
     int fNoMoreOptions = 0;
