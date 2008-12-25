@@ -31,6 +31,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <assert.h>
+#include <sys/stat.h>
 #ifdef _MSC_VER
 # include <io.h>
 #endif
