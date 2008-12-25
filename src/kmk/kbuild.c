@@ -279,7 +279,7 @@ const char *get_kbuild_bin_path(void)
         if (    !pszEnvVar
             ||  !my_abspath(pszEnvVar, szTmpPath))
         {
-            const char *pszEnvVar = getenv("PATH_KBUILD_BIN");
+            pszEnvVar = getenv("PATH_KBUILD_BIN");
             if (    !pszEnvVar
                 ||  !my_abspath(pszEnvVar, szTmpPath))
             {
@@ -649,7 +649,7 @@ kbuild_first_prop(struct variable *pTarget, struct variable *pSource,
     struct variable *pVar;
     size_t cchBuf;
     char *pszBuf;
-    char *psz, *psz1, *psz2, *psz3, *psz4;
+    char *psz, *psz1, *psz2, *psz3, *psz4, *pszEnd;
 
     /* calc and allocate a too big name buffer. */
     cchBuf = cchPropF2 + 1
@@ -922,8 +922,8 @@ kbuild_first_prop(struct variable *pTarget, struct variable *pSource,
     if (pVar)
     {
         /* strip it */
-        char *psz = pVar->value;
-        char *pszEnd = psz + pVar->value_length;
+        psz = pVar->value;
+        pszEnd = psz + pVar->value_length;
         while (isblank((unsigned char)*psz))
             psz++;
         while (pszEnd > psz && isblank((unsigned char)pszEnd[-1]))
