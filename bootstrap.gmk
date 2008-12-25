@@ -189,7 +189,11 @@ $(OUTDIR)/kmk/kmk_sed: $(OUTDIR)/sed/sed/sed
 	cp -f $< $@
 
 $(OUTDIR)/kmk/kmk_ash:
+ifeq ($(KBUILD_TARGET),solaris)
+	ln -s /usr/bin/bash $@
+else
 	ln -s /bin/sh $@
+endif
 
 $(OUTDIR)/kmk/kmk_echo:
 	ln -s /bin/echo $@
