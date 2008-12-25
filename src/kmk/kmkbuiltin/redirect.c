@@ -253,17 +253,17 @@ int main(int argc, char **argv, char **envp)
              */
             if (*psz == 'Z')
             {
-                unsigned i = 0;
-                while (envp[i] != NULL)
-                    i++;
-                while (i-- > 0)
+                unsigned j = 0;
+                while (envp[j] != NULL)
+                    j++;
+                while (j-- > 0)
                 {
-                    char *pszEqual = strchr(envp[i], '=');
+                    char *pszEqual = strchr(envp[j], '=');
                     char *pszCopy;
 
                     if (pszEqual)
                         *pszEqual = '\0';
-                    pszCopy = strdup(envp[i]);
+                    pszCopy = strdup(envp[j]);
                     if (pszEqual)
                         *pszEqual = '=';
 
