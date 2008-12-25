@@ -53,5 +53,5 @@ extern int kmk_builtin_sleep(int argc, char **argv, char **envp);
 extern int kmk_builtin_test(int argc, char **argv, char **envp, char ***ppapszArgvSpawn);
 extern int kmk_builtin_kDepIDB(int argc, char **argv, char **envp);
 
-extern int kbuild_version(const char *argv0);
+extern int kbuild_version(const char *);
 
