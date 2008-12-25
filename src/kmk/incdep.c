@@ -635,7 +635,7 @@ static void
 incdep_init (struct floc *f)
 {
   unsigned i;
-#ifdef HAVE_PTHREAD
+#if defined (HAVE_PTHREAD) && !defined (CONFIG_WITHOUT_THREADS)
   int rc;
   pthread_attr_t attr;
 
@@ -647,6 +647,7 @@ incdep_init (struct floc *f)
   int rc;
   int tid;
 #endif
+  (void)f;
 
   /* heap hacks */
 

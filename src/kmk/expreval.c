@@ -1829,9 +1829,9 @@ static EXPRRET expr_get_binary_or_eoe_or_rparen(PEXPR pThis)
 static EXPRRET expr_get_unary_or_operand(PEXPR pThis)
 {
     EXPRRET       rc;
-    unsigned char   uchVal;
+    unsigned char uchVal;
     PCEXPROP      pOp;
-    char const     *psz = pThis->psz;
+    char const   *psz = pThis->psz;
 
     /*
      * Eat white space and make sure there is something after it.
@@ -1930,7 +1930,7 @@ static EXPRRET expr_get_unary_or_operand(PEXPR pThis)
                     unsigned chVal = expr_map_get(ch);
                     if (chVal)
                     {
-                        PCEXPROP pOp = expr_lookup_op(psz, uchVal, 0 /* fUnary */);
+                        pOp = expr_lookup_op(psz, uchVal, 0 /* fUnary */);
                         if (pOp)
                             break;
                     }
