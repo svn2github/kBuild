@@ -252,6 +252,8 @@ distclean: clean
 		src/sed/doc/Makefile.in \
 		src/sed/doc/stamp-vti \
 		src/sed/doc/sed.info \
+		src/sed/doc/sed.info-1 \
+		src/sed/doc/sed.info-2 \
 		src/sed/doc/version.texi \
 		src/sed/INSTALL	\
 		src/sed/lib/Makefile.in	\
