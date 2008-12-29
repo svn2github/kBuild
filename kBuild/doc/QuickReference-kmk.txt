@@ -339,6 +339,35 @@ String Manipulation Functions:
 
         $(printf fmt, arg...)
 
+    Return the length of a string or a (unexpanded) variable::
+
+        $(length string)
+        $(length-var var)
+
+    Find the position of ``needle`` in ``haystack``, returns 0 if not found.
+    Negative ``start`` indices are relative to the end of ``haystack``, while
+    positive ones are one based::
+
+        $(pos needle, haystack[, start])
+        $(lastpos needle, haystack[, start])
+
+    Returns the specified substring. The ``start`` works like with ``$(pos )``.
+    If the substring is partially outside the ``string`` the result will be
+    padded with ``pad`` if present::
+
+        $(substr string, start[, length[, pad]])
+
+    Insert ``in`` into ``str`` at the specified position. ``n`` works like with
+    ``$(pos )``, except that ``0`` is the end of the string::
+
+        $(insert in, str[, n[, length[, pad]]])
+
+    Translate ``string`` exchanging characters in ``from-set`` with ``to-set``,
+    optionally completing ``to-set`` with ``pad-char`` if specified. If no
+    ``pad-char`` characters absent in ``to-set`` will be deleted::
+
+        $(translate string, from-set[, to-set[, pad-char]])
+
 
 Functions for file names:
 
