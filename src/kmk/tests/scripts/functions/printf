@@ -56,12 +56,13 @@ endif
 ifneq ($(printf %.2s%.3s,abc,zde),abzde)
 $(error sub-test 3 failed)
 endif
-
-ifneq ($(printf %#x,127),0x7f)
+define HASH
+#
+endef
+ifneq ($(printf %$(HASH)x,127),0x7f)
 $(error sub-test 4 failed)
 endif
-
-ifneq ($(printf %#X,127),0X7F)
+ifneq ($(printf %$(HASH)X,127),0X7F)
 $(error sub-test 5 failed)
 endif
 
