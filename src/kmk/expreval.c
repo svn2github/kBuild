@@ -2072,15 +2072,15 @@ static PEXPR expr_create(char const *pszExpr)
 /**
  * Evaluates the given if expression.
  *
- * @returns -1, 0 or 1.
+ * @returns -1, 0 or 1. (GNU make conditional check convention, see read.c.)
  * @retval  -1 if the expression is invalid.
  * @retval  0 if the expression is true
  * @retval  1 if the expression is false.
  *
- * @param   line    The expression. Can modify this as we like.
+ * @param   line    The expression.
  * @param   flocp   The file location, used for errors.
  */
-int expr_eval_if_conditionals(char *line, const struct floc *flocp)
+int expr_eval_if_conditionals(const char *line, const struct floc *flocp)
 {
     /*
      * Instantiate the expression evaluator and let
@@ -2114,7 +2114,7 @@ int expr_eval_if_conditionals(char *line, const struct floc *flocp)
  * @param   o       The current variable buffer position.
  * @param   expr    The expression.
  */
-char *expr_eval_to_string(char *o, char *expr)
+char *expr_eval_to_string(char *o, const char *expr)
 {
     /*
      * Instantiate the expression evaluator and let
