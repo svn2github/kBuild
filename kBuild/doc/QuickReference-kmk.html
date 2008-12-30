@@ -840,7 +840,7 @@ $(int-lt val1, val2)
 $(int-le val1, val2)
 </pre>
 </blockquote>
-<p>(Mostly) Boolean Functions:</p>
+<p>Boolean and Conditional Functions:</p>
 <blockquote>
 <p>Condition is false if the <tt class="docutils literal"><span class="pre">condition</span></tt> evaluates to an empty string
 (stripped). Evaluate the <tt class="docutils literal"><span class="pre">true-part</span></tt> if the condition is true, otherwise
@@ -878,7 +878,12 @@ $(intersects set-a, set-b)
 </pre>
 <p>Same as <tt class="docutils literal"><span class="pre">$(if</span> <span class="pre">)</span></tt> execpt that the condition is a <tt class="docutils literal"><span class="pre">kmk</span></tt> expression:</p>
 <pre class="literal-block">
-$(if kmk-expression,true-part[,false-part])
+$(if-expr kmk-expression,true-part[,false-part])
+</pre>
+<p>Select the first true condition (<tt class="docutils literal"><span class="pre">kmk</span></tt> expression) and expand the
+following body. Special condition strings <tt class="docutils literal"><span class="pre">default</span></tt> and <tt class="docutils literal"><span class="pre">otherwise</span></tt>:</p>
+<pre class="literal-block">
+$(select when1-cond, when1-body[, whenN-cond, whenN-body])
 </pre>
 <p>Evalutate the <tt class="docutils literal"><span class="pre">kmk</span></tt> expression returning what it evalues as. This is
 the preferred way of doing arithmentic now:</p>

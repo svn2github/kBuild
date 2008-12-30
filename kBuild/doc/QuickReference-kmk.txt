@@ -481,7 +481,7 @@ Arithmetic Functions:
         $(int-le val1, val2)
 
 
-(Mostly) Boolean Functions:
+Boolean and Conditional Functions:
 
     Condition is false if the ``condition`` evaluates to an empty string
     (stripped). Evaluate the ``true-part`` if the condition is true, otherwise
@@ -520,7 +520,12 @@ Arithmetic Functions:
 
     Same as ``$(if )`` execpt that the condition is a ``kmk`` expression::
 
-        $(if kmk-expression,true-part[,false-part])
+        $(if-expr kmk-expression,true-part[,false-part])
+
+    Select the first true condition (``kmk`` expression) and expand the
+    following body. Special condition strings ``default`` and ``otherwise``::
+
+        $(select when1-cond, when1-body[, whenN-cond, whenN-body])
 
     Evalutate the ``kmk`` expression returning what it evalues as. This is
     the preferred way of doing arithmentic now::
