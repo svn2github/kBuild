@@ -604,6 +604,11 @@ Functions for file names:
 
         $(basename names...)
 
+    Extract the root specification of each file name (a bit complicated on
+    Windows & OS/2) [1]_::
+
+        $(root names...)
+
     Append ``suffix`` to each word in ``names``::
 
         $(addsuffix suffix,names...)
