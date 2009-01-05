@@ -215,11 +215,11 @@ $(OUTDIR)/ts-stage2-build: \
 		$(SRCDIR)/src/kmk/config.h.$(KBUILD_TARGET) \
                 $(SRCDIR)/src/sed/config.h.$(KBUILD_TARGET) \
 		$(OUTDIR)/kmk/kmk
-	$(OUTDIR)/kmk/kmk -C $(SRCDIR)
+	$(OUTDIR)/kmk/kmk -C $(SRCDIR) KBUILD_BOOTSTRAP=1
 	echo done > $@
 
 $(OUTDIR)/ts-stage2-install: $(OUTDIR)/ts-stage2-build
-	$(OUTDIR)/kmk/kmk -C $(SRCDIR) PATH_INS=$(SRCDIR) install
+	$(OUTDIR)/kmk/kmk -C $(SRCDIR) KBUILD_BOOTSTRAP=1 PATH_INS=$(SRCDIR) install
 	echo done > $@
 
 
