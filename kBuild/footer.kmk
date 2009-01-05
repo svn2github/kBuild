@@ -3368,7 +3368,8 @@ $(foreach src,$($(target)_SYMLINKS) $($(target)_SYMLINKS.$(bld_trg)) $($(target)
 	$(evalval def_install_symlink))
 
 # the collection target
-TARGET_$(target) := $(PATH_TARGET)/$(target).ins
+local clean_files += $(PATH_TARGET)/$(target).ins
+TARGET_$(target)  := $(PATH_TARGET)/$(target).ins
 $(TARGET_$(target)): $$(INSTARGET_$(target)) | $$(INSTARGET_DIRS_$(target)) $(call DIRDEP,$(PATH_TARGET))
 	@$(QUIET2)$(APPEND) $@
 
