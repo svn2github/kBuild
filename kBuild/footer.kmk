@@ -2862,6 +2862,7 @@ endif # NOINST
 # dependency file
 local dep := $(outbase)$(SUFF_DEP)
 ifndef NO_LINK_CMDS_DEPS
+ _DEPFILES_INCLUDED += $(dep)
  ifdef KB_HAVE_INCLUDEDEP_QUEUE
   includedep-queue $(dep)
  else
