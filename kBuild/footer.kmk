@@ -3670,12 +3670,14 @@ nothing: pass_nothing
 .PHONY:  packing
 packing: pass_packing
 
+ ifndef KBUILD_NO_TESTING_PASS_ALIASES
 .PHONY:  check
 check::  pass_testing
 
 .PHONY:  test
 test::   pass_testing
-endif
+ endif # KBUILD_NO_TESTING_PASS_ALIASES
+endif # KBUILD_NO_PASS_ALIASES
 
 
 #
