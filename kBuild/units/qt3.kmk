@@ -802,7 +802,7 @@ ifeq ($(bld_trg),win)
 	) $(PATH_SDK_QT3_LIB)/$(qt_prefix)qtmain$(SUFF_LIB) )
   $(eval $(target)_LIBS   += $(qt_main_lib) )
  endif
-else if ($(bld_trg),os2)
+else ifeq ($(bld_trg),os2)
  # This is a real PITA since the dll/lib can be called (almost) anything. :-(
  local qt_lib := $(firstword $(wildcard \
 	$(PATH_SDK_QT3_LIB)/$(qt_prefix)*qt3*$(SUFF_LIB) \
