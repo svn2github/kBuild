@@ -37,9 +37,11 @@ ifdef NIX_INSTALL_DIR
 INSTALLS += kBuild-data
 kBuild-data_TEMPLATE = DATA
 kBuild-data_SOURCES := \
+	$(wildcard \
+			kBuild/*.kmk \
+	) \
         $(foreach src,\
 		$(wildcard \
-			kBuild/*.kmk \
 			kBuild/tools/*.kmk \
 			kBuild/sdks/*.kmk \
 			kBuild/units/*.kmk \
@@ -49,13 +51,10 @@ kBuild-data_SOURCES := \
 
 INSTALLS += kBuild-doc
 kBuild-doc_TEMPLATE = DOC
-kBuild-doc_SOURCES := \
-        $(foreach src,\
-		$(wildcard \
+kBuild-doc_SOURCES := $(wildcard \
 			kBuild/doc/*.txt \
 			kBuild/doc/*.html \
-		 ),\
-		$(src)=>$(subst kBuild/doc/,,$(src)))
+	)
 endif
 
 #
