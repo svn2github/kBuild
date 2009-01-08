@@ -41,6 +41,6 @@ TOOL_FLEX_LEX_OUTPUT_MAYBE =
 TOOL_FLEX_LEX_DEPEND =
 TOOL_FLEX_LEX_DEPORD =
 define TOOL_FLEX_LEX_CMDS
-	$(QUIET)$(TOOL_FLEX_LEX) $(flags) -o $(out) $(source)
+	$(QUIET)$(TOOL_FLEX_LEX) $(flags) -o$(out) $(source)
 endef
 
