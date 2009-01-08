@@ -3451,6 +3451,15 @@ ifdef KBUILD_PROFILE_SELF
  $(evalcall def_profile_self, done install targets)
 endif
 
+# Some introspection targets that can be useful for package maintainers.
+.PHONY: kbuild-show-install-files kbuild-show-install-dirs
+kbuild-show-install-files::
+	$(addprefix $(NL)$(TAB)$(QUIET)$(ECHO) , $(subst $(PATH_INS)/,,$(_INSTALLS_FILES)))
+
+kbuild-show-install-dirs::
+	$(addprefix $(NL)$(TAB)$(QUIET)$(ECHO) , $(subst $(PATH_INS)/,,$(_INSTALLS_DIRS)))
+
+
 #
 # TESTING
 #
