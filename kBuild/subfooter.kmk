@@ -55,8 +55,9 @@ define def_subheader
  ifndef $(target)_MAKEFILE
   $(target)_MAKEFILE := $(MAKEFILE_CURRENT)
  endif
- ifndef PATH_$(target)
-  PATH_$(target) := $(call TARGET_PATH,$(target))
+ ifndef $(target)_0_OUTDIR
+  $(target)_0_OUTDIR := $(call TARGET_PATH,$(target))
+  PATH_$(target) := $($(target)_0_OUTDIR)
  endif
 endef
 
