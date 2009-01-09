@@ -147,7 +147,7 @@ define TOOL_VCC70_COMPILE_C_CMDS
 		-FD\
 		-Fo$(obj)\
 		$(subst /,\\,$(abspath $(source)))
-	$(QUIET)$(DEP_IDB) -f -s $(DEP_IDB_Q) -o $(dep) -t $(obj) $(call TOOL_VCC70_PDB,$(outbase)-obj,idb)
+	$(QUIET)$(DEP_IDB) -f -s -q -o $(dep) -t $(obj) $(call TOOL_VCC70_PDB,$(outbase)-obj,idb)
 endef
 #endif # !KBUILD_USE_KOBJCACHE
 
@@ -195,7 +195,7 @@ define TOOL_VCC70_COMPILE_CXX_CMDS
 		-FD\
 		-Fo$(obj)\
 		$(subst /,\\,$(abspath $(source)))
-	$(QUIET)$(DEP_IDB) -f -s $(DEP_IDB_Q) -o $(dep) -t $(obj) $(call TOOL_VCC70_PDB,$(outbase)-obj,idb)
+	$(QUIET)$(DEP_IDB) -f -s -q -o $(dep) -t $(obj) $(call TOOL_VCC70_PDB,$(outbase)-obj,idb)
 endef
 #endif # !KBUILD_USE_KOBJCACHE
 

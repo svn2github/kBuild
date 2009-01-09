@@ -524,9 +524,6 @@ GMAKE       := $(KBUILD_BIN_PATH)/kmk_gmake$(HOSTSUFF_EXE)
 DEP_IDB_EXT := $(KBUILD_BIN_PATH)/kDepIDB$(HOSTSUFF_EXE)
 DEP_IDB_INT := kmk_builtin_kDepIDB
 DEP_IDB     := $(DEP_IDB_INT)
-if $(KMK_REVISION) >= 2121 # temporary hack, remove after next build cycle.
-DEP_IDB_Q   := -q
-endif
 
 DEP_PRE     := $(KBUILD_BIN_PATH)/kDepPre$(HOSTSUFF_EXE)
 
