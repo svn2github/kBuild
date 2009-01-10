@@ -3,7 +3,7 @@
  *
  * Shell Thread Management.
  *
- * Copyright (c) 2007 knut st. osmundsen <bird-src-spam@anduin.net>
+ * Copyright (c) 2007-2009  knut st. osmundsen <bird-kBuild-spamix@anduin.net>
  *
  *
  * This file is part of kBuild.
@@ -31,7 +31,7 @@
 # include <process.h>
 #else
 # include <pthread.h>
-#endif 
+#endif
 
 
 void shthread_set_shell(struct shinstance *psh)

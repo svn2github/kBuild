@@ -5,7 +5,7 @@
 #
 #   Makefile for the Quick-and-Dirty dependency utility. (FastDep)
 #
-#   Copyright (c) 1999-2002 knut st. osmundsen (bird-kBuild-spam@anduin.net)
+#   Copyright (c) 1999-2009 knut st. osmundsen (bird-kBuild-spamix@anduin.net)
 #
 #   GPL
 #

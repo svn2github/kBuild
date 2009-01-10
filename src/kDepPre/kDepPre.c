@@ -4,7 +4,7 @@
  */
 
 /*
- * Copyright (c) 2005-2008 knut st. osmundsen <bird-src-spam@anduin.net>
+ * Copyright (c) 2005-2009 knut st. osmundsen <bird-kBuild-spamix@anduin.net>
  *
  * This file is part of kBuild.
  *
@@ -381,7 +381,7 @@ int main(int argc, char *argv[])
 
                 case 'V':
                     printf("kDepPre - kBuild version %d.%d.%d\n"
-                           "Copyright (C) 2005-2007 Knut St. Osmundsen\n",
+                           "Copyright (C) 2005-2008 knut st. osmundsen\n",
                            KBUILD_VERSION_MAJOR, KBUILD_VERSION_MINOR, KBUILD_VERSION_PATCH);
                     return 0;
 

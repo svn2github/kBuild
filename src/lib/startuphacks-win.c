@@ -6,7 +6,7 @@
  */
 
 /*
- * Copyright (c) 2006-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
+ * Copyright (c) 2006-2009 knut st. osmundsen <bird-kBuild-spamix@anduin.net>
  *
  * parse_args(): Copyright (c) 1992-1998 by Eberhard Mattes
  *

@@ -4,7 +4,7 @@
  */
 
 /*
- * Copyright (c) 1999-2008 knut st. osmundsen <bird-src-spam@anduin.net>
+ * Copyright (c) 1999-2009 knut st. osmundsen <bird-kBuild-spamix@anduin.net>
  *
  * This file is part of kBuild.
  *
@@ -92,7 +92,7 @@ def  'C-S-L' = k_style_load
 /* Remeber to change these! */
 static _str skUserInitials  = "bird";
 static _str skUserName      = "knut st. osmundsen";
-static _str skUserEmail     = "bird-src-spam@anduin.net";
+static _str skUserEmail     = "bird-kBuild-spamix@anduin.net";
 
 
 /*******************************************************************************

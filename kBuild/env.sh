@@ -5,7 +5,7 @@
 #
 
 #
-# Copyright (c) 2005-2008 knut st. osmundsen <bird-kBuild-spam@anduin.net>
+# Copyright (c) 2005-2009 knut st. osmundsen <bird-kBuild-spamix@anduin.net>
 #
 # This file is part of kBuild.
 #
@@ -532,9 +532,9 @@ else
 
             if test -n "${LEGACY_OPT}"; then
                 echo "${EVAL_EXPORT} PATH_KBUILD=${KBUILD_PATH}"
-                if test -n "${FULL_WITH_BIN_OPT}"; then 
+                if test -n "${FULL_WITH_BIN_OPT}"; then
                     echo "${EVAL_EXPORT} PATH_KBUILD_BIN=${KBUILD_PATH_BIN}"
-                fi 
+                fi
                 echo "${EVAL_EXPORT} BUILD_TYPE=${KBUILD_TYPE}"
                 echo "${EVAL_EXPORT} BUILD_PLATFORM=${KBUILD_HOST}"
                 echo "${EVAL_EXPORT} BUILD_PLATFORM_ARCH=${KBUILD_HOST_ARCH}"

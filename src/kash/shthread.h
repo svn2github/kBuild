@@ -3,7 +3,7 @@
  *
  * Shell thread methods.
  *
- * Copyright (c) 2007 knut st. osmundsen <bird-src-spam@anduin.net>
+ * Copyright (c) 2007-2009  knut st. osmundsen <bird-kBuild-spamix@anduin.net>
  *
  *
  * This file is part of kBuild.

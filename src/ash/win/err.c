@@ -3,7 +3,7 @@
  *
  * Override err.h so we get the program name right.
  *
- * Copyright (c) 2005-2007 knut st. osmundsen <bird-kBuild-spam@anduin.net>
+ * Copyright (c) 2005-2009 knut st. osmundsen <bird-kBuild-spamix@anduin.net>
  *
  *
  * This program is free software; you can redistribute it and/or modify

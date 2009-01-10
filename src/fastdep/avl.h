@@ -10,9 +10,9 @@
  * TREETYPE: Case Sensitive Strings (Key is pointer).
  *
  *
- * Copyright (c) 1999-2000 knut st. osmundsen
+ * Copyright (c) 1999-2009 knut st. osmundsen
  *
- * Project Odin Software License can be found in LICENSE.TXT
+ * GPL
  *
  */
 #ifndef _AVL_H_

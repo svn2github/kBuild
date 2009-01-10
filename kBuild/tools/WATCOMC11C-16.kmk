@@ -5,7 +5,7 @@
 # @remarks wrc is untested, so are DLLs, and programs.
 
 #
-# Copyright (c) 2008 knut st. osmundsen <bird-kBuild-spam@anduin.net>
+# Copyright (c) 2008-2009 knut st. osmundsen <bird-kBuild-spamix@anduin.net>
 #
 # This file is part of kBuild.
 #
@@ -39,7 +39,7 @@ TOOL_WATCOMC11C-16_CFLAGS.win   ?= -bt=windows
 TOOL_WATCOMC11C-16_CXXFLAGS.win ?= -bt=windows
 TOOL_WATCOMC11C-16_RCFLAGS.win  ?= -bt=windows
 TOOL_WATCOMC11C-16_LDFLAGS.win  ?= -bt=windows
-						
+
 TOOL_WATCOMC11C-16_COMPILE_C_DEPEND =
 TOOL_WATCOMC11C-16_COMPILE_C_DEPORD =
 TOOL_WATCOMC11C-16_COMPILE_C_OUTPUT = $(obj).err
@@ -52,7 +52,7 @@ define TOOL_WATCOMC11C-16_COMPILE_C_CMDS
 		-fr=$(subst /,\\,$(obj)).err \
 		$(subst /,\\,$(abspath $(source)))
 	$(QUIET)$(APPEND) -n $(obj).err
-## @todo dependencies	
+## @todo dependencies
 endef
 
 TOOL_WATCOMC11C-16_COMPILE_CXX_DEPEND =
@@ -67,7 +67,7 @@ define TOOL_WATCOMC11C-16_COMPILE_CXX_CMDS
 		-fr=$(subst /,\\,$(obj)).err \
 		$(subst /,\\,$(abspath $(source)))
 	$(QUIET)$(APPEND) -n $(obj).err
-## @todo dependencies	
+## @todo dependencies
 endef
 
 TOOL_WATCOMC11C-16_COMPILE_RC_OUTPUT =

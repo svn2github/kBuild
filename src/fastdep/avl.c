@@ -4,7 +4,7 @@
  *
  * Copyright (c) 1999 knut st. osmundsen
  *
- * Project Odin Software License can be found in LICENSE.TXT
+ * GPL
  *
  */
 
