@@ -45,6 +45,11 @@ extern void depOptimize(int fFixCase, int fQuiet);
 extern void depPrint(FILE *pOutput);
 extern void depPrintStubs(FILE *pOutput);
 extern void depCleanup(void);
+extern void *depReadFileIntoMemory(FILE *pInput, size_t *pcbFile, void **ppvOpaque);
+extern void depFreeFileMemory(void *pvFile, void *pvOpaque);
+#ifdef ___k_kTypes_h___
+extern void depHexDump(const KU8 *pb, size_t cb, size_t offBase);
+#endif
 
 #endif
 

@@ -210,6 +210,8 @@ int kmk_builtin_command_parsed(int argc, char **argv, char ***ppapszArgvToSpawn,
     else if (!strcmp(pszCmd, "test"))
         rc = kmk_builtin_test(argc, argv, environ, ppapszArgvToSpawn);
     /* rarely used commands: */
+    else if (!strcmp(pszCmd, "kDepObj"))
+        rc = kmk_builtin_kDepObj(argc, argv, environ);
     else if (!strcmp(pszCmd, "chmod"))
         rc = kmk_builtin_chmod(argc, argv, environ);
     else if (!strcmp(pszCmd, "cp"))

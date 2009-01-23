@@ -52,6 +52,7 @@ extern int kmk_builtin_rmdir(int argc, char **argv, char **envp);
 extern int kmk_builtin_sleep(int argc, char **argv, char **envp);
 extern int kmk_builtin_test(int argc, char **argv, char **envp, char ***ppapszArgvSpawn);
 extern int kmk_builtin_kDepIDB(int argc, char **argv, char **envp);
+extern int kmk_builtin_kDepObj(int argc, char **argv, char **envp);
 
 extern char *kmk_builtin_func_printf(char *o, char **argv, const char *funcname);
 
