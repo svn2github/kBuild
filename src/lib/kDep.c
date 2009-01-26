@@ -398,7 +398,7 @@ void depHexDump(const KU8 *pb, size_t cb, size_t offBase)
         for (i = 0; i < cchWidth && off + i < cb; i++)
         {
             const KU8 u8 = pb[i];
-            printf("%c", u8 < 127 && u8 >= 32 ? u8 : '.', 1);
+            printf("%c", u8 < 127 && u8 >= 32 ? u8 : '.');
         }
         off += cchWidth;
         pb  += cchWidth;
