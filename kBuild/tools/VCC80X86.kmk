@@ -205,7 +205,7 @@ endef
 TOOL_VCC80X86_LINK_LIBRARY_DEPEND = $(othersrc)
 TOOL_VCC80X86_LINK_LIBRARY_DEPORD =
 TOOL_VCC80X86_LINK_LIBRARY_OUTPUT = $(outbase).rsp
-TOOL_VCC80X86_LINK_LIBRARY_OUTPUT_OUTPUT = $(outbase).lst $(outbase).exp $(outbase).pdb
+TOOL_VCC80X86_LINK_LIBRARY_OUTPUT_MAYBE = $(outbase).lst $(outbase).exp $(outbase).pdb
 define TOOL_VCC80X86_LINK_LIBRARY_CMDS
 	$(QUIET)$(APPEND) -n $(outbase).rsp \
 		$(foreach arg,\
