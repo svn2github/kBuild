@@ -181,5 +181,9 @@ $$(PATH_kash)/init.c: \
 
 endif
 
+# Include the sub-makefile.
+include $(PATH_SUB_CURRENT)/tests/Makefile.kmk
+
 include $(FILE_KBUILD_SUB_FOOTER)
+
 
