@@ -42,6 +42,8 @@ KASH_TESTCASES := $(addprefix $(KASH_TEST_DIR)/,\
 	redirect-1 \
 	redirect-2 \
 	redirect-3 \
+	pipe-1 \
+	pipe-2 \
 	)
 
 
