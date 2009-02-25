@@ -125,7 +125,7 @@ if1of ($(KBUILD_TARGET), win)
 #
 # Use the pregenerated code.
 #
-kash_ORDERDEPS :=
+kash_INTERMEDIATES :=
 kash_INCS += generated
 kash_SOURCES := $(patsubst $(PATH_kash)/%,generated/%,$(kash_SOURCES))
 
