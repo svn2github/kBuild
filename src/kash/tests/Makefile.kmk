@@ -61,7 +61,8 @@ kash_tests::
 	if test $$KASH_FAILURE -eq 0; then \
 		echo 'kash tests: All tests succeeded.'; \
 	else \
-		echo "kash tests: $$KASH_FAILURE kash test failed"'!!'; \
+		echo "kash tests: $$KASH_FAILURE tests failed"'!!'; \
+		echo ""; \
 		exit 1; \
 	fi
 
