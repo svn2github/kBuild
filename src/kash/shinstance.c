@@ -79,8 +79,6 @@ struct shsigstate
 
 
 
-typedef struct shmtxtmp { int i; } shmtxtmp;
-
 int shmtx_init(shmtx *pmtx)
 {
     pmtx->b[0] = 0;
@@ -161,6 +159,19 @@ static void sh_int_unlink(shinstance *psh)
 #endif
 
 /**
+ * Destroys the shell instance.
+ *
+ * This will work on partially initialized instances (because I'm lazy).
+ *
+ * @param   psh     The shell instance to be destroyed.
+ */
+static void sh_destroy(shinstance *psh)
+{
+    memset(psh, 0, sizeof(*psh));
+    free(psh);
+}
+
+/**
  * Clones an environment vector.
  *
  * @returns 0 on success, -1 and errno on failure.
@@ -222,7 +233,12 @@ shinstance *sh_create_root_shell(shinstance *inherit, int argc, char **argv, cha
     psh = calloc(sizeof(*psh), 1);
     if (psh)
     {
-        if (!sh_env_clone(&psh->shenviron, envp))
+        /* Init it enought for sh_destroy() to not get upset */
+          /* ... */
+
+        /* Call the basic initializers. */
+        if (    !sh_env_clone(&psh->shenviron, envp)
+            &&  !shfile_init(&psh->fdtab, inherit ? &inherit->fdtab : NULL))
         {
             /* the special stuff. */
 #ifdef _MSC_VER
@@ -281,7 +297,7 @@ shinstance *sh_create_root_shell(shinstance *inherit, int argc, char **argv, cha
             return psh;
         }
 
-        free(psh);
+        sh_destroy(psh);
     }
     return NULL;
 }

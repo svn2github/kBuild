@@ -102,6 +102,7 @@ typedef struct shfile
 {
     int                 fd;             /**< The shell file descriptor number. */
     int                 flags;          /**< Open flags. */
+    int                 cloexec : 1;    /**< Close on exec flag. */
     intptr_t            native;         /**< The native file descriptor number. */
 } shfile;
 
@@ -115,6 +116,8 @@ typedef struct shfdtab
     unsigned            size;           /**< The size of the table (number of entries). */
     shfile             *tab;            /**< Pointer to the table. */
 } shfdtab;
+
+int shfile_init(shfdtab *, shfdtab *);
 
 int shfile_open(shfdtab *, const char *, unsigned, mode_t);
 int shfile_pipe(shfdtab *, int [2]);
