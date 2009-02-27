@@ -335,6 +335,13 @@ char *sh_getenv(shinstance *, const char *);
 char **sh_environ(shinstance *);
 const char *sh_gethomedir(shinstance *, const char *);
 
+/* heap */
+void *sh_malloc(shinstance *, size_t);
+void *sh_calloc(shinstance *, size_t, size_t);
+void *sh_realloc(shinstance *, void *, size_t);
+char *sh_strdup(shinstance *, const char *);
+void  sh_free(shinstance *, void *);
+
 /* signals */
 #define SH_SIG_UNK ((shsig_t)(intptr_t)-199)
 #define SH_SIG_DFL ((shsig_t)SIG_DFL)

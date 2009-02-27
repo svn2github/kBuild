@@ -149,6 +149,7 @@ typedef struct sh_winsize
 typedef struct winsize sh_winsize;
 #endif
 mode_t shfile_get_umask(shfdtab *);
+void   shfile_set_umask(shfdtab *, mode_t);
 
 
 typedef struct sh_dirent
