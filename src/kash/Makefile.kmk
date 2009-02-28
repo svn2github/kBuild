@@ -87,6 +87,7 @@ kash_SOURCES = \
 	\
 	setmode.c \
 	shinstance.c \
+	shheap.c \
 	shthread.c \
 	shfile.c
 kash_SOURCES.linux = \

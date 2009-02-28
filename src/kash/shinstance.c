@@ -1,8 +1,9 @@
 /* $Id$ */
 /** @file
- *
  * The shell instance methods.
- *
+ */
+
+/*
  * Copyright (c) 2007-2009  knut st. osmundsen <bird-kBuild-spamix@anduin.net>
  *
  *
@@ -343,44 +344,6 @@ const char *sh_gethomedir(shinstance *psh, const char *user)
 #endif
 
     return ret;
-}
-
-/** malloc() */
-void *sh_malloc(shinstance *psh, size_t size)
-{
-    (void)psh;
-    return malloc(size);
-}
-
-/** calloc() */
-void *sh_calloc(shinstance *psh, size_t num, size_t size)
-{
-    (void)psh;
-    return calloc(num, size);
-}
-
-/** realloc() */
-void *sh_realloc(shinstance *psh, void *old, size_t new_size)
-{
-    return realloc(old, new_size);
-}
-
-/** strdup() */
-char *sh_strdup(shinstance *psh, const char *string)
-{
-    size_t len = strlen(string);
-    char *ret = sh_malloc(psh, len + 1);
-    if (ret)
-        memcpy(ret, string, len + 1);
-    return ret;
-}
-
-/** free() */
-void sh_free(shinstance *psh, void *ptr)
-{
-    if (ptr)
-        free(ptr);
-    (void)psh;
 }
 
 /**
