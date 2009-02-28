@@ -58,6 +58,16 @@
 # define strncasecmp strnicmp
 #endif
 
+/**
+ * A child process.
+ */
+typedef struct shchild
+{
+    pid_t       pid;                    /**< The pid. */
+#if K_OS == K_OS_WINDOWS
+    void       *hChild;                 /**< The process handle. */
+#endif
+} shchild;
 
 /* memalloc.c */
 #define MINSIZE 504		/* minimum size of a block */
@@ -134,6 +144,8 @@ struct shinstance
     shsigaction_t       sigactions[NSIG]; /**< The signal actions registered with this shell instance. */
     shsigset_t          sigmask;        /**< Our signal mask. */
     char              **shenviron;      /**< The environment vector. */
+    int                 num_children;   /**< Number of children in the array. */
+    shchild            *children;       /**< The child array. */
 
     /* alias.c */
 #define ATABSIZE 39
@@ -395,6 +407,7 @@ clock_t sh_times(shinstance *, shtms *);
 int sh_sysconf_clk_tck(void);
 
 /* wait / process */
+int sh_add_child(shinstance *psh, pid_t pid, void *hChild);
 #ifdef _MSC_VER
 #   include <process.h>
 #   define WNOHANG         1       /* Don't hang in wait. */

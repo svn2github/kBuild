@@ -32,6 +32,8 @@
 
 /* heap */
 int shheap_init(void);
+int shheap_fork_copy_to_child(void *);
+
 void *sh_malloc(shinstance *, size_t);
 void *sh_calloc(shinstance *, size_t, size_t);
 void *sh_realloc(shinstance *, void *, size_t);

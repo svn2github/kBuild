@@ -118,6 +118,7 @@ typedef struct shfdtab
 } shfdtab;
 
 int shfile_init(shfdtab *, shfdtab *);
+void shfile_fork_win(shfdtab *pfdtab, int set, intptr_t *hndls);
 
 int shfile_open(shfdtab *, const char *, unsigned, mode_t);
 int shfile_pipe(shfdtab *, int [2]);
