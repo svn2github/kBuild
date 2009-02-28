@@ -106,6 +106,7 @@ global NAME(main)
         mov     r11, [gs:10h]           ; StackLimit (the lower value)
         mov     [rax - 10h], r10
         mov     [rax - 18h], r11
+int3
         cmp     rax, r10
         jb      .below
         mov     [gs:08h], rax
