@@ -39,6 +39,10 @@
 #endif
 #include "shinstance.h"
 
+#if K_OS == K_OS_WINDOWS
+extern pid_t shfork_do_it(void); /* shforkA-win.asm */
+#endif
+
 
 /*******************************************************************************
 *   Global Variables                                                           *
@@ -871,15 +875,13 @@ pid_t sh_fork(shinstance *psh)
 #ifdef SH_PURE_STUB_MODE
     pid = -1;
 
+#elif K_OS == K_OS_WINDOWS //&& defined(SH_FORKED_MODE)
+    pid = shfork_do_it();
+
 #elif defined(SH_STUB_MODE) || defined(SH_FORKED_MODE)
 # ifdef _MSC_VER
-#  ifdef SH_FORKED_MODE
-    /** @todo */
-    *(char *)1 = 0x1;
-#  else
     pid = -1;
     errno = ENOSYS;
-#  endif
 # else
     pid = fork();
 # endif

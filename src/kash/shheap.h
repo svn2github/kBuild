@@ -1,6 +1,6 @@
 /* $Id$ */
 /** @file
- * The shell heap methods.
+ * The shell memory heap methods.
  */
 
 /*
@@ -31,6 +31,7 @@
 #include "shtypes.h"
 
 /* heap */
+int shheap_init(void);
 void *sh_malloc(shinstance *, size_t);
 void *sh_calloc(shinstance *, size_t, size_t);
 void *sh_realloc(shinstance *, void *, size_t);
