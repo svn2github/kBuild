@@ -102,7 +102,7 @@ typedef struct shfile
 {
     int                 fd;             /**< The shell file descriptor number. */
     int                 flags;          /**< Open flags. */
-    int                 cloexec : 1;    /**< Close on exec flag. */
+    unsigned            cloexec : 1;    /**< Close on exec flag. */
     intptr_t            native;         /**< The native file descriptor number. */
 } shfile;
 
@@ -119,6 +119,7 @@ typedef struct shfdtab
 
 int shfile_init(shfdtab *, shfdtab *);
 void shfile_fork_win(shfdtab *pfdtab, int set, intptr_t *hndls);
+void *shfile_exec_win(shfdtab *pfdtab, int prepare, unsigned short *sizep, intptr_t *hndls);
 
 int shfile_open(shfdtab *, const char *, unsigned, mode_t);
 int shfile_pipe(shfdtab *, int [2]);
