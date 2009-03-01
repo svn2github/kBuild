@@ -542,7 +542,7 @@ void *sh_realloc(shinstance *psh, void *old, size_t new_size)
             shmemhdr *hdr = (shmemhdr *)old - 1;
             if (hdr->size < new_size)
             {
-                void *pv = sh_malloc(psh, new_size);
+                pv = sh_malloc(psh, new_size);
                 if (pv)
                 {
                     memcpy(pv, old, hdr->size);
