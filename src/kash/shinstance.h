@@ -297,6 +297,11 @@ struct shinstance
     struct redirtab    *redirlist;
     int                 fd0_redirected/* = 0*/;
 
+    /* show.c */
+    char                tracebuf[1024];
+    size_t              tracepos;
+    int                 tracefd;
+
     /* trap.h */
     int                 pendingsigs;    /**< indicates some signal received */
 

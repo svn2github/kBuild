@@ -302,6 +302,9 @@ shinstance *sh_create_root_shell(shinstance *inherit, int argc, char **argv, cha
 #endif
             psh->ttyfd = -1;
 
+            /* show.c */
+            psh->tracefd = -1;
+
             /* link it. */
             sh_int_link(psh);
             return psh;
