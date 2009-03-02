@@ -119,7 +119,7 @@ typedef struct shsigaction
 # define SH_NORETURN_2
 #else
 # define SH_NORETURN_1
-# define SH_NORETURN_2 __attribute__((__noreturn__));
+# define SH_NORETURN_2 __attribute__((__noreturn__))
 #endif
 
 #endif
