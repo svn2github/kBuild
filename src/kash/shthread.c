@@ -47,7 +47,7 @@ static DWORD sh_tls = TLS_OUT_OF_INDEXES;
 static int sh_tls = -1;
 #else
 static int sh_tls_inited = 0;
-static int sh_tls;
+static pthread_key_t sh_tls;
 #endif
 
 

@@ -842,7 +842,6 @@ int shfile_open(shfdtab *pfdtab, const char *name, unsigned flags, mode_t mode)
 int shfile_pipe(shfdtab *pfdtab, int fds[2])
 {
     int rc;
-    int s;
 #ifdef SHFILE_IN_USE
 # if K_OS == K_OS_WINDOWS
     HANDLE hRead  = INVALID_HANDLE_VALUE;
@@ -878,9 +877,9 @@ int shfile_pipe(shfdtab *pfdtab, int fds[2])
                 rc = 0;
         }
 # endif
-        s = errno;
         if (fds[1] == -1)
         {
+            int s = errno;
             if (fds[0] != -1)
             {
                 shmtxtmp tmp;
