@@ -31,6 +31,7 @@ include $(KBUILD_PATH)/subheader.kmk
 #
 PROGRAMS += kash
 kash_TEMPLATE = BIN
+kash_NAME.win = kmk_ash
 kash_ASTOOL = YASM
 kash_DEFS = lint SHELL SMALL
 kash_DEFS += SH_FORKED_MODE
