@@ -95,7 +95,7 @@ define TOOL_OPENWATCOM-16_COMPILE_RC_CMDS
 		$(flags) \
 		$(addprefix -i=, $(subst /,\\,$(incs))) \
 		$(addprefix -d, $(defs))\
-		-fo=$(subst /,\\,obj) \
+		-fo=$(subst /,\\,$(obj)) \
 		$(subst /,\\,$(abspath $(source)))
 endef
 
