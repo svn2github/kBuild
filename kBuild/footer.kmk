@@ -2410,7 +2410,6 @@ local orderdeps   := \
 
 # Adjust paths if we got a default path.
 ifneq ($(defpath),)
- $(target)_2_OBJS := $(abspathex $($(target)_2_OBJS),$(defpath))
  local deps       := $(abspathex $(deps),$(defpath))
  local orderdeps  := $(abspathex $(orderdeps),$(defpath))
  othersrc := $(abspathex $(othersrc),$(defpath))
@@ -2774,7 +2773,6 @@ local orderdeps   := \
 # Adjust paths if we got a default path.
 ifneq ($(defpath),)
  local libpath    := $(abspathex $(libpath),$(defpath))
- $(target)_2_OBJS := $(abspathex $($(target)_2_OBJS),$(defpath))
  local deps       := $(abspathex $(deps),$(defpath))
  local orderdeps  := $(abspathex $(orderdeps),$(defpath))
  othersrc := $(abspathex $(othersrc),$(defpath))
