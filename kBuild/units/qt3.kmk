@@ -159,7 +159,7 @@ ifndef PATH_SDK_QT3
 
      # Determin the KBUILD_TARGET lib directory.
      ifeq ($(PATH_SDK_QT3_LIB),)
-      PATH_SDK_QT3_LIB := $(PATH_SDK_QT3_LIB.$(KBUILD_TARGET))
+      PATH_SDK_QT3_LIB := $(PATH_SDK_QT3_LIB.$(KBUILD_TARGET_ARCH))
       ifeq ($(PATH_SDK_QT3_LIB),)
        PATH_SDK_QT3_LIB := $(patsubst %/libqt-mt$(SUFF_DLL),%,$(firstword $(wildcard \
 	$(PATH_SDK_QT3)/lib/libqt-mt$(SUFF_DLL) \
