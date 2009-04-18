@@ -10,7 +10,7 @@ The anatomy of a kBuild Makefile
 
 A typical template::
 
-    # $Id: $
+    # $Id$
     ## @file
     # Makefile descriptions
     #
