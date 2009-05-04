@@ -1,5 +1,5 @@
 @echo off
-REM $Id: $
+REM $Id$
 REM REM @file
 REM Environment setup script.
 REM
