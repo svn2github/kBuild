@@ -393,7 +393,7 @@ goto try_by_pwd
 cd "%_KBUILD_SELF%\.."
 for /f "tokens=*" %%d in ('cd') do set _KBUILD_PATH=%%d
 cd "%_KBUILD_CURDIR%"
-if exist "%_KBUILD_PATH%\footer.kmk"      goto found_kbuild
+if exist "%_KBUILD_PATH%\footer.kmk"    goto found_kbuild
 
 REM Try relative to the current directory.
 :try_by_pwd
