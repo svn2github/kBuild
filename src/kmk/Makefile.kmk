@@ -219,6 +219,7 @@ kmk_SOURCES = \
 #kmk_DEFS.solaris += HAVE_MALLINFO
 
 kmk_LIBS.freebsd.amd64 = pthread
+kmk_LIBS.freebsd.sparc64 = pthread
 kmk_DEFS.freebsd.x86 = CONFIG_WITHOUT_THREADS
 
 #
