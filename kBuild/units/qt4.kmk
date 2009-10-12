@@ -956,7 +956,7 @@ local qt_infix := $(firstword \
 ifeq ($(bld_trg),darwin)
  # Adding -F to CXXFLAGS is necessary to make #include <QtCore/qstring.h> stuff work...
  $(eval $(target)_CXXFLAGS += -F$(PATH_SDK_QT4_LIB) )
- $(eval $(target)_OBJCCXXFLAGS += -F$(PATH_SDK_QT4_LIB) )
+ $(eval $(target)_OBJCXXFLAGS += -F$(PATH_SDK_QT4_LIB) )
  $(eval $(target)_LDFLAGS  += -F$(PATH_SDK_QT4_LIB) $(foreach module,$(qt_modules), -framework $(qt_prefix)Qt$(module)$(qt_infix)) )
  $(eval $(target)_INCS     += $(foreach module,$(qt_modules), $(PATH_SDK_QT4_LIB)/$(qt_prefix)Qt$(module)$(qt_infix).framework/Versions/4/Headers) )
 else
