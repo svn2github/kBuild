@@ -2170,7 +2170,7 @@ local type := OBJC
 endef
 
 define def_src_handler_objcxx
-local type := OBJC
+local type := OBJCXX
  $(kb-src-one 2)
 endef
 
