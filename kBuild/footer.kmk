@@ -2169,6 +2169,11 @@ local type := OBJC
  $(kb-src-one 2)
 endef
 
+define def_src_handler_objcxx
+local type := OBJC
+ $(kb-src-one 2)
+endef
+
 define def_src_handler_asm
 local type := AS
  $(kb-src-one 2)
