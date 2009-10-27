@@ -256,7 +256,7 @@ define TOOL_GXX4MACHO_COMPILE_OBJCXX_CMDS
 		$(abspath $(source))\
 		--kObjCache-cc $(obj)\
 		$(TOOL_GXX4MACHO_OBJCXX) -c\
-		$(flags) -fpreprocessed -x objective-c \
+		$(flags) -fpreprocessed -x objective-c++ \
 		-o $(obj)\
 		-
 endef
