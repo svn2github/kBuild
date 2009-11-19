@@ -1119,7 +1119,7 @@ int sh_execve(shinstance *psh, const char *exe, const char * const *argv, const 
         cmdline_size = 2;
         for (i = 0; argv[i]; i++)
             cmdline_size += strlen(argv[i]) + 3;
-        cmdline = p = sh_malloc(psh, env_size);
+        cmdline = p = sh_malloc(psh, cmdline_size);
         for (i = 0; argv[i]; i++)
         {
             size_t len = strlen(argv[i]);
