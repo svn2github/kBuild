@@ -1962,8 +1962,8 @@ static void kOCEntryPreCompileConsumer(PKOCENTRY pEntry, int fdIn)
         if (cbLeft <= 1)
         {
             size_t off = psz - pEntry->New.pszCppMapping;
-            cbLeft = 4*1024*1024;
-            cbAlloc += cbLeft;
+            cbLeft  += 4*1024*1024;
+            cbAlloc += 4*1024*1024;
             pEntry->New.pszCppMapping = xrealloc(pEntry->New.pszCppMapping, cbAlloc);
             psz = pEntry->New.pszCppMapping + off;
         }
