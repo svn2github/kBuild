@@ -190,6 +190,15 @@ $$(PATH_kash)/init.c: \
 
 endif
 
+#
+# For debugging file handle inheritance on Windows.
+#
+if "$(KBUILD_TARGET)" == win && 0
+PROGRAMS += tstDump
+tstDump_TEMPLATE = BIN
+tstDump_SOURCES = tstDump.c
+endif
+
 # Include the sub-makefile.
 include $(PATH_SUB_CURRENT)/tests/Makefile.kmk
 
