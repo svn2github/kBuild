@@ -215,7 +215,7 @@ $(OUTDIR)/ts-stage2-build: \
 		$(SRCDIR)/src/kmk/config.h.$(KBUILD_TARGET) \
                 $(SRCDIR)/src/sed/config.h.$(KBUILD_TARGET) \
 		$(OUTDIR)/kmk/kmk
-	$(OUTDIR)/kmk/kmk -C $(SRCDIR) KBUILD_BOOTSTRAP=1
+	$(OUTDIR)/kmk/kmk -C $(SRCDIR) KBUILD_BOOTSTRAP=1 BOOTSTRAP_SHELL=$(OUTDIR)/kmk/kmk_ash
 	echo done > $@
 
 $(OUTDIR)/ts-stage2-install: $(OUTDIR)/ts-stage2-build
