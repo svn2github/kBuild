@@ -92,7 +92,7 @@ def  'C-S-L' = k_style_load
 /* Remeber to change these! */
 static _str skUserInitials  = "bird";
 static _str skUserName      = "knut st. osmundsen";
-static _str skUserEmail     = "bird-kBuild-spamix@anduin.net";
+static _str skUserEmail     = "bird-kBuild-spamx@anduin.net";
 
 
 /*******************************************************************************
