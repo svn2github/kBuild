@@ -251,7 +251,7 @@ else
  ifneq (.$(words $(KBUILD_HOST_CPU)).$(KBUILD_HOST_CPU).,.1.$(strip $(KBUILD_HOST_CPU)).)
   $(error kBuild: The KBUILD_HOST_CPU value '$(KBUILD_HOST_CPU)' contains spaces/tabs!)
  endif
- if1of ($(KBUILD_HOST_CPU), $(KBUILD_OSES) $(BUILD_ARCHES))
+ if1of ($(KBUILD_HOST_CPU), $(KBUILD_OSES) $(KBUILD_ARCHES))
   $(error kBuild: The KBUILD_HOST_CPU value '$(KBUILD_HOST_CPU)' was found in the OS or architecture keywords!)
  endif
  ifeq ($(KBUILD_HOST_CPU),$(KBUILD_TYPE))
@@ -347,7 +347,7 @@ else
  ifneq (.$(words $(KBUILD_TARGET_CPU)).$(KBUILD_TARGET_CPU).,.1.$(strip $(KBUILD_TARGET_CPU)).)
   $(error kBuild: The KBUILD_TARGET_CPU value '$(KBUILD_TARGET_CPU)' contains spaces/tabs!)
  endif
- if1of ($(KBUILD_TARGET_CPU), $(KBUILD_OSES) $(BUILD_ARCHES))
+ if1of ($(KBUILD_TARGET_CPU), $(KBUILD_OSES) $(KBUILD_ARCHES))
   $(error kBuild: The KBUILD_TARGET_CPU value was found in the OS or architecture keywords!)
  endif
  ifeq ($(KBUILD_TARGET_CPU),$(KBUILD_TYPE))
