@@ -215,12 +215,13 @@ kmk_SOURCES = \
 	vpath.c \
 	remote-stub.c
 
+kmk_LIBS.dragonfly = pthread
+
+kmk_LIBS.freebsd = pthread
+kmk_DEFS.freebsd.x86 = CONFIG_WITHOUT_THREADS
+
 #kmk_LIBS.solaris = malloc
 #kmk_DEFS.solaris += HAVE_MALLINFO
-
-kmk_LIBS.freebsd.amd64 = pthread
-kmk_LIBS.freebsd.sparc64 = pthread
-kmk_DEFS.freebsd.x86 = CONFIG_WITHOUT_THREADS
 
 #
 # kmkbuiltin commands
