@@ -37,7 +37,9 @@ LIBRARIES += kUtil
 kUtil_TEMPLATE = LIB
 kUtil_DEFS.win = __WIN__
 kUtil_SOURCES = crc32.c md5.c
-kUtil_SOURCES.win = nt_fullpath.c
+kUtil_SOURCES.win = \
+	nt_fullpath.c \
+	quoted_spawn.c
 kUtil_NOINST = 1
 
 LIBRARIES.win += kWinStartup
