@@ -358,3 +358,36 @@ void nop()
 
 }
 
+
+#if __VERSION__ >= 14.0
+
+/*
+ * Some diff keyboard hacks for Mac OS X.
+ */
+defeventtab _diff_form
+def  'M-f'      = kkeys_diffedit_find
+def  'M-n'      = kkeys_diffedit_next
+def  'M-p'      = kkeys_diffedit_prev
+
+_command kkeys_diffedit_find()
+{
+   _nocheck _control _ctlfind;
+   _ctlfind.call_event(_ctlfind, LBUTTON_UP);
+}
+
+_command kkeys_diffedit_next()
+{
+   _nocheck _control _ctlfile1;
+   _nocheck _control _ctlfile2;
+   _DiffNextDifference(_ctlfile1, _ctlfile2);
+}
+
+_command kkeys_diffedit_prev()
+{
+   _nocheck _control _ctlfile1;
+   _nocheck _control _ctlfile2;
+   _DiffNextDifference(_ctlfile1, _ctlfile2, '-');
+}
+
+#endif /* >= 14.0 */
+
