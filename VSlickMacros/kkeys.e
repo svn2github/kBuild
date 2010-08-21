@@ -59,6 +59,7 @@ def  'S-A-['    = prev_buff_tab
 def  'S-A-U'    = kkeys_gen_uuid
 #endif
 /* For the mac (A/M mix, all except A-z): */
+def  'M-1'      = cursor_error
 def  'M-UP'     = find_prev
 def  'M-DOWN'   = find_next
 def  'M-PGUP'   = prev_proc
