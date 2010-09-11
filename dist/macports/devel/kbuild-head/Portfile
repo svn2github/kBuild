@@ -5,7 +5,7 @@ PortSystem 1.0
 name            kbuild-head
 version         9999
 categories      devel
-maintainers     bird-kBuild-spamix@anduin.net
+maintainers     bird-kBuild-spamx@anduin.net
 description     kBuild subversion trunk
 long_description \
     See http://svn.netlabs.org/kbuild (I'm lazy).

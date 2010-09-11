@@ -2,7 +2,7 @@
  *
  * Fast dependents. (Fast = Quick and Dirty!)
  *
- * Copyright (c) 1999-2009 knut st. osmundsen (bird-kBuild-spamix@anduin.net)
+ * Copyright (c) 1999-2010 knut st. osmundsen <bird-kBuild-spamx@anduin.net>
  *
  * GPL
  *
@@ -1005,7 +1005,7 @@ void syntax(void)
         "   <files>         Files to scan. Wildchars are allowed.\n"
         "\n"
         "Options and files could be mixed.\n"
-        " copyright (c) 1999-2009 knut st. osmundsen (bird-kBuild-spamix@anduin.net)\n",
+        " copyright (c) 1999-2010 knut st. osmundsen (bird-kBuild-spamx@anduin.net)\n",
         ODIN32_BUILD_NR,
         pszDefaultDepFile
         );

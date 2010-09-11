@@ -3,7 +3,7 @@
  *
  * Shell Thread Management.
  *
- * Copyright (c) 2007-2009  knut st. osmundsen <bird-kBuild-spamix@anduin.net>
+ * Copyright (c) 2007-2010 knut st. osmundsen <bird-kBuild-spamx@anduin.net>
  *
  *
  * This file is part of kBuild.
