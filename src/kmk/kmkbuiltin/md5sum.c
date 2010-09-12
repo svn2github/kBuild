@@ -169,8 +169,8 @@ static void *open_file(const char *pszFilename, unsigned fText)
 #elif defined(_O_SEQUENTIAL)
     fFlags |= _O_SEQUENTIAL;
 #endif
-#ifdef _O_BINARY
-    if (!fText)     fFlags |= _O_BINARY;
+#ifdef O_BINARY
+    if (!fText)     fFlags |= O_BINARY;
 #elif defined(_O_BINARY)
     if (!fText)     fFlags |= _O_BINARY;
 #endif
