@@ -172,7 +172,7 @@ typedef struct sh_dirent
 
 typedef struct shdir
 {
-    shfdtab    *shfdtab;
+    shfdtab    *pshfdtab;
     void       *native;
     shdirent    ent;
 } shdir;
