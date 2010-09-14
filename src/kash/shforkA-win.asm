@@ -120,7 +120,7 @@ global NAME(main)
         mov     rdx, [rbp - 10h]        ; argv
         mov     r8,  [rbp - 18h]        ; envp
 
-        lea     rsp, [eax - 40h]        ; Switch!
+        lea     rsp, [rax - 40h]        ; Switch!
 %else
         mov     [esp + 18h], eax
         mov     [eax - 4], esp

@@ -172,9 +172,14 @@ typedef struct sh_dirent
 
 typedef struct shdir
 {
-    shfdtab    *pshfdtab;
+    shfdtab    *pfdtab;
     void       *native;
     shdirent    ent;
+#if K_OS == K_OS_WINDOWS
+    size_t      off;
+    size_t      cb;
+    char        buf[32768 - sizeof(void *) * 2 - sizeof(shdirent) * 2];
+#endif
 } shdir;
 
 shdir *shfile_opendir(shfdtab *, const char *);

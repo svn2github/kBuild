@@ -31,7 +31,8 @@
 #include "shtypes.h"
 
 /* heap */
-int shheap_init(void);
+int shheap_init(void *phead);
+void *shheap_get_head(void);
 int shheap_fork_copy_to_child(void *);
 
 void *sh_malloc(shinstance *, size_t);
