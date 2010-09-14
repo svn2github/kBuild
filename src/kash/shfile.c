@@ -1519,7 +1519,7 @@ shdir *shfile_opendir(shfdtab *pfdtab, const char *dir)
                                 GENERIC_READ,
                                 FILE_SHARE_DELETE | FILE_SHARE_READ | FILE_SHARE_WRITE,
                                 &SecurityAttributes,
-                                OPEN_ALWAYS,
+                                OPEN_EXISTING,
                                 FILE_ATTRIBUTE_DIRECTORY | FILE_FLAG_BACKUP_SEMANTICS,
                                 NULL /* hTemplateFile */);
             if (hFile != INVALID_HANDLE_VALUE)
