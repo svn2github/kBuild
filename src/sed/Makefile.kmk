@@ -66,6 +66,10 @@ kmk_sed_SOURCES.freebsd = \
 	lib/strverscmp.c \
 	lib/obstack.c \
 	lib/getline.c
+kmk_sed_SOURCES.openbsd = \
+	lib/strverscmp.c \
+	lib/obstack.c \
+	lib/getline.c
 kmk_sed_SOURCES.solaris = \
 	lib/strverscmp.c \
 	lib/obstack.c \
