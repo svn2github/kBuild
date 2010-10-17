@@ -1079,8 +1079,11 @@ int sh_execve(shinstance *psh, const char *exe, const char * const *argv, const 
         }
     }
     rc = -1;
+
 # else
-    rc = execve(exe, (char **)argv, (char **)envp);
+    rc = shfile_exec_unix(&psh->fdtab);
+    if (!rc)
+        rc = execve(exe, (char **)argv, (char **)envp);
 # endif
 
 #else
