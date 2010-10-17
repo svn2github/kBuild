@@ -41,6 +41,9 @@
 # Note to self on bootstrapping solaris.sparc64:
 #   SED_MAKE_DEFS="SED=gsed" AUTOPOINT=true ACLOCAL=aclocal-1.10 AUTOMAKE=automake-1.10 nice ./kBuild/env.sh --full gmake -f bootstrap.gmk
 #
+# Note to self on bootstrapping openbsd:
+#   AUTOCONF_VERSION=2.59 AUTOMAKE_VERSION=1.9 ./kBuild/env.sh --full gmake -f bootstrap.gmk
+#
 
 #
 # OPTIONAL:

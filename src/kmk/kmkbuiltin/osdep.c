@@ -38,5 +38,8 @@
 #elif defined(__APPLE__)
 # include "darwin.c"
 
+#elif defined(__OpenBSD__)
+# include "openbsd.c"
+
 #endif
 
