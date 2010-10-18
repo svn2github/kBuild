@@ -64,7 +64,6 @@
  || !defined(SH_FORKED_MODE)
 # define SHFILE_IN_USE
 #endif
-# define SHFILE_IN_USE
 /** The max file table size. */
 #define SHFILE_MAX          1024
 /** The file table growth rate. */
