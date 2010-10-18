@@ -141,6 +141,8 @@ long shfile_write(shfdtab *, int, const void *, size_t);
 long shfile_lseek(shfdtab *, int, long, int);
 int shfile_fcntl(shfdtab *, int fd, int cmd, int arg);
 int shfile_dup(shfdtab *, int fd);
+int shfile_movefd(shfdtab *, int fdfrom, int fdto);
+int shfile_movefd_above(shfdtab *, int fdfrom, int fdmin);
 
 int shfile_stat(shfdtab *, const char *, struct stat *);
 int shfile_lstat(shfdtab *, const char *, struct stat *);
