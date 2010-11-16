@@ -50,8 +50,10 @@ def  'C-DOWN'   = kkeys_scroll_up
 def  'C-PGUP'   = prev_window
 def  'C-PGDN'   = next_window
 def  'C-DEL'    = kkeys_delete_right
-#if __VERSION__ >= 14.0
+#if __VERSION__ >= 15.0
 def  'S-C-='    = svn_diff_with_base
+#endif
+#if __VERSION__ >= 14.0
 def  'C-/'      = kkeys_push_ref
 def  'S-C-/'    = push_ref
 def  'S-A-]'    = next_buff_tab
