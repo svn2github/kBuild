@@ -124,6 +124,7 @@ define TOOL_GXX64_COMPILE_C_CMDS
 		$(flags) -fpreprocessed -x c\
 		-o $(obj)\
 		-
+	$(QUIET)$(APPEND) -n "$(dep)" "" "$(source):" ""
 endef
 else # !KBUILD_USE_KOBJCACHE
 TOOL_GXX64_COMPILE_C_OUTPUT =
@@ -133,6 +134,7 @@ define TOOL_GXX64_COMPILE_C_CMDS
 		-Wp,-MD,$(dep) -Wp,-MT,$(obj) -Wp,-MP\
 		-o $(obj)\
 		$(abspath $(source))
+	$(QUIET)$(APPEND) -n "$(dep)" "" "$(source):" ""
 endef
 endif # !KBUILD_USE_KOBJCACHE
 
@@ -166,6 +168,7 @@ define TOOL_GXX64_COMPILE_CXX_CMDS
 		$(flags) -fpreprocessed -x c++\
 		-o $(obj)\
 		-
+	$(QUIET)$(APPEND) -n "$(dep)" "" "$(source):" ""
 endef
 else # !KBUILD_USE_KOBJCACHE
 TOOL_GXX64_COMPILE_CXX_OUTPUT =
@@ -175,6 +178,7 @@ define TOOL_GXX64_COMPILE_CXX_CMDS
 		-Wp,-MD,$(dep) -Wp,-MT,$(obj) -Wp,-MP\
 		-o $(obj)\
 		$(abspath $(source))
+	$(QUIET)$(APPEND) -n "$(dep)" "" "$(source):" ""
 endef
 endif # !KBUILD_USE_KOBJCACHE
 
@@ -201,6 +205,7 @@ define TOOL_GXX64_COMPILE_AS_CMDS
 		-Wp,-MD,$(dep) -Wp,-MT,$(obj) -Wp,-MP\
 		-o $(obj)\
 		$(abspath $(source))
+	$(QUIET)$(APPEND) -n "$(dep)" "" "$(source):" ""
 endef
 
 
