@@ -763,6 +763,18 @@ local long_options := $(filter-out =delete=%,$(subst :, =delete=,$(subst =, =del
 local .RETURN := $(if-expr $(pos $1,$(short_options)) != 0 || "$(filter $2,$(long_options))" != "",$4,$5)
 endef
 
+##
+# Make an assignment to a deprecated variable.
+#
+# @param   $1   The variable name.
+# @param   $2   The value.
+# @param   $3   The variable to use instead.
+#
+ifdef KBUILD_WITH_DEPREATED_AS_ERROR
+ KB_FN_ASSIGN_DEPRECATED = $(eval $1 = $2$$(error $1 is deprecated, use $3 instead))
+else
+ KB_FN_ASSIGN_DEPRECATED = $(eval $1 = $2$$(warning $1 is deprecated, use $3 instead))
+endif
 
 
 #
