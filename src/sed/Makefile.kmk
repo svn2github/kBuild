@@ -72,8 +72,11 @@ kmk_sed_SOURCES.openbsd = \
 	lib/getline.c
 kmk_sed_SOURCES.solaris = \
 	lib/strverscmp.c \
-	lib/obstack.c \
+	lib/obstack.c 
+ifdef KBUILD_SOLARIS_10
+kmk_sed_SOURCES.solaris += \
 	lib/getline.c
+endif
 kmk_sed_SOURCES.win = \
 	lib/strverscmp.c \
 	lib/obstack.c \
