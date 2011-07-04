@@ -38,7 +38,7 @@
 # if !defined(__sun__)
 #  include <paths.h>
 # endif
-# ifdef _PATH_DEVNULL
+# ifndef _PATH_DEVNULL
 #  define _PATH_DEVNULL "/dev/null"
 # endif
 # ifndef _PATH_DEFPATH
