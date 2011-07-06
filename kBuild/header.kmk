@@ -771,9 +771,9 @@ endef
 # @param   $3   The variable to use instead.
 #
 ifdef KBUILD_WITH_DEPREATED_AS_ERROR
- KB_FN_ASSIGN_DEPRECATED = $(eval $1 = $2$$(error $1 is deprecated, use $3 instead))
+ KB_FN_ASSIGN_DEPRECATED = $(eval $(subst :,$$(COLON),$1) = $2$$(error $1 is deprecated, use $3 instead))
 else
- KB_FN_ASSIGN_DEPRECATED = $(eval $1 = $2$$(warning $1 is deprecated, use $3 instead))
+ KB_FN_ASSIGN_DEPRECATED = $(eval $(subst :,$$(COLON),$1) = $2$$(warning $1 is deprecated, use $3 instead))
 endif
 
 
