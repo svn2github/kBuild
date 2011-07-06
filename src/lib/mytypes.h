@@ -27,6 +27,7 @@
 #define ___mytypes_h__
 
 #include <stdlib.h>
+#include <stddef.h> /* MSC: intptr_t */
 #include <sys/types.h>
 
 #if defined(_MSC_VER)
