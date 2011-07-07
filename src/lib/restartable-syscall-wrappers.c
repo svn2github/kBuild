@@ -42,6 +42,9 @@
 #include <fcntl.h>
 #include <stdarg.h>
 #include <stddef.h>
+#ifdef KBUILD_OS_SOLARIS
+# undef __PRAGMA_REDEFINE_EXTNAME
+#endif
 #include <stdio.h>
 
 
