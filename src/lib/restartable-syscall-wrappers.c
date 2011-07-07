@@ -209,6 +209,7 @@ static int dlsym_libc(const char *pszSymbol, void **ppvSym)
     return 0;
 }
 
+#undef fopen
 FILE *fopen(const char *pszName, const char *pszMode)
 {
     static union
@@ -228,6 +229,7 @@ FILE *fopen(const char *pszName, const char *pszMode)
     return pFile;
 }
 
+#undef fopen64
 FILE *fopen64(const char *pszName, const char *pszMode)
 {
     static union
