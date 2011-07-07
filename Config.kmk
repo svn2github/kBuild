@@ -320,7 +320,7 @@ ifndef TEMPLATE_BIN_TOOL
   TEMPLATE_BIN_LDFLAGS.amd64   += -m64
   TEMPLATE_BIN_LDFLAGS.sparc64 += -m64
  ifeq ($(KBUILD_TARGET),solaris)
-  TEMPLATE_BIN_LIBS            += rt
+  TEMPLATE_BIN_LIBS            += rt dl
   TEMPLATE_BIN_LDFLAGS         += -Wl,-i
  endif
 endif
