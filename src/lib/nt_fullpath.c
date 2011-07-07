@@ -283,14 +283,14 @@ typedef struct MY_FILE_FS_DEVICE_INFORMATION
 #define MY_FILE_DEVICE_VIRTUAL_DISK     36
 
 
-typedef struct _IO_STATUS_BLOCK
+typedef struct
 {
     union
     {
-        LONG Status;
-        PVOID Pointer;
+        LONG    Status;
+        PVOID   Pointer;
     };
-    ULONG_PTR Information;
+    ULONG_PTR   Information;
 } MY_IO_STATUS_BLOCK, *PMY_IO_STATUS_BLOCK;
 
 static BOOL                             g_fInitialized = FALSE;
