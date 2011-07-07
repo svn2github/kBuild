@@ -40,7 +40,7 @@ kUtil_SOURCES = crc32.c md5.c
 kUtil_SOURCES.win = \
 	nt_fullpath.c \
 	quoted_spawn.c
-kUtil_SOURCES.linux = \
+kUtil_SOURCES.solaris = \
 	restartable-syscall-wrappers.c
 kUtil_NOINST = 1
 
