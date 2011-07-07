@@ -118,6 +118,8 @@ kash_CLEAN = \
 	$(kash_0_OUTDIR)/init.c \
 	$(kash_0_OUTDIR)/nodes.c
 
+kash_main.c_DEFS = KBUILD_SVN_REV=$(KBUILD_SVN_REV)
+
 ##
 ## The manual page.
 ##
