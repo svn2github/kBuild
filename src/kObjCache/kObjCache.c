@@ -3862,7 +3862,7 @@ int main(int argc, char **argv)
     unsigned cArgvCompile = 0;
     const char *pszObjName = NULL;
     int fRedirCompileStdIn = 0;
-    const char *pszNmPipeCompile;
+    const char *pszNmPipeCompile = NULL;
 
     const char *pszTarget = NULL;
 
