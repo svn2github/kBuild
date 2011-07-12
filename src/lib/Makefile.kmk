@@ -42,8 +42,8 @@ kUtil_SOURCES.win = \
 	quoted_spawn.c
 kUtil_SOURCES.solaris = \
 	restartable-syscall-wrappers.c
-kUtil_SOURCES.linux = \
-	restartable-syscall-wrappers.c
+#kUtil_SOURCES.linux = \
+#	restartable-syscall-wrappers.c
 kUtil_NOINST = 1
 
 LIBRARIES.win += kWinStartup
