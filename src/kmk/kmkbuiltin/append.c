@@ -177,7 +177,7 @@ int kmk_builtin_append(int argc, char **argv, char **envp)
     iFile = i;
     pFile = fopen(argv[i], fTruncate ? "w" : "a");
     if (!pFile)
-        return err(1, "failed to open '%s'.", argv[i]);
+        return err(1, "failed to open '%s'", argv[i]);
 
     /*
      * Start define?
