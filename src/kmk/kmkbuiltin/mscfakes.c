@@ -157,6 +157,9 @@ msc_set_errno(DWORD dwErr)
         case ERROR_ALREADY_EXISTS:          errno = EEXIST; break;
         case ERROR_FILENAME_EXCED_RANGE:    errno = ENOENT; break;
         case ERROR_NESTING_NOT_ALLOWED:     errno = EAGAIN; break;
+#ifdef EMLINK
+        case ERROR_TOO_MANY_LINKS:          errno = EMLINK; break;
+#endif
     }
 
     return -1;
@@ -257,9 +260,9 @@ int msc_chmod(const char *pszPath, mode_t mode)
 
 int link(const char *pszDst, const char *pszLink)
 {
-    errno = ENOSYS;
-    err(1, "link() is not implemented on windows!");
-    return -1;
+    if (CreateHardLink(pszDst, pszLink, NULL))
+        return 0;
+    return msc_set_errno(GetLastError());
 }
 
 
