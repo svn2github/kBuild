@@ -697,10 +697,11 @@ export SHELL MAKESHELL
 LN_SYMLINK  := $(LN) -s
 
 # When copying to the staging area, use hard links to save time and space.
-if1of ($(KMK_FEATURES), install-hard-linking)
-INSTALL_STAGING := $(INSTALL) --hard-link-files-when-possible
-else
 INSTALL_STAGING := $(INSTALL)
+ifndef KBUILD_NO_HARD_LINKING
+ if1of ($(KMK_FEATURES), install-hard-linking)
+  INSTALL_STAGING := $(INSTALL) --hard-link-files-when-possible
+ endif
 endif
 
 
