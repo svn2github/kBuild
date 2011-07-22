@@ -742,6 +742,22 @@ no-drive    = $(word $(words $(subst :, ,$(1))),$(subst :, ,$(1)))
 # @param	$1 		the path
 no-root-slash = $(patsubst /%,%,$(1))
 
+##
+# Similar to firstword, except it returns the value of first defined variable.
+# @param        $1              list of variables to probe.
+define FIRST-DEFINED-VAR
+ if "$1" != ""
+  local var := $(word 1,$1)
+  ifdef $(var)
+   local .RETURN := $(strip $($(var)))
+  else
+   local .RETURN := $(evalcall FIRST-DEFINED-VAR, $(wordlist 2,32,$1))
+  endif
+ else
+  local .RETURN :=
+ endif
+endef
+
 ## Figure out where to put object files.
 # @param    $1      real target name.
 # @param    $2      normalized main target
