@@ -32,6 +32,7 @@
 #include <signal.h> /* NSIG */
 #ifndef _MSC_VER
 # include <termios.h>
+# include <sys/types.h>
 # include <sys/ioctl.h>
 # include <sys/resource.h>
 #endif

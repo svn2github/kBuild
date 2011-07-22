@@ -101,7 +101,7 @@ struct shinstance *shthread_get_shell(void)
 #if K_OS == K_OS_WINDOWS
     psh = (shinstance *)TlsGetValue(sh_tls);
 #elif K_OS == K_OS_OS2
-    psh = (shinstance *)__libc_TLSGet(iTls)
+    psh = (shinstance *)__libc_TLSGet(sh_tls);
 #else
     psh = (shinstance *)pthread_getspecific(sh_tls);
 #endif
