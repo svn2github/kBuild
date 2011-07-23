@@ -43,6 +43,9 @@ kmk_sed_INCS = \
 	intl
 kmk_sed_DEFS = \
 	HAVE_CONFIG_H
+ifdef KBUILD_SOLARIS_10
+ kmk_sed_CFLAGS += -std=gnu99
+endif
 kmk_sed_SOURCES = \
 	sed/sed.c \
 	lib/regex.c \
