@@ -155,7 +155,7 @@ int open(const char *pszPath, int fFlags, ...)
     int         fd;
     static union
     {
-        int (* pfnReal)(const char *, int, mode_t);
+        int (* pfnReal)(const char *, int, ...);
         void *pvSym;
     } s_u;
 
@@ -181,7 +181,7 @@ int open64(const char *pszPath, int fFlags, ...)
     int         fd;
     static union
     {
-        int (* pfnReal)(const char *, int, mode_t);
+        int (* pfnReal)(const char *, int, ...);
         void *pvSym;
     } s_u;
 
