@@ -449,6 +449,13 @@ PATH_INS             = $(PATH_OUT)/dist
  endif
 endif
 
+# Tripwire obsolete PATH defines.
+PATH_BIN = $(error kBuild: PATH_BIN is obsoleted in kBuild 0.1.2. Use PATH_STAGE_BIN or PATH_INST_BIN instead)
+PATH_DLL = $(error kBuild: PATH_LIB is obsoleted in kBuild 0.1.2. Use PATH_STAGE_DLL or PATH_INST_DLL instead)
+PATH_LIB = $(error kBuild: PATH_LIB is obsoleted in kBuild 0.1.2. Use PATH_STAGE_LIB or PATH_INST_LIB instead)
+PATH_SYS = $(error kBuild: PATH_SYS is obsoleted in kBuild 0.1.2. Use PATH_STAGE_SYS or PATH_INST_SYS instead)
+PATH_DOC = $(error kBuild: PATH_DOC is obsoleted in kBuild 0.1.2. Use PATH_STAGE_DOC or PATH_INST_DOC instead)
+
 # Development tool tree.
 KBUILD_DEVTOOLS      = $(if $(PATH_DEVTOOLS),$(PATH_DEVTOOLS),$(PATH_ROOT)/tools)
 KBUILD_DEVTOOLS_TRG  = $(KBUILD_DEVTOOLS)/$(KBUILD_TARGET).$(KBUILD_TARGET_ARCH)
