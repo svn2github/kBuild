@@ -162,6 +162,14 @@ EQUAL := =
 # Percent character.
 PERCENT := %
 
+##
+# Single quote character.
+SQUOTE := '
+
+##
+# Double quote character.
+DQUOTE := "
+
 
 #
 # The list of standard build types in kBuild.
