@@ -158,6 +158,10 @@ DOLLAR := $$
 # Equal character.
 EQUAL := =
 
+##
+# Percent character.
+PERCENT := %
+
 
 #
 # The list of standard build types in kBuild.
