@@ -3360,8 +3360,8 @@ ifeq ($(insttype),both)
   $(warning kBuild: Directory $(directory) in install target $(target) has a INST property without a trailing slash: '$(inst)')
   local inst  := $(inst)/
  endif
- ifeq ($(root $(stage)),)
-  $(error kBuild: Directory $(directory) in install target $(target) has a INST property with an absoluate path: '$(inst)')
+ ifneq ($(root $(stage)),)
+  $(error kBuild: Directory $(directory) in install target $(target) has a INST property with an absolute path: '$(inst)')
  endif
  local insdst := $(PATH_INS)/$(inst)$(directory)/
  $(target)_2_INST_DIR_TARGETS += $(insdst)
