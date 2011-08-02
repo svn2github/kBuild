@@ -926,6 +926,11 @@ Utility functions:
 
         $(shell command)
 
+    Return a string with the location where the ``kmk`` variable ``variable``
+    was defined::
+
+        $(where variable)
+
     Return a string describing how the ``kmk`` variable ``variable`` was defined::
 
         $(origin variable)
