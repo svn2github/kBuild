@@ -252,9 +252,6 @@ define TOOL_GCC3OMF_LINK_PROGRAM_CMDS
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		-Zmap=$(outbase).map
 	$(QUIET)$(TOOL_GCC3OMF_LD) @$(outbase).rsp
-if1of ($(ld_debug), split)
- $(warning kBuild: Debug splitting is requrested for $(target), but this feature is not supported by GCC3OMF.)
-endif
 endef
 
 
@@ -286,9 +283,6 @@ define TOOL_GCC3OMF_LINK_DLL_CMDS
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		-Zmap=$(outbase).map
 	$(TOOL_GCC3OMF_LD) @$(outbase).rsp
-if1of ($(ld_debug), split)
- $(warning kBuild: Debug splitting is requrested for $(target), but this feature is not supported by GCC3OMF.)
-endif
 endef
 
 
@@ -320,8 +314,5 @@ define TOOL_GCC3OMF_LINK_SYSMOD_CMDS
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		-Zmap=$(outbase).map
 	$(QUIET)$(TOOL_GCC3OMF_LD_SYSMOD) @$(outbase).rsp
-if1of ($(ld_debug), split)
- $(warning kBuild: Debug splitting is requrested for $(target), but this feature is not supported by GCC3OMF.)
-endif
 endef
 

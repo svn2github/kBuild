@@ -257,9 +257,6 @@ define TOOL_GCC3PLAIN_LINK_PROGRAM_CMDS
 		$(filter %.def, $(othersrc))\
 		$(foreach p,$(libpath), -L$(p))\
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))
-if1of ($(ld_debug), split)
- $(warning kBuild: Debug splitting is requested for $(target), but this feature is not supported by GCC3PLAIN.)
-endif
 endef
 
 
@@ -288,9 +285,6 @@ define TOOL_GCC3PLAIN_LINK_DLL_CMDS
 		$(filter %.def, $(othersrc))\
 		$(foreach p,$(libpath), -L$(p))\
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))
-if1of ($(ld_debug), split)
- $(warning kBuild: Debug splitting is requested for $(target), but this feature is not supported by GCC3PLAIN.)
-endif
 endef
 
 
@@ -322,8 +316,5 @@ define TOOL_GCC3PLAIN_LINK_SYSMOD_CMDS
 		$(filter %.def, $(othersrc))\
 		$(foreach p,$(libpath), -L$(p))\
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))
-if1of ($(ld_debug), split)
- $(warning kBuild: Debug splitting is requested for $(target), but this feature is not supported by GCC3PLAIN.)
-endif
 endef
 

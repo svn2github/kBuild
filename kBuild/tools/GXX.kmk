@@ -205,9 +205,6 @@ TOOL_GXX_LINK_PROGRAM_DEPORD =
 define TOOL_GXX_LINK_PROGRAM_CMDS
 	$(QUIET)$(TOOL_GXX_LD) $(flags) -o $(out) $(objs) \
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))
-if1of ($(ld_debug), split)
- $(warning kBuild: Debug splitting is requested for $(target), but this feature is not supported by GXX.)
-endif
 endef
 
 
@@ -230,8 +227,5 @@ TOOL_GXX_LINK_DLL_DEPORD =
 define TOOL_GXX_LINK_DLL_CMDS
 	$(QUIET)$(TOOL_GXX_LD) $(TOOL_GXX_LDFLAGS.dll) $(flags) -o $(out) $(objs) \
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))
-if1of ($(ld_debug), split)
- $(warning kBuild: Debug splitting is requested for $(target), but this feature is not supported by GXX.)
-endif
 endef
 

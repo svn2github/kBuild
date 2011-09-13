@@ -205,9 +205,6 @@ TOOL_GCC_LINK_PROGRAM_DEPORD =
 define TOOL_GCC_LINK_PROGRAM_CMDS
 	$(QUIET)$(TOOL_GCC_LD) $(flags) -o $(out) $(objs) \
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))
-if1of ($(ld_debug), split)
- $(warning kBuild: Debug splitting is requested for $(target), but this feature is not supported by GCC.)
-endif
 endef
 
 
@@ -230,8 +227,5 @@ TOOL_GCC_LINK_DLL_DEPORD =
 define TOOL_GCC_LINK_DLL_CMDS
 	$(QUIET)$(TOOL_GCC_LD) $(TOOL_GCC_LDFLAGS.dll) $(flags) -o $(out) $(objs) \
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))
-if1of ($(ld_debug), split)
- $(warning kBuild: Debug splitting is requested for $(target), but this feature is not supported by GCC.)
-endif
 endef
 
