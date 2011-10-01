@@ -889,7 +889,6 @@ int sh_add_child(shinstance *psh, pid_t pid, void *hChild)
     (void)hChild;
     return 0;
 }
-#include <setjmp.h>
 
 pid_t sh_fork(shinstance *psh)
 {

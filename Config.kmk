@@ -99,7 +99,7 @@ PATH_GNUMAKE_SRC ?= $(PATH_ROOT)/src/kmk
 #
 # Various platform specific hacks.
 #
-ifn1of ($(KBUILD_TARGET), openbsd)
+ifn1of ($(KBUILD_TARGET), haiku openbsd)
  GCC_Wextra = -Wextra
 endif
 if1of ($(KBUILD_TARGET), openbsd)

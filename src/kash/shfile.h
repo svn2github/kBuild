@@ -1,8 +1,9 @@
 /* $Id$ */
 /** @file
- *
  * File management.
- *
+ */
+
+/*
  * Copyright (c) 2007-2010 knut st. osmundsen <bird-kBuild-spamx@anduin.net>
  *
  *
@@ -46,7 +47,7 @@
 # endif
 #endif
 #ifndef _MSC_VER
-# include <sys/fcntl.h>
+# include <fcntl.h>
 # include <unistd.h>
 # ifndef O_BINARY
 #  define O_BINARY  0

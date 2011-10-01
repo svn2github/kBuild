@@ -73,6 +73,9 @@
 # include <Windows.h>
 # include "quoted_spawn.h"
 #endif
+#if defined(__HAIKU__)
+# include <posix/sys/file.h>
+#endif
 
 #include "crc32.h"
 #include "md5.h"

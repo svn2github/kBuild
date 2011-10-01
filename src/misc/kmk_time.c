@@ -363,11 +363,13 @@ int main(int argc, char **argv)
             printf(" - normal exit: %d\n", WEXITSTATUS(rc));
             rc = WEXITSTATUS(rc);
         }
+# ifndef __HAIKU__ /**@todo figure how haiku signals that a core was dumped. */
         else if (WIFSIGNALED(rc) && WCOREDUMP(rc))
         {
             printf(" - dumped core: %s (%d)\n", my_strsignal(WTERMSIG(rc)), WTERMSIG(rc));
             rc = 10;
         }
+# endif
         else if (WIFSIGNALED(rc))
         {
             printf(" -   killed by: %s (%d)\n", my_strsignal(WTERMSIG(rc)), WTERMSIG(rc));
