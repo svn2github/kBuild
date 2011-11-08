@@ -38,5 +38,12 @@ const char *get_kbuild_path(void);
 const char *get_kbuild_bin_path(void);
 const char *get_default_kbuild_shell(void);
 
+struct kbuild_eval_data;
+
+int eval_kbuild_define(struct kbuild_eval_data **kdata, const struct floc *flocp,
+                       const char *word, unsigned int wlen, const char *line, const char *eos, int ignoring);
+int eval_kbuild_endef(struct kbuild_eval_data **kdata, const struct floc *flocp,
+                      const char *word, unsigned int wlen, const char *line, const char *eos, int ignoring);
+
 #endif
 

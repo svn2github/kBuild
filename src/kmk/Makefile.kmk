@@ -204,6 +204,7 @@ kmk_DEFS.debug = CONFIG_WITH_MAKE_STATS
 kmk_SOURCES = \
 	main.c \
 	kbuild.c \
+	kbuild-read.c \
 	read.c \
 	expreval.c \
 	incdep.c \
