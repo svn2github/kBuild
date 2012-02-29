@@ -57,7 +57,7 @@ ifndef PATH_SDK_LIBSDL
   endif
 
   ifeq ($(PATH_SDK_LIBSDL),)
-   PATH_SDK_LIBSDL := $(firstword $(wildcard $(addsuffix libSDL.* $(KBUILD_LIB_SEARCH_PATHS))))
+   PATH_SDK_LIBSDL := $(firstword $(wildcard $(addsuffix libSDL.*, $(KBUILD_LIB_SEARCH_PATHS))))
    ifneq ($(PATH_SDK_LIBSDL),)
     PATH_SDK_LIBSDL := $(patsubst %/,%,$(dir $(patsubst %/,%,$(dir $(PATH_SDK_LIBSDL)))))
    else
