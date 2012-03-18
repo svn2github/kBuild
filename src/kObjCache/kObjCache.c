@@ -662,7 +662,10 @@ static int MakePath(const char *pszPath)
             &&  errno != EEXIST)
 #else
         if (    mkdir(pszAbsPath, 0777)
-            &&  errno != EEXIST)
+            &&  errno != EEXIST
+            &&  errno != ENOSYS /* Solaris nonsensical mkdir crap. */
+            &&  errno != EACCES /* Solaris nonsensical mkdir crap. */
+            )
 #endif
         {
             iErr = errno;
