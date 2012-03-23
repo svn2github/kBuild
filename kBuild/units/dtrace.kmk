@@ -117,7 +117,7 @@ endif
 
 # update globals
 _OUT_FILES += $(out)
-$(target)_2_OBJS += $(out)
+$(target)_2_OBJS <= $(out)
 
 endef # def_dtrace_hdr_rule
 
