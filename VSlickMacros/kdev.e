@@ -3470,7 +3470,8 @@ _command void kdev_load_settings()
     if (machine()=='INTELSOLARIS' || machine()=='SPARCSOLARIS')
     {
         _default_font(CFG_MENU,'DejaVu Sans,10,0,0,');
-        _default_font(CFG_DIALOG,'DejaVu Sans,10,0,0,');
+        _default_font(CFG_DIALOG,'DejaVu Sans,10,0,,');
+        _ConfigEnvVar('VSLICKDIALOGFONT','DejaVu Sans,10,0,,');
     }
 
     /* Not so important. */
