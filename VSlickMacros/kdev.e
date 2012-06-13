@@ -3505,7 +3505,12 @@ _command void kdev_load_settings()
         }
     }
     LanguageSettings.setIndentWithTabs('mak', true);
+    LanguageSettings.setLexerName('mak', 'kmk');
 
+    /* Fix .asm and add .mac and .kmk. */
+    replace_def_data("def-lang-for-ext-asm",'masm');
+    replace_def_data("def-lang-for-ext-mac",'masm');
+    replace_def_data("def-lang-for-ext-kmk",'mak');
 #endif
 
     /** @todo
