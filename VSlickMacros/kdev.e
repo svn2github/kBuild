@@ -3486,10 +3486,11 @@ _command void kdev_load_settings()
     _str sLangId;
     foreach (sLangId in aMyLangIds)
     {
-        LanguageSettings.setIndentCaseFromSwitch(sLangId,   true);
-        LanguageSettings.setBeginEndStyle(sLangId,          BES_BEGIN_END_STYLE_2);
-        LanguageSettings.setIndentWithTabs(sLangId,         false);
-        LanguageSettings.setUseAdaptiveFormatting(sLangId,  true);
+        LanguageSettings.setIndentCaseFromSwitch(sLangId,    true);
+        LanguageSettings.setBeginEndStyle(sLangId,           BES_BEGIN_END_STYLE_2);
+        LanguageSettings.setIndentWithTabs(sLangId,          false);
+        LanguageSettings.setUseAdaptiveFormatting(sLangId,   true);
+        LanguageSettings.setSaveStripTrailingSpaces(sLangId, STSO_STRIP_MODIFIED);
 
         /* C/C++ setup, wrap at column 80 not 64. */
         sTmp = LanguageSettings.getCommentWrapOptions(sLangId);
