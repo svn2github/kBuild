@@ -34,18 +34,24 @@
 #include <malloc.h>
 #include "getopt.h"
 
+/* Note: Duplicated it config.h.win */
+#include <sys/stat.h>
+#include <io.h>
+#include <direct.h>
 #if defined(MSC_DO_64_BIT_IO) && _MSC_VER >= 1400 /* We want 64-bit file lengths here when possible. */
 # define off_t __int64
+# undef stat
 # define stat  _stat64
 # define fstat _fstat64
 # define lseek _lseeki64
 #else
-# undef stat
-# define stat(_path, _st) my_other_stat(_path, _st)
-extern int my_other_stat(const char *, struct stat *);
+# ifndef STAT_REDEFINED_ALREADY
+#  define STAT_REDEFINED_ALREADY
+#  undef stat
+#  define stat(_path, _st) bird_w32_stat(_path, _st)
+extern int bird_w32_stat(const char *, struct stat *);
+# endif
 #endif
-
-
 
 #ifndef S_ISDIR
 # define S_ISDIR(m) (((m) & _S_IFMT) == _S_IFDIR)

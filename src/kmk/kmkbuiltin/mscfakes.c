@@ -532,13 +532,12 @@ int vasprintf(char **strp, const char *fmt, va_list va)
 }
 
 
-#undef stat
 /*
  * Workaround for directory names with trailing slashes.
- * Added by bird reasons stated.
  */
+#undef stat
 int
-my_other_stat(const char *path, struct stat *st)
+bird_w32_stat(const char *path, struct stat *st)
 {
     int rc = stat(path, st);
     if (    rc != 0
@@ -563,6 +562,13 @@ my_other_stat(const char *path, struct stat *st)
             }
         }
     }
+#ifdef KMK_PRF
+    {
+        int err = errno;
+        fprintf(stderr, "stat(%s,) -> %d/%d\n", path, rc, errno);
+        errno = err;
+    }
+#endif
     return rc;
 }
 
