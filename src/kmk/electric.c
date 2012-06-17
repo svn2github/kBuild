@@ -158,11 +158,11 @@ xmalloc (unsigned int size)
 }
 
 void *
-xcalloc (size_t size, size_t items)
+xcalloc (unsigned size)
 {
     void *result;
-    result = xmalloc (size * items);
-    return memset (result, 0, size * items);
+    result = xmalloc (size);
+    return memset (result, 0, size);
 }
 
 void *

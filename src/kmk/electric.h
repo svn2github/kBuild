@@ -32,13 +32,13 @@
 #include <string.h> /* strdup */
 
 void xfree (void *);
-void *xcalloc (size_t, size_t);
+void *xcalloc (unsigned int);
 void *xmalloc (unsigned int);
 void *xrealloc (void *, unsigned int);
 char *xstrdup (const char *);
 
 #define free(a)         xfree(a)
-#define calloc(a,b)     xcalloc((a),(b))
+#define calloc(a,b)     xcalloc((a) * (b))
 #define malloc(a)       xmalloc(a)
 #define realloc(a,b)    xrealloc((a),(b))
 #define strdup(a)       xstrdup(a)

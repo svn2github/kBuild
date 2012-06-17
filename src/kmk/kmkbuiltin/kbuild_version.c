@@ -52,7 +52,7 @@ int kbuild_version(const char *argv0)
         tmp = strchr(argv0, '\0');
 
     printf("%.*s - kBuild version %d.%d.%d (r%u)\n",
-           tmp - argv0, argv0,
+           (int)(tmp - argv0), argv0,
            KBUILD_VERSION_MAJOR, KBUILD_VERSION_MINOR, KBUILD_VERSION_PATCH,
            KBUILD_SVN_REV);
     return 0;
