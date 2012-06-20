@@ -3526,10 +3526,11 @@ _command void kdev_load_settings()
     LanguageSettings.setLexerName('mak', 'kmk');
     LanguageSettings.setSyntaxIndent('mak', 8);
 
-    /* Fix .asm and add .mac and .kmk. */
+    /* Fix .asm and add .mac, .kmk and .cmd. */
     replace_def_data("def-lang-for-ext-asm",'masm');
     replace_def_data("def-lang-for-ext-mac",'masm');
     replace_def_data("def-lang-for-ext-kmk",'mak');
+    replace_def_data("def-lang-for-ext-cmd",'bat');
 
     /*
      * Change the codehelp default.
