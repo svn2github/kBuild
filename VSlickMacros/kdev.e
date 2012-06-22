@@ -3379,6 +3379,10 @@ static _str aMyLangIds[] =
 using se.lang.api.LanguageSettings;
 #endif
 
+#if __VERSION__ >= 16.0
+int def_auto_unsurround_block;
+#endif
+
 /**
  * Loads the standard bird settings.
  */
@@ -3454,6 +3458,7 @@ _command void kdev_load_settings()
 #if __VERSION__ >= 16.0
     def_auto_unsurround_block=0;        /* Delete line, not block. */
 #endif
+    _config_modify_flags(CFGMODIFY_DEFDATA);
 
     /* Make it grok:  # include <stuff.h> */
     for (i = 0; i < aCLikeIncs._length(); i++)
@@ -3599,3 +3604,4 @@ definit()
     iTimer = _set_timer(1000, k_menu_create, "timer");
     /* createMyColorSchemeAndUseIt();*/
 }
+
