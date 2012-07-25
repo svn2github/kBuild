@@ -3584,7 +3584,8 @@ _command void kdev_load_settings()
 #endif
 
     /** @todo
-     *  def_save_options
+     *  - def_save_options
+     *  - Auto restore clipboards
      *   */
 
     message("Please restart SlickEdit.")
