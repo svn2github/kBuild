@@ -1066,13 +1066,19 @@ static void kOCDepWriteToFile(PKOCDEP pDepState, const char *pszFilename, const 
                               int fFixCase, int fQuiet, int fGenStubs)
 {
     char *pszObjFileAbs;
+    char *psz;
     FILE *pFile = fopen(pszFilename, "w");
     if (!pFile)
         FatalMsg("Failed to open dependency file '%s': %s\n", pszFilename, strerror(errno));
 
     depOptimize(fFixCase, fQuiet);
 
+    /* Make object file name with unix slashes. */
     pszObjFileAbs = MakePathFromDirAndFile(pszObjFile, pszObjDir);
+    psz = pszObjFileAbs;
+    while ((psz = strchr(psz, '\\')) != NULL)
+        *psz++ = '/';
+
     fprintf(pFile, "%s:", pszObjFileAbs);
     free(pszObjFileAbs);
     depPrint(pFile);
