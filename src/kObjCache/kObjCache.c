@@ -1583,8 +1583,6 @@ static void kOCEntryCalcArgvSum(PKOCENTRY pEntry, const char * const *papszArgv,
     KOCSUMCTX Ctx;
     unsigned i;
 
-fprintf(stderr, "kOCEntryCalcArgvSum: ign2='%s'\n", pszIgnorePath2);
-
     kOCSumInitWithCtx(pSum, &Ctx);
     for (i = 0; i < cArgc; i++)
     {
@@ -1593,11 +1591,7 @@ fprintf(stderr, "kOCEntryCalcArgvSum: ign2='%s'\n", pszIgnorePath2);
                 || !ArePathsIdenticalN(papszArgv[i] + cch - cchIgnorePath1, pszIgnorePath1, cch))
             && (   cch < cchIgnorePath2
                 || !ArePathsIdenticalN(papszArgv[i] + cch - cchIgnorePath2, pszIgnorePath2, cch)) )
-{
             kOCSumUpdate(pSum, &Ctx, papszArgv[i], cch + 1);
-kOCSumInfo(pSum, 0, papszArgv[i]);
-}
-else fprintf(stderr, "kOCEntryCalcArgvSum: Ignoring '%s'\n", papszArgv[i]);
     }
     kOCSumFinalize(pSum, &Ctx);
 
@@ -1961,11 +1955,9 @@ static void kOCEntrySetCompileArgv(PKOCENTRY pEntry, const char * const *papszAr
         pEntry->New.papszArgvCompile[i] = xstrdup(papszArgvCompile[i]);
     pEntry->New.papszArgvCompile[i] = NULL; /* for exev/spawnv */
 
-fprintf(stderr, "kOCEntrySetCompileArgv: '%s' '%s'", pEntry->New.pszObjName, pEntry->New.pszCppName);
     kOCEntryCalcArgvSum(pEntry, papszArgvCompile, cArgvCompile, pEntry->New.pszObjName, pEntry->New.pszCppName,
                         &pEntry->New.SumCompArgv);
     kOCSumInfo(&pEntry->New.SumCompArgv, 4, "comp-argv");
-fprintf(stderr, "kOCEntrySetCompileArgv: done\n");
 
     /*
      * Compare with the old argument vector.
