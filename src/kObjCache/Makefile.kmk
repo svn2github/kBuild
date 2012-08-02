@@ -28,6 +28,7 @@ include $(PATH_KBUILD)/subheader.kmk
 
 PROGRAMS += kObjCache
 kObjCache_TEMPLATE = BIN
+kObjCache_DEFS.release = NASSERT
 kObjCache_SOURCES = kObjCache.c
 kObjCache_LIBS = \
 	$(LIB_KDEP) \
