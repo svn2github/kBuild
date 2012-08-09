@@ -29,6 +29,7 @@
 #if 0
 # define ELECTRIC_HEAP
 # include "../kmk/electric.h"
+# include "../kmk/electric.c"
 #endif
 #include <string.h>
 #include <stdlib.h>
@@ -1300,7 +1301,7 @@ static void kOCCppRdOptSetFile(PKOCCPPRD pCppRd, const char *pchFile, size_t cch
 {
     if (cchFile >= pCppRd->cbFileNmBuf)
     {
-        pCppRd->cbFileNmBuf  = (cchFile + 15) & ~(size_t)15;
+        pCppRd->cbFileNmBuf  = (cchFile + 15 + 1) & ~(size_t)15;
         pCppRd->pszFileNmBuf = xrealloc(pCppRd->pszFileNmBuf, pCppRd->cbFileNmBuf);
     }
     memcpy(pCppRd->pszFileNmBuf, pchFile, cchFile);
