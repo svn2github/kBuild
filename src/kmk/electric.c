@@ -183,9 +183,13 @@ xrealloc (void *ptr, unsigned int size)
 char *
 xstrdup (const char *ptr)
 {
-  size_t size = strlen (ptr) + 1;
-  char *result = xmalloc (size);
-  return memcpy (result, ptr, size);
+  if (ptr)
+    {
+      size_t size = strlen (ptr) + 1;
+      char *result = xmalloc (size);
+      return memcpy (result, ptr, size);
+    }
+  return NULL;
 }
 
 #else /* !ELECTRIC_HEAP */
