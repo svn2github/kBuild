@@ -61,6 +61,7 @@ if "$(USER)" == "bird" && "$(KBUILD_TARGET)" != "win"
 kash_CFLAGS += -std=gnu99
 endif
 kash_CFLAGS.win.amd64 = -GS-
+kash_LDFLAGS.win = -DYNAMICBASE:NO
 kash_SOURCES = \
 	main.c \
 	alias.c \
