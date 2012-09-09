@@ -38,7 +38,7 @@
 #endif
 #include <errno.h>
 #ifdef _MSC_VER
-# define EWOULDBLOCK    512
+# define EWOULDBLOCK    140
 #endif
 
 #include "shtypes.h"
