@@ -493,13 +493,15 @@ int sh_tcsetpgrp(shinstance *, int, pid_t);
 int sh_getrlimit(shinstance *, int, shrlimit *);
 int sh_setrlimit(shinstance *, int, const shrlimit *);
 
+/* string.h */
+const char *sh_strerror(shinstance *, int);
 
 #ifdef DEBUG
 # define TRACE2(param)	trace param
 # define TRACE2V(param)	tracev param
 #else
-# define TRACE2(param)
-# define TRACE2V(param)
+# define TRACE2(param)  do { } while (0)
+# define TRACE2V(param) do { } while (0)
 #endif
 
 #endif

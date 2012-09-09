@@ -1416,3 +1416,15 @@ int sh_setrlimit(shinstance *psh, int resid, const shrlimit *limp)
     return rc;
 }
 
+
+/* Wrapper for strerror that makes sure it doesn't return NULL and causes the
+   caller or fprintf routines to crash. */
+const char *sh_strerror(shinstance *psh, int error)
+{
+    char *err = strerror(error);
+    if (!err)
+        return "strerror return NULL!";
+    (void)psh;
+    return err;
+}
+
