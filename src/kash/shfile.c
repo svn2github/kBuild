@@ -1200,7 +1200,10 @@ int shfile_movefd(shfdtab *pfdtab, int fdfrom, int fdto)
     return rc;
 
 #else
-    return dup2(fdfrom, fdto);
+    int fdnew = dup2(fdfrom, fdto);
+    if (fdnew >= 0)
+        close(fdfrom);
+    return fdnew;
 #endif
 }
 
@@ -1502,7 +1505,7 @@ int shfile_fcntl(shfdtab *pfdtab, int fd, int cmd, int arg)
     {
         case F_GETFL: TRACE2((NULL, "shfile_fcntl(%d,F_GETFL,ignored=%d) -> %d [%d]\n", fd, arg, rc, errno));  break;
         case F_SETFL: TRACE2((NULL, "shfile_fcntl(%d,F_SETFL,newflags=%#x) -> %d [%d]\n", fd, arg, rc, errno)); break;
-        case F_DUPFD: TRACE2((NULL, "shfile_fcntl(%d,F_DUPFS,minfd=%d) -> %d [%d]\n", fd, arg, rc, errno)); break;
+        case F_DUPFD: TRACE2((NULL, "shfile_fcntl(%d,F_DUPFD,minfd=%d) -> %d [%d]\n", fd, arg, rc, errno)); break;
         default:  TRACE2((NULL, "shfile_fcntl(%d,%d,%d) -> %d [%d]\n", fd, cmd, arg, rc, errno)); break;
     }
     return rc;
