@@ -41,5 +41,8 @@
 #elif defined(__OpenBSD__)
 # include "openbsd.c"
 
+#elif defined(__HAIKU__)
+# include "haikufakes.c"
+
 #endif
 

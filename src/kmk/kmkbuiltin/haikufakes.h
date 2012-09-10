@@ -4,7 +4,7 @@
  */
 
 /*
- * Copyright (c) 2005-2010 knut st. osmundsen <bird-kBuild-spamx@anduin.net>
+ * Copyright (c) 2005-2012 knut st. osmundsen <bird-kBuild-spamx@anduin.net>
  *
  * This file is part of kBuild.
  *
@@ -35,6 +35,8 @@
 
 #define lutimes(path, tvs) utimes(path, tvs)
 #define lchmod             haiku_lchmod
+
+extern int haiku_lchmod(const char *pszPath, mode_t mode);
 
 #endif
 
