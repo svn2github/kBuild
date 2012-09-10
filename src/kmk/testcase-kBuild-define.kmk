@@ -27,9 +27,10 @@ DEPTH = ../..
 #include $(PATH_KBUILD)/header.kmk
 
 # object definition syntax:
-#      kobject <type> <name> [extends <object> [by overriding|prepending|appending]] [object specific args...]
+#      kobject <type> <name> [extends <object>] [object specific args...]
 #      endkobj [<type> [name]]
 kobject kb-target MyTarget
+.TOOL = GCC
 .SOURCES = file.c
 endobj
 
