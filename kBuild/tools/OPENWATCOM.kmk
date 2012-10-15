@@ -147,10 +147,13 @@ else
 
 endif
 
+# Functions for changing slashes (SQ = single quoted).
 if1of ($(KBUILD_HOST), os2 win)
  TOOL_OPENWATCOM_FIX_SLASHES = $(subst /,\\,$1)
+ TOOL_OPENWATCOM_FIX_SLASHES_SQ = $(subst /,\,$1)
 else
  TOOL_OPENWATCOM_FIX_SLASHES = $1
+ TOOL_OPENWATCOM_FIX_SLASHES_SQ = $1
 endif
 
 # General Properties used by kBuild
