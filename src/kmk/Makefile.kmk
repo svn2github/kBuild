@@ -378,6 +378,8 @@ kmk_redirect_TEMPLATE = BIN-KMK
 kmk_redirect_DEFS = kmk_builtin_redirect=main
 kmk_redirect_SOURCES = \
 	kmkbuiltin/redirect.c
+kmk_redirect_SOURCES.win = \
+	../lib/startuphacks-win.c
 
 kmk_rmdir_TEMPLATE = BIN-KMK
 kmk_rmdir_DEFS = kmk_builtin_rmdir=main
