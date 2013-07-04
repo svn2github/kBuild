@@ -58,7 +58,8 @@
  */
 defeventtab default_keys
 def  'C-S-A' = k_signature
-def  'C-S-C' = k_javadoc_classbox
+//def  'C-S-C' = k_javadoc_classbox
+def  'C-S-C' = k_calc
 def  'C-S-E' = k_box_exported
 def  'C-S-F' = k_javadoc_funcbox
 def  'C-S-G' = k_box_globals
@@ -2942,6 +2943,40 @@ _str _buffer_save_kdev(int buf_id)
         message("_buffer_save_kdev: " idx " " sName " " sOptions);
     }
     return sRet;
+}
+
+
+/**
+ * Command similar to the add() command in math.e, only this
+ * produces hex and doesn't do the multi line stuff.
+ */
+_command int k_calc()
+{
+    _str sLine;
+    filter_init();
+    typeless rc = filter_get_string(sLine);
+    if (rc == 0)
+    {
+        _str sResultHex;
+        rc = eval_exp(sResultHex, sLine, 16);
+        if (rc == 0)
+        {
+            _str sResultDec;
+            rc = eval_exp(sResultDec, sLine, 10);
+            if (rc == 0)
+            {
+                _end_select();
+                _insert_text(' = ' :+ sResultHex :+ ' (' :+ sResultDec :+ ')');
+                return 0;
+            }
+        }
+    }
+
+    if (isinteger(rc))
+        message(get_message(rc));
+    else
+        message(rc);
+    return 1;
 }
 
 
