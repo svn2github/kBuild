@@ -75,7 +75,7 @@ define TOOL_YASM_COMPILE_AS_CMDS
 		-l $(outbase).lst\
 		-o $(obj)\
 		$(abspath $(source))
-	$(QUIET)$(REDIRECT) -wo $(dep) -- $(TOOL_YASM_AS)\
+	$(QUIET)$(REDIRECT) -wo $(dep) -- $(TOOL_YASM_AS) -DKBUILD_GENERATING_MAKEFILE_DEPENDENCIES\
 		$(flags) $(addsuffix /,$(addprefix -I, $(incs))) $(addprefix -D, $(defs))\
 		-o $(obj) \
 		$(abspath $(source)) \
