@@ -1276,7 +1276,7 @@ else if1of ($(KBUILD_TARGET), freebsd netbsd openbsd dragonfly)
  KBUILD_LIB_SEARCH_SUBS := lib/
 
 else ifeq ($(KBUILD_TARGET),linux)
- if ($(realpath /bin),/usr/bin)
+ ifeq ($(realpath /bin),/usr/bin)
   KBUILD_LIB_SEARCH_ROOTS := \
   	/usr/ \
   	/ \
