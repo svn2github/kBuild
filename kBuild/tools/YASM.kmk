@@ -66,14 +66,15 @@ TOOL_YASM_ASFLAGS ?=
 # @param    $(outbase)  Output basename (full). Use this for list files and such.
 # @param    $(objsuff)  Object suffix.
 #
-TOOL_YASM_COMPILE_AS_OUTPUT = $(outbase).lst $(obj).map
+TOOL_YASM_COMPILE_AS_OUTPUT = $(outbase).lst
+TOOL_YASM_COMPILE_AS_OUTPUT_MAYBE = $(obj).map
 TOOL_YASM_COMPILE_AS_DEPEND =
 TOOL_YASM_COMPILE_AS_DEPORD =
 define TOOL_YASM_COMPILE_AS_CMDS
 	$(QUIET)$(TOOL_YASM_AS)\
-		$(flags) $(addsuffix /,$(addprefix -I, $(incs))) $(addprefix -D, $(defs))\
+		$(patsubst --mapfile%,--mapfile=$(obj).map,$(flags))\
+		$(addsuffix /,$(addprefix -I, $(incs))) $(addprefix -D, $(defs))\
 		-l $(outbase).lst\
-		--mapfile=$(obj).map\
 		-o $(obj)\
 		$(abspath $(source))
 	$(QUIET)$(REDIRECT) -wo $(dep) -- $(TOOL_YASM_AS) -DKBUILD_GENERATING_MAKEFILE_DEPENDENCIES\
