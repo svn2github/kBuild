@@ -90,6 +90,10 @@ def  'C-S-L' = k_style_load
 /*#else: Version 4.0 (OS/2) */
 #endif
 
+#ifndef __MACOSX__
+ #define KDEV_WITH_MENU
+#endif
+
 /* Remeber to change these! */
 static _str skUserInitials  = "bird";
 static _str skUserName      = "knut st. osmundsen";
@@ -2984,7 +2988,10 @@ _command int k_calc()
 /*******************************************************************************
 *   Menu and Menu commands                                                     *
 *******************************************************************************/
+#ifdef KDEV_WITH_MENU
+#if __VERSION__ < 18.0 /* Something with timers are busted, so excusing my code. */
 static int  iTimer = 0;
+#endif
 static int  mhkDev = 0;
 static int  mhCode = 0;
 static int  mhDoc = 0;
@@ -2996,8 +3003,10 @@ static int  mhPre = 0;
  */
 static k_menu_create()
 {
+# if __VERSION__ < 18.0 /* Something with timers are busted, so excusing my code. */
     if (arg(1) == 'timer')
         _kill_timer(iTimer);
+# endif
     menu_handle = _mdi.p_menu_handle;
     menu_index  = find_index(_cur_mdi_menu,oi2type(OI_MENU));
 
@@ -3257,6 +3266,9 @@ _command k_menu_settings()
     mySettings();
 }
 */
+
+
+#endif /* KDEV_WITH_MENU */
 
 
 /*******************************************************************************
@@ -3659,8 +3671,12 @@ definit()
 
     /* do init */
     k_styles_create();
+#ifdef KDEV_WITH_MENU
     k_menu_create();
+# if __VERSION__ < 18.0 /* Something with timers are busted, so excusing my code. */
     iTimer = _set_timer(1000, k_menu_create, "timer");
+# endif
     /* createMyColorSchemeAndUseIt();*/
+#endif
 }
 
