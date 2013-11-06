@@ -3591,8 +3591,14 @@ _command void kdev_load_settings()
             }
             idxExt = name_match('def-lang-for-ext-', 0, MISC_TYPE);
         }
-        replace_def_data('def-encoding-' :+ sLangId, '+futf8 ');
+        //replace_def_data('def-encoding-' :+ sLangId, '+futf8 ');
+        idxLangEncoding = find_index('def-encoding-' :+ sLangId, MISC_TYPE);
+        if (idxLangEncoding != 0)
+            delete_name(idxLangEncoding);
+
     }
+    replace_def_data('def-encoding', '+futf8 ');
+
     LanguageSettings.setIndentWithTabs('mak', true);
     LanguageSettings.setLexerName('mak', 'kmk');
     LanguageSettings.setSyntaxIndent('mak', 8);
