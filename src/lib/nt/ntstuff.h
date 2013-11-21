@@ -180,6 +180,24 @@ typedef struct MY_FILE_NAMES_INFORMATION
 #define MIN_SIZEOF_MY_FILE_NAMES_INFORMATION  (4 + 4 + 4)
 
 
+typedef struct MY_FILE_ID_FULL_DIR_INFORMATION
+{
+    ULONG           NextEntryOffset;
+    ULONG           FileIndex;
+    LARGE_INTEGER   CreationTime;
+    LARGE_INTEGER   LastAccessTime;
+    LARGE_INTEGER   LastWriteTime;
+    LARGE_INTEGER   ChangeTime;
+    LARGE_INTEGER   EndOfFile;
+    LARGE_INTEGER   AllocationSize;
+    ULONG           FileAttributes;
+    ULONG           FileNameLength;
+    ULONG           EaSize;
+    LARGE_INTEGER   FileId;
+    WCHAR           FileName[1];
+} MY_FILE_ID_FULL_DIR_INFORMATION;
+
+
 typedef enum MY_FILE_INFORMATION_CLASS
 {
     MyFileDirectoryInformation                     = 1,

@@ -55,7 +55,11 @@ int         birdSetErrnoToBadFileNo(void);
 
 HANDLE      birdOpenFile(const char *pszPath, ACCESS_MASK fDesiredAccess, ULONG fFileAttribs, ULONG fShareAccess,
                          ULONG fCreateDisposition, ULONG fCreateOptions, ULONG fObjAttribs);
+HANDLE      birdOpenParentDir(const char *pszPath, ACCESS_MASK fDesiredAccess, ULONG fFileAttribs, ULONG fShareAccess,
+                              ULONG fCreateDisposition, ULONG fCreateOptions, ULONG fObjAttribs,
+                              MY_UNICODE_STRING *pNameUniStr);
 void        birdCloseFile(HANDLE hFile);
+void        birdFreeNtPath(MY_UNICODE_STRING *pNtPath);
 
 
 #endif
