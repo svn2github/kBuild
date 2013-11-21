@@ -471,6 +471,8 @@ int birdStatOnFd(int fd, BirdStat_T *pStat)
     {
         DWORD fFileType;
 
+        birdResolveImports();
+
         SetLastError(NO_ERROR);
         fFileType = GetFileType(hFile) & ~FILE_TYPE_REMOTE;
         switch (fFileType)
