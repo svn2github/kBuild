@@ -91,6 +91,15 @@ BirdDir_T *birdDirOpen(const char *pszPath)
 }
 
 
+/**
+ * Alternative opendir, with extra stat() info returned by readdir().
+ */
+BirdDir_T *birdDirOpenExtraInfo(const char *pszPath)
+{
+    return birdDirOpenInternal(pszPath, NULL, 0 /*fMinimalInfo*/);
+}
+
+
 static int birdDirReadMore(BirdDir_T *pDir)
 {
     MY_NTSTATUS         rcNt;
@@ -228,13 +237,13 @@ int birdDirReadReentrant(BirdDir_T *pDir, BirdDirEntry_T *pEntry, BirdDirEntry_T
                     || pDir->offBuf + pInfo->FileNameLength + MIN_SIZEOF_MY_FILE_NAMES_INFORMATION > pDir->cbBuf)
                 {
                     fSkipEntry = 1;
+                    pDir->fHaveData = 0;
                     continue;
                 }
 
-                pEntry->d_ino           = 0;
-                pEntry->d_size          = 0;
+                memset(&pEntry->d_stat, 0, sizeof(pEntry->d_stat));
+                pEntry->d_stat.st_mode  = S_IFMT;
                 pEntry->d_type          = DT_UNKNOWN;
-                pEntry->d_dirsymlink    = 0;
                 pEntry->d_reclen        = 0;
                 pEntry->d_namlen        = 0;
                 if (birdDirCopyNameToEntry(pInfo->FileName, pInfo->FileNameLength, pEntry) != 0)
@@ -245,11 +254,44 @@ int birdDirReadReentrant(BirdDir_T *pDir, BirdDirEntry_T *pEntry, BirdDirEntry_T
                 break;
             }
 
-            //case MyFileIdBothDirectoryInformation:
-            //{
-            //    MY_FILE_BOTH_DIR_INFORMATION
-            //
-            //}
+            case MyFileIdFullDirectoryInformation:
+            {
+                MY_FILE_ID_FULL_DIR_INFORMATION *pInfo = (MY_FILE_ID_FULL_DIR_INFORMATION *)&pDir->pabBuf[pDir->offBuf];
+                if (   pDir->offBuf          >= pDir->cbBuf - MIN_SIZEOF_MY_FILE_ID_FULL_DIR_INFORMATION
+                    || pInfo->FileNameLength >= pDir->cbBuf
+                    || pDir->offBuf + pInfo->FileNameLength + MIN_SIZEOF_MY_FILE_ID_FULL_DIR_INFORMATION > pDir->cbBuf)
+                {
+                    fSkipEntry = 1;
+                    pDir->fHaveData = 0;
+                    continue;
+                }
+
+                pEntry->d_type          = DT_UNKNOWN;
+                pEntry->d_reclen        = 0;
+                pEntry->d_namlen        = 0;
+                if (birdDirCopyNameToEntry(pInfo->FileName, pInfo->FileNameLength, pEntry) != 0)
+                    fSkipEntry = 1;
+                birdStatFillFromFileIdFullDirInfo(&pEntry->d_stat, pInfo, pEntry->d_name);
+                pEntry->d_stat.st_dev   = pDir->uDev;
+                switch (pEntry->d_stat.st_mode & S_IFMT)
+                {
+                    case S_IFREG:       pEntry->d_type = DT_REG; break;
+                    case S_IFDIR:       pEntry->d_type = DT_DIR; break;
+                    case S_IFLNK:       pEntry->d_type = DT_LNK; break;
+                    case S_IFIFO:       pEntry->d_type = DT_FIFO; break;
+                    case S_IFCHR:       pEntry->d_type = DT_CHR; break;
+                    default:
+#ifndef NDEBUG
+                        __debugbreak();
+#endif
+                        pEntry->d_type = DT_UNKNOWN;
+                        break;
+                }
+
+                cbMinCur = MIN_SIZEOF_MY_FILE_ID_FULL_DIR_INFORMATION + pInfo->FileNameLength;
+                offNext  = pInfo->NextEntryOffset;
+                break;
+            }
 
             default:
                 return birdSetErrnoToBadFileNo();
