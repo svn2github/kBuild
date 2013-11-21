@@ -357,18 +357,13 @@ static int birdStatInternal(const char *pszPath, BirdStat_T *pStat, int fFollow)
         //fprintf(stderr, "stat: %s -> %u\n", pszPath, GetLastError());
 
         /* On things like pagefile.sys we may get sharing violation. */
-        if (GetLastError() == ERROR_SHARING_VIOLATION)
+        if (errno == ETXTBSY)
         {
             /** @todo Fall back on the parent directory enum if we run into a sharing
              *        violation. */
         }
         rc = -1;
     }
-
-#if 1
-    if (strchr(pszPath, ';'))
-        __debugbreak();
-#endif
 
     return rc;
 }

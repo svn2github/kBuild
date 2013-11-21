@@ -167,7 +167,9 @@ HANDLE birdOpenFile(const char *pszPath, ACCESS_MASK fDesiredAccess, ULONG fFile
         case FILE_OPEN_IF:          fW32Disp = OPEN_ALWAYS; break;
         case FILE_OVERWRITE_IF:     fW32Disp = CREATE_ALWAYS; break;
         default:
+# ifndef NDEBUG
             __debugbreak();
+# endif
             return INVALID_HANDLE_VALUE;
     }
 
@@ -194,7 +196,8 @@ HANDLE birdOpenFile(const char *pszPath, ACCESS_MASK fDesiredAccess, ULONG fFile
 
     birdSetErrnoFromWin32(dwErr);
 
-#else
+#else  /* !BIRD_USE_WIN32 */
+
     /*
      * Call the NT API directly.
      */
@@ -229,7 +232,7 @@ HANDLE birdOpenFile(const char *pszPath, ACCESS_MASK fDesiredAccess, ULONG fFile
         birdSetErrnoFromNt(rcNt);
     }
 
-#endif
+#endif /* !BIRD_USE_WIN32 */
     return INVALID_HANDLE_VALUE;
 }
 
