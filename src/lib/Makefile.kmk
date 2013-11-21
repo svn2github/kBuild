@@ -45,7 +45,8 @@ kUtil_SOURCES.win = \
        nt/nthlpcore.c \
        nt/nthlpfs.c \
        nt/ntdir.c \
-       nt/ntstat.c
+       nt/ntstat.c \
+       nt/ntunlink.c
 kUtil_SOURCES.solaris = \
 	restartable-syscall-wrappers.c
 #kUtil_SOURCES.linux = \

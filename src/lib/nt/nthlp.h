@@ -58,7 +58,11 @@ HANDLE      birdOpenFile(const char *pszPath, ACCESS_MASK fDesiredAccess, ULONG 
 HANDLE      birdOpenParentDir(const char *pszPath, ACCESS_MASK fDesiredAccess, ULONG fFileAttribs, ULONG fShareAccess,
                               ULONG fCreateDisposition, ULONG fCreateOptions, ULONG fObjAttribs,
                               MY_UNICODE_STRING *pNameUniStr);
+MY_NTSTATUS birdOpenFileUniStr(MY_UNICODE_STRING *pNtPath, ACCESS_MASK fDesiredAccess, ULONG fFileAttribs,
+                               ULONG fShareAccess, ULONG fCreateDisposition, ULONG fCreateOptions, ULONG fObjAttribs,
+                               HANDLE *phFile);
 void        birdCloseFile(HANDLE hFile);
+int         birdDosToNtPath(const char *pszPath, MY_UNICODE_STRING *pNtPath);
 void        birdFreeNtPath(MY_UNICODE_STRING *pNtPath);
 
 
