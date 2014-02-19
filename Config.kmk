@@ -91,6 +91,14 @@ include $(KBUILD_SVN_INFO_KMK)
 
 
 #
+# Local config, optional.
+#
+ifneq ($(wildcard $(PATH_ROOT)/LocalConfig.kmk),)
+ include $(PATH_ROOT)/LocalConfig.kmk
+endif
+
+
+#
 # Where to fine the GNU Make stuff (for FreeBSD and Windows).
 #
 PATH_GNUMAKE_SRC ?= $(PATH_ROOT)/src/kmk
