@@ -59,7 +59,7 @@ $(PATH_OBJ)/SvnInfo.ts +| $(KBUILD_SVN_INFO_KMK): $(wildcard $(PATH_ROOT)/.svn $
 	@$(MKDIR) -p $(@D)
 	@$(REDIRECT) -o $@.tmp -E 'LC_ALL=C' -- svn info $(DEPTH)
 	@$(SED) \
-		-e 's/URL: */KBUILD_SVN_URL := /' \
+		-e 's/^URL: */KBUILD_SVN_URL := /' \
 		-e 's/Revision: */KBUILD_SVN_REV := /' \
 		-e '/KBUILD_SVN_/!d' \
 		--append $@ \
