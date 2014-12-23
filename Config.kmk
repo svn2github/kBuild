@@ -247,6 +247,9 @@ ifeq ($(KBUILD_TARGET),darwin)
     KBUILD_MACOSX_SDK           := /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform$(KBUILD_MACOSX_SDK)
    endif
   endif
+  ifeq ($(wildcard $(KBUILD_MACOSX_SDK)),)
+   $(error SDK not found ($(KBUILD_MACOSX_SDK)), please adjust KBUILD_MACOSX_TARGET_VERSION or/and KBUILD_MACOSX_SDK in LocalConfig.kmk or simply use KBUILD_MACOSX_WHATEVER_MODE=1.)
+  endif
  endif # !KBUILD_MACOSX_WHATEVER_MODE
  TEMPLATE_BIN_TOOL              = GCC4MACHO
  TEMPLATE_BIN_CFLAGS            = -g -mmacosx-version-min=10.$(KBUILD_MACOSX_TARGET_VERSION) $(if $(KBUILD_MACOSX_WHATEVER_MODE),,-isysroot $(KBUILD_MACOSX_SDK))
