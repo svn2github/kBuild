@@ -255,7 +255,7 @@ incdep_xmalloc (struct incdep *cur, size_t size)
 }
 
 #if 0
-/* memset(malloc(sz),'\0',sz) wrapper. */
+/* cmalloc wrapper */
 static void *
 incdep_xcalloc (struct incdep *cur, size_t size)
 {
