@@ -35,7 +35,7 @@ TOOL_MASM600 := Microsoft Macro Assembler v6.00
 
 # Tool Specific Properties
 ifndef TOOL_MASM600_AS
- TOOL_MASM600_AS := $(firstword $(rsort $(wildcard $(KBUILD_DEVTOOLS_BLD)/masm/v6.00*/binp/ml$(HOSTSUFF_EXE))))
+ TOOL_MASM600_AS := $(firstword $(rsort $(wildcard $(KBUILD_DEVTOOLS_HST)/masm/v6.00*/binp/ml$(HOSTSUFF_EXE))))
  ifeq ($(TOOL_MASM600_AS),)
   TOOL_MASM600_AS := $(firstword $(rsort $(wildcard $(KBUILD_DEVTOOLS_TRG)/masm/v6.00*/binp/ml$(HOSTSUFF_EXE))))
  endif

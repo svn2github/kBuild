@@ -38,7 +38,7 @@ TOOL_MINGWW64 := MinGW-W64 - The incomprehensible 64-bit GCC port to Windows.
 
 # Tool Specific Properties
 ifndef PATH_TOOL_MINGWW64
- PATH_TOOL_MINGWW64 := $(wildcard $(KBUILD_DEVTOOLS_BLD)/mingw-w64/r*)
+ PATH_TOOL_MINGWW64 := $(wildcard $(KBUILD_DEVTOOLS_HST)/mingw-w64/r*)
  ifeq ($(PATH_TOOL_MINGWW64),)
   PATH_TOOL_MINGWW64 := $(wildcard $(KBUILD_DEVTOOLS)/win.amd64/mingw-w64/r*)
  endif

@@ -35,7 +35,7 @@ TOOL_MASM710 := Microsoft Macro Assembler v7.10
 
 # Tool Specific Properties
 ifndef TOOL_MASM710_AS
- TOOL_MASM710_AS := $(firstword $(rsort $(wildcard $(KBUILD_DEVTOOLS_BLD)/masm/v7.10*/binp/ml$(HOSTSUFF_EXE))))
+ TOOL_MASM710_AS := $(firstword $(rsort $(wildcard $(KBUILD_DEVTOOLS_HST)/masm/v7.10*/binp/ml$(HOSTSUFF_EXE))))
  ifeq ($(TOOL_MASM710_AS),)
   TOOL_MASM710_AS := $(firstword $(rsort $(wildcard $(KBUILD_DEVTOOLS_TRG)/masm/v7.10*/binp/ml$(HOSTSUFF_EXE))))
  endif

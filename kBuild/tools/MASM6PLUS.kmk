@@ -36,11 +36,11 @@ TOOL_MASM6PLUS := Microsoft Macro Assembler v6 and later.
 # Tool Specific Properties
 ifndef TOOL_MASM6PLUS_AS
  TOOL_MASM6PLUS_AS := $(firstword $(rsort $(wildcard \
-	$(KBUILD_DEVTOOLS_BLD)/masm/*/bin$(if $(eq $(KBUILD_HOST),os2),p,)/ml$(HOSTSUFF_EXE)\
+	$(KBUILD_DEVTOOLS_HST)/masm/*/bin$(if $(eq $(KBUILD_HOST),os2),p,)/ml$(HOSTSUFF_EXE)\
 	)))
  ifeq ($(TOOL_MASM6PLUS_AS),)
   TOOL_MASM6PLUS_AS := $(firstword $(rsort $(wildcard \
-	$(KBUILD_DEVTOOLS_BLD)/vcc/*/bin/ml$(HOSTSUFF_EXE) \
+	$(KBUILD_DEVTOOLS_HST)/vcc/*/bin/ml$(HOSTSUFF_EXE) \
 	)))
  endif
  ifeq ($(TOOL_MASM6PLUS_AS),)

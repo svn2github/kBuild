@@ -35,7 +35,7 @@ TOOL_WATCOMC11C = Watcom C/C++ v11.0c (generic)
 
 ifeq ($(PATH_TOOL_WATCOMC11C),)
  ifeq ($(PATH_TOOL_WATCOMC11C),)
-  PATH_TOOL_WATCOMC11C := $(wildcard $(KBUILD_DEVTOOLS_BLD)/watcom/v11.0c*)
+  PATH_TOOL_WATCOMC11C := $(wildcard $(KBUILD_DEVTOOLS_HST)/watcom/v11.0c*)
  endif
  ifeq ($(PATH_TOOL_WATCOMC11C),)
   PATH_TOOL_WATCOMC11C := $(wildcard $(KBUILD_DEVTOOLS_TRG)/watcom/v11.0c*)

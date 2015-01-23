@@ -35,7 +35,7 @@ TOOL_OPENWATCOM = Open Watcom v1.4 and later (generic)
 
 ifeq ($(PATH_TOOL_OPENWATCOM),)
  ifeq ($(PATH_TOOL_OPENWATCOM),)
-  PATH_TOOL_OPENWATCOM := $(wildcard $(KBUILD_DEVTOOLS_BLD)/openwatcom/v*)
+  PATH_TOOL_OPENWATCOM := $(wildcard $(KBUILD_DEVTOOLS_HST)/openwatcom/v*)
  endif
  ifeq ($(PATH_TOOL_OPENWATCOM),)
   PATH_TOOL_OPENWATCOM := $(wildcard $(KBUILD_DEVTOOLS_TRG)/openwatcom/v*)

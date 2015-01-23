@@ -38,7 +38,7 @@ TOOL_MINGW32 := MinGW32 GCC v3.3+.
 
 # Tool Specific Properties
 ifndef PATH_TOOL_MINGW32
- PATH_TOOL_MINGW32 := $(wildcard $(KBUILD_DEVTOOLS_BLD)/mingw32/v*.*)
+ PATH_TOOL_MINGW32 := $(wildcard $(KBUILD_DEVTOOLS_HST)/mingw32/v*.*)
  ifeq ($(PATH_TOOL_MINGW32),)
   PATH_TOOL_MINGW32 := $(wildcard $(KBUILD_DEVTOOLS)/win.x86/mingw32/v*.*)
  endif
