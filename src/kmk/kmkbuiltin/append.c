@@ -220,7 +220,9 @@ int kmk_builtin_append(int argc, char **argv, char **envp)
             if (    pVar->recursive
                 &&  memchr(pVar->value, '$', pVar->value_length))
             {
+                unsigned __int64 tsc_start = __rdtsc();
                 char *pszExpanded = allocated_variable_expand(pVar->value);
+                tsc_ref_var += __rdtsc() - tsc_start;
                 fwrite(pszExpanded, 1, strlen(pszExpanded), pFile);
                 free(pszExpanded);
             }
