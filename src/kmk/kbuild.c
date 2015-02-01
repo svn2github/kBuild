@@ -1574,8 +1574,8 @@ kbuild_collect_source_prop(struct variable *pTarget, struct variable *pSource,
         if (pVar) \
         { \
             paVars[iVar].pVar = pVar; \
-            if (    !pVar->recursive \
-                ||  !memchr(pVar->value, '$', pVar->value_length)) \
+            if (   !pVar->recursive \
+                || IS_VARIABLE_RECURSIVE_WITHOUT_DOLLAR(pVar)) \
             { \
                 paVars[iVar].pszExp = pVar->value; \
                 paVars[iVar].cchExp = pVar->value_length; \

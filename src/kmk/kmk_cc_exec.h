@@ -30,6 +30,7 @@
 
 
 void  kmk_cc_init(void);
+void  kmk_cc_print_stats(void);
 
 extern struct kmk_cc_evalprog   *kmk_cc_compile_variable_for_eval(struct variable *pVar);
 extern struct kmk_cc_expandprog *kmk_cc_compile_variable_for_expand(struct variable *pVar);

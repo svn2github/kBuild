@@ -217,15 +217,15 @@ int kmk_builtin_append(int argc, char **argv, char **envp)
             struct variable *pVar = lookup_variable(psz, cch);
             if (!pVar)
                 continue;
-            if (    pVar->recursive
-                &&  memchr(pVar->value, '$', pVar->value_length))
+            if (   !pVar->recursive
+                || IS_VARIABLE_RECURSIVE_WITHOUT_DOLLAR(pVar))
+                fwrite(pVar->value, 1, pVar->value_length, pFile);
+            else
             {
                 char *pszExpanded = allocated_variable_expand(pVar->value);
                 fwrite(pszExpanded, 1, strlen(pszExpanded), pFile);
                 free(pszExpanded);
             }
-            else
-                fwrite(pVar->value, 1, pVar->value_length, pFile);
         }
         else
 #endif
