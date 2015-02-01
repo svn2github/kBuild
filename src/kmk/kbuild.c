@@ -569,6 +569,7 @@ kbuild_simplify_variable(struct variable *pVar)
         pVar->value_alloc_len = value_len + 1;
     }
     pVar->recursive = 0;
+    VARIABLE_CHANGED(pVar);
     return pVar;
 }
 
@@ -2620,6 +2621,8 @@ func_kbuild_expand_template(char *o, char **argv, const char *pszFuncName)
                 off--;
             pDefTemplate->value_length = off;
             pDefTemplate->value[off] = '\0';
+
+            VARIABLE_CHANGED(pDefTemplate);
         }
 
         if (!pDefTemplate->value_length)
