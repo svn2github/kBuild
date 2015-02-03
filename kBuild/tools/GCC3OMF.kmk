@@ -221,7 +221,7 @@ define TOOL_GCC3OMF_LINK_LIBRARY_CMDS
 		 $(NL)$(TAB)$(QUIET)$(QUIET)$(TOOL_GCC3OMF_AR_IMP) -o $(out) @$(outbase).rsp\
 		 $(NL)$(TAB)$(QUIET)$(RM) -f $(outbase).rsp)
 	$(QUIET)$(APPEND) -n $(outbase).rsp $(flags) $(out) $(objs) $(filter-out %.def %.imp,$(othersrc))
-	$(TOOL_GCC3OMF_AR) @$(outbase).rsp
+	$(QUIET)$(TOOL_GCC3OMF_AR) @$(outbase).rsp
 endef
 
 
@@ -282,7 +282,7 @@ define TOOL_GCC3OMF_LINK_DLL_CMDS
 		$(othersrc)\
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		-Zmap=$(outbase).map
-	$(TOOL_GCC3OMF_LD) @$(outbase).rsp
+	$(QUIET)$(TOOL_GCC3OMF_LD) @$(outbase).rsp
 endef
 
 

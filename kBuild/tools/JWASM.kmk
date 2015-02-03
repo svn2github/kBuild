@@ -52,7 +52,7 @@ TOOL_JWASM_COMPILE_AS_OUTPUT = $(outbase).lst
 TOOL_JWASM_COMPILE_AS_DEPEND =
 TOOL_JWASM_COMPILE_AS_DEPORD =
 define TOOL_JWASM_COMPILE_AS_CMDS
-	$(TOOL_JWASM_AS) -c \
+	$(QUIET)$(TOOL_JWASM_AS) -c \
 			$(strip $(flags)) \
 			$(addprefix -D,$(defs)) \
 			$(addprefix -I,$(incs)) \

@@ -267,9 +267,9 @@ define TOOL_GXX32_LINK_PROGRAM_CMDS
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		$(call TOOL_GXX32_LD_MAP,$(outbase).map)
  ifeq ($(ld_debug),split)
-	$(TOOL_GXX32_OBJCOPY) --only-keep-debug $(out) $(outbase).debug
-	$(CHMOD) a-x $(outbase).debug
-	$(TOOL_GXX32_OBJCOPY) --strip-debug --strip-unneeded --add-gnu-debuglink=$(outbase).debug $(out)
+	$(QUIET)$(TOOL_GXX32_OBJCOPY) --only-keep-debug $(out) $(outbase).debug
+	$(QUIET)$(CHMOD) a-x $(outbase).debug
+	$(QUIET)$(TOOL_GXX32_OBJCOPY) --strip-debug --strip-unneeded --add-gnu-debuglink=$(outbase).debug $(out)
  endif
 endef
 
@@ -302,9 +302,9 @@ define TOOL_GXX32_LINK_DLL_CMDS
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		$(call TOOL_GXX32_LD_MAP,$(outbase).map)
  ifeq ($(ld_debug),split)
-	$(TOOL_GXX32_OBJCOPY) --only-keep-debug $(out) $(outbase).debug
-	$(CHMOD) a-x $(outbase).debug
-	$(TOOL_GXX32_OBJCOPY) --strip-debug --strip-unneeded --add-gnu-debuglink=$(outbase).debug $(out)
+	$(QUIET)$(TOOL_GXX32_OBJCOPY) --only-keep-debug $(out) $(outbase).debug
+	$(QUIET)$(CHMOD) a-x $(outbase).debug
+	$(QUIET)$(TOOL_GXX32_OBJCOPY) --strip-debug --strip-unneeded --add-gnu-debuglink=$(outbase).debug $(out)
  endif
 endef
 
@@ -336,9 +336,9 @@ define TOOL_GXX32_LINK_SYSMOD_CMDS
 		$(foreach lib,$(libs), $(if $(findstring $(lib),$(subst /,x,$(lib))), -l$(patsubst lib%,%,$(lib)), $(lib)))\
 		$(call TOOL_GXX32_LD_SYSMOD_MAP,$(outbase).map)
  ifeq ($(ld_debug),split)
-	$(TOOL_GXX32_OBJCOPY) --only-keep-debug $(out) $(outbase).debug
-	$(CHMOD) a-x $(outbase).debug
-	$(TOOL_GXX32_OBJCOPY) --strip-debug --strip-unneeded --add-gnu-debuglink=$(outbase).debug $(out)
+	$(QUIET)$(TOOL_GXX32_OBJCOPY) --only-keep-debug $(out) $(outbase).debug
+	$(QUIET)$(CHMOD) a-x $(outbase).debug
+	$(QUIET)$(TOOL_GXX32_OBJCOPY) --strip-debug --strip-unneeded --add-gnu-debuglink=$(outbase).debug $(out)
  endif
 endef
 
