@@ -87,7 +87,7 @@ static void quoteArguments(int argc, char **argv, int fWatcomBrainDamage)
             || (pszProblem = (const char *)memchr(pszOrg, '%',  cchOrg)) != NULL
             || (pszProblem = (const char *)memchr(pszOrg, '\'', cchOrg)) != NULL
             || (   !fWatcomBrainDamage
-                && pszProblem = (const char *)memchr(pszOrg, '=',  cchOrg)) != NULL
+                && (pszProblem = (const char *)memchr(pszOrg, '=',  cchOrg)) != NULL)
             )
         {
             char   ch;
