@@ -927,13 +927,16 @@ pid_t sh_fork(shinstance *psh)
 
 #endif
 
-    /* child: update the pid */
+    /* child: update the pid and zap the children array */
     if (!pid)
+    {
 # ifdef _MSC_VER
         psh->pid = _getpid();
 # else
         psh->pid = getpid();
 # endif
+        psh->num_children = 0;
+    }
 
     TRACE2((psh, "sh_fork -> %d [%d]\n", pid, errno));
     (void)psh;
@@ -979,7 +982,7 @@ pid_t sh_waitpid(shinstance *psh, pid_t pid, int *statusp, int flags)
     }
     else if (psh->num_children <= MAXIMUM_WAIT_OBJECTS)
     {
-        HANDLE ahChildren[64];
+        HANDLE ahChildren[MAXIMUM_WAIT_OBJECTS];
         for (i = 0; i < psh->num_children; i++)
             ahChildren[i] = psh->children[i].hChild;
         dwRet = WaitForMultipleObjects(psh->num_children, &ahChildren[0],
