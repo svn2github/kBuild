@@ -110,11 +110,12 @@ static _str     skCompany       = '';       /* empty or company name for copyrig
 static _str     skProgram       = '';       /* Current program name - used by [L]GPL */
 static _str     skChange        = '';       /* Current change identifier. */
 
-static int      ikStyleWidth    = 80;       /* The page width of the style. */
+static int      ikStyleWidth    = 130;       /* The page width of the style. */
 static boolean  fkStyleFullHeaders = false; /* false: omit some tags. */
 static int      ikStyleOneliner = 41;       /* The oneline comment column. */
 static int      ikStyleModifyMarkColumn = 105;
 static boolean  fkStyleBoxTag   = false;    /* true: Include tag in k_box_start. */
+
 
 /*******************************************************************************
 *   Internal Functions                                                         *
