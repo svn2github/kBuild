@@ -354,6 +354,7 @@ ifndef TOOL_VCC100X86_NO_AUTO_MANIFEST
 	$(QUIET)$(TEST) -f $(out).manifest -- \
 		$(TOOL_VCC100X86_MT) -manifest $(subst /,\\,$(out)).manifest '-outputresource:$(subst /,\\,$(out));#2'
 endif
+	$(QUIET)$(TEST) -f $(outbase).lib -- $(KLIBTWEAKER) --clear-timstamps $(outbase).lib
 	$(QUIET)$(CP) --changed --ignore-non-existing $(outbase).exp $(outbase).lib $(PATH_STAGE_LIB)/
 $(eval _DIRS += $(PATH_STAGE_LIB))
 endef
