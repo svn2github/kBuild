@@ -30,6 +30,7 @@
 # else
 #  include <sys/mman.h>
 #  include <errno.h>
+#  include <stdint.h>
 # endif
 # include <string.h>
 # include <stdlib.h>
@@ -157,6 +158,7 @@ xmalloc (unsigned int size)
 # endif
 }
 
+
 void *
 xcalloc (unsigned size)
 {
@@ -191,6 +193,26 @@ xstrdup (const char *ptr)
     }
   return NULL;
 }
+
+# ifdef __GNUC__
+void *
+xmalloc_size_t (size_t size)
+{
+  return xmalloc(size);
+}
+
+void *
+xcalloc_size_t (size_t size, size_t items)
+{
+  return xcalloc(size * items);
+}
+
+void *
+xrealloc_size_t (void *ptr, size_t size)
+{
+  return xrealloc(ptr, size);
+}
+# endif /* __GNUC__ */
 
 #else /* !ELECTRIC_HEAP */
 extern void electric_heap_keep_ansi_c_quiet (void);
