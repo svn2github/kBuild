@@ -76,7 +76,7 @@ define TOOL_NASM_COMPILE_AS_CMDS
 		-l $(outbase).lst\
 		-o $(obj)\
 		$(abspath $(source))
-	$(QUIET)$(REDIRECT) -wo $(dep) -- $(TOOL_NASM_AS)\
+	$(QUIET)$(REDIRECT) -wo $(dep) -- $(TOOL_NASM_AS) -DKBUILD_GENERATING_MAKEFILE_DEPENDENCIES\
 		$(flags) $(addsuffix /,$(addprefix -i, $(incs))) $(addprefix -D, $(defs))\
 		-l $(outbase).lst\
 		-o $(obj)\
