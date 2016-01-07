@@ -54,7 +54,6 @@
 *   Defined Constants And Macros                                               *
 *******************************************************************************/
 /*#define DEBUG*/
-#define DEBUG
 #ifdef DEBUG
 # define dprintf(a)             printf a
 # define dump(pb, cb, offBase)  depHexDump(pb,cb,offBase)
