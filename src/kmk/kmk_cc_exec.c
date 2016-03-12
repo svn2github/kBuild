@@ -1045,6 +1045,7 @@ static const char * const g_apszEvalInstrNms[] =
     "unexport",
     "export_all",
     "unexport_all",
+    "undefine",
     "ifdef_plain",
     "ifndef_plain",
     "ifdef_dynamic",
