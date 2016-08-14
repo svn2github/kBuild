@@ -26,6 +26,9 @@
 /*******************************************************************************
 *   Header Files                                                               *
 *******************************************************************************/
+#ifdef __APPLE__
+# define _POSIX_C_SOURCE 1 /* 10.4 sdk and unsetenv */
+#endif
 #include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
