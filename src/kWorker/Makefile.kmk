@@ -23,8 +23,12 @@
 #
 #
 
+## @todo fixme!!!
+KBUILD_WITH_STATIC_MSVCRT = 1
+
 SUB_DEPTH = ../..
 include $(PATH_KBUILD)/subheader.kmk
+
 
 PROGRAMS += kWorker
 kWorker_TEMPLATE = BIN
