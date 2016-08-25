@@ -41,6 +41,7 @@ kUtil_SOURCES = \
 	md5.c
 kUtil_SOURCES.win = \
 	nt_fullpath.c \
+	quote_argv.c \
 	quoted_spawn.c \
        nt/nthlpcore.c \
        nt/nthlpfs.c \
