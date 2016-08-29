@@ -4,7 +4,7 @@
  */
 
 /*
- * Copyright (c) 2007-2010 knut st. osmundsen <bird-kBuild-spamx@anduin.net>
+ * Copyright (c) 2007-2016 knut st. osmundsen <bird-kBuild-spamx@anduin.net>
  *
  * This file is part of kBuild.
  *
@@ -26,8 +26,7 @@
 /*******************************************************************************
 *   Header Files                                                               *
 *******************************************************************************/
-#include "config.h"
-#include "kmkbuiltin.h"
+#include "kbuild_version.h"
 #include <string.h>
 #include <stdio.h>
 

@@ -54,7 +54,8 @@ kWorkerLib_DEFPATH = ../lib # Need fix from r2837.
 kWorkerLib_DEFPATH := $(PATH_SUB_CURRENT)/../lib
 kWorkerLib_SOURCES = \
 	crc32.c \
-	md5.c
+	md5.c \
+       kbuild_version.c
 kWorkerLib_SOURCES.win = \
 	nt_fullpath.c \
 	quoted_spawn.c \
@@ -63,6 +64,7 @@ kWorkerLib_SOURCES.win = \
        nt/ntdir.c \
        nt/ntstat.c \
        nt/ntunlink.c
+kbuild_version.c_DEFS = KBUILD_SVN_REV=$(KBUILD_SVN_REV)
 
 #
 # kStuff library.

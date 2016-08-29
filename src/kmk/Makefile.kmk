@@ -87,7 +87,6 @@ kmkmissing_SOURCES = \
 	kmkbuiltin/fts.c \
 	kmkbuiltin/setmode.c \
 	kmkbuiltin/strmode.c \
-	kmkbuiltin/kbuild_version.c \
 	kmkbuiltin/kbuild_protection.c \
 	getopt.c \
 	getopt1.c \

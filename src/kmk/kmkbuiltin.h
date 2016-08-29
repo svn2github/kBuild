@@ -34,6 +34,8 @@
 # include <sys/types.h>
 #endif
 
+#include "kbuild_version.h"
+
 int kmk_builtin_command(const char *pszCmd, struct child *pChild, char ***ppapszArgvToSpawn, pid_t *pPidSpawned);
 int kmk_builtin_command_parsed(int argc, char **argv, struct child *pChild, char ***ppapszArgvToSpawn, pid_t *pPidSpawned);
 
@@ -67,8 +69,6 @@ extern int kmk_builtin_kDepIDB(int argc, char **argv, char **envp);
 extern int kmk_builtin_kDepObj(int argc, char **argv, char **envp);
 
 extern char *kmk_builtin_func_printf(char *o, char **argv, const char *funcname);
-
-extern int kbuild_version(const char *);
 
 #endif
 
