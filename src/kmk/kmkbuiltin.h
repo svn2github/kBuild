@@ -64,6 +64,7 @@ extern int kmk_builtin_test(int argc, char **argv, char **envp
 extern int kmk_builtin_kSubmit(int argc, char **argv, char **envp, struct child *pChild, pid_t *pPidSpawned);
 extern int kSubmitSubProcGetResult(intptr_t pvUser, int *prcExit, int *piSigNo);
 extern int kSubmitSubProcKill(intptr_t pvUser, int iSignal);
+extern void kSubmitSubProcCleanup(intptr_t pvUser);
 #endif
 extern int kmk_builtin_kDepIDB(int argc, char **argv, char **envp);
 extern int kmk_builtin_kDepObj(int argc, char **argv, char **envp);
