@@ -533,6 +533,35 @@ int birdStatOnFd(int fd, BirdStat_T *pStat)
 
 
 /**
+ * Special case that only gets the file size and nothing else.
+ */
+int birdStatOnFdJustSize(int fd, __int64 *pcbFile)
+{
+    int     rc;
+    HANDLE  hFile = (HANDLE)_get_osfhandle(fd);
+    if (hFile != INVALID_HANDLE_VALUE)
+    {
+        LARGE_INTEGER cbLocal;
+        if (GetFileSizeEx(hFile, &cbLocal))
+        {
+            *pcbFile = cbLocal.QuadPart;
+            rc = 0;
+        }
+        else
+        {
+            BirdStat_T Stat;
+            rc = birdStatOnFd(fd, &Stat);
+            if (rc == 0)
+                *pcbFile = Stat.st_size;
+        }
+    }
+    else
+        rc = -1;
+    return rc;
+}
+
+
+/**
  * Implements UNIX stat().
  */
 int birdStatFollowLink(const char *pszPath, BirdStat_T *pStat)

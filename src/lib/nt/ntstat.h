@@ -77,6 +77,7 @@ typedef struct BirdStat
 int birdStatFollowLink(const char *pszPath, BirdStat_T *pStat);
 int birdStatOnLink(const char *pszPath, BirdStat_T *pStat);
 int birdStatOnFd(int fd, BirdStat_T *pStat);
+int birdStatOnFdJustSize(int fd, __int64 *pcbFile);
 int birdStatModTimeOnly(const char *pszPath, BirdTimeSpec_T *pTimeSpec, int fFollowLink);
 #ifdef ___nt_ntstuff_h
 void birdStatFillFromFileIdFullDirInfo(BirdStat_T *pStat, MY_FILE_ID_FULL_DIR_INFORMATION const *pBuf, const char *pszPath);

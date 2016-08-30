@@ -501,7 +501,11 @@ incdep_read_file (struct incdep *cur, struct floc *f)
       error (f, "%s: %s", cur->name, strerror (err));
       return -1;
     }
+#ifdef KBUILD_OS_WINDOWS /* fewer kernel calls */
+  if (!birdStatOnFdJustSize (fd, &st.st_size))
+#else
   if (!fstat (fd, &st))
+#endif
     {
       cur->file_base = incdep_xmalloc (cur, st.st_size + 1);
       if (read (fd, cur->file_base, st.st_size) == st.st_size)
