@@ -518,6 +518,14 @@ kmk_fgmake_SOURCES.win = \
 	w32/subproc/sub_proc.c
 
 
+#
+# tstFileInfo
+#
+PROGRAMS.win += tstFileInfo
+tstFileInfo_TEMPLATE = BIN
+tstFileInfo_SOURCES = w32/tstFileInfo.c
+
+
 include $(FILE_KBUILD_SUB_FOOTER)
 
 
@@ -552,16 +560,6 @@ $(kmk_0_OUTDIR)/pwd.h: | $(call DIRDEP,$(kmk_0_OUTDIR))
 
 $(kmk_0_OUTDIR)/grp.h: | $(call DIRDEP,$(kmk_0_OUTDIR))
 	$(ECHO_EXT) > $@
-
-
-ifeq ($(KBUILD_TARGET),win)
- #
- # tstFileInfo
- #
- PROGRAMS.win += tstFileInfo
- tstFileInfo_TEMPLATE = BIN
- tstFileInfo_SOURCES = w32/tstFileInfo.c
-endif
 
 
 #
