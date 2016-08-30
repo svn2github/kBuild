@@ -42,6 +42,7 @@ kUtil_SOURCES = \
 	kbuild_version.c
 kUtil_SOURCES.win = \
 	nt_fullpath.c \
+	nt_fullpath_cached.c \
 	quote_argv.c \
 	quoted_spawn.c \
        nt/nthlpcore.c \
