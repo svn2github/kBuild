@@ -53,6 +53,9 @@ MY_NTSTATUS (WINAPI *g_pfnNtQueryDirectoryFile)(HANDLE, HANDLE, MY_IO_APC_ROUTIN
 MY_NTSTATUS (WINAPI *g_pfnNtSetInformationFile)(HANDLE, MY_IO_STATUS_BLOCK *, PVOID, LONG, MY_FILE_INFORMATION_CLASS);
 BOOLEAN     (WINAPI *g_pfnRtlDosPathNameToNtPathName_U)(PCWSTR, MY_UNICODE_STRING *, PCWSTR *, MY_RTL_RELATIVE_NAME_U *);
 MY_NTSTATUS (WINAPI *g_pfnRtlAnsiStringToUnicodeString)(MY_UNICODE_STRING *, MY_ANSI_STRING const *, BOOLEAN);
+BOOLEAN     (WINAPI *g_pfnRtlEqualUnicodeString)(MY_UNICODE_STRING const *, MY_UNICODE_STRING const *, BOOLEAN);
+BOOLEAN     (WINAPI *g_pfnRtlEqualString)(MY_ANSI_STRING const *, MY_ANSI_STRING const *, BOOLEAN);
+UCHAR       (WINAPI *g_pfnRtlUpperChar)(UCHAR uch);
 
 
 static struct
@@ -70,6 +73,9 @@ static struct
     { (FARPROC *)&g_pfnNtSetInformationFile,            "NtSetInformationFile" },
     { (FARPROC *)&g_pfnRtlDosPathNameToNtPathName_U,    "RtlDosPathNameToNtPathName_U" },
     { (FARPROC *)&g_pfnRtlAnsiStringToUnicodeString,    "RtlAnsiStringToUnicodeString" },
+    { (FARPROC *)&g_pfnRtlEqualUnicodeString,           "RtlEqualUnicodeString" },
+    { (FARPROC *)&g_pfnRtlEqualString,                  "RtlEqualString" },
+    { (FARPROC *)&g_pfnRtlUpperChar,                    "RtlUpperChar" },
 };
 /** Set to 1 if we've successfully resolved the imports, otherwise 0. */
 int g_fResolvedNtImports = 0;

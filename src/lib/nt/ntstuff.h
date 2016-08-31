@@ -432,6 +432,11 @@ extern MY_NTSTATUS (WINAPI * g_pfnNtQueryDirectoryFile)(HANDLE, HANDLE, MY_IO_AP
 extern MY_NTSTATUS (WINAPI * g_pfnNtSetInformationFile)(HANDLE, MY_IO_STATUS_BLOCK *, PVOID, LONG, MY_FILE_INFORMATION_CLASS);
 extern BOOLEAN     (WINAPI * g_pfnRtlDosPathNameToNtPathName_U)(PCWSTR, MY_UNICODE_STRING *, PCWSTR *, MY_RTL_RELATIVE_NAME_U *);
 extern MY_NTSTATUS (WINAPI * g_pfnRtlAnsiStringToUnicodeString)(MY_UNICODE_STRING *, MY_ANSI_STRING const *, BOOLEAN);
+extern BOOLEAN     (WINAPI * g_pfnRtlEqualUnicodeString)(MY_UNICODE_STRING const *pUniStr1, MY_UNICODE_STRING const *pUniStr2,
+                                                         BOOLEAN fCaseInsensitive);
+extern BOOLEAN     (WINAPI * g_pfnRtlEqualString)(MY_ANSI_STRING const *pAnsiStr1, MY_ANSI_STRING const *pAnsiStr2,
+                                                  BOOLEAN fCaseInsensitive);
+extern UCHAR       (WINAPI * g_pfnRtlUpperChar)(UCHAR uch);
 
 
 /** @} */
