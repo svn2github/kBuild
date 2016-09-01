@@ -407,6 +407,7 @@ void        kFsCacheDbgPrintf(const char *pszFormat, ...);
 #endif
 
 
+KBOOL       kFsCacheDirEnsurePopuplated(PKFSCACHE pCache, PKFSDIR pDir, KFSLOOKUPERROR *penmError);
 KBOOL       kFsCacheDirAddChild(PKFSCACHE pCache, PKFSDIR pParent, PKFSOBJ pChild, KFSLOOKUPERROR *penmError);
 PKFSOBJ     kFsCacheCreateObject(PKFSCACHE pCache, PKFSDIR pParent,
                                  char const *pszName, KU16 cchName, wchar_t const *pwszName, KU16 cwcName,
