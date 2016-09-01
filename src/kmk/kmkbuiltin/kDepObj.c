@@ -43,10 +43,10 @@
 #else
 # include <io.h>
 #endif
-#include "../../lib/k/kDefs.h"
-#include "../../lib/k/kTypes.h"
-#include "../../lib/k/kLdrFmts/pe.h"
-#include "../../lib/kDep.h"
+#include "k/kDefs.h"
+#include "k/kTypes.h"
+#include "k/kLdrFmts/pe.h"
+#include "kDep.h"
 #include "kmkbuiltin.h"
 
 

@@ -220,7 +220,6 @@ kmk_SOURCES = \
 	arscan.c \
 	commands.c \
 	default.c \
-	dir.c \
 	expand.c \
 	file.c \
 	function.c \
@@ -241,6 +240,11 @@ kmk_SOURCES = \
        kmk_cc_exec.c \
 	kbuild.c \
 	kbuild-object.c
+ifeq ($(KBUILD_TARGET),win)
+ kmk_SOURCES += dir-nt-bird.c
+else
+ kmk_SOURCES += dir.c
+endif
 
 kmk_SOURCES.win = \
 	w32/subproc/sub_proc.c

@@ -50,7 +50,9 @@ kUtil_SOURCES.win = \
        nt/ntdir.c \
        nt/ntstat.c \
        nt/ntunlink.c \
-       nt/kFsCache.c
+       nt/kFsCache.c \
+       kStuff/kHlp/CRT/kHlpCRTString.cpp \
+       kStuff/kHlp/CRT/kHlpCRTAlloc.cpp
 kUtil_SOURCES.solaris = \
 	restartable-syscall-wrappers.c
 #kUtil_SOURCES.linux = \
