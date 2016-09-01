@@ -35,6 +35,7 @@
 #define timeval timeval_Windows
 #define WIN32_NO_STATUS
 #include <Windows.h>
+#include <winternl.h>
 #undef WIN32_NO_STATUS
 #include <ntstatus.h>
 #undef timeval

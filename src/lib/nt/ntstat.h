@@ -62,7 +62,8 @@ typedef struct BirdStat
     unsigned __int16    st_rdev;
     __int16             st_uid;
     __int16             st_gid;
-    unsigned __int16    st_padding1[3];
+    unsigned __int16    st_padding1;
+    unsigned __int32    st_attribs;
     unsigned __int32    st_blksize;
     __int64             st_blocks;
 } BirdStat_T;
