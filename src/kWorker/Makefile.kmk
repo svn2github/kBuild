@@ -63,7 +63,8 @@ kWorkerLib_SOURCES.win = \
        nt/ntdir.c \
        nt/ntstat.c \
        nt/ntunlink.c \
-       nt/kFsCache.c
+       nt/kFsCache.c \
+       quote_argv.c
 kbuild_version.c_DEFS = KBUILD_SVN_REV=$(KBUILD_SVN_REV)
 
 #
