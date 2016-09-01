@@ -50,6 +50,7 @@ MY_NTSTATUS (WINAPI *g_pfnNtQueryVolumeInformationFile)(HANDLE, MY_IO_STATUS_BLO
 MY_NTSTATUS (WINAPI *g_pfnNtQueryDirectoryFile)(HANDLE, HANDLE, MY_IO_APC_ROUTINE *, PVOID, MY_IO_STATUS_BLOCK *,
                                                 PVOID, ULONG, MY_FILE_INFORMATION_CLASS, BOOLEAN,
                                                 MY_UNICODE_STRING *, BOOLEAN);
+MY_NTSTATUS (WINAPI *g_pfnNtQueryAttributesFile)(MY_OBJECT_ATTRIBUTES *, MY_FILE_BASIC_INFORMATION *);
 MY_NTSTATUS (WINAPI *g_pfnNtSetInformationFile)(HANDLE, MY_IO_STATUS_BLOCK *, PVOID, LONG, MY_FILE_INFORMATION_CLASS);
 BOOLEAN     (WINAPI *g_pfnRtlDosPathNameToNtPathName_U)(PCWSTR, MY_UNICODE_STRING *, PCWSTR *, MY_RTL_RELATIVE_NAME_U *);
 MY_NTSTATUS (WINAPI *g_pfnRtlAnsiStringToUnicodeString)(MY_UNICODE_STRING *, MY_ANSI_STRING const *, BOOLEAN);
@@ -70,6 +71,7 @@ static struct
     { (FARPROC *)&g_pfnNtQueryInformationFile,          "NtQueryInformationFile" },
     { (FARPROC *)&g_pfnNtQueryVolumeInformationFile,    "NtQueryVolumeInformationFile" },
     { (FARPROC *)&g_pfnNtQueryDirectoryFile,            "NtQueryDirectoryFile" },
+    { (FARPROC *)&g_pfnNtQueryAttributesFile,           "NtQueryAttributesFile" },
     { (FARPROC *)&g_pfnNtSetInformationFile,            "NtSetInformationFile" },
     { (FARPROC *)&g_pfnRtlDosPathNameToNtPathName_U,    "RtlDosPathNameToNtPathName_U" },
     { (FARPROC *)&g_pfnRtlAnsiStringToUnicodeString,    "RtlAnsiStringToUnicodeString" },
