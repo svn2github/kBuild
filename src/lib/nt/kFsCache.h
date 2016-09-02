@@ -220,14 +220,16 @@ typedef struct KFSDIR
     PKFSOBJ            *papChildren;
     /** The number of child objects. */
     KU32                cChildren;
+    /** The allocated size of papChildren. */
+    KU32                cChildrenAllocated;
 
+    /** Pointer to the hash table.
+     * @todo this isn't quite there yet, structure wise. sigh.  */
+    PKFSOBJHASH         paHashTab;
     /** The size of the hash table.
      * @remarks The hash table is optional and only used when there are a lot of
      *          entries in the directory. */
     KU32                cHashTab;
-    /** Pointer to the hash table.
-     * @todo this isn't quite there yet, structure wise. sigh.  */
-    PKFSOBJHASH         paHashTab;
 
     /** Handle to the directory (we generally keep it open). */
 #ifndef DECLARE_HANDLE
