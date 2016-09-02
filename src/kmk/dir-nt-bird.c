@@ -503,6 +503,6 @@ int stat_only_mtime(const char *pszPath, struct stat *pStat)
  */
 void dir_cache_invalid_missing(void)
 {
-    kFsCacheInvalidateMissing(g_pFsCache);
+    kFsCacheInvalidateAll(g_pFsCache);
 }
 

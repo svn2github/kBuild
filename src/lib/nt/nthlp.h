@@ -32,6 +32,7 @@
 #define ___nt_nthlp_h
 
 #include "ntstuff.h"
+#include "nttypes.h"
 
 
 /** Lazy resolving of the NTDLL imports. */
@@ -64,6 +65,14 @@ MY_NTSTATUS birdOpenFileUniStr(MY_UNICODE_STRING *pNtPath, ACCESS_MASK fDesiredA
 void        birdCloseFile(HANDLE hFile);
 int         birdDosToNtPath(const char *pszPath, MY_UNICODE_STRING *pNtPath);
 void        birdFreeNtPath(MY_UNICODE_STRING *pNtPath);
+
+
+static __inline void birdNtTimeToTimeSpec(__int64 iNtTime, BirdTimeSpec_T *pTimeSpec)
+{
+    iNtTime -= BIRD_NT_EPOCH_OFFSET_UNIX_100NS;
+    pTimeSpec->tv_sec  = iNtTime / 10000000;
+    pTimeSpec->tv_nsec = (iNtTime % 10000000) * 100;
+}
 
 
 #endif

@@ -114,6 +114,17 @@ typedef struct MY_FILE_STANDARD_INFORMATION
     BOOLEAN         Directory;
 } MY_FILE_STANDARD_INFORMATION;
 
+typedef struct MY_FILE_NETWORK_OPEN_INFORMATION
+{
+    LARGE_INTEGER   CreationTime;
+    LARGE_INTEGER   LastAccessTime;
+    LARGE_INTEGER   LastWriteTime;
+    LARGE_INTEGER   ChangeTime;
+    LARGE_INTEGER   AllocationSize;
+    LARGE_INTEGER   EndOfFile;
+    ULONG           FileAttributes;
+} MY_FILE_NETWORK_OPEN_INFORMATION;
+
 typedef struct MY_FILE_INTERNAL_INFORMATION
 {
     LARGE_INTEGER   IndexNumber;
@@ -434,6 +445,7 @@ extern MY_NTSTATUS (WINAPI * g_pfnNtQueryDirectoryFile)(HANDLE, HANDLE, MY_IO_AP
                                                         PVOID, ULONG, MY_FILE_INFORMATION_CLASS, BOOLEAN,
                                                         MY_UNICODE_STRING *, BOOLEAN);
 extern MY_NTSTATUS (WINAPI * g_pfnNtQueryAttributesFile)(MY_OBJECT_ATTRIBUTES *, MY_FILE_BASIC_INFORMATION *);
+extern MY_NTSTATUS (WINAPI * g_pfnNtQueryFullAttributesFile)(MY_OBJECT_ATTRIBUTES *, MY_FILE_NETWORK_OPEN_INFORMATION *);
 extern MY_NTSTATUS (WINAPI * g_pfnNtSetInformationFile)(HANDLE, MY_IO_STATUS_BLOCK *, PVOID, LONG, MY_FILE_INFORMATION_CLASS);
 extern BOOLEAN     (WINAPI * g_pfnRtlDosPathNameToNtPathName_U)(PCWSTR, MY_UNICODE_STRING *, PCWSTR *, MY_RTL_RELATIVE_NAME_U *);
 extern MY_NTSTATUS (WINAPI * g_pfnRtlAnsiStringToUnicodeString)(MY_UNICODE_STRING *, MY_ANSI_STRING const *, BOOLEAN);

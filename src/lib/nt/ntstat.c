@@ -175,14 +175,6 @@ static unsigned short birdFileInfoToMode(HANDLE hFile, ULONG fAttribs, const cha
 }
 
 
-static void birdNtTimeToTimeSpec(__int64 iNtTime, BirdTimeSpec_T *pTimeSpec)
-{
-    iNtTime -= BIRD_NT_EPOCH_OFFSET_UNIX_100NS;
-    pTimeSpec->tv_sec  = iNtTime / 10000000;
-    pTimeSpec->tv_nsec = (iNtTime % 10000000) * 100;
-}
-
-
 /**
  * Fills in a stat structure from an MY_FILE_ID_FULL_DIR_INFORMATION entry.
  *

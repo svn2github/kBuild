@@ -245,6 +245,8 @@ typedef struct KFSDIR
 
     /** Set if populated. */
     KBOOL               fPopulated;
+    /** Set if it needs re-populated. */
+    KBOOL               fNeedRePopulating;
 } KFSDIR;
 
 
