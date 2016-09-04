@@ -49,6 +49,13 @@ else
  TOOL_YASM_AS ?= yasm$(HOSTSUFF_EXE)
 endif
 
+# kSubmit
+ifdef TOOL_YASM_USE_KSUBMIT
+ ifeq ($(KBUILD_HOST),win)
+  TOOL_YASM_KSUBMIT ?= kmk_builtin_kSubmit --
+ endif
+endif
+
 # General Properties used by kBuild
 TOOL_YASM_ASFLAGS ?=
 
@@ -71,7 +78,7 @@ TOOL_YASM_COMPILE_AS_OUTPUT_MAYBE = $(obj).map
 TOOL_YASM_COMPILE_AS_DEPEND =
 TOOL_YASM_COMPILE_AS_DEPORD =
 define TOOL_YASM_COMPILE_AS_CMDS
-	$(QUIET)$(TOOL_YASM_AS)\
+	$(QUIET)$(TOOL_YASM_KSUBMIT) $(TOOL_YASM_AS)\
 		$(patsubst --mapfile%,--mapfile=$(obj).map,$(flags))\
 		$(addsuffix /,$(addprefix -I, $(incs))) $(addprefix -D, $(defs))\
 		-l $(outbase).lst\
