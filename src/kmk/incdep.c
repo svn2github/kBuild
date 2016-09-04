@@ -500,7 +500,7 @@ incdep_read_file (struct incdep *cur, struct floc *f)
 #ifdef INCDEP_USE_KFSCACHE
   size_t const cbFile = (size_t)cur->pFileObj->Stats.st_size;
 
-  assert(cur->pFileObj->fFlags);
+  assert(cur->pFileObj->fHaveStats);
   cur->file_base = incdep_xmalloc (cur, cbFile + 1);
   if (cur->file_base)
     {
