@@ -1712,7 +1712,8 @@ static KBOOL kFsCacheRefreshObj(PKFSCACHE pCache, PKFSOBJ pObj, KFSLOOKUPERROR *
         if (   pObj->bObjType != KFSOBJ_TYPE_DIR
             || ((PKFSDIR)pObj)->hDir == INVALID_HANDLE_VALUE)
         {
-#if 0 /** @todo performance check these two alternatives. */
+#if 1
+            /* This always works and doesn't mess up NtQueryDirectoryFile. */
             MY_UNICODE_STRING    UniStr;
             MY_OBJECT_ATTRIBUTES ObjAttr;
 
@@ -1738,7 +1739,10 @@ static KBOOL kFsCacheRefreshObj(PKFSCACHE pCache, PKFSOBJ pObj, KFSLOOKUPERROR *
             }
 #else
             /* This alternative lets us keep the inode number up to date and
-               detect name case changes. */
+               detect name case changes.
+               Update: This doesn't work on windows 7, it ignores the UniStr
+                       and continue with the "*" search. So, we're using the
+                       above query instead for the time being. */
             MY_UNICODE_STRING    UniStr;
 # ifdef KFSCACHE_CFG_SHORT_NAMES
             MY_FILE_INFORMATION_CLASS enmInfoClass = MyFileIdBothDirectoryInformation;
