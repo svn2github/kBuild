@@ -113,7 +113,7 @@ int dir_file_exists_p(const char *pszDir, const char *pszName)
                 else
                 {
                     PKFSOBJ pNameObj = kFsCacheLookupRelativeToDirA(g_pFsCache, (PKFSDIR)pDirObj,
-                                                                    pszName, strlen(pszName), &enmError);
+                                                                    pszName, strlen(pszName), &enmError, NULL);
                     if (pNameObj)
                     {
                         fRc = pNameObj->bObjType == KFSOBJ_TYPE_MISSING;
