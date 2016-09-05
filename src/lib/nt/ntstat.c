@@ -697,8 +697,13 @@ static int birdStatOnlyInternal(const char *pszPath, int fFollowLink, MY_FILE_BA
         }
         birdCloseFile(hFile);
 
-        if (!MY_NT_SUCCESS(rcNt))
+        if (MY_NT_SUCCESS(rcNt))
+            rc = 0;
+        else
+        {
             birdSetErrnoFromNt(rcNt);
+            rc = -1;
+        }
     }
     else
     {
