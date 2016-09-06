@@ -978,6 +978,8 @@ int kSubmitSubProcGetResult(intptr_t pvUser, int *prcExit, int *piSigNo)
         case STATUS_PRIVILEGED_INSTRUCTION:
         case STATUS_ILLEGAL_INSTRUCTION:        *piSigNo = SIGILL; break;
     }
+    if (pWorker->Result.s.bWorkerExiting)
+        kSubmitCloseConnectOnExitingWorker(pWorker);
 
     return 0;
 }
