@@ -1608,6 +1608,18 @@ ifn1of ($(KBUILD_TYPE), $(KBUILD_BLD_TYPES))
 endif
 
 
+#
+# Mark the output and temporary directories as volatile on windows.
+#
+# This automatically means the directories not listed here are considered
+# static and won't be invalidated once we start running compile jobs.
+#
+ifeq ($(KBUILD_HOST),win)
+ if $(KBUILD_KMK_REVISION) >= 2886
+   $(dircache-ctl volatile, $(PATH_OUT_BASE), $(PATH_OUT), $(TEMP), $(TMP), $(TMPDIR), $(TMP))
+ endif
+endif
+
 
 ifdef KBUILD_PROFILE_SELF
  $(evalcall def_profile_self, end of header.kmk)
