@@ -113,6 +113,8 @@ void quote_argv(int argc, char **argv, int fWatcomBrainDamage, int fFreeOrLeak)
             || (pszProblem = (const char *)memchr(pszOrg, '\'', cchOrg)) != NULL
             || (   !fWatcomBrainDamage
                 && (pszProblem = (const char *)memchr(pszOrg, '=',  cchOrg)) != NULL)
+            || (   fWatcomBrainDamage
+                && (pszProblem = (const char *)memchr(pszOrg, '\\', cchOrg)) != NULL)
             )
         {
             char   ch;
