@@ -40,6 +40,7 @@ kUtil_SOURCES = \
 	md5.c \
 	maybe_con_write.c \
 	maybe_con_fwrite.c \
+	maybe_con_printf.c \
 	kbuild_version.c
 kUtil_SOURCES.win = \
 	nt_fullpath.c \
