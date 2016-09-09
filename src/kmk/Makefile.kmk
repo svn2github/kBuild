@@ -281,7 +281,7 @@ kmk_SOURCES += \
 	kmkbuiltin/printf.c \
 	kmkbuiltin/rm.c \
 	kmkbuiltin/rmdir.c \
-	kmkbuiltin/kSubmit.c \
+	$(if-expr $(KBUILD_TARGET) == win,kmkbuiltin/kSubmit.c) \
 	kmkbuiltin/sleep.c \
 	kmkbuiltin/test.c
 
