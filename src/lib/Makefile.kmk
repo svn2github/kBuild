@@ -38,6 +38,8 @@ kUtil_DEFS.win = __WIN__
 kUtil_SOURCES = \
 	crc32.c \
 	md5.c \
+	maybe_con_write.c \
+	maybe_con_fwrite.c \
 	kbuild_version.c
 kUtil_SOURCES.win = \
 	nt_fullpath.c \
