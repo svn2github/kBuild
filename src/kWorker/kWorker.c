@@ -6096,7 +6096,7 @@ static void kwSandboxConsoleWriteW(PKWSANDBOX pSandbox, PKWCONSOLEOUTPUTLINE pLi
          */
         if (offLastIncompleteLine < cwcToWrite)
         {
-            memcpy(&pLineBuf->pwcBuf, &pwcBuffer[offLastIncompleteLine], cchLastIncompleteLine * sizeof(wchar_t));
+            memcpy(&pLineBuf->pwcBuf[0], &pwcBuffer[offLastIncompleteLine], cchLastIncompleteLine * sizeof(wchar_t));
             pLineBuf->cwcBuf = cchLastIncompleteLine;
         }
     }
