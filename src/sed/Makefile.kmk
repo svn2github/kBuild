@@ -88,6 +88,8 @@ kmk_sed_SOURCES.win = \
 	lib/getline.c \
 	../lib/startuphacks-win.c
 
+kmk_sed_LIBS.win = $(LIB_KUTIL) # for stdout optimizations.
+
 include $(FILE_KBUILD_SUB_FOOTER)
 
 #
