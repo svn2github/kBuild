@@ -238,7 +238,7 @@ __declspec(dllexport)
 int __cdecl fputs(const char *pszString, FILE *pFile)
 {
     size_t cchString = strlen(pszString);
-    size_t cch = maybe_con_fwrite(pszString, cchString, 1, stdout);
+    size_t cch = maybe_con_fwrite(pszString, cchString, 1, pFile);
     if (cch == cchString)
         return 0;
     return -1;
