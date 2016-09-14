@@ -507,6 +507,7 @@ extern BOOLEAN     (WINAPI * g_pfnRtlEqualUnicodeString)(MY_UNICODE_STRING const
 extern BOOLEAN     (WINAPI * g_pfnRtlEqualString)(MY_ANSI_STRING const *pAnsiStr1, MY_ANSI_STRING const *pAnsiStr2,
                                                   BOOLEAN fCaseInsensitive);
 extern UCHAR       (WINAPI * g_pfnRtlUpperChar)(UCHAR uch);
+extern ULONG       (WINAPI * g_pfnRtlNtStatusToDosError)(MY_NTSTATUS rcNt);
 
 
 /** @} */
