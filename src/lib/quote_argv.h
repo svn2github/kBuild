@@ -33,7 +33,7 @@
 #define ___quote_argv_h___
 
 #include "mytypes.h"
-extern void quote_argv(int argc, char **argv, int fWatcomBrainDamage, int fFreeOrLeak);
+extern int quote_argv(int argc, char **argv, int fWatcomBrainDamage, int fFreeOrLeak);
 
 #endif
 

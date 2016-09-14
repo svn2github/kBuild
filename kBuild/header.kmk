@@ -701,7 +701,11 @@ PRINTF_INT  := kmk_builtin_printf
 PRINTF      := $(PRINTF_INT)
 
 REDIRECT_EXT:= $(KBUILD_BIN_PATH)/kmk_redirect$(HOSTSUFF_EXE)
+if $(KBUILD_KMK_REVISION) > 2911
+REDIRECT_INT:= kmk_builtin_redirect
+else
 REDIRECT_INT:= $(REDIRECT_EXT)
+endif
 REDIRECT    := $(REDIRECT_INT)
 
 RM_EXT      := $(KBUILD_BIN_PATH)/kmk_rm$(HOSTSUFF_EXE)
