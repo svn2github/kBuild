@@ -1122,7 +1122,7 @@ static void kSubmitAtExitCallback(void)
             {
                 /* Terminate the whole bunch. */
                 cKillRaids++;
-                if (cKillRaids == 1)
+                if (cKillRaids == 1 && getenv("KMK_KSUBMIT_NO_KILL") == NULL)
                 {
                     fprintf(stderr, "kmk/kSubmit: Killing %u lingering worker processe(s)!\n", cHandles);
                     for (pWorker = g_IdleList.pHead; pWorker != NULL; pWorker = pWorker->pNext)
