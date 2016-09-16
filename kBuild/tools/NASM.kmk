@@ -86,7 +86,7 @@ ifdef TOOL_NASM_KSUBMIT
 		-MD "$(dep)" -MP\
 		$(abspath $(source))
 else
-	$(QUIET)$(REDIRECT) -C $(PATH_OUT_BASE) $(TOOL_NASM_AS)\
+	$(QUIET)$(REDIRECT) -C $(PATH_OUT_BASE) -- $(TOOL_NASM_AS)\
 		$(flags) $(addsuffix /,$(addprefix -i, $(incs))) $(addprefix -D, $(defs))\
 		-l $(outbase).lst\
 		-o $(obj)\
