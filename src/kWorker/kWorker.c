@@ -5136,8 +5136,6 @@ static BOOL WINAPI kwSandbox_Kernel32_ReadFile(HANDLE hFile, LPVOID pvBuffer, DW
                     KU32            cbActually = pCachedFile->cbCached - pHandle->offFile;
                     if (cbActually > cbToRead)
                         cbActually = cbToRead;
-                    else if (cbActually < cbToRead)                                            // debug debug debug
-                        kHlpMemSet((KU8 *)pvBuffer + cbActually, '\0', cbToRead - cbActually); // debug debug debug
 
 #ifdef WITH_HASH_MD5_CACHE
                     if (g_Sandbox.pHashHead)
