@@ -48,6 +48,8 @@ kWorker_LIBS.win = \
 	$(PATH_SDK_WINDDK71_LIB_WNET)/psapi.lib
 kWorker_LDFLAGS.win = \
 	/BASE:0x10000 /DYNAMICBASE:NO /FIXED
+#kWorker_LDFLAGS.win.x86 = \
+#	/SAFESEH:NO - doesn't help anyone.
 
 
 #
