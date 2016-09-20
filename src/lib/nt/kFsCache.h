@@ -487,6 +487,10 @@ PKFSOBJ     kFsCacheLookupNoMissingW(PKFSCACHE pCache, const wchar_t *pwszPath, 
 /** @} */
 
 KU32        kFsCacheObjRelease(PKFSCACHE pCache, PKFSOBJ pObj);
+KU32        kFsCacheObjReleaseTagged(PKFSCACHE pCache, PKFSOBJ pObj, const char *pszWhere);
+#ifndef NDEBUG /* enable to debug object release. */
+# define kFsCacheObjRelease(a_pCache, a_pObj) kFsCacheObjReleaseTagged(a_pCache, a_pObj, __FUNCTION__)
+#endif
 KU32        kFsCacheObjRetain(PKFSOBJ pObj);
 PKFSUSERDATA kFsCacheObjAddUserData(PKFSCACHE pCache, PKFSOBJ pObj, KUPTR uKey, KSIZE cbUserData);
 PKFSUSERDATA kFsCacheObjGetUserData(PKFSCACHE pCache, PKFSOBJ pObj, KUPTR uKey);
