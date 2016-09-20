@@ -455,7 +455,7 @@ void print_dir_data_base(void)
 }
 
 
-
+/* duplicated in kWorker.c */
 void nt_fullpath_cached(const char *pszPath, char *pszFull, size_t cbFull)
 {
     KFSLOOKUPERROR  enmError;
@@ -477,7 +477,7 @@ void nt_fullpath_cached(const char *pszPath, char *pszFull, size_t cbFull)
                 {
                     kHlpAssert(off > 1);
                     kHlpAssert(pAncestor != NULL);
-                    kHlpAssert(pAncestor->ObjcchName > 0);
+                    kHlpAssert(pAncestor->Obj.cchName > 0);
                     pszFull[--off] = '/';
                     off -= pAncestor->Obj.cchName;
                     kHlpAssert(pAncestor->Obj.cchParent == off);

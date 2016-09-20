@@ -58,6 +58,10 @@
 
 #include "kDep.h"
 
+#ifdef KWORKER
+extern int kwFsPathExists(const char *pszPath);
+#endif
+
 
 /*******************************************************************************
 *   Global Variables                                                           *
@@ -238,7 +242,9 @@ void depOptimize(int fFixCase, int fQuiet)
         /*
          * Check that the file exists before we start depending on it.
          */
-#ifdef KMK
+#ifdef KWORKER
+        if (kwFsPathExists(pszFilename))
+#elif defined(KMK)
         if (!file_exists_p(pszFilename))
 #elif K_OS == K_OS_WINDOWS
         if (birdStatModTimeOnly(pszFilename, &s.st_mtim, 1 /*fFollowLink*/) != 0)
