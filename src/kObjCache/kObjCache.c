@@ -1100,7 +1100,7 @@ static void kOCDepWriteToFile(PKOCDEP pDepState, const char *pszFilename, const 
     if (!pFile)
         FatalMsg("Failed to open dependency file '%s': %s\n", pszFilename, strerror(errno));
 
-    depOptimize(fFixCase, fQuiet);
+    depOptimize(fFixCase, fQuiet, NULL /*pszIgnoredExt*/);
 
     /* Make object file name with unix slashes. */
     pszObjFileAbs = MakePathFromDirAndFile(pszObjFile, pszObjDir);

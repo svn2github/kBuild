@@ -47,7 +47,7 @@ typedef struct DEP
 
 
 extern PDEP depAdd(const char *pszFilename, size_t cchFilename);
-extern void depOptimize(int fFixCase, int fQuiet);
+extern void depOptimize(int fFixCase, int fQuiet, const char *pszIgnoredExt);
 extern void depPrint(FILE *pOutput);
 extern void depPrintStubs(FILE *pOutput);
 extern void depCleanup(void);

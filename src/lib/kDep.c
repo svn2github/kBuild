@@ -186,13 +186,14 @@ static void fixcase(char *pszFilename)
 /**
  * 'Optimizes' and corrects the dependencies.
  */
-void depOptimize(int fFixCase, int fQuiet)
+void depOptimize(int fFixCase, int fQuiet, const char *pszIgnoredExt)
 {
     /*
      * Walk the list correct the names and re-insert them.
      */
-    PDEP pDepOrg = g_pDeps;
-    PDEP pDep = g_pDeps;
+    size_t  cchIgnoredExt = pszIgnoredExt ? strlen(pszIgnoredExt) : 0;
+    PDEP    pDepOrg = g_pDeps;
+    PDEP    pDep = g_pDeps;
     g_pDeps = NULL;
     for (; pDep; pDep = pDep->pNext)
     {
@@ -213,6 +214,14 @@ void depOptimize(int fFixCase, int fQuiet)
             &&  pDep->szFilename[pDep->cchFilename - 1] == '>')
             continue;
         pszFilename = pDep->szFilename;
+
+        /*
+         * Skip pszIgnoredExt if given.
+         */
+        if (   pszIgnoredExt
+            && pDep->cchFilename > cchIgnoredExt
+            && memcmp(&pDep->szFilename[pDep->cchFilename - cchIgnoredExt], pszIgnoredExt, cchIgnoredExt) == 0)
+            continue;
 
 #if K_OS != K_OS_OS2 && K_OS != K_OS_WINDOWS
         /*

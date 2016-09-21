@@ -864,7 +864,7 @@ int kmk_builtin_kDepIDB(int argc, char *argv[], char **envp)
      */
     if (!i)
     {
-        depOptimize(fFixCase, fQuiet);
+        depOptimize(fFixCase, fQuiet, NULL /*pszIgnoredExt*/);
         fprintf(pOutput, "%s:", pszTarget);
         depPrint(pOutput);
         if (fStubs)
