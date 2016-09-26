@@ -129,6 +129,21 @@ typedef struct KFSUSERDATA
 
 
 /**
+ * Storage for name strings for the unlikely event that they should grow in
+ * length after the KFSOBJ was created.
+ */
+typedef struct KFSOBJNAMEALLOC
+{
+    /** Size of the allocation. */
+    KU32        cb;
+    /** The space for names. */
+    char        abSpace[1];
+} KFSOBJNAMEALLOC;
+/** Name growth allocation. */
+typedef KFSOBJNAMEALLOC *PKFSOBJNAMEALLOC;
+
+
+/**
  * Base cache node.
  */
 typedef struct KFSOBJ
@@ -200,6 +215,9 @@ typedef struct KFSOBJ
     const wchar_t      *pwszShortName;
 # endif
 #endif
+
+    /** Allocation for handling name length increases. */
+    PKFSOBJNAMEALLOC    pNameAlloc;
 
     /** Pointer to the first user data item */
     PKFSUSERDATA        pUserDataHead;
@@ -410,8 +428,13 @@ typedef struct KFSCACHE
     KSIZE               cChildHashEntriesTotal;
     /** Number of children inserted into the hash tables. */
     KSIZE               cChildHashed;
-    /** Number of collisions in the child hash tables */
+    /** Number of collisions in the child hash tables. */
     KSIZE               cChildHashCollisions;
+    /** Number times a object name changed. */
+    KSIZE               cNameChanges;
+    /** Number times a object name grew and needed KFSOBJNAMEALLOC.
+     *  (Subset of cNameChanges) */
+    KSIZE               cNameGrowths;
 
     /** The root directory. */
     KFSDIR              RootDir;
