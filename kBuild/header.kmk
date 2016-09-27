@@ -195,6 +195,27 @@ KBUILD_ARCHES_32 := x86 sparc32 s390 ppc32 mips32 hppa32 arm
 
 
 #
+# Mapping of kBuild OS + ARCH to GNU system type wildcards.
+# For use with the foreach/append/prepend and wildcard functions.
+#
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.darwin.x86      = i?86-apple-darwin*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.darwin.amd64    = x86_64-apple-darwin* amd64-apple-darwin*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.freebsd.x86     = i?86-*freebsd*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.freebsd.amd64   = x86_64-*freebsd* amd64-*freebsd*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.linux.x86       = i?86-*linux-gnu
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.linux.amd64     = x86_64-*linux-gnu amd64-*linux-gnu
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.netbsd.x86      = i?86-*netbsd*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.netbsd.amd64    = x86_64-*netbsd* amd64-*netbsd*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.os2.x86         = i?86-*os2*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.solaris.x86     = i?86-*solaris2*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.solaris.amd64   = amd64-*solaris2* x86_64-*solaris2*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.solaris.sparc32 = sparc-*solaris2*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.solaris.sparc64 = sparc64-*solaris2* sparcv9-*solaris2*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.win.x86         = i?86-*mingw32* i?86-*msys* i?86-*cygwin*
+KBUILD_OSARCH_2_GNU_SYSTEM_TYPES.win.amd64       = x86_64-*mingw64* amd64-*mingw64* x86_64-*msys* amd64-*msys* x86_64-*cygwin* amd64-*cygwin*
+
+
+#
 # Set default build type.
 #
 ifndef KBUILD_TYPE
@@ -368,6 +389,10 @@ else
   $(error kBuild: The KBUILD_TARGET_CPU value '$(KBUILD_TARGET_CPU)' is the same as the KBUILD_TYPE!)
  endif
 endif
+
+# Short hand for $(KBUILD_TARGET).$(KBUILD_TARGET_ARCH).
+KBUILD_TARGET_DOT_ARCH = $(KBUILD_TARGET).$(KBUILD_TARGET_ARCH)
+KBUILD_HOST_DOT_ARCH   = $(KBUILD_HOST).$(KBUILD_TARGET_ARCH)
 
 
 #
