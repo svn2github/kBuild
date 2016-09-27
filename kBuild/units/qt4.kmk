@@ -103,6 +103,7 @@ ifndef PATH_SDK_QT4
     endif
     ifeq ($(PATH_SDK_QT4),)
      PATH_SDK_QT4 := $(patsubst %/bin/rcc,%,$(firstword $(wildcard \
+       /usr/lib/*/qt4/bin/rcc
      	/usr/bin/rcc \
      	/usr/local/bin/rcc \
      	/usr/qt/4/bin/rcc \
