@@ -531,6 +531,16 @@ PROGRAMS.win += tstFileInfo
 tstFileInfo_TEMPLATE = BIN
 tstFileInfo_SOURCES = w32/tstFileInfo.c
 
+#
+# tstFileInfo
+#
+PROGRAMS.win += tstFtsFake
+tstFtsFake_TEMPLATE = BIN-KMK
+tstFtsFake_NOINST = 1
+tstFtsFake_DEFS = USE_OLD_FTS
+tstFtsFake_SOURCES = ../lib/nt/tstNtFts.c
+
+
 
 include $(FILE_KBUILD_SUB_FOOTER)
 
