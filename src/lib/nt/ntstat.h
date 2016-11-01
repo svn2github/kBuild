@@ -76,7 +76,11 @@ typedef struct BirdStat
 #define st_birthtime    st_birthtim.tv_sec
 
 int birdStatFollowLink(const char *pszPath, BirdStat_T *pStat);
+int birdStatFollowLinkW(const wchar_t *pwszPath, BirdStat_T *pStat);
 int birdStatOnLink(const char *pszPath, BirdStat_T *pStat);
+int birdStatOnLinkW(const wchar_t *pwszPath, BirdStat_T *pStat);
+int birdStatAt(void *hRoot, const char *pszPath, BirdStat_T *pStat, int fFollowLink);
+int birdStatAtW(void *hRoot, const wchar_t *pwszPath, BirdStat_T *pStat, int fFollowLink);
 int birdStatOnFd(int fd, BirdStat_T *pStat);
 int birdStatOnFdJustSize(int fd, __int64 *pcbFile);
 int birdStatModTimeOnly(const char *pszPath, BirdTimeSpec_T *pTimeSpec, int fFollowLink);

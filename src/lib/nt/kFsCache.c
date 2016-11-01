@@ -2170,7 +2170,8 @@ static PKFSOBJ kFsCacheLookupDrive(PKFSCACHE pCache, char chLetter, KU32 fFlags,
     {
         HANDLE      hDir;
         MY_NTSTATUS rcNt;
-        rcNt = birdOpenFileUniStr(&NtPath,
+        rcNt = birdOpenFileUniStr(NULL /*hRoot*/,
+                                  &NtPath,
                                   FILE_READ_DATA  | FILE_LIST_DIRECTORY | FILE_READ_ATTRIBUTES | SYNCHRONIZE,
                                   FILE_ATTRIBUTE_NORMAL,
                                   FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
