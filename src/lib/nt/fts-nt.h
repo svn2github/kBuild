@@ -1,4 +1,4 @@
-/* $Id: $ */
+/* $Id$ */
 /** @file
  * Header for the NT port of BSD fts.h.
  *
