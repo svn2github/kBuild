@@ -174,7 +174,7 @@ int birdDosToNtPathW(const wchar_t *pwszPath, MY_UNICODE_STRING *pNtPath)
 
 
 /**
- * Converts UNIX slashes to DOS ones and trims trailing ones.
+ * Converts UNIX slashes to DOS ones.
  *
  * @returns 0
  * @param   pNtPath     The relative NT path to fix up.
@@ -193,6 +193,7 @@ static int birdFixRelativeNtPathSlashesAndReturn0(MY_UNICODE_STRING *pNtPath)
         pwcHit = pwcStart;
     }
 
+#if 0
     /* Strip trailing slashes (NT doesn't like them). */
     while (   pNtPath->Length >= sizeof(wchar_t)
            && pNtPath->Buffer[(pNtPath->Length - sizeof(wchar_t)) / sizeof(wchar_t)] == '\\')
@@ -209,6 +210,7 @@ static int birdFixRelativeNtPathSlashesAndReturn0(MY_UNICODE_STRING *pNtPath)
         pNtPath->Buffer[0] = '.';
         pNtPath->Buffer[1] = '\0';
     }
+#endif
 
     return 0;
 }

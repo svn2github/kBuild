@@ -34,8 +34,11 @@
 #include "nttypes.h"
 
 int birdUnlink(const char *pszFile);
+int birdUnlinkEx(void *hRoot, const char *pszFile);
 int birdUnlinkForced(const char *pszFile);
+int birdUnlinkForcedEx(void *hRoot, const char *pszFile);
 int birdUnlinkForcedFast(const char *pszFile);
+int birdUnlinkForcedFastEx(void *hRoot, const char *pszFile);
 
 #undef  unlink
 #define unlink(a_pszPath)     birdUnlinkForced(a_pszPath)
