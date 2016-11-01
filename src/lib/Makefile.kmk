@@ -52,6 +52,7 @@ kUtil_SOURCES.win = \
        nt/ntdir.c \
        nt/ntstat.c \
        nt/ntunlink.c \
+       nt/fts-nt.c \
        nt/kFsCache.c \
        kStuff/kHlp/CRT/kHlpCRTString.cpp \
        kStuff/kHlp/CRT/kHlpCRTAlloc.cpp
