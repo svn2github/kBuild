@@ -139,7 +139,7 @@ nt_fts_open_common(char * const *argv, wchar_t * const *wcsargv, int options,
 	FTSENT *parent, *tmp;
 	size_t len, nitems;
 
-    birdResolveImports();
+	birdResolveImports();
 
 	/* Options check. */
 	if (options & ~FTS_OPTIONMASK) {
