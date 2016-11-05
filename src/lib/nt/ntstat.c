@@ -188,7 +188,7 @@ static unsigned short birdFileInfoToMode(HANDLE hFile, ULONG fAttribs, const cha
         fMode |= S_IWOTH | S_IWGRP | S_IWUSR;
     if (   (fAttribs & FILE_ATTRIBUTE_DIRECTORY)
         || (pwszName
-            ? birdIsFileExecutableW(pwszName, cbNameW)
+            ? birdIsFileExecutableW(pwszName, cbNameW / sizeof(wchar_t))
             : birdIsFileExecutable(pszName)) )
         fMode |= S_IXOTH | S_IXGRP | S_IXUSR;
 
