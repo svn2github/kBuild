@@ -1328,7 +1328,8 @@ static KBOOL kFsCachePopuplateOrRefreshDir(PKFSCACHE pCache, PKFSDIR pDir, KFSLO
         /* Include the structures for better alignment. */
         MY_FILE_ID_BOTH_DIR_INFORMATION     WithId;
         MY_FILE_ID_FULL_DIR_INFORMATION     NoId;
-        /* Buffer padding. We're using a 56KB buffer here to avoid size troubles with CIFS and such. */
+        /** Buffer padding. We're using a 56KB buffer here to avoid size troubles
+         * with CIFS and such that starts at 64KB. */
         KU8                                 abBuf[56*1024];
     } uBuf;
 
