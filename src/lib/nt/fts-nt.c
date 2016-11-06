@@ -770,7 +770,8 @@ static FTSENT *
 fts_build(FTS *sp, int type)
 {
 	BirdDirEntryW_T *dp;
-	FTSENT *p, *head, *cur, **tailp;
+	FTSENT *p, *cur;
+	FTSENT * volatile head,* volatile *tailp; /* volatile is to prevent aliasing trouble */
 	DIR *dirp;
 	int saved_errno, doadjust, doadjust_utf16;
 	long level;
