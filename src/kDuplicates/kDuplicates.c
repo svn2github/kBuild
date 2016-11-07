@@ -607,7 +607,7 @@ static int kDupHardlinkDuplicates(void)
                                 if (birdUnlinkForcedW(wszBackup) == 0)
                                 {
                                     if (g_cVerbosity >= 1)
-                                        printf("Hardlined '%ls' to '%ls'.\n", pDupFile->wszPath, pTargetFile->wszPath);
+                                        printf("Hardlinked '%ls' to '%ls'.\n", pDupFile->wszPath, pTargetFile->wszPath);
                                 }
                                 else
                                 {
