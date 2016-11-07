@@ -74,7 +74,9 @@ MY_NTSTATUS birdOpenFileUniStr(HANDLE hRoot, MY_UNICODE_STRING *pNtPath, ACCESS_
 HANDLE      birdOpenCurrentDirectory(void);
 void        birdCloseFile(HANDLE hFile);
 int         birdDosToNtPath(const char *pszPath, MY_UNICODE_STRING *pNtPath);
+int         birdDosToNtPathW(const wchar_t *pwszPath, MY_UNICODE_STRING *pNtPath);
 int         birdDosToRelativeNtPath(const char *pszPath, MY_UNICODE_STRING *pNtPath);
+int         birdDosToRelativeNtPathW(const wchar_t *pszPath, MY_UNICODE_STRING *pNtPath);
 void        birdFreeNtPath(MY_UNICODE_STRING *pNtPath);
 
 
