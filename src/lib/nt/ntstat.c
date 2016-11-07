@@ -57,7 +57,7 @@ static int birdIsExecutableExtension(const char *pszExt)
             return pszExt[1] == 'a' && pszExt[2] == 't' && pszExt[3] == '\0';
 
         case 'v': /* vbs */
-            return pszExt[1] == 'v' && pszExt[2] == 's' && pszExt[3] == '\0';
+            return pszExt[1] == 'b' && pszExt[2] == 's' && pszExt[3] == '\0';
 
         case 'c': /* com and cmd */
             return (pszExt[1] == 'o' && pszExt[2] == 'm' && pszExt[3] == '\0')
