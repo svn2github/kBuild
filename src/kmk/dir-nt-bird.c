@@ -250,8 +250,11 @@ static struct dirent *dir_glob_readdir(__ptr_t pvDir)
         /* Don't return missing objects. */
         if (pEntry->bObjType != KFSOBJ_TYPE_MISSING)
         {
-            /* Copy the name that fits.  If neither fits, skip the name. */
-            if (pEntry->cchName < sizeof(pDir->DirEnt.d_name))
+            /* Copy the name that fits, trying to avoid names with spaces.
+               If neither fits, skip the name. */
+            if (   pEntry->cchName < sizeof(pDir->DirEnt.d_name)
+                && (   pEntry->pszShortName == pEntry->pszName
+                    || memchr(pEntry->pszName, ' ', pEntry->cchName) == NULL))
             {
                 pDir->DirEnt.d_namlen = pEntry->cchName;
                 memcpy(pDir->DirEnt.d_name, pEntry->pszName, pEntry->cchName + 1);
