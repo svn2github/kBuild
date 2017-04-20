@@ -946,6 +946,50 @@ endif
 
 
 #
+# Somewhat simple solution for automatic command dependencies.
+#
+
+##
+# Advanced version of KB_FN_AUTO_CMD_DEPS_COMMANDS_EX where you set
+# the dependency file name yourself.
+#
+# After or before the recipe do $(call KB_FN_AUTO_CMD_DEPS_EX,<recipe-target>,<dep-file>).
+#
+# @param 1    dep file.
+define KB_FN_AUTO_CMD_DEPS_COMMANDS_EX
+	%$(QUIET2)$(RM) -f -- "$1"
+       %$(QUIET2)$(APPEND) "$1" 'define AUTO_CMD_DEP_$(translate $@,:,_)_PREV_CMDS'
+       %$(QUIET2)$(APPEND) -c "$1"  '$@'
+       %$(QUIET2)$(APPEND) "$1" 'endef'
+endef
+
+##
+# Advanced version of KB_FN_AUTO_CMD_DEPS
+#
+# @param 1     recipe name
+# @param 2     dep file.
+KB_FN_AUTO_CMD_DEPS_EX = $(eval includedep $2)$(eval _DEPFILES_INCLUDED += $2)$1: .MUST_MAKE = $$(comp-cmds-ex $$(AUTO_CMD_DEP_$(translate $1,:,_)_PREV_CMDS),$$(commands $1),FORCE)
+
+##
+# $(call KB_FN_AUTO_CMD_DEPS_COMMANDS) as the first command in a recipe to
+# automatically generate command dependencies.
+# After or before the recipe do $(call KB_FN_AUTO_CMD_DEPS,<recipe-target>).
+define KB_FN_AUTO_CMD_DEPS_COMMANDS
+	%$(QUIET2)$(RM) -f -- "$@.auto-dep"
+       %$(QUIET2)$(APPEND) "$@.auto-dep" 'define AUTO_CMD_DEP_$(translate $@,:,_)_PREV_CMDS'
+       %$(QUIET2)$(APPEND) -c "$@.auto-dep"  '$@'
+       %$(QUIET2)$(APPEND) "$@.auto-dep" 'endef'
+endef
+
+##
+# Call before or after defining a recipe that you want automatic command
+# dependencies on. The recipe must start off by $(call KB_FN_AUTO_CMD_DEPS_COMMANDS).
+#
+# @param 1     recipe name
+KB_FN_AUTO_CMD_DEPS = $(call KB_FN_AUTO_CMD_DEPS_EX,$1,$1.auto-dep)
+
+
+#
 # Initialize some of the globals which the Config.kmk and
 # others can add stuff to if they like for processing in the footer.
 #
