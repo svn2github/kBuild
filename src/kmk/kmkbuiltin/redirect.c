@@ -789,7 +789,7 @@ static int kRedirectDoSpawn(const char *pszExecutable, int cArgs, char **papszAr
 #endif
                             KBOOL *pfIsChildExitCode)
 {
-    int     rcExit;
+    int     rcExit = 0;
     int     i;
 #ifdef _MSC_VER
     char  **papszArgsOriginal = papszArgs;
