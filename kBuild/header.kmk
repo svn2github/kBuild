@@ -585,21 +585,25 @@ if1of ($(KBUILD_HOST), win nt)
 # Win, Win32, Win64, NT.
 EXEC_X86_WIN32      :=
 HOSTSUFF_EXE        := .exe
+HOST_PATH_SEP       := $(SEMICOLON)
 
 # OS/2.
 else ifeq ($(KBUILD_HOST),os2)
 EXEC_X86_WIN32      := innopec.exe
 HOSTSUFF_EXE        := .exe
+HOST_PATH_SEP       := $(SEMICOLON)
 
 else if1of ($(KBUILD_HOST), freebsd dragonfly linux openbsd netbsd)
 # Unix (like) systems with wine.
 EXEC_X86_WIN32      := wine
 HOSTSUFF_EXE        :=
+HOST_PATH_SEP       := $(COLON)
 
 else
 # Unix (like) systems without wine.
 EXEC_X86_WIN32      := false
 HOSTSUFF_EXE        :=
+HOST_PATH_SEP       := $(COLON)
 endif
 
 
