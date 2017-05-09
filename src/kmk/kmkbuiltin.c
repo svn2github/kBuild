@@ -146,7 +146,7 @@ int kmk_builtin_command(const char *pszCmd, struct child *pChild, char ***ppapsz
          * Next
          */
         pszCmd = pszNext;
-        if (isspace(*pszCmd) && *pszCmd)
+        while (isspace(*pszCmd) && *pszCmd)
             pszCmd++;
     }
 
