@@ -390,7 +390,7 @@ static EXPRRET expr_string_to_num(PEXPR pThis, EXPRINT64 *piDst, const char *psz
                 i = -i;
             *piDst = i;
             if (!fQuiet)
-                expr_error(pThis, "Invalid a number \"%.80s\"", pszSrc);
+                expr_error(pThis, "Invalid number \"%.80s\"", pszSrc);
             return kExprRet_Error;
         }
 
