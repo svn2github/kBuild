@@ -54,7 +54,7 @@ else
  PATH_TOOL_VCC120 := $(PATH_TOOL_VCC120)
 endif
 ifneq ($(PATH_TOOL_VCC120),)
- ifeq ($(KBUILD_HOST).$(KBUILD_HOST_ARCH),win.amd64)
+ if "$(KBUILD_HOST).$(KBUILD_HOST_ARCH)" == "win.amd64" && exists("$(PATH_TOOL_VCC120AMD64)/bin/amd64") # Missing in express edition.
  PATH_TOOL_VCC120_BIN.amd64 ?= $(PATH_TOOL_VCC120)/bin/amd64
  else
  PATH_TOOL_VCC120_BIN.amd64 ?= $(PATH_TOOL_VCC120)/bin/x86_amd64
