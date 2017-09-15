@@ -1120,11 +1120,16 @@ int main(int argc, char **argv, char **envp)
             pszArg++;
             if (chOpt == '-')
             {
-                /* '--' indicates where the bits to execute start. */
+                /* '--' indicates where the bits to execute start.  Check if we're
+                   relaunching ourselves here and just continue parsing if we are. */
                 if (*pszArg == '\0')
                 {
                     iArg++;
-                    break;
+                    if (    iArg >= argc
+                        || (   strcmp(argv[iArg], "kmk_builtin_redirect") != 0
+                            && strcmp(argv[iArg], argv[0]) != 0))
+                        break;
+                    continue;
                 }
 
                 if (   strcmp(pszArg, "wcc-brain-damage") == 0
