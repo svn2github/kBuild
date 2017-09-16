@@ -170,6 +170,14 @@ SQUOTE := '
 # Double quote character.
 DQUOTE := "
 
+##
+# Opening parenthesis.
+OPENPAR := (
+
+##
+# Closing parenthesis.
+CLOSEPAR := )
+
 
 #
 # The list of standard build types in kBuild.
