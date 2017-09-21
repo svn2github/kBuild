@@ -286,6 +286,8 @@ int kmk_builtin_command_parsed(int argc, char **argv, struct child *pChild, char
         rc = kmk_builtin_cmp(argc, argv, environ);
     else if (!strcmp(pszCmd, "cat"))
         rc = kmk_builtin_cat(argc, argv, environ);
+    else if (!strcmp(pszCmd, "touch"))
+        rc = kmk_builtin_touch(argc, argv, environ);
     else if (!strcmp(pszCmd, "sleep"))
         rc = kmk_builtin_sleep(argc, argv, environ);
     else if (!strcmp(pszCmd, "dircache"))

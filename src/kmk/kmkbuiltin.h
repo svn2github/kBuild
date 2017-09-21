@@ -63,6 +63,7 @@ extern int kmk_builtin_test(int argc, char **argv, char **envp
                             , char ***ppapszArgvSpawn
 #endif
                             );
+extern int kmk_builtin_touch(int argc, char **argv, char **envp);
 #ifdef KBUILD_OS_WINDOWS
 extern int kmk_builtin_kSubmit(int argc, char **argv, char **envp, struct child *pChild, pid_t *pPidSpawned);
 extern int kSubmitSubProcGetResult(intptr_t pvUser, int *prcExit, int *piSigNo);
