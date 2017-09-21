@@ -32,6 +32,7 @@
 #define ___nt_ntunlink_h
 
 #include "nttypes.h"
+#include <wchar.h>
 
 int birdUnlink(const char *pszFile);
 int birdUnlinkW(const wchar_t *pwszFile);

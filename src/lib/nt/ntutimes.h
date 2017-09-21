@@ -1,6 +1,6 @@
 /* $Id$ */
 /** @file
- * MSC + NT basic & common types, various definitions.
+ * MSC + NT utimes and lutimes.
  */
 
 /*
@@ -28,28 +28,18 @@
  * GPL version 2 or later, or LGPL version 2.1 or later.
  */
 
-#ifndef ___nt_nttypes_h
-#define ___nt_nttypes_h
+#ifndef ___nt_ntutimes_h
+#define ___nt_ntutimes_h
 
-#include <sys/types.h>
+#include "nttypes.h"
 
-typedef struct BirdTimeVal
-{
-    __int64       tv_sec;
-    __int32       tv_usec;
-    __int32       tv_padding0;
-} BirdTimeVal_T;
+int birdUtimes(const char *pszFile, BirdTimeVal_T paTimes[2]);
+int birdLUtimes(const char *pszFile, BirdTimeVal_T paTimes[2]);
 
-typedef struct BirdTimeSpec
-{
-    __int64       tv_sec;
-    __int32       tv_nsec;
-    __int32       tv_padding0;
-} BirdTimeSpec_T;
-
-/** The distance between the NT and unix epochs given in NT time (units of 100
- *  ns). */
-#define BIRD_NT_EPOCH_OFFSET_UNIX_100NS 116444736000000000LL
+#undef  utimes
+#define utimes(a_pszPath, a_paTimes)    birdUtimes(a_pszPath, a_paTimes)
+#undef  lutimes
+#define lutimes(a_pszPath, a_paTimes)   birdLUtimes(a_pszPath, a_paTimes)
 
 #endif
 
