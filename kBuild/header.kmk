@@ -769,6 +769,14 @@ TIME_EXT    := $(KBUILD_BIN_PATH)/kmk_time$(HOSTSUFF_EXE)
 TIME_INT    := $(TIME_EXT)
 TIME        := $(TIME_INT)
 
+TOUCH_EXT   := $(KBUILD_BIN_PATH)/kmk_touch$(HOSTSUFF_EXE)
+if $(KBUILD_KMK_REVISION) >= 3060
+TOUCH_INT   := kmk_touch_append
+else
+TOUCH_INT   := $(TOUCH_EXT)
+endif
+TOUCH       := $(TOUCH_INT)
+
 # Our default shell is the Almquist shell from *BSD.
 ASH         := $(KBUILD_BIN_PATH)/kmk_ash$(HOSTSUFF_EXE)
 MAKESHELL   := $(ASH)
