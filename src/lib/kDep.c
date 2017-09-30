@@ -129,7 +129,7 @@ static void fixcase(char *pszFilename)
          * Find the next slash (or end of string) and terminate the string there.
          */
         while (*psz != '/' && *psz)
-            *psz++;
+            psz++;
         chSlash = *psz;
         *psz = '\0';
 
