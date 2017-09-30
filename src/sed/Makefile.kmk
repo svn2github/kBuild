@@ -73,6 +73,10 @@ kmk_sed_SOURCES.freebsd = \
 kmk_sed_SOURCES.haiku = \
 	lib/strverscmp.c \
 	lib/obstack.c
+kmk_sed_SOURCES.netbsd = \
+	lib/strverscmp.c \
+	lib/obstack.c \
+	lib/getline.c
 kmk_sed_SOURCES.openbsd = \
 	lib/strverscmp.c \
 	lib/obstack.c \
