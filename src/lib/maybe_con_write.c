@@ -97,7 +97,7 @@ ssize_t maybe_con_write(int fd, void *pvBuf, size_t cbToWrite)
      * Semi regular write handling.
      */
     cbWritten = write(fd, pvBuf, (to_write_t)cbToWrite);
-    if (cbWritten == cbToWrite)
+    if (cbWritten == (ssize_t)cbToWrite)
     { /* likely */ }
     else if (cbWritten >= 0 || errno == EINTR)
     {

@@ -293,14 +293,14 @@ int main(int argc, char *argv[])
                  */
                 case 'l':
                 {
-                    const char *psz = &argv[i][2];
-                    if (*psz == '=')
-                        psz++;
-                    if (!strcmp(psz, "c"))
+                    const char *pszValue = &argv[i][2];
+                    if (*pszValue == '=')
+                        pszValue++;
+                    if (!strcmp(pszValue, "c"))
                         ;
                     else
                     {
-                        fprintf(stderr, "%s: error: The '%s' language is not supported.\n", argv[0], psz);
+                        fprintf(stderr, "%s: error: The '%s' language is not supported.\n", argv[0], pszValue);
                         return 1;
                     }
                     break;

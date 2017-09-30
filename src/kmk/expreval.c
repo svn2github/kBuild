@@ -1396,7 +1396,7 @@ static EXPRRET expr_op_equal(PEXPR pThis)
     }
 
     expr_pop_and_delete_var(pThis);
-    return kExprRet_Ok;
+    return rc;
 }
 
 
