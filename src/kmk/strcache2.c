@@ -576,13 +576,13 @@ strcache2_memcmp_inlined (const char *xs, const char *ys, unsigned int length)
       result = 0;
       switch (length)
         {
-          case 7: result |= xs[6] - ys[6];
-          case 6: result |= xs[5] - ys[5];
-          case 5: result |= xs[4] - ys[4];
-          case 4: result |= xs[3] - ys[3];
-          case 3: result |= xs[2] - ys[2];
-          case 2: result |= xs[1] - ys[1];
-          case 1: result |= xs[0] - ys[0];
+          case 7: result |= xs[6] - ys[6]; /* fall thru */
+          case 6: result |= xs[5] - ys[5]; /* fall thru */
+          case 5: result |= xs[4] - ys[4]; /* fall thru */
+          case 4: result |= xs[3] - ys[3]; /* fall thru */
+          case 3: result |= xs[2] - ys[2]; /* fall thru */
+          case 2: result |= xs[1] - ys[1]; /* fall thru */
+          case 1: result |= xs[0] - ys[0]; /* fall thru */
               return result;
           default:
           case 0:
