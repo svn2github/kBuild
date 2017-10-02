@@ -167,6 +167,24 @@ static int touch_usage(void)
 }
 
 
+#if K_OS == K_OS_SOLARIS
+/**
+ * Solaris doesn't have lutimes because System V doesn't believe in stuff like file modes on symbolic links.
+ */
+static int lutimes(const char *pszFile, struct timeval aTimes[2])
+{
+    struct stat Stat;
+    if (stat(pszFile, &Stat) != -1)
+    {
+        if (!S_ISLNK(Stat.st_mode))
+            return utimes(pszFile, aTimes);
+        return 0;
+    }
+    return -1;
+}
+#endif 
+
+
 /**
  * Parses adjustment value: [-][[hh]mm]SS
  */
@@ -327,7 +345,11 @@ static int touch_parse_d_ts(const char *pszTs, struct timeval *pDst)
     ExpTime.tm_wday  = -1;
     if (ExpTime.tm_isdst == 0)
     {
+#if K_OS == K_OS_SOLARIS
+        pDst->tv_sec = mktime(&ExpTime) - timezone; /* best we can do for now */
+#else
         pDst->tv_sec = timegm(&ExpTime);
+#endif
         if (pDst->tv_sec == -1)
             return touch_error("timegm failed on '%s': %s", pszTs, strerror(errno));
     }
