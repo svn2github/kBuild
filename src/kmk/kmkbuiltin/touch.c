@@ -345,7 +345,7 @@ static int touch_parse_d_ts(const char *pszTs, struct timeval *pDst)
     ExpTime.tm_wday  = -1;
     if (ExpTime.tm_isdst == 0)
     {
-#if K_OS == K_OS_SOLARIS
+#if K_OS == K_OS_SOLARIS || K_OS == K_OS_OS2
         pDst->tv_sec = mktime(&ExpTime) - timezone; /* best we can do for now */
 #else
         pDst->tv_sec = timegm(&ExpTime);
