@@ -3243,7 +3243,9 @@ static PKWTOOL kwToolLookup(const char *pszExe, KU32 cEnvVars, const char **paps
         else
         {
             kFsCacheObjRelease(g_pFsCache, pToolFsObj);
-            kwErrPrintf("kwToolLookup(%s) -> NULL: not file (%d)\n", pszExe, pToolFsObj->bObjType);
+            kwErrPrintf("kwToolLookup(%s) -> NULL: not file (bObjType=%d fFlags=%#x uCacheGen=%u auGenerationsMissing=[%u,%u])\n",
+                        pszExe, pToolFsObj->bObjType, pToolFsObj->fFlags, pToolFsObj->uCacheGen,
+                        g_pFsCache->auGenerationsMissing[0], g_pFsCache->auGenerationsMissing[1]);
         }
     }
     else
