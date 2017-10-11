@@ -47,9 +47,11 @@
 #include <direct.h>
 #include "nt/ntstat.h"
 #include "nt/ntunlink.h"
-#if defined(MSC_DO_64_BIT_IO) && _MSC_VER >= 1400 /* We want 64-bit file lengths here when possible. */
-# define off_t __int64
-# define lseek _lseeki64
+#ifdef MSC_DO_64_BIT_IO
+# if _MSC_VER >= 1400 /* We want 64-bit file lengths here when possible. */
+#  define off_t __int64
+#  define lseek _lseeki64
+# endif
 #endif
 
 #undef timeval
