@@ -772,7 +772,7 @@ TIME        := $(TIME_INT)
 
 TOUCH_EXT   := $(KBUILD_BIN_PATH)/kmk_touch$(HOSTSUFF_EXE)
 if $(KBUILD_KMK_REVISION) >= 3060
-TOUCH_INT   := kmk_touch_append
+TOUCH_INT   := kmk_builtin_touch
 else
 TOUCH_INT   := $(TOUCH_EXT)
 endif
