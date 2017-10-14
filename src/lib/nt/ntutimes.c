@@ -56,8 +56,21 @@ static int birdUtimesInternal(const char *pszPath, BirdTimeVal_T paTimes[2], int
         MY_NTSTATUS                 rcNt;
 
         memset(&Info, 0, sizeof(0));
-        Info.LastAccessTime.QuadPart = birdNtTimeFromTimeVal(&paTimes[0]);
-        Info.LastWriteTime.QuadPart  = birdNtTimeFromTimeVal(&paTimes[1]);
+        if (paTimes)
+        {
+            Info.LastAccessTime.QuadPart = birdNtTimeFromTimeVal(&paTimes[0]);
+            Info.LastWriteTime.QuadPart  = birdNtTimeFromTimeVal(&paTimes[1]);
+        }
+        else
+        {
+            /** @todo replace this with something from ntdll  */
+            FILETIME Now;
+            GetSystemTimeAsFileTime(&Now);
+            Info.LastAccessTime.HighPart  = Now.dwHighDateTime;
+            Info.LastAccessTime.LowPart   = Now.dwLowDateTime;
+            Info.LastWriteTime.HighPart   = Now.dwHighDateTime;
+            Info.LastWriteTime.LowPart    = Now.dwLowDateTime;
+        }
 
         Ios.Information = -1;
         Ios.u.Status    = -1;
