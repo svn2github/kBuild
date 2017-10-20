@@ -36,7 +36,7 @@
 
 /* For the GNU/hurd weirdo. */
 #if !defined(PATH_MAX) && !defined(_MAX_PATH)
-# define PATH_MAX 2048
+# define PATH_MAX 4096
 #endif
 
 #include "kbuild_version.h"
