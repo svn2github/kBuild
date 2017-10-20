@@ -338,7 +338,7 @@ if test -z "$KBUILD_HOST_ARCH"; then
         x86_64|AMD64|amd64|k8|k8l|k9|k10)
             KBUILD_HOST_ARCH='amd64'
             ;;
-        x86|i86pc|ia32|i[3456789]86|BePC)
+        x86|i86pc|ia32|i[3456789]86|BePC|i[3456789]86-AT[3456789]86)
             KBUILD_HOST_ARCH='x86'
             ;;
         alpha)
