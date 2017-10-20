@@ -102,6 +102,9 @@ kash_SOURCES = \
 	shheap.c \
 	shthread.c \
 	shfile.c
+kash_SOURCES.gnuhurd = \
+	sys_signame.c \
+	strlcpy.c
 kash_SOURCES.gnukfbsd = \
 	sys_signame.c \
 	strlcpy.c

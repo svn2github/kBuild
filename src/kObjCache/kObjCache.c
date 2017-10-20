@@ -42,7 +42,11 @@
 #include <limits.h>
 #include <ctype.h>
 #ifndef PATH_MAX
-# define PATH_MAX _MAX_PATH /* windows */
+# ifdef _MAX_PATH
+#  define PATH_MAX _MAX_PATH /* windows */
+# else
+#  define PATH_MAX 4096 /* gnu hurd */
+# endif
 #endif
 #if defined(__OS2__) || defined(__WIN__)
 # include <process.h>

@@ -62,6 +62,11 @@
 #include <k/kTypes.h>
 #include "err.h"
 #include "kbuild_version.h"
+#if defined(__gnu_hurd__) && !defined(kmk_builtin_redirect) /* need constant */
+# undef GET_PATH_MAX
+# undef PATH_MAX
+# define GET_PATH_MAX PATH_MAX
+#endif
 #include "kmkbuiltin.h"
 #ifdef KMK
 # ifdef KBUILD_OS_WINDOWS

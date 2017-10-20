@@ -379,7 +379,7 @@ endif
 TEMPLATE_BIN-THREADED = Threaded command line binary
 TEMPLATE_BIN-THREADED_EXTENDS = BIN
 TEMPLATE_BIN-THREADED_EXTENDS_BY = appending
-if1of ($(KBUILD_TARGET), dragonfly freebsd gnukfbsd gnuknbsd linux netbsd openbsd)
+if1of ($(KBUILD_TARGET), dragonfly freebsd gnuhurd gnukfbsd gnuknbsd linux netbsd openbsd)
  TEMPLATE_BIN-THREADED_LIBS = pthread
 endif
 

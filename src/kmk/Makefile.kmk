@@ -107,6 +107,9 @@ kmkmissing_SOURCES.dragonfly = \
 kmkmissing_SOURCES.freebsd = \
 	glob/fnmatch.c
 
+kmkmissing_SOURCES.gnuhurd += \
+	kmkbuiltin/strlcpy.c
+
 kmkmissing_SOURCES.gnukfbsd += \
 	kmkbuiltin/strlcpy.c
 
