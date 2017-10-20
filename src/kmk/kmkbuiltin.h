@@ -35,9 +35,17 @@
 #endif
 
 /* For the GNU/hurd weirdo. */
-#if !defined(PATH_MAX) && !defined(_MAX_PATH)
-# define PATH_MAX 4096
+#ifndef PATH_MAX
+# ifdef MAXPATHLEN
+#  define PATH_MAX  MAXPATHLEN
+# else
+#  define PATH_MAX  4096
+# endif
 #endif
+#ifndef MAXPATHLEN
+# define MAXPATHLEN PATH_MAX
+#endif
+
 
 #include "kbuild_version.h"
 
