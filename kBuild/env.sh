@@ -264,6 +264,14 @@ if test -z "$KBUILD_HOST"; then
             KBUILD_HOST=freebsd
             ;;
 
+        GNU/kFreeBSD)
+            KBUILD_HOST=gnukfbsd
+            ;;
+
+        GNU/kNetBSD|GNU/NetBSD)
+            KBUILD_HOST=gnuknbsd
+            ;;
+
         Haiku)
             KBUILD_HOST=haiku
             ;;
