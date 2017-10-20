@@ -678,7 +678,7 @@ incdep_are_threads_enabled (void)
   if (getenv ("KMK_THREADS_ENABLED"))
     return 1;
 
-#if defined (__gnu_linux__) || defined (__linux__)
+#if defined (__gnu_linux__) || defined (__linux__) || defined(__GLIBC__)
   /* Try detect fakeroot. */
   if (getenv ("FAKEROOTKEY")
    || getenv ("FAKEROOTUID")
