@@ -47,7 +47,7 @@ set _KBUILD_OVERRIDE_TARGET_ARCH=0
 REM
 REM Parse the arguments.
 REM
-REM Note: The 0 argument must be safed as it is also shifted.
+REM Note: The 0 argument must be saved as it is also shifted.
 REM
 set _KBUILD_SELF=%0
 set _KBUILD_OPT_FULL=0
