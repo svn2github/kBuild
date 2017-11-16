@@ -127,7 +127,7 @@ static int birdUnlinkInternal(HANDLE hRoot, const char *pszFile, const wchar_t *
             {
                 rcNt = birdOpenFileUniStr(hRoot,
                                           &NtPath,
-                                          DELETE,
+                                          DELETE | SYNCHRONIZE,
                                           FILE_ATTRIBUTE_NORMAL,
                                           FILE_SHARE_DELETE | FILE_SHARE_READ | FILE_SHARE_WRITE,
                                           FILE_OPEN,
