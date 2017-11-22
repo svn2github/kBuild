@@ -339,8 +339,20 @@ if test -z "$KBUILD_HOST_ARCH"; then
             KBUILD_HOST_ARCH='amd64'
             # Try detect debian x32.
             if test "$KBUILD_HOST" = "linux"; then 
-                case "`uname -v`" in 
-                    *Debian*+x32+*) KBUILD_HOST_ARCH=x32 ;;
+                if test -z "${DEB_HOST_ARCH}"; then
+                    DEB_HOST_ARCH=`dpkg-architecture -qDEB_HOST_ARCH 2> /dev/null`;
+                    if test -z "${DEB_HOST_ARCH}"; then
+                        DEB_HOST_ARCH=`dpkg --print-architecture 2> /dev/null`;
+                    fi
+                fi
+                case "${DEB_HOST_ARCH}" in
+                    "x32")
+                        KBUILD_HOST_ARCH=x32
+                        ;;
+                    "") case "`uname -v`" in
+                            *Debian*+x32+*) KBUILD_HOST_ARCH=x32 ;;
+                        esac
+                        ;;
                 esac
             fi
             ;;
