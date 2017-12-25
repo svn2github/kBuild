@@ -563,8 +563,8 @@ endif
 
 
 # Custom pre-link actions.
-local pre_cmds  := $(evalcall def_fn_prop_get_first_defined,PRE_CMDS)
-local post_cmds := $(evalcall def_fn_prop_get_first_defined,POST_CMDS)
+local pre_cmds  := $(evalcall def_fn_prop_get_all_prefixed_priority_last,PRE_CMDS,$(NLTAB))
+local post_cmds := $(evalcall def_fn_prop_get_all_prefixed_priority_last,POST_CMDS,$(NLTAB))
 
 # eliminate this guy?
 local objs = $($(target)_2_OBJS)
@@ -887,8 +887,8 @@ local debug_stage   := $(evalcall def_fn_prop_get_first_defined,DEBUG_STAGE)
 local debug_nostage := $(evalcall def_fn_prop_get_first_word,DEBUG_NOSTAGE)
 
 # Custom pre/post-link actions.
-local pre_cmds      := $(evalcall def_fn_prop_get_first_defined,PRE_CMDS)
-local post_cmds     := $(evalcall def_fn_prop_get_first_defined,POST_CMDS)
+local pre_cmds      := $(evalcall def_fn_prop_get_all_prefixed_priority_last,PRE_CMDS,$(NLTAB))
+local post_cmds     := $(evalcall def_fn_prop_get_all_prefixed_priority_last,POST_CMDS,$(NLTAB))
 
 # eliminate this guy?
 local objs = $($(target)_2_OBJS)
