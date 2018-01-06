@@ -168,7 +168,7 @@ typedef struct KDUPSIZENODE
 *   Global Variables                                                                                                             *
 *********************************************************************************************************************************/
 /** The verbosity level. */
-static unsigned g_cVerbosity                    = 2;
+static unsigned g_cVerbosity                    = 0;
 
 /** Whether to recurse into subdirectories. */
 static KBOOL    g_fRecursive                    = K_FALSE;
@@ -679,6 +679,11 @@ static int usage(const char *pszName, FILE *pOut)
             "    mount point or via a symbolic link to a directory.\n"
             "  --no-one-file-system, --cross-file-systems\n"
             "    Reverses the effect of --one-file-system.\n"
+            "  -q, --quiet, -v,--verbose\n"
+            "    Controls the output level.\n"
+            "  --hardlink-duplicates\n"
+            "    Hardlink duplicate files to remove duplicates and save space.  By default\n"
+            "    no action is taken and only analysis is done.\n"
             );
     return 0;
 }
