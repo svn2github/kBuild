@@ -1626,6 +1626,7 @@ void k_noref()
     {
         _str sArgs = k_func_getparams();
         int  cArgs = k_func_countparams(sArgs);
+        int  fVaArgs = 1;
         int  i;
         int  offLine = 4;
         for (i = 0; i < cArgs; i++)
@@ -1633,24 +1634,44 @@ void k_noref()
             _str sName, sType, sDefault;
             if (!k_func_enumparams(sArgs, i, sType, sName, sDefault))
             {
-                sThis = 'NOREF(' sName ');';
-                if (length(sNoRefs) == 0)
+                if (!fVaArgs)
                 {
-                    sNoRefs = sThis;
-                    offLine += length(sThis);
+                    sThis = 'NOREF(' sName ');';
+                    if (length(sNoRefs) == 0)
+                    {
+                        sNoRefs = sThis;
+                        offLine += length(sThis);
+                    }
+                    else if (offLine + length(sThis) < 130)
+                    {
+                        sNoRefs = sNoRefs ' ' sThis;
+                        offLine += 1 + length(sThis);
+                    }
+                    else
+                    {
+                        sNoRefs = sNoRefs "\n    " sThis;
+                        offLine = 4 + length(sThis);
+                    }
                 }
-                else if (offLine + length(sThis) < 130)
+                else if (length(sNoRefs) == 0)
                 {
-                    sNoRefs = sNoRefs ' ' sThis;
-                    offLine += 1 + length(sThis);
+                    sNoRefs = 'RT_NOREF(' sName;
+                    offLine = length(sNoRefs);
+                }
+                else if (offLine + 2 + length(sName) < 130)
+                {
+                    sNoRefs = sNoRefs ', ' sName;
+                    offLine += 2 + length(sName);
                 }
                 else
                 {
-                    sNoRefs = sNoRefs "\n    " sThis;
-                    offLine = 4 + length(sThis);
+                    sNoRefs = sNoRefs ',\n    ' sName;
+                    offLine += 4 + length(sName);
                 }
             }
         }
+        if (length(sNoRefs) > 0 && fVaArgs != 0)
+            sNoRefs = sNoRefs ');';
     }
 
     _restore_pos2(org_pos);
