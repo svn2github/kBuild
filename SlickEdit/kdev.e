@@ -3560,8 +3560,15 @@ _command void kdev_load_settings()
     _str sRest;
     _str sTmp;
 
+#if __VERSION__ >= 21.0
     /*
-     * Generl stuff.
+     * Load the color profile (was lexer).
+     */
+    cload(_strip_filename(__FILE__, 'N') '/user.vlx');
+#endif
+
+    /*
+     * General stuff.
      */
     _default_option('A', '0');          /* ALT menu */
     def_alt_menu = 0;
