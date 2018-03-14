@@ -29,7 +29,7 @@
 #if defined(__APPLE__)
 /*# define _POSIX_C_SOURCE 1  / *  10.4 sdk and unsetenv  * / - breaks O_CLOEXEC on 10.8 */
 #endif
-#include "make.h"
+#include "makeint.h"
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>

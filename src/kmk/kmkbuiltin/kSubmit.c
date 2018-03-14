@@ -29,7 +29,7 @@
 #ifdef __APPLE__
 # define _POSIX_C_SOURCE 1 /* 10.4 sdk and unsetenv */
 #endif
-#include "make.h"
+#include "makeint.h"
 #include "job.h"
 #include "variable.h"
 #include "pathstuff.h"

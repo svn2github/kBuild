@@ -33,7 +33,7 @@
 *   Header Files                                                               *
 *******************************************************************************/
 #ifdef KMK /* For when it gets compiled and linked into kmk. */
-# include "make.h"
+# include "makeint.h"
 #endif
 #include <stdio.h>
 #include <stdlib.h>

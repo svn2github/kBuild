@@ -31,7 +31,7 @@
 *   Header Files                                                                                                                 *
 *********************************************************************************************************************************/
 #include "nt/kFsCache.h"
-#include "make.h"
+#include "makeint.h"
 #if defined(KMK) && !defined(__OS2__)
 # include "glob/glob.h"
 #else
@@ -652,10 +652,10 @@ int dir_cache_volatile_dir(const char *pszDir)
             g_fFsCacheIsUsingCustomRevision = K_TRUE;
             return 0;
         }
-        error(reading_file, "failed to mark '%s' as volatile", pszDir);
+        OS(error, reading_file, "failed to mark '%s' as volatile", pszDir);
     }
     else
-        error(reading_file, "failed to mark '%s' as volatile (not found)", pszDir);
+        OS(error, reading_file, "failed to mark '%s' as volatile (not found)", pszDir);
     return -1;
 }
 
