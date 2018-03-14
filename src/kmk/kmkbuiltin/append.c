@@ -82,7 +82,9 @@ int kmk_builtin_append(int argc, char **argv, char **envp)
     int fDefine = 0;
     int fVariables = 0;
     int fCommands = 0;
+#ifndef kmk_builtin_append
     int fLookForInserts = 0;
+#endif
 
     g_progname = argv[0];
 

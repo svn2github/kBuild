@@ -38,6 +38,7 @@
 *   Header Files                                                               *
 *******************************************************************************/
 #include "makeint.h"
+#include "filedef.h"
 #include "dep.h"
 #include "debug.h"
 #include <assert.h>

@@ -600,7 +600,7 @@ int kDepObjCOFFParseCV8SymbolSection(const KU8 *pbSyms, KU32 cbSyms)
 
         if (off + sizeof(*pHdr) >= cbSyms)
         {
-            fprintf(stderr, "%s: CV symbol table entry at %08" KX32_PRI " is too long; cbSyms=%#" KSIZE_PRI "\n",
+            fprintf(stderr, "%s: CV symbol table entry at %08" KX32_PRI " is too long; cbSyms=%#" KX32_PRI "\n",
                     argv0, off, cbSyms);
             return 1; /* FIXME */
         }
@@ -608,7 +608,7 @@ int kDepObjCOFFParseCV8SymbolSection(const KU8 *pbSyms, KU32 cbSyms)
         cbData = pHdr->cb;
         if (off + cbData + sizeof(*pHdr) > cbSyms)
         {
-            fprintf(stderr, "%s: CV symbol table entry at %08" KX32_PRI " is too long; cbData=%#" KX32_PRI " cbSyms=%#" KSIZE_PRI "\n",
+            fprintf(stderr, "%s: CV symbol table entry at %08" KX32_PRI " is too long; cbData=%#" KX32_PRI " cbSyms=%#" KX32_PRI "\n",
                     argv0, off, cbData, cbSyms);
             return 1; /* FIXME */
         }

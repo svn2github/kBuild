@@ -464,7 +464,7 @@ kbuild_replace_special_accessors(const char *pchValue, size_t *pcchValue, int *p
         }
         else
             error(pFileLoc, 20, _("The '$([%.*s...' accessor can only be used in the context of a kBuild object"),
-                  MAX(cchLeft, 20), pchLeft);
+                  (int)MIN(cchLeft, 20), pchLeft);
     }
 
     return pchValue;

@@ -550,11 +550,11 @@ incdep_read_file (struct incdep *cur, floc *f)
 
       /* bail out */
 
-      error (f, "%s: read: %s", cur->name, strerror (errno));
+      OSS (error, f, "%s: read: %s", cur->name, strerror (errno));
       incdep_xfree (cur, cur->file_base);
     }
   else
-    error (f, "%s: fstat: %s", cur->name, strerror (errno));
+    OSS (error, f, "%s: fstat: %s", cur->name, strerror (errno));
 
   close (fd);
 #endif /* !INCDEP_USE_KFSCACHE */
