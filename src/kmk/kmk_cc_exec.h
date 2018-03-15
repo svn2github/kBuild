@@ -4,7 +4,7 @@
  */
 
 /*
- * Copyright (c) 2015 knut st. osmundsen <bird-kBuild-spamx@anduin.net>
+ * Copyright (c) 2015-2017 knut st. osmundsen <bird-kBuild-spam-xviiv@anduin.net>
  *
  * This file is part of kBuild.
  *
@@ -23,8 +23,8 @@
  *
  */
 
-#ifndef ___kmk_cc_and_exech
-#define ___kmk_cc_and_exech
+#ifndef ___kmk_cc_and_exec_h
+#define ___kmk_cc_and_exec_h
 #ifdef CONFIG_WITH_COMPILER
 
 #include <stdio.h>

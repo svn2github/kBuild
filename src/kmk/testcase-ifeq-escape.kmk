@@ -1,0 +1,18 @@
+# $Id$
+# Testcase for weird 'ifeq' and funny escapes.
+
+ifeq "1        	 \
+ \
+ \
+   \
+ \
+ " \
+"1 "
+$(info info: ifeq -> equal)
+else
+$(error info: ifeq -> not equal - wrong)
+endif
+
+all:
+	@echo okay
+
