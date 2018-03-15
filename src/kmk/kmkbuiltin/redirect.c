@@ -1566,6 +1566,7 @@ int main(int argc, char **argv, char **envp)
                             fd = 0;
                             break;
                         }
+                        /* fall thru */
                     case '1':
                     case '2':
                     case '3':
