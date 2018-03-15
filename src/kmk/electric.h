@@ -44,7 +44,8 @@ void *xrealloc_size_t (void *ptr, size_t size);
 
 
 #undef  free
-#define free(a)         xfree(a)
+//#define free(a)         xfree(a)
+#define free            xfree
 #undef  strdup
 #define strdup(a)       xstrdup(a)
 
