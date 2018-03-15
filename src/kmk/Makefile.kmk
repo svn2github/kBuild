@@ -125,7 +125,6 @@ kmkmissing_SOURCES.linux += \
 	kmkbuiltin/strlcpy.c
 
 kmkmissing_SOURCES.netbsd = \
-	glob/glob.c \
 	glob/fnmatch.c
 
 kmkmissing_SOURCES.openbsd = \
