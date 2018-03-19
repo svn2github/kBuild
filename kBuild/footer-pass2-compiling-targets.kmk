@@ -49,12 +49,6 @@ else
 endif
 
 
-## Temporary for the compile rule below.
-if "$(KBUILD_KMK_REVISION)" >= 3134
- KBUILD_HAVE_OPTIMIZED_APPEND := 1
-endif
-
-
 ## Generates the rules for building a specific object, and the aliases
 # for building a source file.
 # @param    $(obj)    The object file.
