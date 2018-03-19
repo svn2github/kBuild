@@ -35,6 +35,8 @@ int     MkWinChildCreateSubmit(intptr_t hEvent, void *pvSubmitWorker, pid_t *pPi
 int     MkWinChildCreateRedirect(intptr_t hProcess, pid_t *pPid);
 int     MkWinChildKill(pid_t pid, int iSignal, struct child *pMkChild);
 int     MkWinChildWait(int fBlock, pid_t *pPid, int *piExitCode, int *piSignal, int *pfCoreDumped, struct child **ppMkChild);
+void    MkWinChildExclusiveAcquire(void);
+void    MkWinChildExclusiveRelease(void);
 
 #undef  CLOSE_ON_EXEC
 #define CLOSE_ON_EXEC(a_fd) MkWinChildUnrelatedCloseOnExec(a_fd)

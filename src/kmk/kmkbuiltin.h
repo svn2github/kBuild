@@ -46,6 +46,15 @@
 # define MAXPATHLEN PATH_MAX
 #endif
 
+/** This is for telling fopen() to get a close-on-exec handle.
+ * @todo glibc 2.7+ and recent cygwin supports 'e' for doing this. */
+#ifndef KMK_FOPEN_NO_INHERIT_MODE
+# ifdef _MSC_VER
+#  define KMK_FOPEN_NO_INHERIT_MODE "N"
+# else
+#  define KMK_FOPEN_NO_INHERIT_MODE ""
+# endif
+#endif
 
 #include "kbuild_version.h"
 

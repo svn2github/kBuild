@@ -189,10 +189,12 @@ int kmk_builtin_append(int argc, char **argv, char **envp)
     }
 
     /*
-     * Open the output file.
+     * Open the output file, preferrably with close-on-exec.
      */
     iFile = i;
-    pFile = fopen(argv[i], fTruncate ? "w" : "a");
+    pFile = fopen(argv[i],
+                  fTruncate ? "w" KMK_FOPEN_NO_INHERIT_MODE
+                            : "a" KMK_FOPEN_NO_INHERIT_MODE);
     if (!pFile)
         return err(1, "failed to open '%s'", argv[i]);
 
