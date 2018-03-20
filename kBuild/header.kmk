@@ -1013,7 +1013,7 @@ ifdef KBUILD_HAVE_OPTIMIZED_APPEND
 define KB_FN_AUTO_CMD_DEPS_COMMANDS
 	%$(QUIET2)$(APPEND) -tni "$@.auto-dep" \
 		'define AUTO_CMD_DEP_$(translate $@,:,_)_PREV_CMDS' \
-		'--insert-command="$@" \
+		'--insert-command=$@' \
 		'endef'
 endef
 else
