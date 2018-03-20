@@ -349,14 +349,13 @@ static int mscDup3(int fdSource, int fdNew, int fFlags, FILE *pStdErr)
 static KBOOL kRedirectHasConflict(int fd, unsigned cOrders, REDIRECTORDERS *paOrders)
 {
 #ifdef ONLY_TARGET_STANDARD_HANDLES
-    if (fd >= 3)
-        return K_TRUE;
+    return fd < 3;
 #else
     while (cOrders-- > 0)
         if (paOrders[cOrders].fdTarget == fd)
             return K_TRUE;
-#endif
     return K_FALSE;
+#endif
 }
 
 
