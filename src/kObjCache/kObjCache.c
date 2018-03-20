@@ -806,6 +806,8 @@ typedef struct KOCDEP
     char *pszFilename;
     /** The current dependency file. */
     PDEP pCurDep;
+    /** The core dependency collector state. */
+    DEPGLOBALS Core;
 } KOCDEP;
 /** Pointer to a KOCDEP.  */
 typedef KOCDEP *PKOCDEP;
@@ -823,6 +825,7 @@ static void kOCDepInit(PKOCDEP pDepState)
     pDepState->cbFilenameAlloced = 0;
     pDepState->pszFilename = NULL;
     pDepState->pCurDep = NULL;
+    depInit(&pDepState->Core);
 }
 
 
@@ -836,7 +839,7 @@ static void kOCDepDelete(PKOCDEP pDepState)
     pDepState->enmState = kOCDepState_Invalid;
     free(pDepState->pszFilename);
     pDepState->pszFilename = NULL;
-    depCleanup();
+    depCleanup(&pDepState->Core);
 }
 
 
@@ -907,7 +910,7 @@ static void kOCDepEnter(PKOCDEP pDepState, const char *pszUnescFilename, size_t 
     if (   !pDepState->pCurDep
         || cchFilename != pDepState->pCurDep->cchFilename
         || strcmp(pDepState->pszFilename, pDepState->pCurDep->szFilename))
-        pDepState->pCurDep = depAdd(pDepState->pszFilename, cchFilename);
+        pDepState->pCurDep = depAdd(&pDepState->Core, pDepState->pszFilename, cchFilename);
 }
 
 
@@ -1069,7 +1072,7 @@ kOCDepConsumer(PKOCDEP pDepState, const char *pszInput, size_t cchInput)
                         if (   !pDepState->pCurDep
                             || cchFilename != pDepState->pCurDep->cchFilename
                             || strcmp(pDepState->pszFilename, pDepState->pCurDep->szFilename))
-                            pDepState->pCurDep = depAdd(pDepState->pszFilename, cchFilename);
+                            pDepState->pCurDep = depAdd(&pDepState->Core, pDepState->pszFilename, cchFilename);
                         pDepState->offFilename = 0;
                         break;
                     }
@@ -1111,7 +1114,7 @@ static void kOCDepWriteToFile(PKOCDEP pDepState, const char *pszFilename, const 
     if (!pFile)
         FatalMsg("Failed to open dependency file '%s': %s\n", pszFilename, strerror(errno));
 
-    depOptimize(fFixCase, fQuiet, NULL /*pszIgnoredExt*/);
+    depOptimize(&pDepState->Core, fFixCase, fQuiet, NULL /*pszIgnoredExt*/);
 
     /* Make object file name with unix slashes. */
     pszObjFileAbs = MakePathFromDirAndFile(pszObjFile, pszObjDir);
@@ -1121,9 +1124,9 @@ static void kOCDepWriteToFile(PKOCDEP pDepState, const char *pszFilename, const 
 
     fprintf(pFile, "%s:", pszObjFileAbs);
     free(pszObjFileAbs);
-    depPrint(pFile);
+    depPrint(&pDepState->Core, pFile);
     if (fGenStubs)
-        depPrintStubs(pFile);
+        depPrintStubs(&pDepState->Core, pFile);
 
     if (fclose(pFile) != 0)
         FatalMsg("Failed to write dependency file '%s': %s\n", pszFilename, strerror(errno));
