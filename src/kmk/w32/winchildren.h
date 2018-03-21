@@ -36,6 +36,8 @@ int     MkWinChildCreateWithStdOutPipe(char **papszArgs, char **papszEnv, int fd
 struct KMKBUILTINENTRY;
 int     MkWinChildCreateBuiltIn(struct KMKBUILTINENTRY const *pBuiltIn, int cArgs, char **papszArgs,
                                 char **papszEnv, struct child *pMkChild, pid_t *pPid);
+int     MkWinChildCreateAppend(const char *pszFilename, char **ppszAppend, size_t cbAppend, int fTruncate,
+                               struct child *pMkChild, pid_t *pPid);
 int     MkWinChildCreateSubmit(intptr_t hEvent, void *pvSubmitWorker, pid_t *pPid);
 int     MkWinChildCreateRedirect(intptr_t hProcess, pid_t *pPid);
 #endif
