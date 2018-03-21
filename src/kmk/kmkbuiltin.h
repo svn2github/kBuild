@@ -138,5 +138,9 @@ extern int kBuiltinOptEnvPrepend(char ***ppapszEnv, unsigned *pcEnvVars, unsigne
 extern int kBuiltinOptEnvUnset(char **papszEnv, unsigned *pcEnvVars, int cVerbosity, const char *pszVarToRemove);
 extern int kBuiltinOptChDir(char *pszCwd, size_t cbCwdBuf, const char *pszValue);
 
+#ifdef CONFIG_WITH_KMK_BUILTIN_STATS
+int kmk_builtin_print_stats(FILE *pOutput, const char *pszPrefix);
+#endif
+
 #endif
 
