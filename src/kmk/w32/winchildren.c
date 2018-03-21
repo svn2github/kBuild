@@ -2535,11 +2535,16 @@ int MkWinChildWait(int fBlock, pid_t *pPid, int *piExitCode, int *piSignal, int 
  * Needed when w32os.c is waiting for a job token to become available, given
  * that completed children is the typical source of these tokens (esp. for kmk).
  *
- * @returns Event handle.
+ * @returns Zero if completed children, event handle if waiting is required.
  */
 intptr_t MkWinChildGetCompleteEventHandle(void)
 {
-    return (intptr_t)g_hEvtWaitChildren;
+    /* We don't return the handle if we've got completed children.  This
+       is a safe guard against being called twice in a row without any
+       MkWinChildWait call inbetween. */
+    if (!g_pTailCompletedChildren)
+        return (intptr_t)g_hEvtWaitChildren;
+    return 0;
 }
 
 /**
