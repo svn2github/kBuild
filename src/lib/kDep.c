@@ -282,6 +282,7 @@ void depOptimize(PDEPGLOBALS pThis, int fFixCase, int fQuiet, const char *pszIgn
         /*
          * Check that the file exists before we start depending on it.
          */
+        errno = 0;
 #ifdef KWORKER
         if (!kwFsPathExists(pszFilename))
 #elif defined(KMK)
