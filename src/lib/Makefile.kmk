@@ -54,6 +54,7 @@ kUtil_SOURCES.win = \
        nt/ntstat.c \
        nt/ntunlink.c \
        nt/ntutimes.c \
+       nt/nt_child_inject_standard_handles.c \
        nt/fts-nt.c \
        nt/kFsCache.c \
        kStuff/kHlp/CRT/kHlpCRTString.cpp \
