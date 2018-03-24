@@ -89,11 +89,7 @@ typedef unsigned short nlink_t;
 typedef unsigned short uid_t;
 typedef unsigned short gid_t;
 #endif
-#if defined(_M_AMD64) || defined(_M_X64) || defined(_M_IA64) || defined(_WIN64)
-typedef __int64 ssize_t;
-#else
-typedef long ssize_t;
-#endif
+typedef intptr_t ssize_t;
 typedef unsigned long u_long;
 typedef unsigned int u_int;
 typedef unsigned short u_short;

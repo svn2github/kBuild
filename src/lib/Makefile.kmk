@@ -40,6 +40,7 @@ kUtil_SOURCES = \
 	md5.c \
 	maybe_con_write.c \
 	maybe_con_fwrite.c \
+	is_console.c \
        dos2unix.c \
 	kbuild_version.c
 kUtil_SOURCES.win = \

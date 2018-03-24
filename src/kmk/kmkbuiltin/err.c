@@ -35,9 +35,9 @@
 
 #ifdef KBUILD_OS_WINDOWS
 /* This is a trick to speed up console output on windows. */
+# include "console.h"
 # undef fwrite
 # define fwrite maybe_con_fwrite
-extern size_t maybe_con_fwrite(void const *, size_t, size_t, FILE *);
 #endif
 
 
