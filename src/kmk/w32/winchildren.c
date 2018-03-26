@@ -636,14 +636,23 @@ static int mkWinChildDuplicateUtf16String(const WCHAR *pwszSrc, size_t cwcSrc, W
  */
 static void mkWinChildcareWorkerFlushUnwritten(PWINCHILD pChild, PWINCCWPIPE pPipe)
 {
-    /** @todo integrate with output.c   */
     DWORD cbUnwritten = pPipe->cbWritten - pPipe->offPendingRead;
     if (cbUnwritten)
     {
-        DWORD cbWritten = 0;
-        if (WriteFile(GetStdHandle(pPipe->iWhich == 1 ? STD_OUTPUT_HANDLE : STD_ERROR_HANDLE),
-                      &pPipe->pbBuffer[pPipe->cbWritten], cbUnwritten, &cbWritten, NULL))
-            pPipe->cbWritten += cbWritten <= cbUnwritten ? cbWritten : cbUnwritten; /* paranoia */
+#ifdef CONFIG_WITH_OUTPUT_IN_MEMORY
+        if (pChild->pMkChild)
+        {
+            output_write_bin(&pChild->pMkChild->output, pPipe->iWhich == 2, &pPipe->pbBuffer[pPipe->cbWritten], cbUnwritten);
+            pPipe->cbWritten += cbUnwritten;
+        }
+        else
+#endif
+        {
+            DWORD cbWritten = 0;
+            if (WriteFile(GetStdHandle(pPipe->iWhich == 1 ? STD_OUTPUT_HANDLE : STD_ERROR_HANDLE),
+                          &pPipe->pbBuffer[pPipe->cbWritten], cbUnwritten, &cbWritten, NULL))
+                pPipe->cbWritten += cbWritten <= cbUnwritten ? cbWritten : cbUnwritten; /* paranoia */
+        }
     }
 }
 
@@ -692,15 +701,25 @@ static void mkWinChildcareWorkerCaughtMoreOutput(PWINCHILD pChild, PWINCCWPIPE p
         }
         if (offRest > offStart)
         {
-            /** @todo integrate with output.c   */
             /* Write out offStart..offRest. */
             DWORD cbToWrite = offRest - offStart;
-            DWORD cbWritten = 0;
-            if (WriteFile(GetStdHandle(pPipe->iWhich == 1 ? STD_OUTPUT_HANDLE : STD_ERROR_HANDLE),
-                          &pPipe->pbBuffer[offStart], cbToWrite, &cbWritten, NULL))
+#ifdef CONFIG_WITH_OUTPUT_IN_MEMORY
+            if (pChild->pMkChild)
             {
-                offStart += cbWritten <= cbToWrite ? cbWritten : cbToWrite; /* paranoia */
+                output_write_bin(&pChild->pMkChild->output, pPipe->iWhich == 2, &pPipe->pbBuffer[offStart], cbToWrite);
+                offStart += cbToWrite;
                 pPipe->cbWritten = offStart;
+            }
+            else
+#endif
+            {
+                DWORD cbWritten = 0;
+                if (WriteFile(GetStdHandle(pPipe->iWhich == 1 ? STD_OUTPUT_HANDLE : STD_ERROR_HANDLE),
+                              &pPipe->pbBuffer[offStart], cbToWrite, &cbWritten, NULL))
+                {
+                    offStart += cbWritten <= cbToWrite ? cbWritten : cbToWrite; /* paranoia */
+                    pPipe->cbWritten = offStart;
+                }
             }
         }
     }
