@@ -26,11 +26,13 @@
 #ifndef ___err_h
 #define ___err_h
 
-extern const char *g_progname;
-int err(int eval, const char *fmt, ...);
-int errx(int eval, const char *fmt, ...);
-void warn(const char *fmt, ...);
-void warnx(const char *fmt, ...);
+#include "../kmkbuiltin.h"
+
+int  err(PKMKBUILTINCTX pCtx, int eval, const char *fmt, ...);
+int  errx(PKMKBUILTINCTX pCtx, int eval, const char *fmt, ...);
+void warn(PKMKBUILTINCTX pCtx, const char *fmt, ...);
+void warnx(PKMKBUILTINCTX pCtx, const char *fmt, ...);
+void kmk_builtin_ctx_printf(PKMKBUILTINCTX pCtx, int fIsErr, const char *pszFormat, ...);
 
 #endif
 

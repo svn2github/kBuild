@@ -10289,7 +10289,10 @@ static int kSubmitHandleJobPostCmd(KU32 cPostCmdArgs, const char **papszPostCmdA
 
     /* Command switch. */
     if (kHlpStrComp(pszCmd, "kDepObj") == 0)
-        return kmk_builtin_kDepObj(cPostCmdArgs, (char **)papszPostCmdArgs, NULL);
+    {
+        KMKBUILTINCTX Ctx = { papszPostCmdArgs[0], NULL };
+        return kmk_builtin_kDepObj(cPostCmdArgs, (char **)papszPostCmdArgs, NULL, &Ctx);
+    }
 
     return kwErrPrintfRc(42 + 5 , "Unknown post command: '%s'\n", pszCmd);
 }

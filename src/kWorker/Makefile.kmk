@@ -35,7 +35,8 @@ kWorker_DEFS.debug = K_STRICT
 kWorker_DEFS.release = NASSERT
 kWorker_SOURCES = \
 	kWorker.c \
-       ../kmk/kmkbuiltin/kDepObj.c
+       ../kmk/kmkbuiltin/kDepObj.c \
+       ../kmk/kmkbuiltin/err.c
 kWorker_INCS = \
 	../kmk/ \
 	../kmk/kmkbuiltin

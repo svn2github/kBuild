@@ -26,6 +26,7 @@
 #ifndef ___kbuild_protection_h
 #define ___kbuild_protection_h
 
+
 /**
  * The different protection types.
  */
@@ -46,13 +47,14 @@ typedef struct KBUILDPROTECTION
 {
     unsigned int    uMagic;
     unsigned int    cProtectionDepth;
+    struct KMKBUILTINCTX *pCtx;
     unsigned char   afTypes[KBUILDPROTECTIONTYPE_MAX];
 } KBUILDPROTECTION;
 typedef KBUILDPROTECTION  *PKBUILDPROTECTION;
 typedef const KBUILDPROTECTION *PCKBUILDPROTECTION;
 
 
-void kBuildProtectionInit(PKBUILDPROTECTION pThis);
+void kBuildProtectionInit(PKBUILDPROTECTION pThis, struct KMKBUILTINCTX *pCtx);
 void kBuildProtectionTerm(PKBUILDPROTECTION pThis);
 int  kBuildProtectionScanEnv(PKBUILDPROTECTION pThis, char **papszEnv, const char *pszPrefix);
 void kBuildProtectionEnable(PKBUILDPROTECTION pThis, KBUILDPROTECTIONTYPE enmType);

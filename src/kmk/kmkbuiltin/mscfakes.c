@@ -445,8 +445,8 @@ int symlink(const char *pszDst, const char *pszLink)
         return -1;
     }
 
+    fprintf(stderr, "warning: symlink() is available on this version of Windows!\n");
     errno = ENOSYS;
-    err(1, "symlink() is not implemented on windows!");
     return -1;
 }
 
