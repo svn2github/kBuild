@@ -676,7 +676,7 @@ static void mkWinChildcareWorkerCaughtMoreOutput(PWINCHILD pChild, PWINCCWPIPE p
 
         /* Move offPendingRead ahead by cbRead. */
         pPipe->offPendingRead += cbNewData;
-        assert(pPipe->offPendingRead < pPipe->cbBuffer);
+        assert(pPipe->offPendingRead <= pPipe->cbBuffer);
         if (pPipe->offPendingRead > pPipe->cbBuffer)
             pPipe->offPendingRead = pPipe->cbBuffer;
 
