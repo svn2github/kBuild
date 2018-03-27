@@ -88,6 +88,10 @@ typedef struct KMKBUILTINCTX
     const char *pszProgName;
     /** The KMK output synchronizer.   */
     struct output *pOut;
+#if defined(KBUILD_OS_WINDOWS) && !defined(KMK_BUILTIN_STANDALONE)
+    /** Pointer to the worker thread, if we're on one. */
+    void *pvWorker;
+#endif
 } KMKBUILTINCTX;
 /** Pointer to kmk built-in command execution context. */
 typedef KMKBUILTINCTX *PKMKBUILTINCTX;

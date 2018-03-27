@@ -40,6 +40,10 @@ int     MkWinChildCreateAppend(const char *pszFilename, char **ppszAppend, size_
                                struct child *pMkChild, pid_t *pPid);
 int     MkWinChildCreateSubmit(intptr_t hEvent, void *pvSubmitWorker, pid_t *pPid);
 int     MkWinChildCreateRedirect(intptr_t hProcess, pid_t *pPid);
+# ifdef DECLARE_HANDLE
+int     MkWinChildBuiltInExecChild(void *pvWorker, const char *pszExecutable, char **papszArgs, BOOL fQuotedArgv,
+                                   char **papszEnvVars, const char *pszCwd, BOOL pafReplace[3], HANDLE pahReplace[3]);
+# endif
 #endif
 int     MkWinChildKill(pid_t pid, int iSignal, struct child *pMkChild);
 int     MkWinChildWait(int fBlock, pid_t *pPid, int *piExitCode, int *piSignal, int *pfCoreDumped, struct child **ppMkChild);
