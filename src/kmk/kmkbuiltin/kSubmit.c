@@ -1491,8 +1491,11 @@ int kmk_builtin_kSubmit(int argc, char **argv, char **envp, PKMKBUILTINCTX pCtx,
         PWORKERINSTANCE pWorker = kSubmitSelectWorkSpawnNewIfNecessary(pCtx, cBitsWorker, cVerbosity);
         if (pWorker)
         {
-            if (!pszExecutable)
-                pszExecutable = argv[iArg];
+            /* Before we send off the job, we should dump pending output, since
+               the kWorker process currently does not coordinate its output with
+               the output.c mechanics. */
+            if (pCtx->pOut)
+                output_dump(pCtx->pOut);
 
             rcExit = kSubmitSendJobMessage(pCtx, pWorker, pvMsg, cbMsg, 0 /*fNoRespawning*/, cVerbosity);
             if (rcExit == 0)
