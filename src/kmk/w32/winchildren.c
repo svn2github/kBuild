@@ -3117,13 +3117,16 @@ int MkWinChildCreateAppend(const char *pszFilename, char **ppszAppend, size_t cb
  * @returns 0 on success, windows status code on failure.
  * @param   hEvent          The event object handle to wait on.
  * @param   pvSubmitWorker  The argument to pass back to kSubmit to clean up.
- * @param   pPid            Where to return the pid.
  * @param   pStdOut         Standard output pipe for the worker. Optional.
  * @param   pStdErr         Standard error pipe for the worker. Optional.
+ * @param   pMkChild        The make child structure.
+ * @param   pPid            Where to return the pid.
  */
-int MkWinChildCreateSubmit(intptr_t hEvent, void *pvSubmitWorker, PWINCCWPIPE pStdOut, PWINCCWPIPE pStdErr, pid_t *pPid)
+int MkWinChildCreateSubmit(intptr_t hEvent, void *pvSubmitWorker, PWINCCWPIPE pStdOut, PWINCCWPIPE pStdErr,
+                           struct child *pMkChild, pid_t *pPid)
 {
     PWINCHILD pChild = mkWinChildNew(WINCHILDTYPE_SUBMIT);
+    pChild->pMkChild                = pMkChild;
     pChild->u.Submit.hEvent         = (HANDLE)hEvent;
     pChild->u.Submit.pvSubmitWorker = pvSubmitWorker;
     pChild->u.Submit.pStdOut        = pStdOut;

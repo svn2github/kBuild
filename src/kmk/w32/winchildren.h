@@ -74,7 +74,8 @@ int     MkWinChildCreateBuiltIn(struct KMKBUILTINENTRY const *pBuiltIn, int cArg
 int     MkWinChildCreateAppend(const char *pszFilename, char **ppszAppend, size_t cbAppend, int fTruncate,
                                struct child *pMkChild, pid_t *pPid);
 
-int     MkWinChildCreateSubmit(intptr_t hEvent, void *pvSubmitWorker, PWINCCWPIPE pStdOut, PWINCCWPIPE pStdErr, pid_t *pPid);
+int     MkWinChildCreateSubmit(intptr_t hEvent, void *pvSubmitWorker, PWINCCWPIPE pStdOut, PWINCCWPIPE pStdErr,
+                               struct child *pMkChild, pid_t *pPid);
 PWINCCWPIPE MkWinChildcareCreateWorkerPipe(unsigned iWhich, unsigned int idxWorker);
 void    MkWinChildcareWorkerDrainPipes(struct WINCHILD *pChild, PWINCCWPIPE pStdOut, PWINCCWPIPE pStdErr);
 void    MkWinChildcareDeleteWorkerPipe(PWINCCWPIPE pPipe);
