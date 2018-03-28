@@ -493,7 +493,7 @@ typedef struct KFSCACHE
 /** @def KW_LOG
  * Generic logging.
  * @param a     Argument list for kFsCacheDbgPrintf  */
-#ifdef NDEBUG
+#if 1 /*def NDEBUG - enable when needed! */
 # define KFSCACHE_LOG(a) do { } while (0)
 #else
 # define KFSCACHE_LOG(a) kFsCacheDbgPrintf a
