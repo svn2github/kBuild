@@ -1519,8 +1519,7 @@ int kmk_builtin_redirect(int argc, char **argv, char **envp, PKMKBUILTINCTX pCtx
             /*
              * Zap environment switch?
              */
-            if (   chOpt == 'Z'
-                || chOpt == 'i' /* GNU env compatibility. */ )
+            if (chOpt == 'Z') /* (no -i option here, as it's reserved for stdin) */
             {
                 rcExit = kBuiltinOptEnvZap(pCtx, &papszEnvVars, &cEnvVars, &cAllocatedEnvVars, cVerbosity);
                 continue;
