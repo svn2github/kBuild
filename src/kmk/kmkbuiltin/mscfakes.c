@@ -365,7 +365,7 @@ int mkstemp(char *temp)
         int fd;
         if (doname(pszX, pszEnd))
             return -1;
-        fd = open(temp, _O_EXCL | _O_CREAT | _O_BINARY | _O_RDWR, 0777);
+        fd = open(temp, _O_EXCL | _O_CREAT | _O_BINARY | _O_RDWR | KMK_OPEN_NO_INHERIT, 0777);
         if (fd >= 0)
             return fd;
     }

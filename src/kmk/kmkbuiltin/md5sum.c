@@ -167,7 +167,7 @@ static void *open_file(const char *pszFilename, unsigned fText)
     int fFlags;
 
     /* figure out the appropriate flags. */
-    fFlags = O_RDONLY;
+    fFlags = O_RDONLY | KMK_OPEN_NO_INHERIT;
 #ifdef O_SEQUENTIAL
     fFlags |= _O_SEQUENTIAL;
 #elif defined(_O_SEQUENTIAL)
