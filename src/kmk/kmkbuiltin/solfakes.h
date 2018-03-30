@@ -29,7 +29,10 @@
 
 #include <stdarg.h>
 #include <sys/types.h>
-#include "getopt.h"
+#ifndef FAKES_NO_GETOPT_H
+# include "getopt.h"
+#endif
+
 #define _PATH_DEVNULL "/dev/null"
 #define ALLPERMS 0000777
 #define lutimes(path, tvs) utimes(path, tvs)
@@ -44,5 +47,5 @@ int asprintf(char **strp, const char *fmt, ...);
 int sol_lchmod(const char *pszPath, mode_t mode);
 
 #endif /* __sun__ */
-#endif /* ___solfakes_h */
+#endif /* !___solfakes_h */
 

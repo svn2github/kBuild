@@ -37,7 +37,9 @@
 #include <time.h>
 #include <stdarg.h>
 #include <malloc.h>
-#include "getopt.h"
+#ifndef FAKES_NO_GETOPT_H
+# include "getopt.h"
+#endif
 #ifndef MSCFAKES_NO_WINDOWS_H
 # include <Windows.h>
 #endif
