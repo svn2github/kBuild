@@ -105,6 +105,8 @@ kmkmissing_SOURCES = \
 	kmkbuiltin/strmode.c \
 	kmkbuiltin/kbuild_protection.c \
 	kmkbuiltin/common-env-and-cwd-opt.c \
+	kmkbuiltin/getopt_r.c \
+	kmkbuiltin/getopt1_r.c \
 	getopt.c \
 	getopt1.c \
 	electric.c
