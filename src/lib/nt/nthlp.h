@@ -53,7 +53,6 @@ int         birdSetErrnoToNoMem(void);
 int         birdSetErrnoToInvalidArg(void);
 int         birdSetErrnoToBadFileNo(void);
 
-
 HANDLE      birdOpenFile(const char *pszPath, ACCESS_MASK fDesiredAccess, ULONG fFileAttribs,
                          ULONG fShareAccess, ULONG fCreateDisposition, ULONG fCreateOptions, ULONG fObjAttribs);
 HANDLE      birdOpenFileW(const wchar_t *pwszPath, ACCESS_MASK fDesiredAccess, ULONG fFileAttribs,
@@ -73,6 +72,8 @@ MY_NTSTATUS birdOpenFileUniStr(HANDLE hRoot, MY_UNICODE_STRING *pNtPath, ACCESS_
                                HANDLE *phFile);
 HANDLE      birdOpenCurrentDirectory(void);
 void        birdCloseFile(HANDLE hFile);
+
+int         birdIsPathDirSpec(const char *pszPath);
 int         birdDosToNtPath(const char *pszPath, MY_UNICODE_STRING *pNtPath);
 int         birdDosToNtPathW(const wchar_t *pwszPath, MY_UNICODE_STRING *pNtPath);
 int         birdDosToRelativeNtPath(const char *pszPath, MY_UNICODE_STRING *pNtPath);

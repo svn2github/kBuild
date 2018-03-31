@@ -178,6 +178,7 @@ typedef struct MY_FILE_NETWORK_OPEN_INFORMATION
     LARGE_INTEGER   AllocationSize;
     LARGE_INTEGER   EndOfFile;
     ULONG           FileAttributes;
+    ULONG           AlignmentPadding;
 } MY_FILE_NETWORK_OPEN_INFORMATION;
 
 typedef struct MY_FILE_INTERNAL_INFORMATION

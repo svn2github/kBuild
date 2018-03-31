@@ -82,7 +82,7 @@ static int birdHasTrailingSlashW(const wchar_t *pwszPath)
 }
 
 
-static int birdIsPathDirSpec(const char *pszPath)
+int birdIsPathDirSpec(const char *pszPath)
 {
     char ch, ch2;
 
