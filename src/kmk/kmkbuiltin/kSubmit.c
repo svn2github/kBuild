@@ -1195,10 +1195,11 @@ l_again:
  *
  * @returns 0 on success, -1 if ReadFile was restarted.
  * @param   pvUser              The worker instance.
+ * @param   fBlock              if we're to block waiting for the result or not.
  * @param   prcExit             Where to return the exit code.
  * @param   piSigNo             Where to return the signal number.
  */
-int kSubmitSubProcGetResult(intptr_t pvUser, int *prcExit, int *piSigNo)
+int kSubmitSubProcGetResult(intptr_t pvUser, int fBlock, int *prcExit, int *piSigNo)
 {
     PWORKERINSTANCE pWorker = (PWORKERINSTANCE)pvUser;
     KMKBUILTINCTX   FakeCtx = { "kSubmit/GetResult", NULL };
@@ -1209,7 +1210,7 @@ int kSubmitSubProcGetResult(intptr_t pvUser, int *prcExit, int *piSigNo)
      * because of a satisfied WaitForMultipleObject.
      */
     DWORD cbRead = 0;
-    if (GetOverlappedResult(pWorker->hPipe, &pWorker->OverlappedRead, &cbRead, TRUE))
+    if (GetOverlappedResult(pWorker->hPipe, &pWorker->OverlappedRead, &cbRead, fBlock ? TRUE : FALSE))
     {
         pWorker->cbResultRead += cbRead;
         assert(pWorker->cbResultRead <= sizeof(pWorker->Result));
@@ -1227,6 +1228,8 @@ int kSubmitSubProcGetResult(intptr_t pvUser, int *prcExit, int *piSigNo)
     else
     {
         DWORD dwErr = GetLastError();
+        if (dwErr == ERROR_IO_INCOMPLETE && !fBlock)
+            return -1;
         kSubmitWinReadFailed(pCtx, pWorker, dwErr, "kSubmitSubProcGetResult/result");
     }
 

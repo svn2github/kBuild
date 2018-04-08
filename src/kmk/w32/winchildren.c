@@ -2333,9 +2333,9 @@ static void mkWinChildcareWorkerThreadHandleSubmit(PWINCHILDCAREWORKER pWorker, 
     {
         assert(pChild->u.Submit.pStdErr);
         pChild->u.Submit.pStdOut->fHaveWrittenOut = FALSE;
-        ahHandles[cHandles++] = pChild->u.Submit.pStdOut->hPipeMine;
+        ahHandles[cHandles++] = pChild->u.Submit.pStdOut->hEvent;
         pChild->u.Submit.pStdErr->fHaveWrittenOut = FALSE;
-        ahHandles[cHandles++] = pChild->u.Submit.pStdErr->hPipeMine;
+        ahHandles[cHandles++] = pChild->u.Submit.pStdErr->hEvent;
     }
 
     /*
@@ -2346,7 +2346,7 @@ static void mkWinChildcareWorkerThreadHandleSubmit(PWINCHILDCAREWORKER pWorker, 
         int   iExitCode = -42;
         int   iSignal   = -1;
         DWORD dwStatus;
-        if (cHandles == 0)
+        if (cHandles == 1)
             dwStatus = WaitForSingleObject(ahHandles[0], INFINITE);
         else
         {
@@ -2357,7 +2357,7 @@ static void mkWinChildcareWorkerThreadHandleSubmit(PWINCHILDCAREWORKER pWorker, 
             else if (dwStatus == WAIT_OBJECT_0 + 2)
                 mkWinChildcareWorkerCatchOutput(pChild, pChild->u.Submit.pStdErr, FALSE /*fDraining*/);
         }
-        if (kSubmitSubProcGetResult((intptr_t)pvSubmitWorker, &iExitCode, &iSignal) == 0)
+        if (kSubmitSubProcGetResult((intptr_t)pvSubmitWorker, dwStatus == WAIT_OBJECT_0 /*fBlock*/, &iExitCode, &iSignal) == 0)
         {
             if (pChild->u.Submit.pStdOut)
                 MkWinChildcareWorkerDrainPipes(pChild, pChild->u.Submit.pStdOut, pChild->u.Submit.pStdErr);

@@ -149,7 +149,7 @@ extern int kmk_builtin_test(int argc, char **argv, char **envp, PKMKBUILTINCTX p
 extern int kmk_builtin_touch(int argc, char **argv, char **envp, PKMKBUILTINCTX pCtx);
 #ifdef KBUILD_OS_WINDOWS
 extern int kmk_builtin_kSubmit(int argc, char **argv, char **envp, PKMKBUILTINCTX pCtx, struct child *pChild, pid_t *pPidSpawned);
-extern int kSubmitSubProcGetResult(intptr_t pvUser, int *prcExit, int *piSigNo);
+extern int kSubmitSubProcGetResult(intptr_t pvUser, int fBlock, int *prcExit, int *piSigNo);
 extern int kSubmitSubProcKill(intptr_t pvUser, int iSignal);
 extern void kSubmitSubProcCleanup(intptr_t pvUser);
 #endif
