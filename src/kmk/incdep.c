@@ -256,7 +256,7 @@ incdep_xmalloc (struct incdep *cur, size_t size)
     {
       ptr = malloc_zone_malloc (incdep_zone, size);
       if (!ptr)
-        fatal (NILF, _("virtual memory exhausted"));
+        O (fatal, NILF, _("virtual memory exhausted"));
     }
   else
     ptr = xmalloc (size);
