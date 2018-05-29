@@ -458,9 +458,9 @@ int kmk_builtin_command_parsed(int argc, char **argv, struct child *pChild, char
 
 #ifndef KBUILD_OS_WINDOWS
 /** Dummy. */
-int kmk_builtin_dircache(int argc, char **argv, char **envp)
+int kmk_builtin_dircache(int argc, char **argv, char **envp, PKMKBUILTINCTX pCtx)
 {
-    (void)argc; (void)argv; (void)envp;
+    (void)argc; (void)argv; (void)envp; (void)pCtx;
     return 0;
 }
 #endif
