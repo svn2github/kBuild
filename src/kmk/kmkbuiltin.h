@@ -34,6 +34,9 @@
 # include <sys/types.h>
 #endif
 #include <fcntl.h>
+#ifdef HAVE_STDINT_H
+# include <stdint.h>
+#endif
 
 /* For the GNU/hurd weirdo. */
 #ifndef PATH_MAX

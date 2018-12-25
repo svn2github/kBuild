@@ -28,6 +28,12 @@
 *******************************************************************************/
 #ifdef HAVE_CONFIG_H
 # include "config.h"
+# ifdef HAVE_STDLIB_H
+#  include <stdlib.h>
+# endif
+# ifdef HAVE_STDINT_H
+#  include <stdint.h>
+# endif
 #else
 # include <stdlib.h>
 # define snprintf _snprintf
