@@ -357,9 +357,9 @@ const char *sh_gethomedir(shinstance *, const char *);
 
 /* signals */
 #define SH_SIG_UNK ((shsig_t)(intptr_t)-199)
-#define SH_SIG_DFL ((shsig_t)SIG_DFL)
-#define SH_SIG_IGN ((shsig_t)SIG_IGN)
-#define SH_SIG_ERR ((shsig_t)SIG_ERR)
+#define SH_SIG_DFL ((shsig_t)(intptr_t)SIG_DFL)
+#define SH_SIG_IGN ((shsig_t)(intptr_t)SIG_IGN)
+#define SH_SIG_ERR ((shsig_t)(intptr_t)SIG_ERR)
 #ifdef _MSC_VER
 #   define SA_RESTART       0x02
 #   define SIG_BLOCK         1
