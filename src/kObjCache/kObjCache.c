@@ -942,6 +942,7 @@ kOCDepConsumer(PKOCDEP pDepState, const char *pszInput, size_t cchInput)
                 psz++;
                 cchInput -= psz - pszInput;
                 pszInput = psz;
+                /* fall thru */
 
             case kOCDepState_NeedHash:
                 while (cchInput > 0 && MY_IS_BLANK(*pszInput))
@@ -954,6 +955,7 @@ kOCDepConsumer(PKOCDEP pDepState, const char *pszInput, size_t cchInput)
                 pszInput++;
                 cchInput--;
                 enmState = kOCDepState_NeedLine_l;
+                /* fall thru */
 
             case kOCDepState_NeedLine_l:
             case kOCDepState_NeedLine_l_HaveSpace:
@@ -978,6 +980,7 @@ kOCDepConsumer(PKOCDEP pDepState, const char *pszInput, size_t cchInput)
                 pszInput++;
                 if (!--cchInput)
                     return pDepState->enmState = kOCDepState_NeedLine_i;
+                /* fall thru */
 
             case kOCDepState_NeedLine_i:
                 if (*pszInput != 'i')
@@ -985,6 +988,7 @@ kOCDepConsumer(PKOCDEP pDepState, const char *pszInput, size_t cchInput)
                 pszInput++;
                 if (!--cchInput)
                     return pDepState->enmState = kOCDepState_NeedLine_n;
+                /* fall thru */
 
             case kOCDepState_NeedLine_n:
                 if (*pszInput != 'n')
@@ -992,6 +996,7 @@ kOCDepConsumer(PKOCDEP pDepState, const char *pszInput, size_t cchInput)
                 pszInput++;
                 if (!--cchInput)
                     return pDepState->enmState = kOCDepState_NeedLine_e;
+                /* fall thru */
 
             case kOCDepState_NeedLine_e:
                 if (*pszInput != 'e')
@@ -999,12 +1004,14 @@ kOCDepConsumer(PKOCDEP pDepState, const char *pszInput, size_t cchInput)
                 pszInput++;
                 if (!--cchInput)
                     return pDepState->enmState = kOCDepState_NeedSpaceBeforeDigit;
+                /* fall thru */
 
             case kOCDepState_NeedSpaceBeforeDigit:
                 if (!MY_IS_BLANK(*pszInput))
                     break;
                 pszInput++;
                 cchInput--;
+                /* fall thru */
 
             case kOCDepState_NeedFirstDigit:
                 while (cchInput > 0 && MY_IS_BLANK(*pszInput))
@@ -1016,12 +1023,14 @@ kOCDepConsumer(PKOCDEP pDepState, const char *pszInput, size_t cchInput)
                     break;
                 pszInput++;
                 cchInput--;
+                /* fall thru */
 
             case kOCDepState_NeedMoreDigits:
                 while (cchInput > 0 && isdigit(*pszInput))
                     cchInput--, pszInput++;
                 if (!cchInput)
                     return pDepState->enmState = kOCDepState_NeedMoreDigits;
+                /* fall thru */
 
             case kOCDepState_NeedQuote:
                 while (cchInput > 0 && MY_IS_BLANK(*pszInput))
@@ -1033,6 +1042,7 @@ kOCDepConsumer(PKOCDEP pDepState, const char *pszInput, size_t cchInput)
                     break;
                 pszInput++;
                 cchInput--;
+                /* fall thru */
 
             case kOCDepState_NeedEndQuote:
             {
@@ -1080,6 +1090,7 @@ kOCDepConsumer(PKOCDEP pDepState, const char *pszInput, size_t cchInput)
                     off++;
                 }
             }
+            /* fall thru */
 
             case kOCDepState_Invalid:
                 assert(0);
