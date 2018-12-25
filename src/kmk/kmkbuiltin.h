@@ -108,10 +108,10 @@ typedef struct KMKBUILTINENTRY
     {
         struct
         {
-            char    cch;
-            char    sz[15];
+            unsigned char   cch;
+            char            sz[15];
         } s;
-        size_t      cchAndStart;
+        size_t              cchAndStart;
     } uName;
     union
     {
