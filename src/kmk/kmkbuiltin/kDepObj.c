@@ -43,6 +43,9 @@ typedef intptr_t ssize_t;
 #include "k/kDefs.h"
 #include "k/kTypes.h"
 #include "k/kLdrFmts/pe.h"
+#ifdef HAVE_CONFIG_H
+# include "config.h"
+#endif
 #include "kDep.h"
 #include "err.h"
 #include "kmkbuiltin.h"
