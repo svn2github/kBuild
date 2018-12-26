@@ -69,6 +69,16 @@
 /** Checks an alleged digit. */
 #define IS_DIGIT(chDigit, uMax)          ( ((unsigned)(chDigit) - (unsigned)'0') <= (unsigned)(uMax) )
 
+/* Missing config.h bits for high res timestamp. */
+#if FILE_TIMESTAMP_HI_RES
+# ifndef ST_ATIM_NSEC
+#  define ST_ATIM_NSEC st_atim.tv_nsec
+# endif
+# ifndef ST_MTIM_NSEC
+#  define ST_MTIM_NSEC st_mtim.tv_nsec
+# endif
+#endif
+
 
 /*********************************************************************************************************************************
 *   Structures and Typedefs                                                                                                      *
@@ -693,8 +703,8 @@ static int touch_parse_args(PKMKTOUCHOPTS pThis, int cArgs, char **papszArgs, KB
                         pThis->NewATime.tv_sec  = St.st_atime;
                         pThis->NewMTime.tv_sec  = St.st_mtime;
 #if FILE_TIMESTAMP_HI_RES
-                        pThis->NewATime.tv_usec = St.st_atim.tv_nsec / 1000;
-                        pThis->NewMTime.tv_usec = St.st_mtim.tv_nsec / 1000;
+                        pThis->NewATime.tv_usec = St.ST_ATIM_NSEC / 1000;
+                        pThis->NewMTime.tv_usec = St.ST_MTIM_NSEC / 1000;
 #else
                         pThis->NewATime.tv_usec = 0;
                         pThis->NewMTime.tv_usec = 0;
@@ -839,8 +849,8 @@ static int touch_process_file(PKMKTOUCHOPTS pThis, const char *pszFile)
     aTimes[0].tv_sec  = St.st_atime;
     aTimes[1].tv_sec  = St.st_mtime;
 #if FILE_TIMESTAMP_HI_RES
-    aTimes[0].tv_usec = St.st_atim.tv_nsec / 1000;
-    aTimes[1].tv_usec = St.st_mtim.tv_nsec / 1000;
+    aTimes[0].tv_usec = St.ST_ATIM_NSEC / 1000;
+    aTimes[1].tv_usec = St.ST_MTIM_NSEC / 1000;
 #else
     aTimes[0].tv_usec = 0;
     aTimes[1].tv_usec = 0;
