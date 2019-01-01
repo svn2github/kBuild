@@ -1135,9 +1135,8 @@ kbuild_get_object_base(struct variable *pTarget, struct variable *pSource, const
     size_t cch;
 
     /*
-     * Strip the source filename of any uncessary leading path and root specs.
+     * Strip the source filename of any unnecessary leading path and root specs.
      */
-    /* */
     if (    pSource->value_length > pPathTarget->value_length
         &&  !strncmp(pSource->value, pPathTarget->value, pPathTarget->value_length))
     {
