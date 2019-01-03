@@ -73,7 +73,7 @@
 
 
 #include "kbuild_version.h"
-#ifndef KMK_BUILTIN_STANDALONE
+#if !defined(KMK_BUILTIN_STANDALONE) && !defined(KWORKER)
 # include "../output.h"
 #endif
 
