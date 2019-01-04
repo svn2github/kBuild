@@ -74,7 +74,7 @@
 
 #include "kbuild_version.h"
 #if !defined(KMK_BUILTIN_STANDALONE) && !defined(KWORKER)
-# include "../output.h"
+# include "output.h"
 #endif
 
 struct child;
