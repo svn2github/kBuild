@@ -82,7 +82,7 @@ endif
 # update globals and target properties.
 _OUT_FILES += $(out) $(output_extra) $(output_maybe)
 $(target)_GEN_SOURCES_ += $(out)
-$(target)_INTERMEDIATES += $(intermediates)
+$(target)_2_INTERMEDIATES += $(intermediates)
 
 endef # def_yacc_rule
 

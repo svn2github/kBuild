@@ -610,7 +610,7 @@ ifndef NO_COMPILE_CMDS_DEPS
 	%$$(QUIET2)$$(APPEND) '$(dep)' 'endef'
 endif
 
-$(target)_INTERMEDIATES += $(realout)
+$(target)_2_INTERMEDIATES += $(realout)
 $(target)_GEN_SOURCES_ += $(realout)
 $(target)_CLEAN += $(out) $(realout) $(more_output) $(maybe_output) $(dep)
 
@@ -697,7 +697,7 @@ ifndef NO_COMPILE_CMDS_DEPS
 	%$$(QUIET2)$$(APPEND) '$(dep)' 'endef'
 endif
 
-$(target)_INTERMEDIATES += $(realout)
+$(target)_2_INTERMEDIATES += $(realout)
 $(target)_CLEAN += $(out) $(realout) $(more_output) $(maybe_output) $(dep)
 
 endef # def_unit_qt4_target_pre_handle_ui_dx
@@ -783,7 +783,7 @@ ifndef NO_COMPILE_CMDS_DEPS
 	%$$(QUIET2)$$(APPEND) '$(dep)' 'endef'
 endif
 
-$(target)_INTERMEDIATES += $(realout)
+$(target)_2_INTERMEDIATES += $(realout)
 $(target)_GEN_SOURCES_ += $(realout)
 $(target)_CLEAN += $(out) $(realout) $(more_output) $(maybe_output) $(dep)
 
@@ -876,7 +876,7 @@ ifndef NO_COMPILE_CMDS_DEPS
 	%$$(QUIET2)$$(APPEND) '$(dep)' 'endef'
 endif
 
-$(target)_INTERMEDIATES += $(realout)
+$(target)_2_INTERMEDIATES += $(realout)
 $(target)_CLEAN += $(out) $(realout) $(more_output) $(maybe_output) $(dep)
 
 endef
