@@ -69,16 +69,6 @@
 /** Checks an alleged digit. */
 #define IS_DIGIT(chDigit, uMax)          ( ((unsigned)(chDigit) - (unsigned)'0') <= (unsigned)(uMax) )
 
-/* Missing config.h bits for high res timestamp. */
-#if FILE_TIMESTAMP_HI_RES
-# ifndef ST_ATIM_NSEC
-#  define ST_ATIM_NSEC st_atim.tv_nsec
-# endif
-# ifndef ST_MTIM_NSEC
-#  define ST_MTIM_NSEC st_mtim.tv_nsec
-# endif
-#endif
-
 
 /*********************************************************************************************************************************
 *   Structures and Typedefs                                                                                                      *
