@@ -298,6 +298,9 @@ int kmk_builtin_command_parsed(int argc, char **argv, struct child *pChild, char
     {
         struct KMKBUILTINENTRY const *pEntry;
         size_t cchAndStart;
+#if K_ENDIAN == K_ENDIAN_BIG
+        size_t cch;
+#endif
         int    cLeft;
 
         pszCmd += sizeof(s_szPrefix) - 1;
@@ -310,8 +313,9 @@ int kmk_builtin_command_parsed(int argc, char **argv, struct child *pChild, char
 #endif
         cchAndStart = strlen(pszCmd);
 #if K_ENDIAN == K_ENDIAN_BIG
+        cch = cchAndStart;
         cchAndStart <<= K_ARCH_BITS - 8;
-        switch (cchAndStart)
+        switch (cch)
         {
             default:                                   /* fall thru */
 # if K_ARCH_BITS >= 64
